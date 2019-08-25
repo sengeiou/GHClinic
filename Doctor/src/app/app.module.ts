@@ -14,6 +14,11 @@ import { HomeComponent } from './home/home.component';
 
 import {FormsModule} from '@angular/forms';
 
+
+import { AlertModule } from 'ngx-bootstrap/alert';
+import { PopoverModule } from 'ngx-bootstrap/popover';
+import { ConferenceComponent } from './conference/conference.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +29,9 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AlertModule.forRoot(),
+    PopoverModule.forRoot()
   ],
   providers: [InstApi],
   bootstrap: [AppComponent]

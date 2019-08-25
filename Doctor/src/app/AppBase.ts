@@ -44,7 +44,7 @@ export class AppBase implements OnInit {
     public params: Params = null;
 
 
-
+    public doctorinfo={name:"",photo:""};
 
     mySwiperOption = {
         zoom: {
@@ -68,6 +68,11 @@ export class AppBase implements OnInit {
         });
         this.res = [];
 
+        var longlivetoken=window.localStorage.getItem("token");
+        var token=window.sessionStorage.getItem("token");
+        if(token==null&&longlivetoken!=null){
+            window.sessionStorage.setItem("token",longlivetoken);
+        }
     }
     setStatusBar() {
         //  this.statusBar.styleLightContent();
@@ -84,11 +89,18 @@ export class AppBase implements OnInit {
     }
     CheckPermission() {
         if (this.isLoginPage == false) {
-            var doctor_id = window.sessionStorage.getItem("token");
-            if (doctor_id == null) {
+            var token = window.sessionStorage.getItem("token");
+            if (token == null) {
                 this.router.navigate(["login"]);
             } else {
-                ApiConfig.SetToken(doctor_id);
+                ApiConfig.SetToken(token);
+                this.instApi.doctorinfo({}).then((doctor:any)=>{
+                    if(doctor==null){
+                        this.router.navigate(["login"]);
+                    }else{
+                        this.doctorinfo=doctor;
+                    }
+                });
             }
         }
     }

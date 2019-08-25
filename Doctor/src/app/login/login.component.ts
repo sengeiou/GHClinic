@@ -37,17 +37,33 @@ export class LoginComponent   extends AppBase  {
       this.password="";
     }
   }
+  submitresult="";
+  isOpen=false;
   trylogin(){
     if(this.loginname==''||this.password==''){
       return;
     }
+    this.clearPopover();
     this.doctorApi.login({loginname:this.loginname,password:ApiConfig.MD5(this.password)}).then((res:any)=>{
       if(res.code=="0"){
-        this.navigate("/home");
-      }else{
+        var token=res.return;
+        window.localStorage.setItem("lastloginname",this.loginname);
         
+        if(this.isremember==true){
+          window.localStorage.setItem("lastpassword",this.password);
+          window.localStorage.setItem("token",token);
+        }
+        window.sessionStorage.setItem("token",token);
+        this.navigate("");
+      }else{
+        this.submitresult=res.return;
+        this.isOpen=true;
       }
     });
   }
 
+  clearPopover(){
+    this.submitresult="";
+    this.isOpen=false;
+  }
 }
