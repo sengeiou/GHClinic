@@ -9,6 +9,7 @@ import { CalendarComponent } from '../calendar/calendar.component';
 import { ConferenceComponent } from '../conference/conference.component';
 import { FormsModule } from '@angular/forms';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
     CommonModule,
     FormsModule,
     HomeRoutingModule,
-    ProgressbarModule.forRoot()
+    ProgressbarModule.forRoot(),
+    TooltipModule.forRoot()
   ]
 })
 export class HomeModule { }

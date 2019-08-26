@@ -28,12 +28,13 @@ export class ConferenceComponent extends AppBase {
     super(router, activeRoute, instApi);
   }
 
+  showtype=3;//1聊天记录，2病人信息，3.设置
+
   setting = 1;
 
   mic: MediaDeviceInfo;
   speaker: MediaDeviceInfo;
   camera: MediaDeviceInfo;
-
 
   mystream = null;
   remotestream=null;
@@ -42,25 +43,31 @@ export class ConferenceComponent extends AppBase {
   initedrtc=false;
   volume=0;
 
+  cameraopen=true;
+  micopen=true;
+
   onMyLoad() {
     
   }
 
   onMyShow() {
-    
     this.refreshDevices();
   }
 
+  play=false;
+
   startlive() {
     var that = this;
-
-
     that.rtc.startRTC({ role: "user", stream: that.mystream }, () => {
-
+      that.play=true;
     });
+  }
 
-
-
+  stoplive(){
+    var that = this;
+    that.rtc.stopRTC({  }, () => {
+      that.play=false;
+    });
   }
 
   refreshDevices() {
@@ -82,7 +89,6 @@ export class ConferenceComponent extends AppBase {
     if(that.rtc!=null){
       that.rtc.quit();
     }
-
     
 
     this.testApi.generatertc({}).then((sig: any) => {
@@ -112,10 +118,10 @@ export class ConferenceComponent extends AppBase {
         }},(info)=>{
         // info { stream }
         var stream = info.stream;
-        localvideo.srcObject = stream;
-        localvideo.onloadedmetadata = function (e) {
-          localvideo.play();
-        };
+        // localvideo.srcObject = stream;
+        // localvideo.onloadedmetadata = function (e) {
+        //   localvideo.play();
+        // };
 
         var meter = WebRTCAPI.SoundMeter({
           stream: info.stream,
@@ -124,8 +130,20 @@ export class ConferenceComponent extends AppBase {
             }
         })
 
-        rtc.enterRoom({ roomid: 1 }, () => {
+        rtc.enterRoom({ roomid: that.doctorinfo.id }, () => {
           this.initedrtc=true;
+
+
+          rtc.on( 'onLocalStreamAdd' , function( data ){
+            if( data && data.stream){
+                var stream = data.stream;
+                localvideo.srcObject = stream;
+
+                localvideo.onloadedmetadata = function (e) {
+                  localvideo.play();
+                };
+            }
+          })
 
           rtc.on( 'onRemoteStreamUpdate' , function( data ){
             console.log("kk5",data);
@@ -145,6 +163,11 @@ export class ConferenceComponent extends AppBase {
               alert("kk7");
                 console.debug( 'somebody enter this room without stream' )
             }
+          })
+
+
+          rtc.on( 'onRemoteStreamRemove' , function( data ){
+              alert("对方断开链接");
           })
 
 
@@ -191,5 +214,28 @@ export class ConferenceComponent extends AppBase {
 
 
 
+  }
+
+  toggleCamera(){
+    if(this.cameraopen==true){
+
+      this.rtc.closeVideo();
+      this.cameraopen=false;
+    }else{
+
+      this.rtc.openVideo();
+      this.cameraopen=true;
+    }
+  }
+  toggleMic(){
+    if(this.micopen==true){
+
+      this.rtc.closeAudio();
+      this.micopen=false;
+    }else{
+
+      this.rtc.openAudio();
+      this.micopen=true;
+    }
   }
 }

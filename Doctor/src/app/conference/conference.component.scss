@@ -18,3 +18,25 @@
     margin-left:-250px;
     margin-top: calc( 100vh  - 340px )  
 }
+
+.menu{
+    position: absolute;
+    margin-top: 100px;
+    z-index: 100;
+}
+.firstmenuopt{
+    border-top-right-radius: 5px;
+}
+.lastmenuopt{
+    border-bottom-right-radius: 5px;
+}
+.menuopt{
+    background: rgba(0,0,0,0.5 );
+    color:white;
+    font-size: 20px;
+    text-align: center;
+    padding:10px;
+}
+.menuopt:hover{
+    background: rgba(100,100,100,0.5 );
+}
