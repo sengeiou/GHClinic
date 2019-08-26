@@ -1,6 +1,7 @@
 <div class="flex-row fullscreen">
   <div class="flex-1 fullheightpercent">
-    <video class='fullpercent' src="{{mysteam}}"></video>
+    <video class='fullpercent' id="remotevideo"></video>
+    <video class="localvideo" id="localvideo" ></video>
   </div>
   <div class="bg-gray padding-20">
     <div class="h3 mt-4 text-gray-800"><b>设备设置</b></div>
@@ -21,6 +22,11 @@
         刷新设备列表
       </button>
     </div>
-
+    <div class="h5 mt-4 txt-bold">
+        <button (click)='startlive()' [disabled]='initedrtc==false' class="btn  btn-user btn-block btn-primary">
+            {{initedrtc==true?"开始直播":"初始化中"}}
+          </button>
+    </div>
+    
   </div>
 </div>
