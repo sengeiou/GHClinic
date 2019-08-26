@@ -36,17 +36,19 @@ export class ConferenceComponent extends AppBase {
 
 
   mystream = null;
+  remotestream=null;
   rtc = null;
 
   initedrtc=false;
+  volume=0;
 
   onMyLoad() {
-
-    this.refreshDevices();
+    
   }
 
   onMyShow() {
-
+    
+    this.refreshDevices();
   }
 
   startlive() {
@@ -62,14 +64,26 @@ export class ConferenceComponent extends AppBase {
   }
 
   refreshDevices() {
+    WebRTCAPI.detectRTC({
+      
+    }, function(info){
+      if( !info.support ) {
+          //alert('当前浏览器不支持网页会议技术')
+      }
+    });
+
+
     var that = this;
 
     var localvideo = document.querySelector("#localvideo");
+    var remotevideo=document.querySelector("#remotevideo");
     this.initedrtc=false;
 
     if(that.rtc!=null){
       that.rtc.quit();
     }
+
+    
 
     this.testApi.generatertc({}).then((sig: any) => {
 
@@ -85,16 +99,7 @@ export class ConferenceComponent extends AppBase {
         }
       });
 
-      rtc.on( 'onRemoteStreamUpdate' , function( data ){
-        console.log("kk5",data);
-        if( data && data.stream){
-            var stream = data.stream
-            console.debug( data.userId + 'enter this room with unique videoId '+ data.videoId  )
-            document.querySelector("#remotevideo").srcObject = stream
-        }else{
-            console.debug( 'somebody enter this room without stream' )
-        }
-      })
+      
 
 
       rtc.getLocalStream({
@@ -112,8 +117,37 @@ export class ConferenceComponent extends AppBase {
           localvideo.play();
         };
 
-        rtc.enterRoom({ roomid: that.doctorinfo.id, appScene: "VideoCall" }, () => {
+        var meter = WebRTCAPI.SoundMeter({
+          stream: info.stream,
+          onprocess: function( data ){
+              that.volume=data.volume;
+            }
+        })
+
+        rtc.enterRoom({ roomid: 1 }, () => {
           this.initedrtc=true;
+
+          rtc.on( 'onRemoteStreamUpdate' , function( data ){
+            console.log("kk5",data);
+            if( data && data.stream){
+                var stream = data.stream;
+                that.remotestream=stream;
+                console.debug( data.userId + 'enter this room with unique videoId '+ data.videoId ,data )
+                remotevideo.srcObject = that.remotestream;
+                try{
+                remotevideo.onloadedmetadata = function (e) {
+                  remotevideo.play();
+                };
+              }catch(e){
+                alert(e);
+              }
+            }else{
+              alert("kk7");
+                console.debug( 'somebody enter this room without stream' )
+            }
+          })
+
+
         },(err)=>{
           console.error(err);
           //alert("错误，无法进入会诊:"+err);

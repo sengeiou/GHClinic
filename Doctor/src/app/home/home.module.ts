@@ -8,6 +8,7 @@ import { BlankComponent } from '../blank/blank.component';
 import { CalendarComponent } from '../calendar/calendar.component';
 import { ConferenceComponent } from '../conference/conference.component';
 import { FormsModule } from '@angular/forms';
+import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    ProgressbarModule.forRoot()
   ]
 })
 export class HomeModule { }

@@ -17,6 +17,7 @@ import {FormsModule} from '@angular/forms';
 
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { PopoverModule } from 'ngx-bootstrap/popover';
+import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { ConferenceComponent } from './conference/conference.component';
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ConferenceComponent } from './conference/conference.component';
     FormsModule,
     HttpClientModule,
     AlertModule.forRoot(),
-    PopoverModule.forRoot()
+    PopoverModule.forRoot(),
+    ProgressbarModule.forRoot()
   ],
   providers: [InstApi],
   bootstrap: [AppComponent]
