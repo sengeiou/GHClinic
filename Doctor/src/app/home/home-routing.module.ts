@@ -5,6 +5,9 @@ import { HomeComponent } from './home.component';
 import { BlankComponent } from '../blank/blank.component';
 import { CalendarComponent } from '../calendar/calendar.component';
 import { ConferenceComponent } from '../conference/conference.component';
+import { ProfileComponent } from '../profile/profile.component';
+import { SettingComponent } from '../setting/setting.component';
+import { ActivitylogComponent } from '../activitylog/activitylog.component';
 
 
 const routes: Routes = [
@@ -15,7 +18,10 @@ const routes: Routes = [
       { path: "dashboard", component: DashboardComponent },
       { path: "blank", component: BlankComponent },
       { path: "calendar", component: CalendarComponent },
-      { path: "conference", component: ConferenceComponent }
+      { path: "conference", component: ConferenceComponent },
+      { path: "profile", component: ProfileComponent },
+      { path: "setting", component: SettingComponent },
+      { path: "activitylog", component: ActivitylogComponent }
     ]
   }
 ];

@@ -82,8 +82,8 @@ export class ConferenceComponent extends AppBase {
 
     var that = this;
 
-    var localvideo = document.querySelector("#localvideo");
-    var remotevideo=document.querySelector("#remotevideo");
+    var localvideo:HTMLVideoElement = document.querySelector("#localvideo");
+    var remotevideo:HTMLVideoElement=document.querySelector("#remotevideo");
     this.initedrtc=false;
 
     if(that.rtc!=null){

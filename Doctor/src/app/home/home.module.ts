@@ -10,7 +10,10 @@ import { ConferenceComponent } from '../conference/conference.component';
 import { FormsModule } from '@angular/forms';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-
+import { ProfileComponent } from '../profile/profile.component';
+import { SettingComponent } from '../setting/setting.component';
+import { ActivitylogComponent } from '../activitylog/activitylog.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,17 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     BlankComponent,
     CalendarComponent,
     ConferenceComponent,
+    ProfileComponent,
+    SettingComponent,
+    ActivitylogComponent,
     DashboardComponent],
   imports: [
     CommonModule,
     FormsModule,
     HomeRoutingModule,
     ProgressbarModule.forRoot(),
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    TabsModule.forRoot()
   ]
 })
 export class HomeModule { }

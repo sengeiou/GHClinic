@@ -19,6 +19,7 @@ export class CalendarComponent  extends AppBase  {
   ) { 
     super(router,activeRoute,instApi);
   }
+
   onMyShow(){
     
   }
