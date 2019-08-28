@@ -5,8 +5,6 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { BlankComponent } from '../blank/blank.component';
-import { CalendarComponent } from '../calendar/calendar.component';
-import { ConferenceComponent } from '../conference/conference.component';
 import { FormsModule } from '@angular/forms';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -14,15 +12,15 @@ import { ProfileComponent } from '../profile/profile.component';
 import { SettingComponent } from '../setting/setting.component';
 import { ActivitylogComponent } from '../activitylog/activitylog.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { DoctorlistComponent } from '../doctorlist/doctorlist.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     BlankComponent,
-    CalendarComponent,
-    ConferenceComponent,
     ProfileComponent,
     SettingComponent,
+    DoctorlistComponent,
     ActivitylogComponent,
     DashboardComponent],
   imports: [

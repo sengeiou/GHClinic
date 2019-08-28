@@ -3,11 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { HomeComponent } from './home.component';
 import { BlankComponent } from '../blank/blank.component';
-import { CalendarComponent } from '../calendar/calendar.component';
-import { ConferenceComponent } from '../conference/conference.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { SettingComponent } from '../setting/setting.component';
 import { ActivitylogComponent } from '../activitylog/activitylog.component';
+import { DoctorlistComponent } from '../doctorlist/doctorlist.component';
 
 
 const routes: Routes = [
@@ -17,9 +16,8 @@ const routes: Routes = [
     children: [
       { path: "dashboard", component: DashboardComponent },
       { path: "blank", component: BlankComponent },
-      { path: "calendar", component: CalendarComponent },
-      { path: "conference", component: ConferenceComponent },
       { path: "profile", component: ProfileComponent },
+      { path: "doctorlist", component: DoctorlistComponent },
       { path: "setting", component: SettingComponent },
       { path: "activitylog", component: ActivitylogComponent }
     ]

@@ -44,7 +44,7 @@ export class AppBase implements OnInit {
     public params: Params = null;
 
 
-    public doctorinfo={id:0,name:"",photo:"",loginname:""};
+    public operatorinfo={id:0,name:"",photo:"",loginname:""};
 
     mySwiperOption = {
         zoom: {
@@ -94,11 +94,11 @@ export class AppBase implements OnInit {
                 this.router.navigate(["login"]);
             } else {
                 ApiConfig.SetToken(token);
-                this.instApi.doctorinfo({}).then((doctor:any)=>{
-                    if(doctor==null){
+                this.instApi.operatorinfo({}).then((operator:any)=>{
+                    if(operator==null){
                         this.router.navigate(["login"]);
                     }else{
-                        this.doctorinfo=doctor;
+                        this.operatorinfo=operator;
                     }
                 });
             }

@@ -19,6 +19,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { DoctorlistComponent } from './doctorlist/doctorlist.component';
 @NgModule({
   declarations: [
     AppComponent,
