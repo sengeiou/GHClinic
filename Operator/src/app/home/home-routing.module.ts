@@ -7,6 +7,7 @@ import { ProfileComponent } from '../profile/profile.component';
 import { SettingComponent } from '../setting/setting.component';
 import { ActivitylogComponent } from '../activitylog/activitylog.component';
 import { DoctorlistComponent } from '../doctorlist/doctorlist.component';
+import { DoctorComponent } from '../doctor/doctor.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: "blank", component: BlankComponent },
       { path: "profile", component: ProfileComponent },
       { path: "doctorlist", component: DoctorlistComponent },
+      { path: "doctor", component: DoctorComponent },
       { path: "setting", component: SettingComponent },
       { path: "activitylog", component: ActivitylogComponent }
     ]

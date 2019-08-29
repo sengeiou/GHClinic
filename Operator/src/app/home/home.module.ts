@@ -13,6 +13,9 @@ import { SettingComponent } from '../setting/setting.component';
 import { ActivitylogComponent } from '../activitylog/activitylog.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { DoctorlistComponent } from '../doctorlist/doctorlist.component';
+import { DoctorComponent } from '../doctor/doctor.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { NgxUploaderModule } from 'ngx-uploader';
 
 @NgModule({
   declarations: [
@@ -22,14 +25,17 @@ import { DoctorlistComponent } from '../doctorlist/doctorlist.component';
     SettingComponent,
     DoctorlistComponent,
     ActivitylogComponent,
+    DoctorComponent,
     DashboardComponent],
   imports: [
     CommonModule,
     FormsModule,
     HomeRoutingModule,
+    NgxUploaderModule,
     ProgressbarModule.forRoot(),
     TooltipModule.forRoot(),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    ModalModule.forRoot()
   ]
 })
 export class HomeModule { }

@@ -1,7 +1,41 @@
 <div class="container-fluid">
 
-        <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-      
+  <!-- Page Heading -->
+  <h1 class="h3 mb-4 mt-5 text-gray-800">医生列表</h1>
+  <div class="padding-20">
+    <div class="row">
+      <div class="col-md-3 padding-20" *ngFor="let doctor of doctorlist">
+        <div class="card py-3 border-bottom-primary">
+          <div class="text-center">
+            <img class="photo" src="{{uploadpath}}doctor/{{doctor.photo}}" />
+          </div>
+          <div class="margin-top h4 txt-bold text-center">
+            {{doctor.name}}
+          </div>
+          <div class="h6 text-center ">
+            {{doctor.title}}
+          </div>
+          <div class="padding-20">
+            <div class="border-bottom"></div>
+            <div class="padding-10">
+            <div class="flex-row ">
+              <div class="flex-1 h6">今日预约人数</div>
+              <div class="h6 txt-primary" >100</div>
+            </div></div>
+            <div class="border-bottom"></div>
+            <div class="padding-10">
+            <div class="flex-row ">
+              <div class="flex-1 h6">总预约人数</div>
+              <div class="h6 txt-primary" >100</div>
+            </div></div>
+            <div class="flex-row ">
+              <button (click)='gotoDoctor(doctor)' class="btn btn-sm btn-block btn-primary">编辑资料</button>
+            </div>
+          </div>
+
+
+        </div>
       </div>
-      
+    </div>
+  </div>
+</div>

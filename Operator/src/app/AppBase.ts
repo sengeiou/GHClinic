@@ -5,8 +5,7 @@ import { AppComponent } from "./app.component";
 import { ReturnStatement } from "@angular/compiler";
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
-import { OnInit, AfterViewInit } from '@angular/core';
-
+import { OnInit, AfterViewInit} from '@angular/core';
 
 declare let Wechat: any;
 
@@ -165,5 +164,11 @@ export class AppBase implements OnInit {
         window.sessionStorage.removeItem("token");
         window.localStorage.removeItem("token");
         this.navigate("/login")
+    }
+
+
+    showAlert(content,title="提示"){
+     
+          
     }
 }
