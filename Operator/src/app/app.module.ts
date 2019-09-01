@@ -21,6 +21,7 @@ import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { DoctorlistComponent } from './doctorlist/doctorlist.component';
 import { DoctorComponent } from './doctor/doctor.component';
+import { DoctorscheduleComponent } from './doctorschedule/doctorschedule.component';
 
 @NgModule({
   declarations: [

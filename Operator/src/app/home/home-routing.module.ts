@@ -8,6 +8,7 @@ import { SettingComponent } from '../setting/setting.component';
 import { ActivitylogComponent } from '../activitylog/activitylog.component';
 import { DoctorlistComponent } from '../doctorlist/doctorlist.component';
 import { DoctorComponent } from '../doctor/doctor.component';
+import { DoctorscheduleComponent } from '../doctorschedule/doctorschedule.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
       { path: "doctorlist", component: DoctorlistComponent },
       { path: "doctor", component: DoctorComponent },
       { path: "setting", component: SettingComponent },
-      { path: "activitylog", component: ActivitylogComponent }
+      { path: "activitylog", component: ActivitylogComponent },
+      { path: "schedule", component: DoctorscheduleComponent }
     ]
   }
 ];
