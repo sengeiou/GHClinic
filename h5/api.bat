@@ -1,0 +1,1 @@
+applink-cli syncapi typescript alucard263096 ghclinic ./src/providers

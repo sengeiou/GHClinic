@@ -1,0 +1,906 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+
+  
+  .border-bottom {
+    border-bottom: 1px solid #e6e6e6;
+  }
+  
+  @function px($px) {
+    @return ($px * 100vw) / 414;
+  }
+  
+  .oneline {
+    overflow: hidden;
+    /*超出部分隐藏*/
+    white-space: nowrap;
+    /*不换行*/
+    text-overflow: ellipsis;
+    /*超出部分文字以...显示*/
+  }
+  
+  .flex-row {
+    display: flex;
+  }
+  
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  
+  .flex-center {
+    align-content: center;
+    align-items: center;
+  }
+  
+  .flex-column {
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .column {
+    align-content: center;
+    flex-direction: column;
+  }
+  
+  .flex-bottom {
+    align-content: baseline;
+    align-items: baseline;
+  }
+  
+  .flex-1 {
+    flex: 1;
+  }
+  
+  .flex-2 {
+    flex: 2;
+  }
+  
+  .flex-3 {
+    flex: 3;
+  }
+  
+  .flex-4 {
+    flex: 4;
+  }
+  
+  .flex-5 {
+    flex: 5;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .text-right {
+    text-align: right;
+  }
+  
+  .white-block {
+    background: white;
+  }
+  
+  .gray-block {
+    background: #c9c9c9;
+  }
+  
+  .primary-block {
+    background: #7044ff;
+    color: white;
+  }
+  
+  .bg-gray {
+    background: #edeceb;
+  }
+  
+  .bg-white {
+    background: white;
+  }
+  
+  .bg-primary {
+    background: #7044ff;
+  }
+  
+  .border-primary {
+    border: 1px solid #7044ff;
+  }
+  
+  .bg-green {
+    background: #23ac38;
+  }
+  
+  .bg-blue {
+    background: #3c78d8;
+  }
+  
+  .bg-orange {
+    background: #fbc02d;
+  }
+  
+  .bg-pink {
+    background: #fe87a7;
+  }
+  
+  .white_primary {
+    background: #7044ff;
+    color: white;
+  }
+  
+  .border_white_primary {
+    border-bottom: 2px solid #7044ff;
+  }
+  
+  .txt-primary {
+    color: #7044ff;
+  }
+  
+  .txt-black {
+    color: black;
+  }
+  
+  .txt-white {
+    color: white;
+  }
+  
+  .txt-gray {
+    color: #84817e;
+  }
+  
+  .txt-blue {
+    color: #3c78d8;
+  }
+  
+  .txt-light {
+    color: #fcfcfc;
+    font-weight: 350;
+  }
+  
+  .txt-red {
+    color: #e51c23;
+  }
+  
+  .txt-green {
+    color: darkgreen;
+  }
+  
+  .txt-pink {
+    color: #ff4681;
+  }
+  
+  .txt-orange {
+    color: orange;
+  }
+  
+  .txt-bold {
+    font-weight: bold;
+  }
+  
+  .nowrap {
+    word-break: keep-all;
+    /* 不换行 */
+    white-space: nowrap;
+    /* 不换行 */
+    overflow: hidden;
+    /* 内容超出宽度时隐藏超出部分的内容 */
+  }
+  
+  .h1 {
+    font-size: px(60) !important;
+  }
+  
+  .h2 {
+    font-size: px(40) !important;
+  }
+  
+  .h3 {
+    font-size: px(24) !important;
+  }
+  
+  .h4 {
+    font-size: px(20) !important;
+  }
+  
+  .f12 {
+    font-size: px(12);
+  }
+  
+  .f16 {
+    font-size: px(16) !important;
+  }
+  
+  .f18 {
+    font-size: px(18) !important;
+  }
+  .f20 {
+    font-size: px(20) !important;
+  }
+  .f32 {
+    font-size: px(32);
+  }
+  .f22 {
+    font-size: px(22);
+  }
+  
+  .h4-6 {
+    font-size: px(18) !important;
+  }
+  
+  .h4-5 {
+    font-size: px(16) !important;
+  }
+  
+  .h5 {
+    font-size: px(14) !important;
+  }
+  
+  .h6 {
+    font-size: px(12) !important;
+  }
+  
+  .h7 {
+    font-size: px(10) !important;
+  }
+  
+  .h7-5 {
+    font-size: px(8) !important;
+  }
+  
+  .h8 {
+    font-size: px(6) !important;
+  }
+  
+  .text-underline {
+    text-decoration: underline;
+  }
+  
+  .text-line-through {
+    text-decoration: line-through;
+  }
+  
+  button {
+    background-color: transparent;
+    border-color: #7044ff;
+  }
+  
+  .button-hover {
+    background-color: #fcfcfc;
+    border-color: #7044ff;
+  }
+  
+  button.button-hover {
+    background-color: #fcfcfc;
+    border-color: #7044ff;
+  }
+  
+  button[type="primary"] {
+    background-color: #ff4081 !important;
+  }
+  
+  button.button-hover[type="primary"] {
+    background-color: #ff4081 !important;
+  }
+  
+  button[disabled][type="primary"] {
+    background-color: #999db4;
+  }
+  
+  .padding-5 {
+    padding: px(2.5);
+  }
+  
+  .padding-10 {
+    padding: px(5);
+  }
+  
+  .padding-15 {
+    padding: px(7.5);
+  }
+  
+  .padding-20 {
+    padding: px(10);
+  }
+  
+  .padding-30 {
+    padding: px(15);
+  }
+  
+  .padding-40 {
+    padding: px(20);
+  }
+  
+  .padding {
+    padding: px(5);
+  }
+  
+  .padding-left-5 {
+    padding-left: px(2.5);
+  }
+  
+  .padding-left-10 {
+    padding-left: px(5);
+  }
+  
+  .padding-left-15 {
+    padding-left: px(7.5);
+  }
+  
+  .padding-left-20 {
+    padding-left: px(10);
+  }
+  
+  .padding-left-30 {
+    padding-left: px(15);
+  }
+  
+  .padding-left-40 {
+    padding-left: px(20);
+  }
+  
+  .padding-left-50 {
+    padding-left: px(25);
+  }
+  
+  .padding-top-5 {
+    padding-top: px(2.5);
+  }
+  
+  .padding-top-10 {
+    padding-top: px(5);
+  }
+  
+  .padding-top-15 {
+    padding-top: px(7.5);
+  }
+  
+  .padding-bottom-15 {
+    padding-bottom: px(7.5);
+  }
+  
+  .padding-top-40 {
+    padding-top: px(20);
+  }
+  
+  .padding-bottom-40 {
+    padding-bottom: px(20);
+  }
+  
+  .padding-top-20 {
+    padding-top: px(10);
+  }
+  
+  .padding-top-50 {
+    padding-top: px(25);
+  }
+  
+  .padding-top-70 {
+    padding-top: px(35);
+  }
+  
+  .padding-bottom-10 {
+    padding-bottom: px(5);
+  }
+  
+  .padding-bottom-20 {
+    padding-bottom: px(10);
+  }
+  
+  .padding-bottom-50 {
+    padding-bottom: px(25);
+  }
+  
+  .padding-bottom-70 {
+    padding-bottom: px(35);
+  }
+  
+  .padding-right-5 {
+    padding-right: px(2.5);
+  }
+  
+  .padding-right-10 {
+    padding-right: px(5);
+  }
+  
+  .padding-right-15 {
+    padding-right: px(7.5);
+  }
+  
+  .padding-right-20 {
+    padding-right: px(10);
+  }
+  
+  .padding-right-30 {
+    padding-right: px(15);
+  }
+  
+  .margin-10 {
+    margin: px(5);
+  }
+  
+  .margin-20 {
+    margin: px(10);
+  }
+  
+  .margin-40 {
+    margin: px(20);
+  }
+  
+  .margin-top-20 {
+    margin-top: px(10);
+  }
+  
+  .margin-top {
+    margin-top: px(20);
+  }
+  
+  .margin-bottom {
+    margin-bottom: px(20);
+  }
+  
+  .margin-top-60 {
+    margin-top: px(30);
+  }
+  
+  .margin-top-80 {
+    margin-top: px(40);
+  }
+  
+  .margin-bottom-10 {
+    margin-bottom: px(5);
+  }
+  
+  .margin-bottom-20 {
+    margin-bottom: px(10);
+  }
+  
+  .margin-bottom-40 {
+    margin-bottom: px(20);
+  }
+  
+  .height-20 {
+    height: px(10);
+  }
+  
+  .height-30 {
+    height: px(15);
+  }
+  
+  .height-40 {
+    height: px(20);
+  }
+  
+  .height-50 {
+    height: px(25);
+  }
+  
+  .height-70 {
+    height: px(35);
+  }
+  
+  .height-80 {
+    height: px(40);
+  }
+  
+  .height-100 {
+    height: px(50);
+  }
+  
+  .height-150 {
+    height: px(75);
+  }
+  
+  .height-151 {
+    height: px(151);
+  }
+  
+  .margin-top-40 {
+    margin-top: px(20);
+  }
+  
+  .margin-top-60 {
+    margin-top: px(30);
+  }
+  
+  .margin-top-30 {
+    margin-top: px(15);
+  }
+  
+  .margin-top-20 {
+    margin-top: px(10);
+  }
+  
+  .margin-top {
+    margin-top: px(10);
+  }
+  
+  .margin-bottom {
+    margin-bottom: px(10);
+  }
+  
+  .margin-top-10 {
+    margin-top: px(5);
+  }
+  
+  .margin-top-5 {
+    margin-top: px(2.5);
+  }
+  
+  .margin-left-5 {
+    margin-left: px(2.5);
+  }
+  
+  .margin-left-10 {
+    margin-left: px(5);
+  }
+  
+  .margin-right-10 {
+    margin-right: px(5);
+  }
+  
+  .margin-right-20 {
+    margin-right: px(10);
+  }
+  
+  .margin-right-40 {
+    margin-right: px(20);
+  }
+  
+  .margin-left-15 {
+    margin-left: px(7.5);
+  }
+  
+  .margin-left-20 {
+    margin-left: px(10);
+  }
+  
+  .margin-left-30 {
+    margin-left: px(15);
+  }
+  
+  .margin-right-30 {
+    margin-right: px(15);
+  }
+  
+  .margin-left-40 {
+    margin-left: px(20);
+  }
+  
+  .margin-left-50 {
+    margin-left: px(25);
+  }
+  
+  .margin-right-15 {
+    margin-right: px(7.5);
+  }
+  
+  .margin-left-5 {
+    margin-left: px(2.5);
+  }
+  
+  .margin-right-5 {
+    margin-right: px(2.5);
+  }
+  
+  .margin-left {
+    margin-left: px(10);
+  }
+  
+  .margin-right {
+    margin-right: px(10);
+  }
+  
+  .radius-50 {
+    border-radius: 50%;
+  }
+  
+  .radius-10 {
+    border-radius: px(10);
+  }
+  
+  .radius-5 {
+    border-radius: px(5);
+  }
+  
+  .icon-5 {
+    width: px(5);
+    height: px(5);
+  }
+  
+  .icon-7_5 {
+    width: px(7.5);
+    height: px(7.5);
+  }
+  
+  .icon-10 {
+    width: px(10);
+    height: px(10);
+  }
+  
+  .icon-15 {
+    width: px(15);
+    height: px(15);
+  }
+  
+  .icon-18 {
+    width: px(18);
+    height: px(18);
+  }
+  
+  .icon-20 {
+    width: px(20);
+    height: px(20);
+  }
+  
+  .icon-22 {
+    width: px(22);
+    height: px(22);
+  }
+  
+  .icon-25 {
+    width: px(25);
+    height: px(25);
+  }
+  
+  .icon-30 {
+    width: px(30);
+    height: px(30);
+  }
+  
+  .icon-40 {
+    width: px(40);
+    height: px(40);
+  }
+  
+  .icon-50 {
+    width: px(50);
+    height: px(50);
+  }
+  
+  .icon-60 {
+    width: px(60);
+    height: px(60);
+  }
+  
+  .icon-75 {
+    width: px(75);
+    height: px(75);
+  }
+  
+  .icon-80 {
+    width: px(80);
+    height: px(80);
+  }
+  
+  .icon-85 {
+    width: px(85);
+    height: px(85);
+  }
+  
+  .icon-90 {
+    width: px(90);
+    height: px(90);
+  }
+  
+  .icon-100 {
+    width: px(100);
+    height: px(100);
+  }
+  
+  .border-raidus-50 {
+    border-radius: 50%;
+  }
+  
+  .line-height-0 {
+    line-height: 0;
+  }
+  
+  .border-gray {
+    border: px(3) #c9c9c9 solid;
+  }
+  
+  
+  .back-button.show-back-button {
+    padding-top: px(20); //返回箭头下降px(20)
+  }
+  
+  .fixtop {
+    position: fixed;
+    width: 100vw;
+    left: 0px;
+    top: 0px;
+    z-index: 9999;
+  }
+  
+  .fixbottom {
+    position: fixed;
+    width: 100vw;
+    left: 0px;
+    bottom: 0px;
+  }
+  
+  .op-50 {
+    opacity: 0.5;
+  }
+  
+  
+  .hide {
+    display: none;
+  }
+  
+  .margin-top-75 {
+    margin-top: px(75);
+  }
+  
+  .mini-full {
+    min-height: 100vh;
+    min-width: 100vw;
+  }
+  
+  .oneline-1 {
+    text-overflow: ellipsis; //white-space: nowrap;
+    overflow: hidden;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    /*autoprefixer:off*/ //请勿删除该行，该行旨在解决编译问题
+    -webkit-box-orient: vertical;
+  }
+  
+  .oneline-2 {
+    text-overflow: ellipsis; //white-space: nowrap;
+    overflow: hidden;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /*autoprefixer:off*/ //请勿删除该行，该行旨在解决编译问题
+    -webkit-box-orient: vertical;
+  }
+  
+  .oneline-3 {
+    text-overflow: ellipsis; //white-space: nowrap;
+    overflow: hidden;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /*autoprefixer:off*/ //请勿删除该行，该行旨在解决编译问题
+    -webkit-box-orient: vertical;
+  }
+  
+  app-tabs .ion-page {
+    background: transparent;
+  }
+  
+  .fz {
+    font-size: px(24);
+  }
+  
+  .height80 {
+    height: px(80);
+  }
+  
+  .height60 {
+    height: px(60);
+  }
+  
+  .height100 {
+    height: px(100);
+  }
+  
+  .icon36 {
+    width: px(36);
+    height: px(36);
+    border-radius: px(13);
+  }
+  
+  .oneline-6 {
+    text-overflow: ellipsis; //white-space: nowrap;
+    overflow: hidden;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    /*autoprefixer:off*/ //请勿删除该行，该行旨在解决编译问题
+    -webkit-box-orient: vertical;
+  }
+  
+  ._center {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  
+  .h30 {
+    height: px(30);
+  }
+  
+  .mt30 {
+    margin-top: px(30);
+  }
+  
+  .pt30 {
+    padding-top: px(30);
+  }
+  
+  .margin-left-22 {
+    margin-left: px(22);
+  }
+  
+  
+  
+  .supercomment {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .supercomment input {
+    border: 0px;
+    width: 100%;
+  }
+  
+  picker {
+    overflow: hidden;
+  }
+  
+  .am-picker-popup-mask {
+    z-index: 996 !important;
+    height: calc(100vh - 280px);
+  }
+  .am-picker-popup {
+    z-index: 9999 !important;
+    min-height: 280px;
+    height: 280px;
+  }
+  
+  .isiphonex {
+    margin-top: 10;
+  }
+  .comm {
+    width: px(70);
+    height: px(34);
+    line-height: px(34);
+    background: rgba(115, 95, 255, 1);
+    border-radius: px(8);
+  }
+  .shurukuang{
+    padding-left: px(20);
+    padding-top: px(7);
+    padding-bottom: px(7);
+    padding-right: px(9);
+  }
+  
+  .ios {
+    .scroll-content {
+      -webkit-overflow-scrolling: auto !important;
+    }
+  }
+  .opt0{
+    opacity: 0;
+  }
