@@ -1,12 +1,15 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
+      <ion-icon name="arrow-back" style="height:24px;width: 24px;"></ion-icon>
     <ion-title>
       {{InstInfo.name}}
     </ion-title>
+    <ion-icon name="close" slot="end" style="height:24px;width: 24px;"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
     <ion-card class="welcome-card">
       <img src="/assets/shapes.svg" alt="" />
       <ion-card-header>
