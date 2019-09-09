@@ -31,6 +31,28 @@ export class OperatorApi {
     }
 
 
+    public doctorupdate(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'operator/doctorupdate';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('operator/doctorupdate', data, err);
+            });
+    }
+
+
     public login(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'operator/login';
         var headers = ApiConfig.GetHeader(url, data);
@@ -53,8 +75,8 @@ export class OperatorApi {
     }
 
 
-    public doctorupdate(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'operator/doctorupdate';
+    public settime(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'operator/settime';
         var headers = ApiConfig.GetHeader(url, data);
         let options = { headers: headers };
         let body = ApiConfig.ParamUrlencoded(data);
@@ -70,7 +92,7 @@ export class OperatorApi {
             })
             .catch(err => {
                 console.error(err);
-                return ApiConfig.ErrorHandle('operator/doctorupdate', data, err);
+                return ApiConfig.ErrorHandle('operator/settime', data, err);
             });
     }
 

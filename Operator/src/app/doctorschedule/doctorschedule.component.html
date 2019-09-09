@@ -1,9 +1,25 @@
 <div class="container-fluid">
 
   <!-- Page Heading -->
-  <h1 class="h3 mb-4 mt-5 text-gray-800">医生日程</h1>
+  <div class="flex-row flex-bottom">
+    <div class="flex-1">
+      <h1 class="h3 mb-4 mt-5 text-gray-800">医生日程</h1>
+    </div>
+    <div class="flex-row flex-center ">
+      <div class="flex-row flex-center ">
+        <div class="h3 padding-20" (click)="addWeek(-1)">
+          <i class="fa fa-angle-left"></i>
+        </div>
+        <div class="flex-1 text-center">{{wyear}}年{{wmonth}}月{{wday}}～{{wenddate}}日</div>
+        <div class="h3 padding-20" (click)="addWeek(1)">
+          <i class="fa fa-angle-right "></i>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="padding-20">
-    <div *ngFor="let doctor of doctorlist">
+    <div class="row">
+      <div class="col-md-4 mb-5" *ngFor="let doctor of doctorlist">
         <div class="tabbody padding-20 ">
           <div class="flex-row flex-center  mb-2">
             <div class="margin-right">
@@ -13,22 +29,34 @@
           </div>
           <div class="flex-row ">
             <div class="flex-1">
-              <div class=" primary-block text-white padding-20">时间</div>
+              <div class=" primary-block text-white wtime">时间</div>
               <div *ngFor="let t of wtimeline;">
-                <div class="wtime pass" [class.under]='t.minute==30'>{{t.hour}}:{{t.minute}}</div>
+                <div class="wtime pass" [class.isnoon]='t.hour=="12"&&t.minute=="30"' [class.under]='t.minute==30'
+                  [class.over]='overdoctor==doctor.id&&overtime==t.hour+t.minute'>
+                  {{t.hour}}:{{t.minute}}</div>
               </div>
             </div>
             <div class="flex-1" *ngFor="let d of wcal;let i=index;">
               <div class="" [class.issat]="i==6" [class.today]='d.today==true'>
-                <div class=" primary-block text-white  padding-20">{{d.today?"今天":d.dayname}}</div>
+                <div class=" primary-block text-white  wtime">{{d.today?"今天":d.dayname}}</div>
                 <div class="" *ngFor="let t of d.timeline;">
-                  <div class="wtime" (click)='setDate(doctor,d,t)' [class.under]='t.minute==30' [class.today]='d.today==true'
-                    [class.tpass]='t.pass==true'></div>
+                  <div class="wtime text-center" [class.isnoon]='t.hour=="12"&&t.minute=="30"'
+                    [class.isleisure]='doctor.timetable[d.dt+t.hour+t.minute]!=undefined&&doctor.timetable[d.dt+t.hour+t.minute].isleisure=="Y"'
+                    (click)='setDate(doctor,d,t)' (mouseover)='setMouseOver(doctor,d,t)' (mouseout)='clearMouseOver()'
+                    [class.under]='t.minute==30' [class.today]='d.today==true' [class.tpass]='t.pass==true'
+                    [class.bookingcount]='doctor.timetable[d.dt+t.hour+t.minute]!=undefined&&doctor.timetable[d.dt+t.hour+t.minute].bookingcount>0'
+                    [class.overdayborder]='overdoctor==doctor.id&&overday==d.dt'
+                    [class.overborder]='overdoctor==doctor.id&&overtime==t.hour+t.minute'>
+                  {{doctor.timetable[d.dt+t.hour+t.minute]!=undefined&&doctor.timetable[d.dt+t.hour+t.minute].bookingcount>0?
+                    doctor.timetable[d.dt+t.hour+t.minute].bookingcount+"人":""
+                  }}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </div>
   </div>
 </div>

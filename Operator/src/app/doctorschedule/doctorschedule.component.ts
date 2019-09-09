@@ -34,6 +34,8 @@ export class DoctorscheduleComponent  extends AppBase  {
   wdate:Date=new Date();
   wyear="";
   wmonth="";
+  wday="";
+  wenddate="";
   wcal=[];
   wtimeline=[];
 
@@ -42,6 +44,10 @@ export class DoctorscheduleComponent  extends AppBase  {
     this.wtimeline=this.timeline(new Date());
   }
   onMyShow(){
+    this.loaddata();
+  }
+
+  loaddata(){
 
     var sdate=AppUtil.FormatDate(new Date());
     var edate=AppUtil.FormatDate( new Date( (new Date()).getTime()+DoctorscheduleComponent.RangeDate*24*3600*1000));
@@ -54,14 +60,41 @@ export class DoctorscheduleComponent  extends AppBase  {
     this.loadWeekCalendar();
   }
 
+  overdoctor=0;
+  overtime=0;
+  overday="";
+  setMouseOver(doctor,date,time){
+    this.overdoctor=doctor.id;
+    this.overtime=time.hour+time.minute;
+    this.overday=date.dt;
+  }
+
+  clearMouseOver(){
+    this.overdoctor=0;
+    this.overtime=0;
+  }
+
   setDate(doctor,date,time){
-    
+    var dt=date.dt+time.hour+time.minute;
+    if(doctor.timetable[dt]==undefined){
+      doctor.timetable[dt]={rd:dt,fdate:date.datestr,ftime:time.hour+":"+time.minute,doctor_id:doctor.id,bookingcount:0};
+    }
+    if(doctor.timetable[dt].bookingcount>0){
+      return;
+    }
+    if(time.pass==true){
+      return;
+    }
+    doctor.timetable[dt].isleisure=doctor.timetable[dt].isleisure=='Y'?"N":"Y";
+    this.operatorApi.settime(doctor.timetable[dt]).then((ret:any)=>{
+      console.log(ret);
+    });
   }
 
   
   addWeek(m){
-    this.wdate=new Date(this.wdate.getFullYear(),this.mdate.getMonth(),this.mdate.getDate()+(m*7));
-    this.loadWeekCalendar();
+    this.wdate=new Date(this.wdate.getFullYear(),this.wdate.getMonth(),this.wdate.getDate()+(m*7));
+    this.loaddata();
   }
 
   loadWeekCalendar(){
@@ -73,14 +106,14 @@ export class DoctorscheduleComponent  extends AppBase  {
     this.wmonth=(wfirst.getMonth()+1).toString();
     var wfirsttime=wfirst.getTime();
     var kd=0;
-    if(wfirst.getDay()){
-      kd=0-wfirst.getDay();
-    }
-
+    kd=wfirst.getDay()||7;
+    kd=kd-1;
     console.log("ccw1",wfirst,wfirst.getDay());
-    var startdate=new Date(wfirsttime + kd*24*3600*1000 );
+    var startdate=new Date(wfirsttime - kd*24*3600*1000 );
+    this.wday=startdate.getDate().toString();
+    this.wenddate=(new Date(wfirsttime - kd*24*3600*1000 + 7*24*3600*1000 )).getDate().toString();
     console.log("ccw2",startdate);
-    var startdatetime=wfirsttime + kd*24*3600*1000 ;
+    var startdatetime=startdate.getTime() ;
     var wcal=[];
     for(var j=0;j<7;j++){
         var sdatetime=startdatetime+j*24*3600*1000;
@@ -93,6 +126,7 @@ export class DoctorscheduleComponent  extends AppBase  {
           timeline:this.timeline(sdate),
           dayname:AppUtil.getDayname(sdate),
           dt:AppUtil.FormatDate2(sdate),
+          datestr:AppUtil.FormatDate(sdate),
         };
         wcal.push(d);
     }

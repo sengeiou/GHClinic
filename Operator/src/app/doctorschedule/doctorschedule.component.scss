@@ -14,15 +14,11 @@
     border-top-right-radius: 0px;
 }
 
-.mdate{
-    height:20vh;
-    border-left: #dee2e6 solid 1px;
-    border-bottom: #dee2e6 solid 1px;
-}
 
 .wtime{
-    height:40px;
-    padding:10px;
+    height:20px;
+    padding:3px;
+    font-size: 10px;
 }
 
 .issat{
@@ -33,11 +29,33 @@
     background: #eeeeee;
 }
 .today{
-    background: #d4f8b7;
+    //background: #d4f8b7;
 }
 .tpass{
     background: #eeeeee;
 }
 .wtime{
     border-bottom: #dee2e6 1px dotted; 
+}
+
+.isleisure{
+    background: #d4f8b7;
+}
+.isnoon{
+    border-bottom: gray 1px solid;
+}
+
+.bookingcount{
+    background: #f6c23e;
+}
+.over{
+    background: lightblue;
+}
+.overborder{
+    border-top: lightblue 1px solid;
+    border-bottom: lightblue 1px solid;
+}
+.overdayborder{
+    border-left: lightblue 1px solid;
+    border-right: lightblue 1px solid;
 }
