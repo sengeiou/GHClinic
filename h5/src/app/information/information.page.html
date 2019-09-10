@@ -1,0 +1,87 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
+        <ion-title>
+          港和医疗白云分部
+        </ion-title>
+        <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div style="background-color: #11838D">
+        <div class="card">
+            <span class="span1">儿科</span>
+            <span class="span2">2019年8月</span>
+            <span class="span8" (click)="clinic()">诊所介绍</span>
+            <p>
+                <span class="span3">日</span>  
+                <span class="span4">一</span>
+                <span class="span4">二</span>
+                <span class="span4">三</span> 
+                <span class="span4">四</span>
+                <span class="span4">五</span>
+                <span class="span4">六</span>
+             </p> 
+             <p class="p1">
+                <span class="span5">1</span>  
+                <span class="span6">2</span>
+                <span class="span6">3</span>
+                <span class="span6">4</span> 
+                <span class="span6">5</span>
+                <span class="span6">6</span> 
+                <span class="span6">7</span> 
+             </p>  
+             <hr/>            
+        </div>
+    </div>
+    <div>
+        <p class="p2"></p>
+        <p class="p3">预约医生</p>
+        <ion-card>
+            <div class="div1">
+                <img alt="" />
+                <span class="span7">约满</span>
+              </div>
+              <div class="div1" (click)="doctor()">
+                  <p class="p4">
+                      <span class="xingMing">张XX</span>
+                      <span class="zhiWei">主任医师</span>
+                  </p>
+                  <ion-button color="primary" class="fee">费用：￥33.00</ion-button>
+                  <p class="address">中山大学第一附属医院</p>
+                  <p class="shanChang">擅长：发育、幼儿急诊、手足口病、疱疹性咽</p>
+              </div> 
+        </ion-card>
+        <ion-card>
+            <div class="div1">
+                <img alt="" />
+                <span class="span7" style="background-color: #6B3689">有号</span>
+              </div>
+              <div class="div1">
+                  <p class="p4">
+                      <span class="xingMing">张XX</span>
+                      <span class="zhiWei">主任医师</span>
+                  </p>
+                  <ion-button color="primary" class="fee">费用：￥33.00</ion-button>
+                  <p class="address">中山大学第一附属医院</p>
+                  <p class="shanChang">擅长：发育、幼儿急诊、手足口病、疱疹性咽</p>
+              </div> 
+        </ion-card>
+        <ion-card>
+            <div class="div1">
+                <img alt="" />
+                <span class="span7" style="background-color: #b9b9b9">修诊</span>
+              </div>
+              <div class="div1">
+                  <p class="p4">
+                      <span class="xingMing">张XX</span>
+                      <span class="zhiWei">主任医师</span>
+                  </p>
+                  <ion-button color="primary" class="fee">费用：￥33.00</ion-button>
+                  <p class="address">中山大学第一附属医院</p>
+                  <p class="shanChang">擅长：发育、幼儿急诊、手足口病、疱疹性咽</p>
+              </div> 
+        </ion-card>
+    </div>
+</ion-content>

@@ -1,0 +1,47 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+.ion-icon{
+    height:rpx(24*2);
+    width:rpx(24*2)
+}
+.card{
+    background-color:white;    
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(37);
+    text-align: center
+  }
+  img{
+      width: rpx(150*2);
+      height: rpx(150*2);
+      margin-top:rpx(150)
+  }
+  .p1{
+      font-size: rpx(40);
+      color:black;
+      font-weight: bold
+  }
+  .p2{
+    font-size: rpx(28);
+    color: #8a8a8a;
+  }
+  .p3{
+      margin-top: rpx(-25)
+  }
+  .span1{
+      font-size: rpx(28);
+      color:black;
+      margin-left: rpx(80)
+  }
+  .span2{
+    font-size: rpx(28);
+    color:black;
+    margin-left: rpx(30)
+  }
+  .p4{
+      color: #6b3689;
+      font-size: rpx(28);
+      text-align: center;
+      margin-top:rpx(60)
+  }

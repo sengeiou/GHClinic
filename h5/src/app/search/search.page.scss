@@ -1,0 +1,71 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+.ion-icon{
+    height:rpx(24*2);
+    width:rpx(24*2)
+  }
+.card{
+    background-color:white;
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(37);
+}
+input{
+    height: rpx(33*2);
+    width:rpx(309*2);
+    text-align: center;
+    border-radius: rpx(40);
+    font-size: rpx(13*2);
+    margin-left: rpx(15*2);
+    background-color: #EBEBEB;
+    border-style: none;
+  }
+  .ion-icon1{
+    position: relative;
+    left:rpx(-338*2);
+    top:rpx(3*2)
+  }
+  .cancel{
+      font-size: rpx(14*2);
+      color:#101010;
+      margin-left: rpx(-10)
+  }
+  .p1{
+      font-size: rpx(13*2);
+      margin-left: rpx(15*2);
+  }
+  .ion-icon2{
+    height:rpx(24*2);
+    width:rpx(24*2);
+    position: absolute;
+    top:rpx(65*2);
+    right:rpx(20)
+  }
+  .span1{
+    color:black;
+    margin-left: rpx(38);
+    font-size: rpx(24);
+    // width:rpx(61*2);
+    // height: rpx(26*2);
+    border:solid #aaaaaa rpx(1);
+    border-radius: rpx(40);
+    padding-left:rpx(20);
+    padding-right: rpx(20);
+    padding-bottom:rpx(8);
+    padding-top:rpx(8)
+  }
+  .span2{
+    color:black;
+    margin-left: rpx(30*2);
+    font-size: rpx(24);
+    // width:rpx(61*2);
+    // height: rpx(26*2);
+    border:solid #aaaaaa rpx(1);
+    border-radius: rpx(40);
+    padding-left:rpx(20);
+    padding-right: rpx(20);
+    padding-bottom:rpx(8);
+    padding-top:rpx(8)
+  }
+ 
