@@ -51,7 +51,7 @@ export class CalendarComponent  extends AppBase  {
   }
 
   addWeek(m){
-    this.wdate=new Date(this.wdate.getFullYear(),this.mdate.getMonth(),this.mdate.getDate()+(m*7));
+    this.wdate=new Date(this.wdate.getFullYear(),this.wdate.getMonth(),this.wdate.getDate()+(m*7));
     this.loadWeekCalendar();
   }
 
