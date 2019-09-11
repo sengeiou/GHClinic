@@ -17,6 +17,7 @@ import { DoctorComponent } from '../doctor/doctor.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgxUploaderModule } from 'ngx-uploader';
 import { DoctorscheduleComponent } from '../doctorschedule/doctorschedule.component';
+import { ConferenceComponent } from '../conference/conference.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { DoctorscheduleComponent } from '../doctorschedule/doctorschedule.compon
     ActivitylogComponent,
     DoctorComponent,
     DoctorscheduleComponent,
+    ConferenceComponent,
     DashboardComponent],
   imports: [
     CommonModule,
