@@ -1,0 +1,129 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+.ion-icon{
+    height:rpx(24*2);
+    width:rpx(24*2)
+  }
+.card{
+    background-color:white;
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(37);
+}
+hr{
+    border: #aaaaaa solid rpx(0.01*2);
+    background-color: #aaaaaa;
+    opacity: 0.2;
+  }
+  .span1{
+    font-size: rpx(16*2);
+    color:black;
+    font-weight: bold;
+    margin-left: rpx(30);
+}
+.span2{
+    font-size:rpx(16*2);
+    color:black;
+    margin-left: rpx(190)
+}
+.span3{
+    color:#aaaaaa;
+    margin-left: rpx(38);
+    font-size: rpx(28)
+  }
+.span4{
+    color:#aaaaaa;
+    margin-left: rpx(40*2);
+    font-size: rpx(28)
+  }
+.span5{
+    color:black;
+    margin-left: rpx(38);
+    font-size: rpx(28);
+    width:rpx(60);
+    height: rpx(60);
+    border:solid #aaaaaa rpx(2);
+    border-radius: 50%;
+    padding:rpx(4)
+  }
+.span6{
+    color:black;
+    margin-left: rpx(40*2);
+    font-size: rpx(28);
+    width:rpx(60);
+    height: rpx(60);
+    border:solid #aaaaaa rpx(2);
+    border-radius: 50%;
+    padding:rpx(4)
+  }
+.p1{
+    margin-bottom: rpx(50)
+  }
+  .select{
+    margin-top: rpx(40);
+    margin-bottom: rpx(40)
+  }
+  .img1{
+      width: rpx(48);
+      height: rpx(48);
+      position: relative;
+      top:rpx(10);
+      margin-left: rpx(5)
+   
+  }
+  .title{
+      font-size: rpx(32);
+      color: #8a8a8a;
+      margin-left:rpx(164);
+  }
+  .img2{
+    width: rpx(140*2);
+    height: rpx(160); 
+  }
+  .div1{
+      padding-top: rpx(30);
+      padding-left: rpx(20);
+      float: left;
+  }
+  .div2{
+    float: left;
+    margin-left: rpx(20)
+  }
+  .span7{
+      font-size: rpx(32);
+      color: black;
+      font-weight: bold
+  }
+  .span8{
+    font-size: rpx(24);
+    color: #8a8a8a;
+    margin-left: rpx(20)
+  }
+  .span9{
+      background-color: #F0F2F5;
+      font-size: rpx(24);
+      color: #8a8a8a;
+      border-radius: rpx(100);
+      padding:rpx(6) rpx(16)
+  }
+  .span10{
+      margin-left: rpx(10);
+  }
+  .p2{
+      margin-top:rpx(0);
+      margin-left: rpx(20)
+  }
+  .span11{
+     font-size: rpx(28);
+     color:#E51C23;
+     font-weight: bold
+  }
+  .span12{
+      font-size: rpx(24);
+      color:white;
+      margin-left:rpx(270);
+      background-color: #6B3689;
+      border-radius: rpx(10);
+      padding:rpx(6) rpx(40);
+  }

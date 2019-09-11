@@ -1,0 +1,129 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
+        <ion-title>
+          港和医疗白云分部
+        </ion-title>
+        <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="background-color: #11838D">
+      <div class="card">
+          <span class="span1">体检</span>
+          <span class="span2">2019年8月</span>
+          <p>
+              <span class="span3">日</span>  
+              <span class="span4">一</span>
+              <span class="span4">二</span>
+              <span class="span4">三</span> 
+              <span class="span4">四</span>
+              <span class="span4">五</span>
+              <span class="span4">六</span>
+           </p> 
+           <p class="p1">
+              <span class="span5">1</span>  
+              <span class="span6">2</span>
+              <span class="span6">3</span>
+              <span class="span6">4</span> 
+              <span class="span6">5</span>
+              <span class="span6">6</span> 
+              <span class="span6">7</span> 
+           </p>  
+           <hr/>
+      </div>
+  </div>
+  <div class="select">
+    <span class="title">综合</span>
+    <img alt="" class="img1"/>
+    <span class="title">筛选</span>
+    <img  alt="" class="img1"/>
+  </div>
+  <hr/>
+  <ion-card (click)="detail()">
+    <div>
+        <div class="div1">
+          <img alt="" class="img2"/>
+        </div>
+        <div  class="div2">
+          <p>
+            <span class="span7">A套餐</span>
+            <span class="span8">男性</span>
+          </p>
+          <p>
+            <span class="span9">肝功能</span>
+            <span class="span9 span10">肾功能</span>
+            <span class="span9 span10">心电图</span>
+          </p>
+          <p>
+            <span class="span9">耳鼻喉</span>
+          </p>
+        </div>
+        <div style="clear: both"></div>
+    </div> 
+    <div>
+      <p class="p2">
+        <span class="span11">费用：￥288.00</span>
+        <span class="span12">立即预约</span>
+      </p>
+    </div>
+  </ion-card>
+  <ion-card>
+      <div>
+          <div class="div1">
+            <img alt="" class="img2"/>
+          </div>
+          <div  class="div2">
+            <p>
+              <span class="span7">B套餐</span>
+              <span class="span8">女性</span>
+            </p>
+            <p>
+              <span class="span9">乳房</span>
+              <span class="span9 span10">子宫</span>
+              <span class="span9 span10">心电图</span>
+            </p>
+            <p>
+              <span class="span9">卵巢</span>
+            </p>
+          </div>
+          <div style="clear: both"></div>
+      </div> 
+      <div>
+        <p class="p2">
+          <span class="span11">费用：￥388.00</span>
+          <span class="span12">立即预约</span>
+        </p>
+      </div>
+    </ion-card>
+    <ion-card>
+        <div>
+            <div class="div1">
+              <img alt="" class="img2"/>
+            </div>
+            <div  class="div2">
+              <p>
+                <span class="span7">C套餐</span>
+                <span class="span8">退休人士</span>
+              </p>
+              <p>
+                <span class="span9">血常规</span>
+                <span class="span9 span10">肝功能</span>
+                <span class="span9 span10">肾功能</span>
+              </p>
+              <p>
+                <span class="span9">甲状腺</span>
+                <span class="span9 span10">心血管</span>
+              </p>
+            </div>
+            <div style="clear: both"></div>
+        </div> 
+        <div>
+          <p class="p2">
+            <span class="span11">费用：￥388.00</span>
+            <span class="span12">立即预约</span>
+          </p>
+        </div>
+      </ion-card>
+</ion-content>

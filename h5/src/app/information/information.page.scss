@@ -1,0 +1,142 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+.ion-icon{
+    height:rpx(24*2);
+    width:rpx(24*2)
+  }
+.card{
+    background-color:white;
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(37);
+}
+.span1{
+    font-size: rpx(16*2);
+    color:black;
+    font-weight: bold;
+    margin-left: rpx(30);
+}
+.span2{
+    font-size:rpx(16*2);
+    color:black;
+    margin-left: rpx(190)
+}
+.span3{
+    color:#aaaaaa;
+    margin-left: rpx(38);
+    font-size: rpx(28)
+  }
+.span4{
+    color:#aaaaaa;
+    margin-left: rpx(40*2);
+    font-size: rpx(28)
+  }
+.span5{
+    color:black;
+    margin-left: rpx(38);
+    font-size: rpx(28);
+    width:rpx(60);
+    height: rpx(60);
+    border:solid #aaaaaa rpx(2);
+    border-radius: 50%;
+    padding:rpx(4)
+  }
+.span6{
+    color:black;
+    margin-left: rpx(40*2);
+    font-size: rpx(28);
+    width:rpx(60);
+    height: rpx(60);
+    border:solid #aaaaaa rpx(2);
+    border-radius: 50%;
+    padding:rpx(4)
+  }
+.p1{
+    margin-bottom: rpx(50)
+  }
+hr{
+    border: #aaaaaa solid rpx(0.01*2);
+    background-color: #aaaaaa;
+    opacity: 0.2;
+  }
+.p2{
+    width:rpx(6);
+    height:rpx(30);
+    background-color: #6B3689;
+    margin-top:rpx(36);
+    margin-left:rpx(24);
+    display: inline-block;
+    margin-bottom:0
+  }
+.p3{
+    font-size: rpx(16*2);
+    font-weight:bold;
+    color:black;
+    display: inline-block;
+    margin-left:rpx(10);
+  }
+  ion-card{
+      height: rpx(123*2);
+  }
+  .div1{
+    float:left;  
+  }
+  img{
+    margin-left: rpx(35);
+    margin-top:rpx(35);
+    height: rpx(60*2);
+    width: rpx(60*2);
+  }
+  .span7{
+    color:white;
+    background-color: red;
+    margin-left: rpx(25*2);
+    font-size: rpx(28);
+    z-index: 1;
+    width:rpx(100);
+    height: rpx(40);
+    border-radius: rpx(40);
+    padding-left:rpx(16);
+    padding-right: rpx(16);
+    padding-bottom:rpx(4);
+    padding-top:rpx(4)
+  }
+  .xingMing{
+      font-size: rpx(16*2);
+      color:black;
+      font-weight: bold;
+      margin-left: rpx(20);     
+  }
+  .zhiWei{
+    font-size: rpx(12*2);
+    color:#8A8A8A;
+    margin-left:rpx(10) 
+  }
+  .fee{
+      width: rpx(94*2);
+      height: rpx(25*2);
+      font-size:rpx(24);
+      position: absolute;
+      right:rpx(22);
+      top:rpx(35)
+  }
+  .address{
+      font-size:rpx(12*2);
+      color:black;
+      margin-left: rpx(20)
+  }
+  .shanChang{
+      font-size: rpx(24);
+      color: #8A8A8A;
+      margin-left: rpx(20)
+  }
+  .p4{
+    padding-top: rpx(6)
+  }
+  .span8{
+    color:#6b3689;
+    font-size: rpx(32);
+    font-weight: bold;
+    margin-left: rpx(150)
+  }

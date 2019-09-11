@@ -1,26 +1,120 @@
 <ion-header>
   <ion-toolbar color="primary">
-      <ion-icon name="arrow-back" style="height:24px;width: 24px;"></ion-icon>
+    <ion-icon name="arrow-back" class="ion-icon"></ion-icon>
     <ion-title>
       {{InstInfo.name}}
     </ion-title>
-    <ion-icon name="close" slot="end" style="height:24px;width: 24px;"></ion-icon>
+    <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <div style="background-color: #11838D">
+        <div class="card">
+         <input placeholder="搜索&nbsp;科室/药品" (click)="search()"/>
+         <ion-icon name="search" style="color:#6B3689;" class="ion-icon1"></ion-icon>
+         <p class="p1"></p>
+         <p class="p2">预约日期</p>
+         <p class="p3">2019年8月</p>
+         <p>
+            <span class="span1">日</span>  
+            <span class="span2">一</span>
+            <span class="span2">二</span>
+            <span class="span2">三</span> 
+            <span class="span2">四</span>
+            <span class="span2">五</span>
+            <span class="span2">六</span>
+         </p> 
+         <p class="p4">
+            <span class="span3">1</span>  
+            <span class="span4">2</span>
+            <span class="span4">3</span>
+            <span class="span4">4</span> 
+            <span class="span4">5</span>
+            <span class="span4">6</span> 
+            <span class="span4">7</span> 
+         </p>  
+         <hr/>
+      </div>
+    </div>
+    <div>
+        <p class="p1"></p>
+        <p class="p2">服务类别</p>
+        <p style="margin-top: 0">
+          <span class="span5">内科</span>
+          <span class="span6">外科</span>
+          <span class="span6">男科</span>
+          <span class="span6">妇科</span>
+          <span class="span6">产科</span>
+        </p>
+        <p style="margin-top: 0px">
+            <span class="span5">儿科</span>
+            <span class="span6">齿科</span>
+            <span class="span6">皮肤科</span>
+            <span class="span6">心内科</span>
+          </p>
+          <p class="p5">
+              <span class="span5">体检</span>
+              <span class="span6">远程医疗</span>
+          </p>
+          <hr/>
+        
+    </div>
+    <div>
+        <p class="p1"></p>
+        <p class="p2">预约诊所</p>
+        <ion-card (click)="information()">
+            <div>
+              <div class="div1">
+                <img alt="" />
+              </div>
+              <div class="div1">
+                <ion-card-title>港和医疗白云分布</ion-card-title>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <p style="margin-top: 0">
+                    <ion-icon name="call"></ion-icon>
+                    <span style="color:#aaaaaa;">&nbsp;&nbsp;020-88888888</span>
+                </p>
+              </div> 
+              <div class="div2">
+                <ion-icon name="compass" class="ion-icon2"></ion-icon>
+                <span class="span7">广州市白云区粤海街道凤凰路美乐家115号...</span>
+              </div>             
+            </div>
+        </ion-card>
+        <ion-card (click)="physicalExamination()">
+            <div>
+              <div class="div1">
+                <img alt="" />
+              </div>
+              <div class="div1">
+                <ion-card-title>港和医疗白云分布</ion-card-title>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <p style="margin-top: 0">
+                    <ion-icon name="call"></ion-icon>
+                    <span style="color:#aaaaaa;">&nbsp;&nbsp;020-88888888</span>
+                </p>
+              </div> 
+              <div class="div2">
+                <ion-icon name="compass" class="ion-icon2"></ion-icon>
+                <span class="span7">XXXXXXXXXXXXXXXXXXXXX...</span>
+              </div>             
+            </div>
+        </ion-card>
+      </div>
+              
 
-    <ion-card class="welcome-card">
-      <img src="/assets/shapes.svg" alt="" />
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-list lines="none">
+
+
+    <!-- <ion-list lines="none">
       <ion-list-header>
         <ion-label>Resources</ion-label>
       </ion-list-header>
@@ -40,5 +134,8 @@
         <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
         <ion-label>Theme Your App</ion-label>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
+   
 </ion-content>
+
+

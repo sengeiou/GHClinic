@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
+        <ion-title>
+          确认预约         
+        </ion-title>
+        <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div style="background-color: #11838D">
+        <div class="card">
+          <p class="p1">2019年8月27日（周四） 11：30 - 12：00</p>
+          <p class="p1">港和医疗白云分部</p>
+          <p class="p1">儿科，张XX，主任医师</p>
+          <hr/>
+        </div>
+    </div>
+    <div class="div1">
+        <span class="span1">费用</span>
+        <span class="span2">￥33.0</span>
+    </div>
+    <hr/>
+    <div class="div1">
+        <span class="span1">就诊人</span>
+        <span class="span2">张三</span>
+    </div>
+    <hr/>
+    <div class="div1">
+        <span class="span1">手机号</span>
+        <span class="span3">13838384388</span>
+    </div>
+    <div class="div2">
+      <span class="span1">图片资料</span>
+      <span class="span4">（非必填）</span>
+    </div>
+    <div>
+      <p class="p2">上传能体现病情的病历照片、患处照片、检验结果等</p>
+      <img class="img1" />
+    </div>
+    <div class="div3">
+      <p class="p3">重要提示：</p>
+      <p class="p3">1、支持多行文字，文字内容后台编辑。支持多行文字，文字内容后台编辑。</p>
+      <p class="p4" (click)="successfulReservation()">确认支付</p>
+    </div>
+</ion-content>

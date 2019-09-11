@@ -1,0 +1,145 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+.ion-icon{
+    height:rpx(24*2);
+    width:rpx(24*2)
+}
+.card{
+    background-color:white;    
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(37)
+  }
+  hr{
+    border: #aaaaaa solid rpx(0.01*2);
+    background-color: #aaaaaa;
+    opacity: 0.2;
+  }
+  img{
+      height: rpx(120);
+      width: rpx(120);
+      margin-left: rpx(30);
+      margin-top: rpx(20)
+  }
+  .name{
+      font-size: rpx(32);
+      color:black;
+      font-weight: bold;
+      margin-left: rpx(30);
+      margin-top: rpx(-30)
+  }
+  .zhiWei{
+    font-size: rpx(24);
+    color:black;
+    margin-left: rpx(10);
+  }
+  .address{
+    font-size: rpx(24);
+    color:black;
+    margin-left: rpx(30)
+  }
+  .div1{
+      float: left;
+  }
+  .p1{
+      font-size: rpx(24);
+      color:#8a8a8a;
+      float:left;
+      margin-left: rpx(30)
+  }
+  .p2{
+    font-size: rpx(24);
+    color:#8a8a8a;
+    float: left;
+    width:rpx(284*2);
+    margin-left: rpx(20)
+  }
+  .div2{
+      margin-top:rpx(40);
+      margin-bottom:rpx(40)
+  }
+  .span1{
+      font-size: rpx(32);
+      color: black;
+      margin-left: rpx(30);
+  }
+  .span2{
+    font-size: rpx(32);
+    color: black;
+    margin-left: rpx(300)
+  }
+  .p3{
+    font-size: rpx(16*2);
+    color:black;
+    text-align: center;
+  
+  }
+  .span3{
+    color:#aaaaaa;
+    margin-left: rpx(38);
+    font-size: rpx(28)
+  }
+  .span4{
+    color:#aaaaaa;
+    margin-left: rpx(40*2);
+    font-size: rpx(28)
+  }
+  .p4{
+    margin-bottom: rpx(40)
+  }
+  .span5{
+    color:black;
+    margin-left: rpx(38);
+    font-size: rpx(28);
+    width:rpx(60);
+    height: rpx(60);
+    border:solid #aaaaaa rpx(2);
+    border-radius: 50%;
+    padding:rpx(4)
+  }
+  .span6{
+    color:black;
+    margin-left: rpx(40*2);
+    font-size: rpx(28);
+    width:rpx(60);
+    height: rpx(60);
+    border:solid #aaaaaa rpx(2);
+    border-radius: 50%;
+    padding:rpx(4)
+  }
+  .div3{
+      margin-left:rpx(70) 
+  }
+  .p5{
+      width:rpx(150*2);
+      height: rpx(90);
+      color:black;
+      font-weight: bold;
+      font-size: rpx(32);
+      text-align: center;
+      float: left;
+      line-height:rpx(90);
+      border:#d2d2d2 solid rpx(4);
+  }
+  .table1{
+    border:#d2d2d2 solid rpx(4);
+    color:#6b3689;
+    text-align: center;
+    vertical-align: middle;
+    margin-left:rpx(40);
+    margin-top:rpx(40)
+  }
+.span7{
+    font-size: rpx(32);
+    display: block;
+}
+.span8{
+    font-size: rpx(24);
+    display: block;
+}
+td{
+    border:#d2d2d2 solid rpx(4);
+    width: rpx(220);
+    height: rpx(120);
+}

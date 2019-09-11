@@ -1,0 +1,41 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+.ion-icon{
+    height:rpx(24*2);
+    width:rpx(24*2)
+}
+.card{
+    background-color:white;    
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(25)
+  }
+  hr{
+    border: #aaaaaa solid rpx(0.01*2);
+    background-color: #aaaaaa;
+    opacity: 0.2;
+  }
+  .span1{
+    font-size: rpx(32);
+    color: black;
+    font-weight: bold
+}
+.span2{
+  font-size: rpx(24);
+  color: #8a8a8a;
+  margin-left: rpx(20)
+}
+.span3{
+    background-color: #F0F2F5;
+    font-size: rpx(24);
+    color: #8a8a8a;
+    border-radius: rpx(100);
+    padding:rpx(6) rpx(16)
+}
+.span4{
+    margin-left: rpx(10);
+}
+.p1{
+    margin-left:rpx(30)
+}
