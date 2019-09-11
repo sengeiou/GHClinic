@@ -1,0 +1,74 @@
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <div class="flex-row flex-bottom">
+    <div class="flex-1">
+      <h1 class="h3 mb-4 mt-5 text-gray-800">今日会诊记录</h1>
+    </div>
+    <div>
+      {{clock}}
+    </div>
+  </div>
+  <div class="padding-20 bg-white">
+    <div class="flex-row">
+      <div class="flex-1  colA">
+        <div class="ordertitle orderA">待会诊</div>
+        <div>
+          <div class="tabOrder" *ngFor="let item of orderA">
+            <div class="ordertime txt-primary">
+              {{item.ordertime_formatting}}
+            </div>
+            <div class="flex-row flex-center">
+              <div class="flex-1">{{item.patientname}}</div>
+              <div>
+                <img src="{{uploadpath}}resource/{{res.male}}" class="icon-20" *ngIf="item.patientsexual=='M'" />
+                <img src="{{uploadpath}}resource/{{res.female}}" class="icon-20" *ngIf="item.patientsexual=='F'" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="flex-1  colB">
+        <div class="ordertitle orderB">准备会诊</div>
+        <div>
+          <div class="tabOrder" *ngFor="let item of orderB">
+            {{item.patientname}}
+          </div>
+        </div>
+      </div>
+      <div class="flex-1  colC">
+        <div class="ordertitle orderC">会诊中</div>
+        <div>
+          <div class="tabOrder" *ngFor="let item of orderC">
+            {{item.patientname}}
+          </div>
+        </div>
+      </div>
+      <div class="flex-1  colD">
+        <div class="ordertitle orderD ">已完成</div>
+        <div>
+          <div class="tabOrder" *ngFor="let item of orderD">
+            {{item.patientname}}
+          </div>
+        </div>
+      </div>
+      <div class="flex-1  colE">
+        <div class="ordertitle orderE  ">过号</div>
+        <div>
+          <div class="tabOrder" *ngFor="let item of orderE">
+            {{item.patientname}}
+          </div>
+        </div>
+      </div>
+      <div class="flex-1  colF">
+        <div class="ordertitle orderF  ">其它</div>
+        <div>
+          <div class="tabOrder" *ngFor="let item of orderF">
+            {{item.patientname}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
