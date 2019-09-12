@@ -1,0 +1,75 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+.ion-icon{
+    height:rpx(24*2);
+    width:rpx(24*2)
+}
+.card{
+    background-color:white;    
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(37)
+  }
+  hr{
+    border: #aaaaaa solid rpx(0.01*2);
+    background-color: #aaaaaa;
+    opacity: 0.2;
+  }
+  .ion-card{
+    margin-top: rpx(0);
+    height:rpx(200*2);
+  }
+  .p1{
+      font-size: rpx(32);
+      color:black;
+      font-weight: bold;
+      margin-left:rpx(30);
+      margin-top:rpx(-25);
+  }
+  .p2{
+    font-size: rpx(32);
+    font-weight: bold;
+    color: black;
+    margin-left:rpx(40);
+}
+.p3{
+    width: rpx(64*2);
+    height: rpx(30);
+    margin-left:rpx(40);
+    margin-top: rpx(-50);
+    border-radius: rpx(10);
+    background-color: #B872E1;
+}
+.p4{
+    font-size: rpx(28);
+    color: black;
+    margin-left: rpx(30);
+    margin-top: rpx(-15)
+}
+.p5{
+    text-indent:rpx(50)
+}
+.p6{
+    width: rpx(150*2);
+    height: rpx(90);
+    background-color: #0E858D;
+    color:white;
+    text-align: center;
+    font-size: rpx(32);
+    line-height: rpx(90);
+    float:left;
+  }
+  .p7{
+    width: rpx(225*2);
+    height: rpx(90);
+    background-color: #6b3689;
+    color:white;
+    text-align: center;
+    font-size: rpx(32);
+    line-height: rpx(90);
+    float:left;
+  }
+  .div1{
+    margin-top:rpx(-15);
+  }

@@ -30,3 +30,69 @@ input{
   left:rpx(-338*2);
   top:rpx(3*2)
 }
+.p1{
+  font-weight: bold;
+  font-size: rpx(32);
+  color:#6b3689;
+}
+.p2{
+  width: rpx(90);
+  height: rpx(6);
+  background-color: #6b3689;
+  margin-left: rpx(15);
+  margin-top:rpx(-25)
+}
+.p3{
+  font-size: rpx(28);
+  color:black;
+  margin-top: rpx(36)
+}
+.div0{
+  position: relative;
+  top:rpx(-35)
+}
+.div1{
+  float: left;
+  margin-left: rpx(54);
+  margin-top:rpx(-35)
+}
+img{
+  width: rpx(76*2);
+  height: rpx(78*2);
+  margin-left: rpx(25);
+  margin-top:rpx(20)
+}
+.ion-card1{
+  width: rpx(105*2);
+  height: rpx(140*2);
+  display: inline-block;
+  margin-left: rpx(0)
+}
+.p4{
+  font-size: rpx(28);
+  font-weight: bold;
+  color: black;
+  margin-left: rpx(10);
+  margin-top:rpx(20)
+}
+.p5{
+  color: #F7555A;
+  font-weight: bold;
+  font-size: rpx(28);
+  margin-left: rpx(10);
+  margin-top:rpx(-23)
+}
+.div2{
+  margin-left: rpx(24);
+}
+.div3{
+  margin-left: rpx(24);
+  margin-top:rpx(-70)
+}
+.img1{
+  width: rpx(120);
+  height: rpx(120);
+  position:absolute;
+  top:rpx(1350);
+  right: rpx(50)
+}

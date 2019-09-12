@@ -1,0 +1,66 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+.ion-icon{
+    height:rpx(24*2);
+    width:rpx(24*2)
+}
+.card{
+    background-color:white;    
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(37);
+}
+.ion-card{
+  margin-top: rpx(0);
+  height:rpx(212*2);
+}
+.ion-card1{
+  height:rpx(424*2);
+}
+.ion-card2{
+    height:rpx(363*2);
+}
+.p1{
+    color:#F7555A;
+    font-size: rpx(36);
+    font-weight: bold;
+    margin-left:rpx(30);
+}
+.p2{
+    color:black;
+    font-size: rpx(32);
+    font-weight: bold;
+    margin-left:rpx(30);
+    margin-top:rpx(-20)
+}
+.p3{
+    color:#8A8A8A;
+    font-size: rpx(24);
+    margin-left:rpx(30);
+    width: rpx(320*2);
+    margin-top:rpx(-20)
+}
+.p4{
+    font-size: rpx(32);
+    font-weight: bold;
+    color: black;
+    margin-left:rpx(30);
+}
+.p5{
+    width: rpx(64*2);
+    height: rpx(30);
+    margin-left:rpx(30);
+    margin-top: rpx(-50);
+    border-radius: rpx(10);
+    background-color: #B872E1;
+}
+.d1{
+    width:rpx(56*2);
+    height: rpx(100);
+}
+.d2{
+    width:rpx(160*2);
+    height: rpx(100);
+    line-height: rpx(100)
+}

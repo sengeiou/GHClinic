@@ -1,0 +1,47 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+.ion-icon{
+    height:rpx(24*2);
+    width:rpx(24*2)
+}
+.card{
+    background-color:white;    
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(37);
+}
+.card1{
+    height: rpx(130*2);
+    margin-top:rpx(0)
+}
+.marginTop{
+    margin-top: rpx(0);
+}
+.border-lr{
+    border-top-left-radius: rpx(8);
+    border-bottom-left-radius: rpx(8) 
+}
+.border-rr{
+    border-top-right-radius: rpx(8);
+    border-bottom-right-radius: rpx(8);
+}
+.border-bt{
+    width: rpx(80);
+    height: rpx(44);
+    line-height: rpx(44);
+    border-bottom: 1px solid #D8DCE6;
+    border-top: 1px solid #D8DCE6
+}
+.d1{
+    width: rpx(255*2);
+    height: rpx(100);
+    line-height: rpx(100);
+    background-color: #0E858D;
+}
+.d2{
+    width: rpx(120*2);
+    height: rpx(100);
+    line-height: rpx(100);
+    background-color: #6B3689;
+}
