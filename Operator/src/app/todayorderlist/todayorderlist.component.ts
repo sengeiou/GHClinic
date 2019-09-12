@@ -28,7 +28,6 @@ export class TodayorderlistComponent extends AppBase {
     public operatorApi:OperatorApi
   ) {
     super(router, activeRoute, instApi);
-    
   }
 
   orderA=[];
@@ -39,6 +38,8 @@ export class TodayorderlistComponent extends AppBase {
   orderF=[];
 
   clock="";
+
+  order;
 
   static timer1;
   static timer2;
@@ -147,6 +148,10 @@ export class TodayorderlistComponent extends AppBase {
 
   onMyShow(){
 
+  }
+
+  gotoConference(order){
+    this.navigate("/conference",{order_id:order.id});
   }
 
 }

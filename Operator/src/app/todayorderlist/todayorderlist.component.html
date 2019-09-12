@@ -25,6 +25,17 @@
                 <img src="{{uploadpath}}resource/{{res.female}}" class="icon-20" *ngIf="item.patientsexual=='F'" />
               </div>
             </div>
+            <div class="margin-top  border-bottom"></div>
+            <div class="flex-row flex-center margin-top  ">
+              <div>
+                <img src="{{uploadpath}}doctor/{{item.doctor_photo}}" class="icon-30 radius-50" />
+              </div>
+              <div class="flex-1 txt-primary margin-left">{{item.doctor_name}}</div>
+              <div class="flex-1"></div>
+              <div>
+                <button type="button" class="btn btn-sm btn-primary" (click)="gotoConference(item)">开始会诊</button>
+              </div>
+            </div>
 
           </div>
         </div>
@@ -33,7 +44,27 @@
         <div class="ordertitle orderB">准备会诊</div>
         <div>
           <div class="tabOrder" *ngFor="let item of orderB">
-            {{item.patientname}}
+              <div class="ordertime txt-primary">
+                {{item.ordertime_formatting}}
+              </div>
+              <div class="flex-row flex-center">
+                <div class="flex-1">{{item.patientname}}</div>
+                <div>
+                  <img src="{{uploadpath}}resource/{{res.male}}" class="icon-20" *ngIf="item.patientsexual=='M'" />
+                  <img src="{{uploadpath}}resource/{{res.female}}" class="icon-20" *ngIf="item.patientsexual=='F'" />
+                </div>
+              </div>
+              <div class="margin-top  border-bottom"></div>
+              <div class="flex-row flex-center margin-top  ">
+                <div>
+                  <img src="{{uploadpath}}doctor/{{item.doctor_photo}}" class="icon-30 radius-50" />
+                </div>
+                <div class="flex-1 txt-primary margin-left">{{item.doctor_name}}</div>
+                <div class="flex-1"></div>
+                <div>
+                  <button type="button" class="btn btn-sm btn-primary" (click)="gotoConference(item)">开始会诊</button>
+                </div>
+              </div>
           </div>
         </div>
       </div>
@@ -41,7 +72,27 @@
         <div class="ordertitle orderC">会诊中</div>
         <div>
           <div class="tabOrder" *ngFor="let item of orderC">
-            {{item.patientname}}
+              <div class="ordertime txt-primary">
+                {{item.ordertime_formatting}}
+              </div>
+              <div class="flex-row flex-center">
+                <div class="flex-1">{{item.patientname}}</div>
+                <div>
+                  <img src="{{uploadpath}}resource/{{res.male}}" class="icon-20" *ngIf="item.patientsexual=='M'" />
+                  <img src="{{uploadpath}}resource/{{res.female}}" class="icon-20" *ngIf="item.patientsexual=='F'" />
+                </div>
+              </div>
+              <div class="margin-top  border-bottom"></div>
+              <div class="flex-row flex-center margin-top  ">
+                <div>
+                  <img src="{{uploadpath}}doctor/{{item.doctor_photo}}" class="icon-30 radius-50" />
+                </div>
+                <div class="flex-1 txt-primary margin-left">{{item.doctor_name}}</div>
+                <div class="flex-1"></div>
+                <div>
+                  <button type="button" class="btn btn-sm btn-primary" (click)="gotoConference(item)">继续会诊</button>
+                </div>
+              </div>
           </div>
         </div>
       </div>
@@ -49,7 +100,28 @@
         <div class="ordertitle orderD ">已完成</div>
         <div>
           <div class="tabOrder" *ngFor="let item of orderD">
-            {{item.patientname}}
+            
+              <div class="ordertime txt-primary">
+                  {{item.ordertime_formatting}}
+                </div>
+                <div class="flex-row flex-center">
+                  <div class="flex-1">{{item.patientname}}</div>
+                  <div>
+                    <img src="{{uploadpath}}resource/{{res.male}}" class="icon-20" *ngIf="item.patientsexual=='M'" />
+                    <img src="{{uploadpath}}resource/{{res.female}}" class="icon-20" *ngIf="item.patientsexual=='F'" />
+                  </div>
+                </div>
+                <div class="margin-top  border-bottom"></div>
+                <div class="flex-row flex-center margin-top  ">
+                  <div>
+                    <img src="{{uploadpath}}doctor/{{item.doctor_photo}}" class="icon-30 radius-50" />
+                  </div>
+                  <div class="flex-1 txt-primary margin-left">{{item.doctor_name}}</div>
+                  <div class="flex-1"></div>
+                  <div>
+                    <button type="button" class="btn btn-sm btn-primary" (click)="gotoConference(item)">开始会诊</button>
+                  </div>
+                </div>
           </div>
         </div>
       </div>
@@ -57,7 +129,28 @@
         <div class="ordertitle orderE  ">过号</div>
         <div>
           <div class="tabOrder" *ngFor="let item of orderE">
-            {{item.patientname}}
+            
+              <div class="ordertime txt-primary">
+                  {{item.ordertime_formatting}}
+                </div>
+                <div class="flex-row flex-center">
+                  <div class="flex-1">{{item.patientname}}</div>
+                  <div>
+                    <img src="{{uploadpath}}resource/{{res.male}}" class="icon-20" *ngIf="item.patientsexual=='M'" />
+                    <img src="{{uploadpath}}resource/{{res.female}}" class="icon-20" *ngIf="item.patientsexual=='F'" />
+                  </div>
+                </div>
+                <div class="margin-top  border-bottom"></div>
+                <div class="flex-row flex-center margin-top  ">
+                  <div>
+                    <img src="{{uploadpath}}doctor/{{item.doctor_photo}}" class="icon-30 radius-50" />
+                  </div>
+                  <div class="flex-1 txt-primary margin-left">{{item.doctor_name}}</div>
+                  <div class="flex-1"></div>
+                  <div>
+                    <button type="button" class="btn btn-sm btn-primary" (click)="gotoConference(item)">开始会诊</button>
+                  </div>
+                </div>
           </div>
         </div>
       </div>
@@ -65,7 +158,28 @@
         <div class="ordertitle orderF  ">其它</div>
         <div>
           <div class="tabOrder" *ngFor="let item of orderF">
-            {{item.patientname}}
+            
+              <div class="ordertime txt-primary">
+                  {{item.ordertime_formatting}}
+                </div>
+                <div class="flex-row flex-center">
+                  <div class="flex-1">{{item.patientname}}</div>
+                  <div>
+                    <img src="{{uploadpath}}resource/{{res.male}}" class="icon-20" *ngIf="item.patientsexual=='M'" />
+                    <img src="{{uploadpath}}resource/{{res.female}}" class="icon-20" *ngIf="item.patientsexual=='F'" />
+                  </div>
+                </div>
+                <div class="margin-top  border-bottom"></div>
+                <div class="flex-row flex-center margin-top  ">
+                  <div>
+                    <img src="{{uploadpath}}doctor/{{item.doctor_photo}}" class="icon-30 radius-50" />
+                  </div>
+                  <div class="flex-1 txt-primary margin-left">{{item.doctor_name}}</div>
+                  <div class="flex-1"></div>
+                  <div>
+                    <button type="button" class="btn btn-sm btn-primary" (click)="gotoConference(item)">开始会诊</button>
+                  </div>
+                </div>
           </div>
         </div>
       </div>

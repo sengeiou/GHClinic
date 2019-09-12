@@ -1,12 +1,63 @@
-<div class="container-fluid">
-
-  <!-- Page Heading -->
-  <h1 class="h3 mb-4 mt-5 text-gray-800">在线会诊</h1>
-  <div class="padding-20 bg-white">
-      <div class="flex-row">
-        <div class="flex-1 padding-20">
-            <div></div>
+<div class="flex-row fullscreen">
+    <div class="flex-1 fullheightpercent">
+        <div class="menu" >
+          <div class="menuopt firstmenuopt">
+            00:47
+          </div>
+          <div class="menuopt" [tooltip]="cameraopen==true?'关闭摄像头':'打开摄像头'"  placement="right" (click)="toggleCamera()">
+              <i class="fas fa-fw fa-video" ></i>
+              <i class="fa fa-ban fa-stack-1x text-danger" *ngIf="cameraopen==true"></i>
+          </div>
+          <div class="menuopt" [tooltip]="micopen==true?'关闭麦克风':'打开麦克风'"  placement="right" (click)="toggleMic()">
+              <i class="fas fa-fw fa-microphone"></i>
+              <i class="fa fa-ban fa-stack-1x text-danger" *ngIf="micopen==true"></i>
+          </div>
+          <div class="menuopt" tooltip="病人信息"   placement="right" (click)="showtype=1">
+              <i class="fas fa-fw fa-users"></i>
+          </div>
+          <div class="menuopt" tooltip="聊天记录"  placement="right" (click)="showtype=2">
+              <i class="fas fa-fw fa-comments"></i>
+          </div>
+          <div class="menuopt" tooltip="设备设置"  placement="right" (click)="showtype=3">
+              <i class="fas fa-fw fa-cog"></i>
+          </div>
+          <div class="menuopt lastmenuopt" [tooltip]="play==true?'停止直播':'开始直播'"  placement="right" >
+              <i class="fas fa-fw fa-play" *ngIf="play==false" (click)='startlive()'></i>
+              <i class="fas fa-fw fa-stop" *ngIf="play==true" (click)='stoplive()'></i>
+          </div>
         </div>
+      <video class='fullpercent'  id="remotevideo" ></video>
+      <video class="localvideo" muted=“muted” controls="controls" id="localvideo" ></video>
+    </div>
+    <div class=" padding-20" *ngIf="showtype==1">
+        <div class="h3 mt-4 text-gray-800"><b>病人信息</b></div>
+    </div>
+    <div class=" padding-20" *ngIf="showtype==2">
+        <div class="h3 mt-4 text-gray-800"><b>聊天记录</b></div>
+    </div>
+    <div class=" padding-20" *ngIf="showtype==3">
+      <div class="h3 mt-4 text-gray-800"><b>设备设置</b></div>
+      <div class="h5 mt-4 txt-bold">扬声器</div>
+      <div class="form-group card border-bottom-primary padding-10 h6">
+          {{speaker==null?"找不到设备":speaker.label}}
       </div>
+      <div class="h5 mt-4 txt-bold">麦克风</div>
+      <div class="form-group card border-bottom-primary padding-10 h6">
+          {{mic==null?"找不到设备":mic.label}}
+      </div>
+      <div class="">
+          <progressbar [value]="volume" [max]="0.5"></progressbar>
+      </div>
+      <div class="h5 mt-4 txt-bold">摄像头</div>
+      <div class="form-group card border-bottom-primary padding-10 h6">
+          {{camera==null?"找不到设备":camera.label}}
+      </div>
+      <div class="h5 mt-4 txt-bold">
+        <button (click)='refreshDevices()' class="btn  btn-user btn-block btn-primary">
+          刷新设备列表
+        </button>
+      </div>
+      
+    </div>
   </div>
-</div>
+  
