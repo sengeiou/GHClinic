@@ -35,7 +35,9 @@ export class DetailPage extends AppBase {
   onMyShow() {
    
   }
-  
+  physicalExaminationAppointment(){
+    this.navigate("physical-examination-appointment")
+  }
  
   
 

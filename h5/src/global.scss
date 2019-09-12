@@ -122,6 +122,10 @@
   .bg-white {
     background: white;
   }
+
+  .bg-p {
+    background: #6B3689;
+  }
   
   .bg-primary {
     background: #7044ff;
@@ -129,6 +133,18 @@
   
   .border-primary {
     border: 1px solid #7044ff;
+  }
+
+  .border-g {
+    border: 2px solid #bbbbbb;
+  }
+
+  .border-bw {
+    border: 1px solid #D8DCE6;
+  }
+
+  .border-w {
+    border: 2px solid white;
   }
   
   .bg-green {
@@ -164,6 +180,10 @@
     color: black;
   }
   
+  .txt-gg {
+    color:#84817E
+  }
+
   .txt-white {
     color: white;
   }
@@ -195,6 +215,10 @@
   
   .txt-orange {
     color: orange;
+  }
+
+  .txt-gw {
+    color:#8a8a8a;
   }
   
   .txt-bold {
@@ -593,6 +617,10 @@
   .margin-left-50 {
     margin-left: px(25);
   }
+
+  .margin-left-100 {
+    margin-left: px(50);
+  }
   
   .margin-right-15 {
     margin-right: px(7.5);
@@ -620,6 +648,10 @@
   
   .radius-10 {
     border-radius: px(10);
+  }
+
+  .radius-20 {
+    border-radius: px(20);
   }
   
   .radius-5 {
@@ -659,6 +691,11 @@
   .icon-22 {
     width: px(22);
     height: px(22);
+  }
+
+  .icon-24 {
+    width: px(24);
+    height: px(24);
   }
   
   .icon-25 {
@@ -710,6 +747,11 @@
     width: px(100);
     height: px(100);
   }
+
+  .icon-150 {
+    width: px(150);
+    height: px(150);
+  }
   
   .border-raidus-50 {
     border-radius: 50%;
@@ -717,6 +759,10 @@
   
   .line-height-0 {
     line-height: 0;
+  }
+
+  .line-height-24 {
+    line-height: px(24)
   }
   
   .border-gray {

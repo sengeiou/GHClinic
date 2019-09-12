@@ -8,11 +8,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 
 @Component({
-  selector: 'app-tab3',
-  templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss']
+  selector: 'app-carts',
+  templateUrl: 'carts.page.html',
+  styleUrls: ['carts.page.scss']
 })
-export class Tab3Page extends AppBase {
+export class CartsPage extends AppBase {
 
   constructor(public router: Router,
     public navCtrl: NavController,
@@ -34,7 +34,7 @@ export class Tab3Page extends AppBase {
   onMyShow(){
 
   }
-  list(){
-    this.navigate("list")
+  order(){
+    this.navigate("order")
   }
 }

@@ -43,4 +43,7 @@ export class Tab1Page extends AppBase {
   physicalExamination(){
     this.navigate("physical-examination")
   }
+  noDuty(){
+    this.navigate("no-duty")
+  }  
 }
