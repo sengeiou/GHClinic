@@ -34,6 +34,8 @@ export class ConferenceComponent extends AppBase {
 
   }
 
+  
+
   onMyShow(){
 
   }
