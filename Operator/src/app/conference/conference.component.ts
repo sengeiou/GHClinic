@@ -7,6 +7,7 @@ import WebRTCAPI from 'trtc-sdk/WebRTCAPI.min.js';
 import { TestApi } from 'src/providers/test.api';
 import { NullTemplateVisitor } from '@angular/compiler';
 import { OrderApi } from 'src/providers/order.api';
+import { DoctorApi } from 'src/providers/doctor.api';
 
 //var RTC = require("trtc-sdk")
 //4543a2e4772190ba03d4786ba16a3e2fa4dace9ee514c7d348280ec8de1e1705
@@ -16,7 +17,7 @@ import { OrderApi } from 'src/providers/order.api';
   selector: 'app-conference',
   templateUrl: './conference.component.html',
   styleUrls: ['./conference.component.scss'],
-  providers: [InstApi, TestApi,OrderApi]
+  providers: [InstApi, TestApi,OrderApi,DoctorApi]
 })
 export class ConferenceComponent extends AppBase {
 
@@ -25,13 +26,14 @@ export class ConferenceComponent extends AppBase {
     public activeRoute: ActivatedRoute,
     public instApi: InstApi,
     public testApi: TestApi,
-    public orderApi:OrderApi
+    public orderApi:OrderApi,
+    public doctorApi:DoctorApi
   ) {
     super(router, activeRoute, instApi);
-    this.order={};
+    this.doctorinfo={};
+    this.orderinfo={};
   }
 
-  order;
 
   showtype=3;//1聊天记录，2病人信息，3.设置
 
@@ -51,12 +53,28 @@ export class ConferenceComponent extends AppBase {
   cameraopen=true;
   micopen=true;
 
+  inmeeting=false;
+
   onMyLoad() {
     
   }
 
+  startmeeting(){
+    this.inmeeting=true;
+    this.startlive();
+  }
+
+  orderinfo=null;
+  doctorinfo=null;
+
   onMyShow() {
-    this.refreshDevices();
+    this.orderApi.info({id:this.params.order_id}).then((orderinfo:any)=>{
+      this.orderinfo=orderinfo;
+      this.doctorApi.info({id:orderinfo.doctor_id}).then((doctorinfo:any)=>{
+        this.doctorinfo=doctorinfo;
+        this.refreshDevices();
+      });
+    });
   }
 
   play=false;
@@ -97,9 +115,9 @@ export class ConferenceComponent extends AppBase {
     
 
     this.testApi.generatertc({}).then((sig: any) => {
-
+      //userId要和generatertc接口中的值一样才不会报错
       var rtc = new WebRTCAPI({
-        //userId: this.doctorinfo.loginname,
+        userId: that.operatorinfo.loginname,
         userSig: sig,
         sdkAppId: "1400249695",
         accountType: "1",
@@ -135,7 +153,8 @@ export class ConferenceComponent extends AppBase {
             }
         })
 //roomid: that.doctorinfo.id
-        rtc.enterRoom({  }, () => {
+        //alert(that.orderinfo.id);
+        rtc.enterRoom({ roomid:this.doctorinfo.id}, () => {
           this.initedrtc=true;
 
 
