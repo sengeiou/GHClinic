@@ -3,19 +3,22 @@ import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
 import { InstApi } from 'src/providers/inst.api';
+import { AppUtil } from '../app.util';
+import { DoctorApi } from 'src/providers/doctor.api';
 
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
-  providers:[InstApi]
+  providers:[InstApi,DoctorApi]
 })
 export class CalendarComponent  extends AppBase  {
 
   constructor(
     public router: Router,
     public activeRoute: ActivatedRoute,
-    public instApi:InstApi
+    public instApi:InstApi,
+    public doctorApi:DoctorApi
   ) { 
     super(router,activeRoute,instApi);
   }
@@ -72,20 +75,34 @@ export class CalendarComponent  extends AppBase  {
     var startdate=new Date(wfirsttime + kd*24*3600*1000 );
     console.log("ccw2",startdate);
     var startdatetime=wfirsttime + kd*24*3600*1000 ;
-    var wcal=[];
+    var wcal=[]; 
+    var enddate=null;
     for(var j=0;j<7;j++){
         var sdatetime=startdatetime+j*24*3600*1000;
         var sdate=new Date(sdatetime);
+        enddate=sdate;
         var d={
           sdate:sdate,
           pass:sdatetime<nowtime,
           today:sdate.getFullYear()==now.getFullYear()&&sdate.getMonth()==now.getMonth()&&sdate.getDate()==now.getDate(),
           d:sdate.getDate(),
-          timeline:this.timeline(sdate)
+          timeline:this.timeline(sdate),
+          dt:AppUtil.FormatDate2(sdate),
+          datestr:AppUtil.FormatDate(sdate)
         };
         wcal.push(d);
     }
     this.wcal=wcal;
+    this.loadWeekSchedule(startdate,enddate);
+  }
+
+  weekschedule=[];
+  loadWeekSchedule(sdate,edate){
+    var sdatestr=AppUtil.FormatDate(sdate);
+    var edatestr=AppUtil.FormatDate(edate);
+    this.doctorApi.schedule({sdate:sdatestr,edate:edatestr}).then((schedule:[])=>{
+      this.weekschedule=schedule;
+    });
   }
 
   timeline(sdate:Date){
@@ -94,10 +111,12 @@ export class CalendarComponent  extends AppBase  {
 
     var timeline=[];
     for(var i=8;i<=19;i++){
+      var vi=i>9?i:"0"+i;
+
       var d1=new Date(sdate.getFullYear(),sdate.getMonth(),sdate.getDate(),i,29,59);
       var d1time=d1.getTime();
       timeline.push({
-        hour:i,
+        hour:vi,
         minute:"00",
         pass:d1time<nowtime,
         passt:d1time+"<"+nowtime
@@ -105,7 +124,7 @@ export class CalendarComponent  extends AppBase  {
       var d2=new Date(sdate.getFullYear(),sdate.getMonth(),sdate.getDate(),i,59,59);
       var d2time=d2.getTime();
       timeline.push({
-        hour:i,
+        hour:vi,
         minute:"30",
         pass:d2time<nowtime,
         passt:d2time+"<"+nowtime,
@@ -132,23 +151,43 @@ export class CalendarComponent  extends AppBase  {
     console.log("cc2",startdate);
     var startdatetime=mfirsttime + kd*24*3600*1000 ;
     var mcal=[];
+
+    var enddate=null;
     for(var i=0;i<5;i++){
       var w=[];
       for(var j=0;j<7;j++){
         var vd=i*7+j;
         var sdatetime=startdatetime+vd*24*3600*1000;
         var sdate=new Date(sdatetime);
+        enddate=sdate;
         var d={
           sdate:sdate,
           pass:sdatetime<nowtime,
           today:sdate.getFullYear()==now.getFullYear()&&sdate.getMonth()==now.getMonth()&&sdate.getDate()==now.getDate(),
-          d:sdate.getDate()
+          d:sdate.getDate(),
+          dayname:AppUtil.FormatDate(sdate),
+          order:[]
         };
         w.push(d);
       }
       mcal.push(w);
     }
     this.mcal=mcal;
+    this.loadMonthSchedule(this.mcal,startdate,enddate);
+  }
+  monthschedule=[];
+  loadMonthSchedule(mcal,sdate,edate){
+    var sdatestr=AppUtil.FormatDate(sdate);
+    var edatestr=AppUtil.FormatDate(edate);
+    this.doctorApi.schedule({view:"M",sdate:sdatestr,edate:edatestr}).then((schedule:[any])=>{
+      this.monthschedule=schedule;
+      for(let week of mcal){
+        for(let day of week){
+          var dname=day.dayname;
+          day.order=schedule[dname];
+        }
+      }
+    });
   }
 
 }

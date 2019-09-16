@@ -5,11 +5,13 @@ export class AppUtil {
     public static isIOS: boolean = false; //是否是在Iphone设备, 不论是微信打开,还是APP.
     public static osVersion = '';
 
+    //1400258513
+    //5bb5f06bb789f18493ad1c41a4b3a269803657fb069fec0dc168ec92427b53ee
     public static HtmlDecode(str) {
         if (str == null) {
             return "";
         }
-       
+
         var s = "";
         if (str.length == 0) return "";
         s = str.replace(/&amp;/g, "&");
@@ -77,7 +79,7 @@ export class AppUtil {
     //判断当前时间是否在制定时间内
     static checkInOpen(opening) {
         var whedate = false;
-        var mydate=null;
+        var mydate = null;
         mydate = new Date();
         mydate = mydate.getHours() + ":" + mydate.getMinutes();
         var sj = opening.split(",");
@@ -112,51 +114,77 @@ export class AppUtil {
         return val.toFixed(digits);
     }
     static Storage = null;
-  
-   static timeago2(agoTime)
-   {
-       
-       var cdate=new Date(agoTime);
-       var mydate=new Date();
-       var cnian =cdate.getFullYear();
-       var mnian =mydate.getFullYear();
-       var cyue=cdate.getMonth()+1;
-       var myue=mydate.getMonth()+1;
-       var cri=cdate.getDay();
-       var mri=mydate.getDay();
-       var fen=cdate.getMinutes()>9?cdate.getMinutes():"0"+cdate.getMinutes();
-       
-        if(cnian!=mnian)
-        {
+
+    static timeago2(agoTime) {
+
+        var cdate = new Date(agoTime);
+        var mydate = new Date();
+        var cnian = cdate.getFullYear();
+        var mnian = mydate.getFullYear();
+        var cyue = cdate.getMonth() + 1;
+        var myue = mydate.getMonth() + 1;
+        var cri = cdate.getDay();
+        var mri = mydate.getDay();
+        var fen = cdate.getMinutes() > 9 ? cdate.getMinutes() : "0" + cdate.getMinutes();
+
+        if (cnian != mnian) {
             return agoTime;
         }
-        if(cri!=mri||cyue!=myue)
-        {
-           
-            return  cyue+'月'+cri+'日'+cdate.getHours()+":"+  fen ;
+        if (cri != mri || cyue != myue) {
+
+            return cyue + '月' + cri + '日' + cdate.getHours() + ":" + fen;
 
         }
-        else{
-   
-            return   cdate.getHours()+":"+fen;
+        else {
+
+            return cdate.getHours() + ":" + fen;
 
         }
-         
-      
+    }
+
+    static FormatDate2(date) {
+        console.log("FormatDateTime" + date);
+        var year = AppUtil.ten2(date.getFullYear());
+        var month = AppUtil.ten2(date.getMonth() + 1);
+        var datec = AppUtil.ten2(date.getDate());
+
+        var v = year  + month +  datec 
+
+        console.log("FormatDateTime=" + v);
+        return v;
+    }
 
 
-   }
+    static TimeFormatting(time = 0) {
+        if (time <= 0) {
+            return "--:--"
+        }
+        var hour="";
+        var minute="";
+        var second="";
+        if(time>3600){
+            hour= AppUtil.ten2( parseInt((time/3600).toFixed(0)));
+            time=time%3600;
+        }
+        minute= AppUtil.ten2( parseInt((time/60).toFixed(0)));
+        second=AppUtil.ten2(time%60);
+        if(hour!=""){
+            return hour+":"+minute+":"+second;
+        }else{
+            return minute+":"+second;
+        }
+    }
 
 
     static TimeAgo(agoTime) {
-   
+
         // 计算出当前日期时间到之前的日期时间的毫秒数，以便进行下一步的计算
         var time = (new Date()).getTime() / 1000 - agoTime;
 
         var num = 0;
         if (time >= 31104000) { // N年前
-            num =  (time / 31104000);
-            return Math.round(num)  + '年前';
+            num = (time / 31104000);
+            return Math.round(num) + '年前';
         }
         if (time >= 2592000) { // N月前
             num = (time / 2592000);
@@ -176,13 +204,11 @@ export class AppUtil {
         }
         return '1分钟前';
     }
-    static shuzizhuan(num)
-    {
-    if(num>9999)
-    {
-      return "9999+";
-    }
-return num
+    static shuzizhuan(num) {
+        if (num > 9999) {
+            return "9999+";
+        }
+        return num
     }
 
 

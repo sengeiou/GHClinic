@@ -5,12 +5,12 @@ import { AppComponent } from "./app.component";
 import { ReturnStatement } from "@angular/compiler";
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
-import { OnInit, AfterViewInit } from '@angular/core';
+import { OnInit, AfterViewInit,OnDestroy } from '@angular/core';
 
 
 declare let Wechat: any;
 
-export class AppBase implements OnInit {
+export class AppBase implements OnInit,OnDestroy {
     public needlogin = false;
     currentpage = "";
     platformname = "";
@@ -37,7 +37,7 @@ export class AppBase implements OnInit {
     public res = null;
     public static StaticInstInfo = null;
 
-    public InstInfo = { name: "" };
+    public InstInfo = { name: "",rtcappid:"" };
 
 
     public options = null;
@@ -165,5 +165,12 @@ export class AppBase implements OnInit {
         window.sessionStorage.removeItem("token");
         window.localStorage.removeItem("token");
         this.navigate("/login")
+    }
+
+    onUnload(){
+        console.log("on unload");
+    }
+    ngOnDestroy(){
+        this.onUnload();
     }
 }
