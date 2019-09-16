@@ -8,6 +8,7 @@ import { TestApi } from 'src/providers/test.api';
 import { NullTemplateVisitor } from '@angular/compiler';
 import { OrderApi } from 'src/providers/order.api';
 import { DoctorApi } from 'src/providers/doctor.api';
+import { OperatorApi } from 'src/providers/operator.api';
 
 //var RTC = require("trtc-sdk")
 //4543a2e4772190ba03d4786ba16a3e2fa4dace9ee514c7d348280ec8de1e1705
@@ -17,7 +18,7 @@ import { DoctorApi } from 'src/providers/doctor.api';
   selector: 'app-conference',
   templateUrl: './conference.component.html',
   styleUrls: ['./conference.component.scss'],
-  providers: [InstApi, TestApi, OrderApi, DoctorApi]
+  providers: [InstApi, TestApi, OrderApi, DoctorApi,OperatorApi]
 })
 export class ConferenceComponent extends AppBase {
 
@@ -27,7 +28,8 @@ export class ConferenceComponent extends AppBase {
     public instApi: InstApi,
     public testApi: TestApi,
     public orderApi: OrderApi,
-    public doctorApi: DoctorApi
+    public doctorApi: DoctorApi,
+    public operatorApi:OperatorApi
   ) {
     super(router, activeRoute, instApi);
     this.doctorinfo = {};
@@ -79,11 +81,36 @@ export class ConferenceComponent extends AppBase {
 
   play = false;
 
+  timeinterval=null;
   startlive() {
     var that = this;
     that.rtc.startRTC({ role: "user", stream: that.mystream }, () => {
       that.play = true;
     });
+    if(this.timeinterval!=null){
+      clearInterval(this.timeinterval);
+      this.timeinterval=null;
+    }
+    this.timeinterval=setInterval(()=>{
+      this.operatorApi.doctorcurrent({doctor_id:this.orderinfo.doctor_id}).then((ret:any)=>{
+        console.log("ccj",ret);
+        var remotevideo: HTMLVideoElement = document.querySelector("#remotevideo");
+        if(ret.currentorder!=this.orderinfo.id){
+          remotevideo.srcObject=null;
+        }else{
+          if(remotevideo.srcObject==null||remotevideo.srcObject!=that.remotestream){
+            remotevideo.srcObject=that.remotestream;
+          }
+        }
+      });
+    },5000);
+
+  }
+  onUnload(){
+    if(this.timeinterval!=null){
+      clearInterval(this.timeinterval);
+      this.timeinterval=null;
+    }
   }
 
   stoplive() {
@@ -119,7 +146,7 @@ export class ConferenceComponent extends AppBase {
       var rtc = new WebRTCAPI({
         userId: that.orderinfo.id,
         userSig: sig,
-        sdkAppId: "1400249695",
+        sdkAppId: that.InstInfo.rtcappid,
         accountType: "1",
         "debug": {
           "log": true, //是否在控制台打印调试日志 ,默认为false
@@ -155,7 +182,7 @@ export class ConferenceComponent extends AppBase {
         })
         //roomid: that.doctorinfo.id
         //alert(that.orderinfo.id);
-        rtc.enterRoom({ roomid: this.doctorinfo.id }, () => {
+        rtc.enterRoom({ roomid: this.doctorinfo.id,appScene:"VideoCall",role:"anchor" }, () => {
           this.initedrtc = true;
 
 
@@ -172,18 +199,22 @@ export class ConferenceComponent extends AppBase {
 
           rtc.on('onRemoteStreamUpdate', function (data) {
             console.log("kk5", data);
+            //alert(data.userId );
+            //alert(that.doctorinfo.loginname );
             if (data && data.stream && data.userId == that.doctorinfo.loginname) {
-              var stream = data.stream;
-              that.remotestream = stream;
-              console.debug(data.userId + 'enter this room with unique videoId ' + data.videoId, data)
-              remotevideo.srcObject = that.remotestream;
-              try {
-                remotevideo.onloadedmetadata = function (e) {
-                  remotevideo.play();
-                };
-              } catch (e) {
-                //alert(e);
-              }
+              
+                var stream = data.stream;
+                that.remotestream = stream;
+                console.debug(data.userId + 'enter this room with unique videoId ' + data.videoId, data)
+                remotevideo.srcObject = that.remotestream;
+                try {
+                  remotevideo.onloadedmetadata = function (e) {
+                    remotevideo.play();
+                  };
+                } catch (e) {
+                  //alert(e);
+                }
+              
             } else {
               //alert("kk7");
               console.debug('somebody enter this room without stream')

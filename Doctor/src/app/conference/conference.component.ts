@@ -56,10 +56,10 @@ export class ConferenceComponent extends AppBase {
 
   onMyShow() {
     this.refreshDevices();
-    for(var i=67;i<=75;i++){
-      var data={userId:i};
-      this.LoadOrder(data);
-    }
+    // for(var i=67;i<=73;i++){
+    //   var data={userId:i};
+    //   this.LoadOrder(data);
+    // }
   }
 
   play = false;
@@ -100,7 +100,7 @@ export class ConferenceComponent extends AppBase {
 
 
     this.testApi.generatertc({}).then((sig: any) => {
-
+      //alert(that.InstInfo.rtcappid);
       var rtc = new WebRTCAPI({
         userId: this.doctorinfo.loginname,
         userSig: sig,
@@ -144,9 +144,8 @@ export class ConferenceComponent extends AppBase {
           }
         })
 
-        rtc.enterRoom({ roomid: that.doctorinfo.id }, () => {
+        rtc.enterRoom({ roomid: that.doctorinfo.id,appScene:"VideoCall",role:"anchor" }, () => {
           this.initedrtc = true;
-
 
           rtc.on('onLocalStreamAdd', function (data) {
             if (data && data.stream) {
@@ -158,14 +157,28 @@ export class ConferenceComponent extends AppBase {
               };
             }
           })
-
           rtc.on('onRemoteStreamUpdate', function (data) {
             console.log("kk5", data);
             if (data && data.stream) {
               var stream = data.stream;
               //that.remotestream = stream;
               console.debug(data.userId + 'enter this room with unique videoId ' + data.videoId, data);
-              that.LoadOrder(data);
+              //alert(data.userId);
+              console.log("ccbcc0",that.currentorder);
+              if(that.currentorder==null){
+                console.log("ccbcc1",that.currentorder);
+                that.LoadOrder(data);
+              }else{
+                console.log("ccbcc2",that.currentorder);
+                if(that.currentorder.id!=data.userId){
+                  console.log("ccbcc3",that.currentorder);
+                  that.LoadOrder(data);
+                }else{
+                  console.log("ccbcc4",that.currentorder);
+                  that.currentorder.streamdata=data;
+                  remotevideo.srcObject = that.currentorder.streamdata.stream;
+                }
+              }
               // remotevideo.srcObject = that.remotestream;
               // try {
               //   remotevideo.onloadedmetadata = function (e) {
@@ -176,13 +189,15 @@ export class ConferenceComponent extends AppBase {
               // }
             } else {
               //alert("kk7");
-              console.debug('somebody enter this room without stream')
+              //console.debug('somebody enter this room without stream')
             }
           })
 
 
           rtc.on('onRemoteStreamRemove', function (data) {
-            alert("对方断开链接");
+            if(that.currentorder!=null&&that.currentorder.id==data.userId){
+              alert("对方断开链接，等待重新接入，请勿刷新页面");
+            }
           })
 
 
@@ -251,7 +266,7 @@ export class ConferenceComponent extends AppBase {
       this.currentorder.timestr=AppUtil.TimeFormatting(this.currentorder.meetingduration);
       console.log("time update"+this.currentorder.timestr);
     },1000);
-
+    console.log("vvk",order);
     remotevideo.srcObject = order.streamdata.stream;
     try {
       remotevideo.onloadedmetadata = function (e) {

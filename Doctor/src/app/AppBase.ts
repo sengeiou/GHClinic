@@ -108,16 +108,7 @@ export class AppBase implements OnInit,OnDestroy {
     }
     getInstInfo() {
 
-        if (AppBase.StaticInstInfo == null) {
-            this.instApi.info({}, false).then((instinfo: any) => {
-                AppBase.StaticInstInfo = instinfo;
-                this.InstInfo = instinfo;
-                console.log(instinfo);
-            });
-        } else {
-
-            this.InstInfo = AppBase.StaticInstInfo;
-        }
+        
     }
     getMemberInfo() {
 
@@ -134,7 +125,18 @@ export class AppBase implements OnInit,OnDestroy {
     }
 
     ngAfterViewInit() {
-        this.onMyShow();
+        if (AppBase.StaticInstInfo == null) {
+        this.instApi.info({}, false).then((instinfo: any) => {
+            AppBase.StaticInstInfo = instinfo;
+            this.InstInfo = instinfo;
+            console.log(instinfo);
+            this.onMyShow();
+        });
+        } else {
+
+            this.InstInfo = AppBase.StaticInstInfo;
+            this.onMyShow();
+        }
     }
 
     onMyShow() {
