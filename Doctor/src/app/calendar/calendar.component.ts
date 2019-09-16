@@ -13,7 +13,7 @@ import { InstApi } from 'src/providers/inst.api';
 export class CalendarComponent  extends AppBase  {
 
   constructor(
-    public router: Router,
+    public router: Router, 
     public activeRoute: ActivatedRoute,
     public instApi:InstApi
   ) { 

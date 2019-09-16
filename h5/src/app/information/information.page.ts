@@ -27,18 +27,26 @@ export class InformationPage extends AppBase {
     this.headerscroptshow = 480;
 
   }
-  
+
   onMyLoad() {
     //参数
     this.params;
   }
   onMyShow() {
-   
+    this.getdoctor();
   }
-  doctor(){
+  doctorlist = [];
+  getdoctor() {
+    var api = this.memberApi;
+    api.getdoctor({}).then((doctorlist) => {
+      console.log(doctorlist);
+      this.doctorlist = doctorlist;
+    })
+  }
+  doctor() {
     this.navigate("doctor")
   }
-  clinic(){
+  clinic() {
     this.navigate("clinic")
   }
 

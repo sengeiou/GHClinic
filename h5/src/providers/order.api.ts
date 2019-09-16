@@ -3,15 +3,83 @@ import { Http } from '@angular/http';
 import { RequestOptions } from '@angular/http';
 import { ApiConfig } from '../app/api.config'
 @Injectable()
-export class DoctorApi {
+export class OrderApi {
 
     constructor(public http: Http) {
 
     }
 
 
+    public create(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'order/create';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('order/create', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('order/create', data, err);
+            });
+    }
+
+
+    public end(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'order/end';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('order/end', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('order/end', data, err);
+            });
+    }
+
+
     public info(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'doctor/info';
+        var url = ApiConfig.getApiUrl() + 'order/info';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -23,7 +91,7 @@ export class DoctorApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('doctor/info', data, res)) {
+                if (ApiConfig.DataLoadedHandle('order/info', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -39,13 +107,13 @@ export class DoctorApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('doctor/info', data, err);
+                return ApiConfig.ErrorHandle('order/info', data, err);
             });
     }
 
 
-    public login(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'doctor/login';
+    public start(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'order/start';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -57,7 +125,7 @@ export class DoctorApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('doctor/login', data, res)) {
+                if (ApiConfig.DataLoadedHandle('order/start', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -73,13 +141,13 @@ export class DoctorApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('doctor/login', data, err);
+                return ApiConfig.ErrorHandle('order/start', data, err);
             });
     }
 
 
-    public logininfo(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'doctor/logininfo';
+    public timeupdate(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'order/timeupdate';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -91,7 +159,7 @@ export class DoctorApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('doctor/logininfo', data, res)) {
+                if (ApiConfig.DataLoadedHandle('order/timeupdate', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -107,41 +175,7 @@ export class DoctorApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('doctor/logininfo', data, err);
-            });
-    }
-
-
-    public orderlist(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'doctor/orderlist';
-        var headers = ApiConfig.GetHeader(url, data);
-        let options = new RequestOptions({ headers: headers });
-        let body = ApiConfig.ParamUrlencoded(data);
-        let loading = null;
-
-        if (showLoadingModal) {
-            loading = ApiConfig.GetLoadingModal();
-        }
-
-        return this.http.post(url, body, options).toPromise()
-            .then((res) => {
-                if (ApiConfig.DataLoadedHandle('doctor/orderlist', data, res)) {
-                    if (showLoadingModal) {
-                        ApiConfig.DimissLoadingModal();
-                    }
-                    if (res==null) {
-                        return null;
-                    }
-                    return res.json();
-                } else {
-                    return Promise.reject(res);
-                }
-            })
-            .catch(err => {
-                if (showLoadingModal) {
-                    ApiConfig.DimissLoadingModal();
-                }
-                return ApiConfig.ErrorHandle('doctor/orderlist', data, err);
+                return ApiConfig.ErrorHandle('order/timeupdate', data, err);
             });
     }
 
