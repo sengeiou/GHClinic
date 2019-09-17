@@ -5,11 +5,11 @@ import { AppComponent } from "./app.component";
 import { ReturnStatement } from "@angular/compiler";
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
-import { OnInit, AfterViewInit} from '@angular/core';
+import { OnInit, AfterViewInit,OnDestroy} from '@angular/core';
 
 declare let Wechat: any;
 
-export class AppBase implements OnInit {
+export class AppBase implements OnInit,OnDestroy {
     public needlogin = false;
     currentpage = "";
     platformname = "";
@@ -36,7 +36,7 @@ export class AppBase implements OnInit {
     public res = null;
     public static StaticInstInfo = null;
 
-    public InstInfo = { name: "" };
+    public InstInfo = { name: "",rtcappid:"" };
 
 
     public options = null;
@@ -107,16 +107,7 @@ export class AppBase implements OnInit {
     }
     getInstInfo() {
 
-        if (AppBase.StaticInstInfo == null) {
-            this.instApi.info({}, false).then((instinfo: any) => {
-                AppBase.StaticInstInfo = instinfo;
-                this.InstInfo = instinfo;
-                console.log(instinfo);
-            });
-        } else {
-
-            this.InstInfo = AppBase.StaticInstInfo;
-        }
+        
     }
     getMemberInfo() {
 
@@ -133,7 +124,18 @@ export class AppBase implements OnInit {
     }
 
     ngAfterViewInit() {
-        this.onMyShow();
+        if (AppBase.StaticInstInfo == null) {
+            this.instApi.info({}, false).then((instinfo: any) => {
+                AppBase.StaticInstInfo = instinfo;
+                this.InstInfo = instinfo;
+                console.log(instinfo);
+                this.onMyShow();
+            });
+        } else {
+
+            this.InstInfo = AppBase.StaticInstInfo;
+            this.onMyShow();
+        }
     }
 
     onMyShow() {
@@ -170,5 +172,11 @@ export class AppBase implements OnInit {
     showAlert(content,title="提示"){
      
           
+    }
+    onUnload(){
+        console.log("on unload");
+    }
+    ngOnDestroy(){
+        this.onUnload();
     }
 }

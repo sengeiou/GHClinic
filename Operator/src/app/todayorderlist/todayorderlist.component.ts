@@ -28,7 +28,6 @@ export class TodayorderlistComponent extends AppBase {
     public operatorApi:OperatorApi
   ) {
     super(router, activeRoute, instApi);
-    
   }
 
   orderA=[];
@@ -40,21 +39,30 @@ export class TodayorderlistComponent extends AppBase {
 
   clock="";
 
-  static timer1;
-  static timer2;
-  static ME=null;
+  order;
+
+   timer1=null;
+   timer2;
+
+  onUnload(){
+    if(this.timer1!=null){
+      clearInterval(this.timer1);
+    }
+    if(this.timer2!=null){
+      clearInterval(this.timer2);
+    }
+  }
 
   onMyLoad(){
-    TodayorderlistComponent.ME=this;
-    TodayorderlistComponent.ME.loadOrder();
-    TodayorderlistComponent.ME.loadClock();
-    if(TodayorderlistComponent.timer1==undefined){
-      TodayorderlistComponent.timer1=setInterval(()=>{
+    this.loadOrder();
+    this.loadClock();
+    if(this.timer1==undefined){
+      this.timer1=setInterval(()=>{
         this.loadClock();
       },1000);
     }
-    if(TodayorderlistComponent.timer2==undefined){
-      TodayorderlistComponent.timer2=setInterval(()=>{
+    if(this.timer2==undefined){
+      this.timer2=setInterval(()=>{
         this.loadOrder();
       },10*60*1000);
     }
@@ -62,13 +70,13 @@ export class TodayorderlistComponent extends AppBase {
 
   loadClock(){
     console.log("reloading t1",(new Date()));
-    TodayorderlistComponent.ME.clock=AppUtil.FormatDateTime(new Date());
+    this.clock=AppUtil.FormatDateTime(new Date());
   }
   loadOrder(){
     console.log("reloading t2",(new Date()));
-    var that=TodayorderlistComponent.ME;
+    var that=this;
     
-    that.operatorApi.todayorderlist({}).then((list)=>{
+    that.operatorApi.todayorderlist({}).then((list:[any])=>{
       var orderA=[];
       var orderB=[];
       var orderC=[];
@@ -147,6 +155,10 @@ export class TodayorderlistComponent extends AppBase {
 
   onMyShow(){
 
+  }
+
+  gotoConference(order){
+    this.navigate("/conference",{order_id:order.id});
   }
 
 }
