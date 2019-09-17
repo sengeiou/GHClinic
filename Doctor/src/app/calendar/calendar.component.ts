@@ -15,7 +15,7 @@ import { DoctorApi } from 'src/providers/doctor.api';
 export class CalendarComponent  extends AppBase  {
 
   constructor(
-    public router: Router,
+    public router: Router, 
     public activeRoute: ActivatedRoute,
     public instApi:InstApi,
     public doctorApi:DoctorApi

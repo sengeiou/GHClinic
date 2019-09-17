@@ -10,6 +10,142 @@ export class MemberApi {
     }
 
 
+    public departmenthost(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'member/departmenthost';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('member/departmenthost', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('member/departmenthost', data, err);
+            });
+    }
+
+
+    public getdepartment(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'member/getdepartment';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('member/getdepartment', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('member/getdepartment', data, err);
+            });
+    }
+
+
+    public getdoctor(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'member/getdoctor';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('member/getdoctor', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('member/getdoctor', data, err);
+            });
+    }
+
+
+    public gethospital(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'member/gethospital';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('member/gethospital', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('member/gethospital', data, err);
+            });
+    }
+
+
     public getuserinfo(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'member/getuserinfo';
         var headers = ApiConfig.GetHeader(url, data);

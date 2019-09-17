@@ -37,39 +37,71 @@
          <hr/>
       </div>
     </div>
+
+    <div class="container-fluid mt-5">
+
+      <div>
+      
+            <div class="tabbody padding-20 ">
+              <div class=" primary-block  text-white ">
+                <div class="flex-row flex-center ">
+                  <div class="h3 padding-20" (click)="addMonth(-1)">
+                    <i class="fa fa-angle-left"></i>
+                  </div>
+                  <div class="flex-1 text-center">{{myear}}年{{mmonth}}月</div>
+                  <div class="h3 padding-20" (click)="addMonth(1)">
+                    <i class="fa fa-angle-right "></i>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-row  primary-block  text-white">
+                <div class="flex-1 h6 txt-bold padding-20 text-center">日</div>
+                <div class="flex-1 h6 txt-bold padding-20 text-center">一</div>
+                <div class="flex-1 h6 txt-bold padding-20 text-center">二</div>
+                <div class="flex-1 h6 txt-bold padding-20 text-center">三</div>
+                <div class="flex-1 h6 txt-bold  padding-20 text-center">四</div>
+                <div class="flex-1 h6 txt-bold padding-20 text-center">五</div>
+                <div class="flex-1 h6 txt-bold padding-20 text-center">六</div>
+              </div>
+              <div class="flex-row " *ngFor="let w of mcal">
+                <div class="flex-1" *ngFor="let d of w;let i=index;">
+                  <div class="mdate padding-20 text-center" (click)='asd(d,i)' [class.issat]="i==6"  [class.xzrq]='d.d==xzrq&&d.f==xzy' [class.pass]='d.pass==true' [class.today]='d.today==true'>
+                    <div class=" ">{{d.today?"今":d.d}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+         
+        
+     
+      </div>
+    
+    
+    </div>
+    
     <div>
         <p class="p1"></p>
         <p class="p2">服务类别</p>
-        <p style="margin-top: 0">
-          <span class="span5">内科</span>
-          <span class="span6">外科</span>
-          <span class="span6">男科</span>
-          <span class="span6">妇科</span>
-          <span class="span6">产科</span>
-        </p>
-        <p style="margin-top: 0px">
-            <span class="span5">儿科</span>
-            <span class="span6">齿科</span>
-            <span class="span6">皮肤科</span>
-            <span class="span6">心内科</span>
-          </p>
-          <p class="p5">
-              <span class="span5">体检</span>
-              <span class="span6">远程医疗</span>
-          </p>
-          <hr/>
+        <div  class="flex-row flex-center flex-wrap">
+
+          <div  (click)="xz=item.id;hospital(item.name)"  [class.lbxz]='xz==item.id' *ngFor='let item of department;let idx=index' class="lb" >{{item.name}}</div>
+ 
+        </div>
+    
+       
         
     </div>
     <div>
         <p class="p1"></p>
         <p class="p2">预约诊所</p>
-        <ion-card (click)="information()">
+        <ion-card  *ngFor="let item of hostlist;let i=index;"  (click)="information()">
             <div>
               <div class="div1">
-                <img alt="" />
+                <img src='{{uploadpath}}hospital/{{item.hospital_fmtupian}}'/>
               </div>
               <div class="div1">
-                <ion-card-title>港和医疗白云分布</ion-card-title>
+                <ion-card-title>{{item.hospital_name}}</ion-card-title>
                 <ion-icon name="star"></ion-icon>
                 <ion-icon name="star"></ion-icon>
                 <ion-icon name="star"></ion-icon>
@@ -77,61 +109,16 @@
                 <ion-icon name="star"></ion-icon>
                 <p style="margin-top: 0">
                     <ion-icon name="call"></ion-icon>
-                    <span style="color:#aaaaaa;">&nbsp;&nbsp;020-88888888</span>
+                    <span style="color:#aaaaaa;">&nbsp;&nbsp;{{item.hospital_phone}}</span>
                 </p>
               </div> 
               <div class="div2">
                 <ion-icon name="compass" class="ion-icon2"></ion-icon>
-                <span class="span7">广州市白云区粤海街道凤凰路美乐家115号...</span>
+                <span class="span7">{{item.hospital_address}}</span>
               </div>             
             </div>
         </ion-card>
-        <ion-card (click)="noDuty()">
-            <div>
-              <div class="div1">
-                <img alt="" />
-              </div>
-              <div class="div1">
-                <ion-card-title>港和医疗白云分布</ion-card-title>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <p style="margin-top: 0">
-                    <ion-icon name="call"></ion-icon>
-                    <span style="color:#aaaaaa;">&nbsp;&nbsp;020-88888888</span>
-                </p>
-              </div> 
-              <div class="div2">
-                <ion-icon name="compass" class="ion-icon2"></ion-icon>
-                <span class="span7">XXXXXXXXXXXXXXXXXXXXX...</span>
-              </div>             
-            </div>
-        </ion-card>
-        <ion-card (click)="physicalExamination()">
-            <div>
-              <div class="div1">
-                <img alt="" />
-              </div>
-              <div class="div1">
-                <ion-card-title>港和医疗白云分布</ion-card-title>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <p style="margin-top: 0">
-                    <ion-icon name="call"></ion-icon>
-                    <span style="color:#aaaaaa;">&nbsp;&nbsp;020-88888888</span>
-                </p>
-              </div> 
-              <div class="div2">
-                <ion-icon name="compass" class="ion-icon2"></ion-icon>
-                <span class="span7">XXXXXXXXXXXXXXXXXXXXX...</span>
-              </div>             
-            </div>
-        </ion-card>
+     
       </div>
               
 
