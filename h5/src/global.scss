@@ -139,8 +139,12 @@
     border: 2px solid #bbbbbb;
   }
 
-  .border-bw {
+  .border-bw1 {
     border: 1px solid #D8DCE6;
+  }
+
+  .border-bw {
+    border: 0.5px solid #D8DCE6;
   }
 
   .border-w {
@@ -643,12 +647,32 @@
     margin-left: px(50);
   }
 
+  .margin-left-160 {
+    margin-left: px(80);
+  }
+
+  .margin-left-260 {
+    margin-left: px(130);
+  }
+
   .margin-left-300 {
     margin-left: px(150)
   }
 
   .margin-left-360 {
     margin-left: px(180)
+  }
+
+  .margin-left-400 {
+    margin-left: px(200)
+  }
+
+  .margin-left-500 {
+    margin-left: px(250)
+  }
+
+  .margin-left-540 {
+    margin-left: px(270)
   }
   
   .margin-right-15 {
@@ -979,3 +1003,5 @@
   .opt0{
     opacity: 0;
   }
+
+  

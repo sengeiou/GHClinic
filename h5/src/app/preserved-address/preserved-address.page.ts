@@ -8,11 +8,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 
 @Component({
-  selector: 'app-tab4',
-  templateUrl: 'tab4.page.html',
-  styleUrls: ['tab4.page.scss']
+  selector: 'app-preserved-address',
+  templateUrl: 'preserved-address.page.html',
+  styleUrls: ['preserved-address.page.scss']
 })
-export class Tab4Page extends AppBase {
+export class PreservedAddressPage extends AppBase {
 
   constructor(public router: Router,
     public navCtrl: NavController,
@@ -34,8 +34,6 @@ export class Tab4Page extends AppBase {
   onMyShow(){
 
   }
-  address(){
-    this.navigate("address")
-  }
- 
+
+
 }

@@ -21,7 +21,11 @@ const routes: Routes = [
   { path: 'successful-trade', loadChildren: './successful-trade/successful-trade.module#SuccessfulTradePageModule' },
   { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
   { path: 'carts', loadChildren: './carts/carts.module#CartsPageModule' },
-  { path: 'search-drugs', loadChildren: './search-drugs/search-drugs.module#SearchDrugsPageModule' }
+  { path: 'search-drugs', loadChildren: './search-drugs/search-drugs.module#SearchDrugsPageModule' },
+  { path: 'address', loadChildren: './address/address.module#AddressPageModule' },
+  { path: 'my-address', loadChildren: './my-address/my-address.module#MyAddressPageModule' },
+  { path: 'preserved-address', loadChildren: './preserved-address/preserved-address.module#PreservedAddressPageModule' },
+ 
 
 ];
 @NgModule({
