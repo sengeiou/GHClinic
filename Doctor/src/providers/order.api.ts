@@ -52,4 +52,70 @@ export class OrderApi {
             });
     }
 
+
+    public start(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'order/start';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('order/start', data, err);
+            });
+    }
+
+
+    public end(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'order/end';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('order/end', data, err);
+            });
+    }
+
+
+    public timeupdate(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'order/timeupdate';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('order/timeupdate', data, err);
+            });
+    }
+
 }
