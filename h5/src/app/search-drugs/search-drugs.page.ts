@@ -9,11 +9,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.page.html',
-  styleUrls: ['./search.page.scss'],
+  selector: 'app-search-drugs',
+  templateUrl: './search-drugs.page.html',
+  styleUrls: ['./search-drugs.page.scss'],
 })
-export class SearchPage extends AppBase {
+export class SearchDrugsPage extends AppBase {
 
   constructor(public router: Router,
     public navCtrl: NavController,
@@ -34,10 +34,6 @@ export class SearchPage extends AppBase {
   }
   onMyShow() {
    
-  }
-
-  searchDrugs(){
-    this.navigate("search-drugs")
   }
 
   

@@ -20,7 +20,8 @@ const routes: Routes = [
   { path: 'order', loadChildren: './order/order.module#OrderPageModule' },
   { path: 'successful-trade', loadChildren: './successful-trade/successful-trade.module#SuccessfulTradePageModule' },
   { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
-  { path: 'carts', loadChildren: './carts/carts.module#CartsPageModule' }
+  { path: 'carts', loadChildren: './carts/carts.module#CartsPageModule' },
+  { path: 'search-drugs', loadChildren: './search-drugs/search-drugs.module#SearchDrugsPageModule' }
 
 ];
 @NgModule({

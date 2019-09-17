@@ -34,5 +34,8 @@ export class OrderPage extends AppBase {
   onMyShow(){
 
   }
+  successfulTrade(){
+    this.navigate("successful-trade")
+  }
 
 }

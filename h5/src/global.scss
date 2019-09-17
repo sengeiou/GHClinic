@@ -187,6 +187,10 @@
   .txt-white {
     color: white;
   }
+
+  .txt-g {
+    color:#6B3689;
+  } 
   
   .txt-gray {
     color: #84817e;
@@ -253,6 +257,10 @@
   .f12 {
     font-size: px(12);
   }
+
+  .f13 {
+    font-size: px(13);
+  }
   
   .f16 {
     font-size: px(16) !important;
@@ -264,6 +272,11 @@
   .f20 {
     font-size: px(20) !important;
   }
+
+  .f28 {
+    font-size: px(28) !important;
+  }
+
   .f32 {
     font-size: px(32);
   }
@@ -501,6 +514,10 @@
   .margin-bottom-20 {
     margin-bottom: px(10);
   }
+
+  .margin-bottom-30 {
+    margin-bottom: px(15);
+  }
   
   .margin-bottom-40 {
     margin-bottom: px(20);
@@ -534,6 +551,10 @@
     height: px(50);
   }
   
+  .height-260 {
+    height: px(130);
+  }
+
   .height-150 {
     height: px(75);
   }
@@ -620,6 +641,14 @@
 
   .margin-left-100 {
     margin-left: px(50);
+  }
+
+  .margin-left-300 {
+    margin-left: px(150)
+  }
+
+  .margin-left-360 {
+    margin-left: px(180)
   }
   
   .margin-right-15 {
