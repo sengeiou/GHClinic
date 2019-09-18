@@ -34,9 +34,9 @@ const routes: Routes = [
   { path: 'order-complete', loadChildren: './order-complete/order-complete.module#OrderCompletePageModule' },
   { path: 'my-appointment', loadChildren: './my-appointment/my-appointment.module#MyAppointmentPageModule' },
   { path: 'my-appointment0', loadChildren: './my-appointment0/my-appointment0.module#MyAppointment0PageModule' },
-  { path: 'appointment-cancalled', loadChildren: './appointment-cancalled/appointment-cancalled.module#AppointmentCancalledPageModule' },
   { path: 'appointment-payment', loadChildren: './appointment-payment/appointment-payment.module#AppointmentPaymentPageModule' },
   { path: 'appointment-complete', loadChildren: './appointment-complete/appointment-complete.module#AppointmentCompletePageModule' },
+  { path: 'appointment-cancelled', loadChildren: './appointment-cancelled/appointment-cancelled.module#AppointmentCancelledPageModule' },
  
 
 ];

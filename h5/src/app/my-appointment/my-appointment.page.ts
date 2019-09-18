@@ -34,6 +34,15 @@ export class MyAppointmentPage extends AppBase {
   onMyShow(){
 
   }
+  appointmentCancelled(){
+    this.navigate("appointment-cancelled")
+  }
+  appointmentPayment(){
+    this.navigate("appointment-payment")
+  }
+  appointmentComplete(){
+    this.navigate("appointment-complete")
+  }
 
  
 }

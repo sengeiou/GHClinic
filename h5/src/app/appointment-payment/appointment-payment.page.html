@@ -1,9 +1,19 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>AppointmentPayment</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-icon name="arrow-back" class="icon-24" (click)="back()"></ion-icon>
+        <ion-title>
+          预约详情
+        </ion-title>
+        <ion-icon name="close" slot="end" class="icon-24"></ion-icon>
+      </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <div style="background-color: #11838D">
+        <div class="card bg-p height-81">
+          <div class="f16 txt-bold txt-white margin-left-30">待付款</div>
+          <div class="f12 txt-bold txt-white margin-left-30 margin-top-30">等待买家付款，超过3分钟将自动取消</div>
+        </div>
+    </div>
 
 </ion-content>
