@@ -37,5 +37,13 @@ export class Tab4Page extends AppBase {
   address(){
     this.navigate("address")
   }
+
+  myOrder(){
+    this.navigate("my-order")
+  }
+
+  MyAppointment(){
+    this.navigate("my-appointment")
+  }
  
 }

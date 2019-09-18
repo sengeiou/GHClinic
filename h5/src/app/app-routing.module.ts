@@ -25,6 +25,18 @@ const routes: Routes = [
   { path: 'address', loadChildren: './address/address.module#AddressPageModule' },
   { path: 'my-address', loadChildren: './my-address/my-address.module#MyAddressPageModule' },
   { path: 'preserved-address', loadChildren: './preserved-address/preserved-address.module#PreservedAddressPageModule' },
+  { path: 'evaluate', loadChildren: './evaluate/evaluate.module#EvaluatePageModule' },
+  { path: 'my-order', loadChildren: './my-order/my-order.module#MyOrderPageModule' },
+  { path: 'my-order0', loadChildren: './my-order0/my-order0.module#MyOrder0PageModule' },
+  { path: 'order-cancelled', loadChildren: './order-cancelled/order-cancelled.module#OrderCancelledPageModule' },
+  { path: 'order-payment', loadChildren: './order-payment/order-payment.module#OrderPaymentPageModule' },
+  { path: 'order-sign', loadChildren: './order-sign/order-sign.module#OrderSignPageModule' },
+  { path: 'order-complete', loadChildren: './order-complete/order-complete.module#OrderCompletePageModule' },
+  { path: 'my-appointment', loadChildren: './my-appointment/my-appointment.module#MyAppointmentPageModule' },
+  { path: 'my-appointment0', loadChildren: './my-appointment0/my-appointment0.module#MyAppointment0PageModule' },
+  { path: 'appointment-cancalled', loadChildren: './appointment-cancalled/appointment-cancalled.module#AppointmentCancalledPageModule' },
+  { path: 'appointment-payment', loadChildren: './appointment-payment/appointment-payment.module#AppointmentPaymentPageModule' },
+  { path: 'appointment-complete', loadChildren: './appointment-complete/appointment-complete.module#AppointmentCompletePageModule' },
  
 
 ];

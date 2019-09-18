@@ -1,0 +1,17 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+  .card{   
+    background-color:white;    
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(37);
+  }
+  .icon-26{
+    width: rpx(26*2);
+    height: rpx(6);
+ }
+
+  .height-280{
+      height: rpx(280)
+  }
