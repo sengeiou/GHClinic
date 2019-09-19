@@ -42,12 +42,32 @@
     border-radius: 50%;
     padding:rpx(4)
   }
-.span6{
-    color:black;
-    margin-left: rpx(40*2);
-    font-size: rpx(28);
+  .rq{
+    text-align: center;
+  }
+  .bb{
+  width:rpx(60);
+  height: rpx(60);
+  line-height: rpx(60);
+  border:solid #aaaaaa rpx(2);
+  border-radius: 50%;
+  }
+  .bb1{
+
     width:rpx(60);
     height: rpx(60);
+    line-height: rpx(60);
+    
+  }
+  .jt{
+ background: #6B3689;
+ color:white;
+  }
+.span6{
+    color:black;
+    font-size: rpx(28);
+    width:rpx(20);
+    height: rpx(20);
     border:solid #aaaaaa rpx(2);
     border-radius: 50%;
     padding:rpx(4)

@@ -1,86 +1,111 @@
 <ion-header>
-    <ion-toolbar color="primary">
-        <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
-        <ion-title>
-         
-        </ion-title>
-        <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
-      </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
+    <ion-title>
+
+    </ion-title>
+    <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="doctorinfo!=null">
   <div style="background-color: #11838D">
-      <div class="card">
-        <div class="div1">  
-          <img/>
-        </div>
-        <div class="div1">
-            <p>
-                <span class="name">张XX</span>
-                <span class="zhiWei">主任医师</span>
-              </p>
-              <p class="address">中山大学第一附属医院</p>
-        </div>
-        <div style="clear: both"></div>
-        <hr/>
+    <div class="card">
+      <div class="div1">
+
+        <img src='{{uploadpath}}doctor/{{doctorinfo.photo}}' />
+      </div>
+      <div class="div1">
+        <p>
+          <span class="name">{{doctorinfo.name}}</span>
+          <span class="zhiWei">{{doctorinfo.title}}</span>
+        </p>
+        <p class="address">中山大学第一附属医院
+          {{doctorinfo.Hospital}} </p>
+      </div>
+      <div style="clear: both"></div>
+      <hr />
+    
       <div>
         <p class="p1">专业擅长</p>
-        <p class="p2">支持多行文字，文字内容后台编辑。支持多行文字，文字内容后台编辑。支持多行文字，文字内容后台编辑。支持多行文字，文字内容后台编辑。</p>
+        <p class="p2">{{doctorinfo.description}}</p>
         <p style="clear: both"></p>
-        <hr/>
+        <hr />
       </div>
-      </div>
+    </div>
   </div>
   <div class="div2">
     <span class="span1">预约诊所</span>
     <span class="span2">港和医疗白云分部</span>
   </div>
-  <hr/>
+  <hr />
   <div>
     <p class="p3">2019年8月</p>
-    <hr/>
-    <p>
-        <span class="span3">日</span>  
-        <span class="span4">一</span>
-        <span class="span4">二</span>
-        <span class="span4">三</span> 
-        <span class="span4">四</span>
-        <span class="span4">五</span>
-        <span class="span4">六</span>
-     </p> 
-     <p class="p4">
-        <span class="span5">1</span>  
-        <span class="span6">2</span>
-        <span class="span6">3</span>
-        <span class="span6">4</span> 
-        <span class="span6">5</span>
-        <span class="span6">6</span> 
-        <span class="span6">7</span> 
-     </p>  
-     <hr/>
+    <hr />
+ 
+    <div class="flex-row flex-center margin-top-80">
+      <div class="flex-1"></div>
+      <div class="rq  bb1">{{qiansantian[2].d4}}</div>
+      <div class="flex-1"></div>
+      <div class="rq  bb1 ">{{qiansantian[1].d4}}</div>
+      <div class="flex-1"></div>
+      <div class="rq  bb1 ">{{qiansantian[0].d4}}</div>
+      <div class="flex-1"></div>
+      <div class="rq   bb1 ">{{jintian.d4}}</div>
+      <div class="flex-1"></div>
+      <div class="rq  bb1 ">{{housantian[0].d4}}</div>
+      <div class="flex-1"></div>
+      <div class="rq  bb1 ">{{housantian[1].d4}}</div>
+      <div class="flex-1"></div>
+      <div class="rq  bb1 ">{{housantian[2].d4}}</div>
+      <div class="flex-1"></div>
+  </div>
+
+
+
+
+
+  <div class="flex-row flex-center margin-top">
+      <div class="flex-1"></div>
+      <div (click)="clickdate(qiansantian[2]);jt=0"  [class.jt]="jt==0"  class="rq bb ">{{qiansantian[2].d3}}</div>
+      <div class="flex-1"></div>
+      <div (click)="clickdate(qiansantian[1]);jt=1" [class.jt]="jt==1" class="rq bb ">{{qiansantian[1].d3}}</div>
+      <div class="flex-1"></div>
+      <div (click)="clickdate(qiansantian[0]);jt=2" [class.jt]="jt==2" class="rq bb ">{{qiansantian[0].d3}}</div>
+      <div class="flex-1"></div>
+      <div (click)="clickdate(jintian);jt=3"        [class.jt]="jt==3"  class="rq bb  jt">{{jintian.d3}}</div>
+      <div class="flex-1"></div>
+      <div (click)="clickdate(housantian[0]);jt=4" [class.jt]="jt==4" class="rq bb ">{{housantian[0].d3}}</div>
+      <div class="flex-1"></div>
+      <div (click)="clickdate(housantian[1]);jt=5" [class.jt]="jt==5" class="rq bb ">{{housantian[1].d3}}</div>
+      <div class="flex-1"></div>
+      <div (click)="clickdate(housantian[2]);jt=6" [class.jt]="jt==6" class="rq bb ">{{housantian[2].d3}}</div>
+      <div class="flex-1"></div>
+  </div>
+    <hr />
   </div>
   <div>
-  <div class="div3">
-    <p class="p5" style="color:#6b3689;border-color:#6b3689;background-color: #eed1ff">预约上午</p>
-    <p class="p5">预约下午</p>
-    <p style="clear:both"></p>
-  </div>
-  <table class="table1">
-    <tr>
-      <td>
-        <span class="span7">08:00</span>
-        <span class="span8">至08:30</span>
-      </td>
-      <td>
-        <span class="span7">08:30</span>
-        <span class="span8">至09:00</span>
-      </td>
-      <td>
-        <span class="span7">09:00</span>
-        <span class="span8">至09:30</span>
-      </td>
-    </tr>
-    <tr>
+    <div class="div3">
+      <p class="p5" style="color:#6b3689;border-color:#6b3689;background-color: #eed1ff">预约上午</p>
+      <p class="p5">预约下午</p>
+      <p style="clear:both"></p>
+    </div>
+    <table class="table1">
+      <tr>
+        <td>
+          <span class="span7">08:00</span>
+          <span class="span8">至08:30</span>
+        </td>
+        <td>
+          <span class="span7">08:30</span>
+          <span class="span8">至09:00</span>
+        </td>
+        <td>
+          <span class="span7">09:00</span>
+          <span class="span8">至09:30</span>
+        </td>
+      </tr>
+      <tr>
         <td>
           <span class="span7">09:30</span>
           <span class="span8">至10:00</span>
@@ -95,15 +120,15 @@
         </td>
       </tr>
       <tr>
-          <td>
-            <span class="span7">11:00</span>
-            <span class="span8">至11:30</span>
-          </td>
-          <td (click)="appointment()">
-            <span class="span7">11:30</span>
-            <span class="span8">至12:00</span>
-          </td>
+        <td>
+          <span class="span7">11:00</span>
+          <span class="span8">至11:30</span>
+        </td>
+        <td (click)="appointment()">
+          <span class="span7">11:30</span>
+          <span class="span8">至12:00</span>
+        </td>
       </tr>
-  </table>
+    </table>
   </div>
 </ion-content>

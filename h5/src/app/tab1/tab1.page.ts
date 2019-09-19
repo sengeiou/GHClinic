@@ -10,7 +10,7 @@ import { MemberApi } from 'src/providers/member.api';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page extends AppBase {
 
@@ -75,6 +75,7 @@ export class Tab1Page extends AppBase {
   }
   xzrq='';
   xzy='';
+  riqi='';
   asd(d,i){
     console.log("123123123");
     if(d.pass==true)
@@ -82,8 +83,11 @@ export class Tab1Page extends AppBase {
      return  
     }
     else{
+    console.log(d.sdate);
+    console.log(new(Date));
     this.xzrq=d.d; 
     this.xzy=d.f;
+    this.riqi=d.sdate;
     }
     console.log(d);
     console.log(i);
@@ -201,7 +205,12 @@ export class Tab1Page extends AppBase {
     this.navigate("search")
   }
   information() {
-    this.navigate("information")
+         
+    var yue=this.xzy;
+    var ri=this.xzrq;
+     
+
+    this.navigate("information",{riqi:this.riqi})
   }
   physicalExamination() {
     this.navigate("physical-examination")

@@ -2,57 +2,81 @@
     <ion-toolbar color="primary">
         <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
         <ion-title>
-          港和医疗白云分部
+            港和医疗白云分部
         </ion-title>
         <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
-      </ion-toolbar>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <div style="background-color: #11838D">
+    <div style="background-color: #11838D" *ngIf="qiansantian.length!=0&&housantian.length!=0">
         <div class="card">
             <span class="span1">儿科</span>
             <span class="span2">2019年8月</span>
             <span class="span8" (click)="clinic()">诊所介绍</span>
-            <p>
-                <span class="span3">日</span>  
-                <span class="span4">一</span>
-                <span class="span4">二</span>
-                <span class="span4">三</span> 
-                <span class="span4">四</span>
-                <span class="span4">五</span>
-                <span class="span4">六</span>
-             </p> 
-             <p class="p1">
-                <span class="span5">1</span>  
-                <span class="span6">2</span>
-                <span class="span6">3</span>
-                <span class="span6">4</span> 
-                <span class="span6">5</span>
-                <span class="span6">6</span> 
-                <span class="span6">7</span> 
-             </p>  
-             <hr/>            
+
+
+
+            <div class="flex-row flex-center margin-top-80">
+                <div class="flex-1"></div>
+                <div class="rq  bb1">{{qiansantian[2].d4}}</div>
+                <div class="flex-1"></div>
+                <div class="rq  bb1 ">{{qiansantian[1].d4}}</div>
+                <div class="flex-1"></div>
+                <div class="rq  bb1 ">{{qiansantian[0].d4}}</div>
+                <div class="flex-1"></div>
+                <div class="rq   bb1 ">{{jintian.d4}}</div>
+                <div class="flex-1"></div>
+                <div class="rq  bb1 ">{{housantian[0].d4}}</div>
+                <div class="flex-1"></div>
+                <div class="rq  bb1 ">{{housantian[1].d4}}</div>
+                <div class="flex-1"></div>
+                <div class="rq  bb1 ">{{housantian[2].d4}}</div>
+                <div class="flex-1"></div>
+            </div>
+
+
+
+
+
+            <div class="flex-row flex-center margin-top">
+                <div class="flex-1"></div>
+                <div (click)="clickdate(qiansantian[2]);jt=0"  [class.jt]="jt==0"  class="rq bb ">{{qiansantian[2].d3}}</div>
+                <div class="flex-1"></div>
+                <div (click)="clickdate(qiansantian[1]);jt=1" [class.jt]="jt==1" class="rq bb ">{{qiansantian[1].d3}}</div>
+                <div class="flex-1"></div>
+                <div (click)="clickdate(qiansantian[0]);jt=2" [class.jt]="jt==2" class="rq bb ">{{qiansantian[0].d3}}</div>
+                <div class="flex-1"></div>
+                <div (click)="clickdate(jintian);jt=3"        [class.jt]="jt==3"  class="rq bb  jt">{{jintian.d3}}</div>
+                <div class="flex-1"></div>
+                <div (click)="clickdate(housantian[0]);jt=4" [class.jt]="jt==4" class="rq bb ">{{housantian[0].d3}}</div>
+                <div class="flex-1"></div>
+                <div (click)="clickdate(housantian[1]);jt=5" [class.jt]="jt==5" class="rq bb ">{{housantian[1].d3}}</div>
+                <div class="flex-1"></div>
+                <div (click)="clickdate(housantian[2]);jt=6" [class.jt]="jt==6" class="rq bb ">{{housantian[2].d3}}</div>
+                <div class="flex-1"></div>
+            </div>
+            <hr />
         </div>
     </div>
     <div>
         <p class="p2"></p>
         <p class="p3">预约医生</p>
-        <ion-card  *ngFor="let item of doctorlist;let i=index">
+        <ion-card *ngFor="let item of doctorlist;let i=index">
             <div class="div1">
-                <img  src='{{uploadpath}}doctor/{{item.photo}}' />
+                <img src='{{uploadpath}}doctor/{{item.photo}}' />
                 <span class="span7">约满</span>
-              </div>
-              <div class="div1" (click)="doctor()">
-                  <p class="p4">
-                      <span class="xingMing">{{item.name}}</span>
-                      <span class="zhiWei">{{item.title}}</span>
-                  </p>
-                  <ion-button color="primary" class="fee">费用：￥{{item.price}}</ion-button>
-                  <p class="address">中山大学第一附属医院</p>
-                  <p class="shanChang">{{item.description}}</p>
-              </div> 
+            </div>
+            <div class="div1" (click)="doctor(item.id)">
+                <p class="p4">
+                    <span class="xingMing">{{item.name}}</span>
+                    <span class="zhiWei">{{item.title}}</span>
+                </p>
+                <ion-button color="primary" class="fee">费用：￥{{item.price}}</ion-button>
+                <p class="address">中山大学第一附属医院</p>
+                <p class="shanChang">{{item.description}}</p>
+            </div>
         </ion-card>
-      
+
     </div>
 </ion-content>
