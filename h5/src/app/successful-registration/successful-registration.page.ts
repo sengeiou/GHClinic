@@ -1,19 +1,18 @@
-
 import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
-import { ActivatedRoute, Params } from '@angular/router';
-import { NavController, ModalController, ToastController, AlertController, NavParams, IonSlides } from '@ionic/angular';
+import {  ActivatedRoute, Params } from '@angular/router';
+import { NavController, ModalController, ToastController, AlertController, NavParams,IonSlides } from '@ionic/angular';
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 
 @Component({
-  selector: 'app-physical-examination',
-  templateUrl: './physical-examination.page.html',
-  styleUrls: ['./physical-examination.page.scss'],
+  selector: 'app-successful-registration',
+  templateUrl: 'successful-registration.page.html',
+  styleUrls: ['successful-registration.page.scss']
 })
-export class PhysicalExaminationPage extends AppBase {
+export class SuccessfulRegistrationPage extends AppBase {
 
   constructor(public router: Router,
     public navCtrl: NavController,
@@ -22,25 +21,21 @@ export class PhysicalExaminationPage extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi: MemberApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    public memberApi:MemberApi) {
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
-
+      
   }
-  
-  onMyLoad() {
+
+  onMyLoad(){
     //参数
     this.params;
   }
-  onMyShow() {
-   
+  onMyShow(){
+
   }
-  
- detail(){
-   this.navigate("detail")
- }
+
+
+
  
-  
-
 }
-

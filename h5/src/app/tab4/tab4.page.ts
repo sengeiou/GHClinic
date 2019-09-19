@@ -45,5 +45,10 @@ export class Tab4Page extends AppBase {
   MyAppointment(){
     this.navigate("my-appointment")
   }
+
+  myNews(){
+    this.navigate("my-news")
+  }
+
  
 }

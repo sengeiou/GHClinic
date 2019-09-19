@@ -1,0 +1,23 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+.ion-icon{
+    height:rpx(24*2);
+    width:rpx(24*2)
+}
+.card{
+    background-color:white;    
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(37);
+}
+
+
+
+.margin-top-100{
+    margin-top:rpx(100);
+}
+
+.width-250 {
+    width: rpx(500)
+}

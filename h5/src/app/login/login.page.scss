@@ -1,0 +1,26 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+
+.icon-30-4 {
+    width: rpx(60);
+    height: rpx(8);
+}
+
+
+.margin-top-300 {
+    margin-top: rpx(150);
+}
+
+.icon-310 {
+    width:rpx(310*2);
+    height: rpx(90);
+}
+
+.margin-top-50 {
+    margin-top: rpx(50);
+}
+.margin-top-100{
+    margin-top: rpx(100);                    
+}

@@ -37,6 +37,13 @@ const routes: Routes = [
   { path: 'appointment-payment', loadChildren: './appointment-payment/appointment-payment.module#AppointmentPaymentPageModule' },
   { path: 'appointment-complete', loadChildren: './appointment-complete/appointment-complete.module#AppointmentCompletePageModule' },
   { path: 'appointment-cancelled', loadChildren: './appointment-cancelled/appointment-cancelled.module#AppointmentCancelledPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
+  { path: 'password', loadChildren: './password/password.module#PasswordPageModule' },
+  { path: 'reset-password', loadChildren: './reset-password/reset-password.module#ResetPasswordPageModule' },
+  { path: 'successful-registration', loadChildren: './successful-registration/successful-registration.module#SuccessfulRegistrationPageModule' },
+  { path: 'my-news', loadChildren: './my-news/my-news.module#MyNewsPageModule' },
+
  
 
 ];

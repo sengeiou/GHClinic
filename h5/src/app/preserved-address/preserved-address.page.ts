@@ -38,8 +38,6 @@ export class PreservedAddressPage extends AppBase {
     this.navigate("my-address")
   }
 
-  evaluate(){
-    this.navigate("evaluate")
-  }
+  
 
 }
