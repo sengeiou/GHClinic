@@ -1,0 +1,31 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+
+
+.icon-310 {
+    width:rpx(310*2);
+    height: rpx(90);
+}
+
+
+.margin-top-300 {
+    margin-top: rpx(150);
+}
+hr{
+    border: #aaaaaa solid rpx(0.01*2);
+    background-color: #aaaaaa;
+    opacity: 0.2;
+  }
+
+
+.margin-top-50 {
+    margin-top: rpx(50);
+}
+.margin-top-100{
+    margin-top: rpx(100);                    
+}
+.width-308{
+    width:rpx(308*2)
+}

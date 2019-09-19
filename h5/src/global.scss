@@ -139,8 +139,12 @@
     border: 2px solid #bbbbbb;
   }
 
-  .border-bw {
+  .border-bw1 {
     border: 1px solid #D8DCE6;
+  }
+
+  .border-bw {
+    border: 0.5px solid #D8DCE6;
   }
 
   .border-w {
@@ -187,6 +191,10 @@
   .txt-white {
     color: white;
   }
+
+  .txt-g {
+    color:#6B3689;
+  } 
   
   .txt-gray {
     color: #84817e;
@@ -253,6 +261,10 @@
   .f12 {
     font-size: px(12);
   }
+
+  .f13 {
+    font-size: px(13);
+  }
   
   .f16 {
     font-size: px(16) !important;
@@ -264,6 +276,11 @@
   .f20 {
     font-size: px(20) !important;
   }
+
+  .f28 {
+    font-size: px(28) !important;
+  }
+
   .f32 {
     font-size: px(32);
   }
@@ -405,6 +422,10 @@
   .padding-bottom-15 {
     padding-bottom: px(7.5);
   }
+
+  .padding-top-30 {
+    padding-top: px(15);
+  }
   
   .padding-top-40 {
     padding-top: px(20);
@@ -501,6 +522,10 @@
   .margin-bottom-20 {
     margin-bottom: px(10);
   }
+
+  .margin-bottom-30 {
+    margin-bottom: px(15);
+  }
   
   .margin-bottom-40 {
     margin-bottom: px(20);
@@ -516,6 +541,10 @@
   
   .height-40 {
     height: px(20);
+  }
+
+  .height-90 {
+    height: px(45);
   }
   
   .height-50 {
@@ -534,6 +563,10 @@
     height: px(50);
   }
   
+  .height-260 {
+    height: px(130);
+  }
+
   .height-150 {
     height: px(75);
   }
@@ -541,9 +574,17 @@
   .height-151 {
     height: px(151);
   }
+
+  .height-320 {
+    height: px(160);
+  }
   
   .margin-top-40 {
     margin-top: px(20);
+  }
+
+  .margin-top-50 {
+    margin-top: px(25);
   }
   
   .margin-top-60 {
@@ -618,8 +659,40 @@
     margin-left: px(25);
   }
 
+  .margin-left-80 {
+    margin-left: px(40);
+  }
+
   .margin-left-100 {
     margin-left: px(50);
+  }
+
+  .margin-left-160 {
+    margin-left: px(80);
+  }
+
+  .margin-left-260 {
+    margin-left: px(130);
+  }
+
+  .margin-left-300 {
+    margin-left: px(150)
+  }
+
+  .margin-left-360 {
+    margin-left: px(180)
+  }
+
+  .margin-left-400 {
+    margin-left: px(200)
+  }
+
+  .margin-left-500 {
+    margin-left: px(250)
+  }
+
+  .margin-left-540 {
+    margin-left: px(270)
   }
   
   .margin-right-15 {
@@ -722,6 +795,11 @@
     width: px(60);
     height: px(60);
   }
+
+  .icon-70 {
+    width: px(70);
+    height: px(70);
+  }
   
   .icon-75 {
     width: px(75);
@@ -763,6 +841,10 @@
 
   .line-height-24 {
     line-height: px(24)
+  }
+
+  .line-height-45 {
+    line-height: px(45)
   }
   
   .border-gray {
@@ -950,3 +1032,5 @@
   .opt0{
     opacity: 0;
   }
+
+  

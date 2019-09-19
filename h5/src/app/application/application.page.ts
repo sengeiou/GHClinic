@@ -35,5 +35,9 @@ export class ApplicationPage extends AppBase {
 
   }
 
+  successfulRegistration(){
+    this.navigate("successful-registration")
+  }
+
  
 }

@@ -1,0 +1,39 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+.card{
+    background-color:white;    
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(37);
+}
+
+.icon-26{
+    width: rpx(26*2);
+    height: rpx(6);
+}
+
+.icon-60 {
+    width: rpx(120);
+    height: rpx(120);
+  }
+
+.height-247{
+    height:rpx(247*2)
+}
+
+.border-pg {
+    width: rpx(67*2);
+    height: rpx(26*2);
+    padding-top:rpx(4);
+    border:rpx(4) solid #F7555A;
+    border-radius: rpx(40)
+}
+
+.border-bg {
+    width: rpx(67*2);
+    height: rpx(26*2);
+    padding-top:rpx(6);
+    border:rpx(2) solid black;
+    border-radius: rpx(40)
+}

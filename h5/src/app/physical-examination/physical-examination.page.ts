@@ -39,6 +39,7 @@ export class PhysicalExaminationPage extends AppBase {
  detail(){
    this.navigate("detail")
  }
+ 
   
 
 }

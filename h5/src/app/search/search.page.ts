@@ -36,6 +36,10 @@ export class SearchPage extends AppBase {
    
   }
 
+  searchDrugs(){
+    this.navigate("search-drugs")
+  }
+
   
 
 }
