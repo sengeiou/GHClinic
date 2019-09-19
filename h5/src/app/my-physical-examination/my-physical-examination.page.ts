@@ -8,11 +8,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 
 @Component({
-  selector: 'app-my-appointment',
-  templateUrl: 'my-appointment.page.html',
-  styleUrls: ['my-appointment.page.scss']
+  selector: 'app-my-physical-examination',
+  templateUrl: 'my-physical-examination.page.html',
+  styleUrls: ['my-physical-examination.page.scss']
 })
-export class MyAppointmentPage extends AppBase {
+export class MyPhysicalExaminationPage extends AppBase {
 
   constructor(public router: Router,
     public navCtrl: NavController,
@@ -33,12 +33,6 @@ export class MyAppointmentPage extends AppBase {
   }
   onMyShow(){
 
-  }
-  appointmentCancelled(){
-    this.navigate("appointment-cancelled")
-  }
-  appointmentPayment(){
-    this.navigate("appointment-payment")
   }
   
 

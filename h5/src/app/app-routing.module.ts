@@ -43,6 +43,9 @@ const routes: Routes = [
   { path: 'reset-password', loadChildren: './reset-password/reset-password.module#ResetPasswordPageModule' },
   { path: 'successful-registration', loadChildren: './successful-registration/successful-registration.module#SuccessfulRegistrationPageModule' },
   { path: 'my-news', loadChildren: './my-news/my-news.module#MyNewsPageModule' },
+  { path: 'my-physical-examination', loadChildren: './my-physical-examination/my-physical-examination.module#MyPhysicalExaminationPageModule' },
+  { path: 'my-activity', loadChildren: './my-activity/my-activity.module#MyActivityPageModule' },
+  { path: 'my-customer', loadChildren: './my-customer/my-customer.module#MyCustomerPageModule' },
 
  
 

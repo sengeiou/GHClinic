@@ -50,5 +50,18 @@ export class Tab4Page extends AppBase {
     this.navigate("my-news")
   }
 
+  myPhysicalExamination(){
+    this.navigate("my-physical-examination")
+  }
+
+  myActivity(){
+    this.navigate("my-activity")
+  }
+
+
+  myCustomer(){
+    this.navigate("my-customer")
+  }
+
  
 }
