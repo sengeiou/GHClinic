@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content>
-  <div style="background-color: #11838D">
+  <div style="background-color: #11838D" class="padding-top-15">
     <div class="card">
         <div class="flex-row flex-center margin-left-30">
             <div>
@@ -23,7 +23,7 @@
 
 
 
-          <ion-card class="height-280">
+          <ion-card class="height-280" (click)="physicalExaminationCancelled()">
               <div class="margin-left-30 margin-top-40">
                 <div class="flex-row flex-center"> 
                   <div class="h5 txt-bold txt-black">港和医疗白云分部</div>
@@ -36,7 +36,7 @@
           </ion-card>
 
 
-          <ion-card class="height-280">
+          <ion-card class="height-280" (click)="physicalExaminationPayment()">
               <div class="margin-left-30 margin-top-40">
                 <div class="flex-row flex-center"> 
                   <div class="h5 txt-bold txt-black">港和医疗白云分部</div>
@@ -47,6 +47,9 @@
                 <div class="h5 txt-black margin-top-30">体检人：张三</div>
               </div>
           </ion-card>
+
+
+
 
 
 

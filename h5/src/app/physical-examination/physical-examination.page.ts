@@ -39,7 +39,47 @@ export class PhysicalExaminationPage extends AppBase {
  detail(){
    this.navigate("detail")
  }
+
+
  
+ comprehensive=()=>{
+  var divOne=document.getElementById('divOne')
+  var divTwo=document.getElementById('divTwo')
+    if(divOne.style.height==='246px'){
+       divOne.style.height=0+'px';
+       divOne.style.display="none";
+       divTwo.style.display="none";
+       divTwo.style.opacity='0';
+    }else{
+       divOne.style.height=246+'px';
+       divOne.style.display="block";
+       divTwo.style.display="block";
+       divTwo.style.opacity='0.6';
+    }
+
+ }
+
+ screen=()=>{
+
+  var divThree=document.getElementById('divThree')
+  var divTwo=document.getElementById('divTwo')
+    if(divThree.style.height==='418px'){
+      divThree.style.height=0+'px';
+      divThree.style.display="none";
+      divTwo.style.display="none";
+       divTwo.style.opacity='0';
+    }else{
+      divThree.style.height=418+'px';
+      divThree.style.display="block";
+      divTwo.style.display="block";
+       divTwo.style.opacity='0.6';
+    }
+
+ }
+
+
+
+
   
 
 }

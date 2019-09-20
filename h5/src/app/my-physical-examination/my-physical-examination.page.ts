@@ -34,6 +34,15 @@ export class MyPhysicalExaminationPage extends AppBase {
   onMyShow(){
 
   }
+
+  physicalExaminationCancelled(){
+    this.navigate("physical-examination-cancelled")
+  }
+
+  physicalExaminationPayment(){
+    this.navigate("physical-examination-payment")
+  }
+  
   
 
  

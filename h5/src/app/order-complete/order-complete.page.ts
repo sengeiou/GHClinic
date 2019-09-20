@@ -35,5 +35,9 @@ export class OrderCompletePage extends AppBase {
 
   }
 
+  evaluate(){
+    this.navigate("evaluate")
+  }
+
  
 }

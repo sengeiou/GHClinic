@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content>
-    <div style="background-color: #11838D">
+    <div style="background-color: #11838D;" class="padding-top-15">
         <div class="card">
          <input placeholder="搜索&nbsp;科室/药品" (click)="search()"/>
          <ion-icon name="search" style="color:#6B3689;" class="ion-icon1"></ion-icon>
@@ -83,7 +83,7 @@
     <div>
         <p class="p1"></p>
         <p class="p2">服务类别</p>
-        <div  class="flex-row flex-center flex-wrap">
+        <div  class="flex-row flex-center flex-wrap marginTop">
 
           <div  (click)="xz=item.id;hospital(item.name)"  [class.lbxz]='xz==item.id' *ngFor='let item of department;let idx=index' class="lb" >{{item.name}}</div>
  
