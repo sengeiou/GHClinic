@@ -35,5 +35,9 @@ export class SuccessfulTradePage extends AppBase {
 
   }
 
+  orderComplete(){
+    this.navigate("order-complete")
+  }
+
 }
 

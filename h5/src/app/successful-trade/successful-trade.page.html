@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <div style="background-color: #11838D">
+  <div style="background-color: #11838D" class="padding-top-15">
     <div class="card">
       <div class="flex-row flex-column">
         <div class="margin-top-100">
@@ -17,7 +17,13 @@
         <div class="f20 txt-bold txt-black margin-top">支付成功</div>
         <div class="h5 txt-gw margin-top-60">您已成功支付，支付金额为：</div>
         <div class="f28 txt-bold  margin-top" style="color: #F7555A">￥276.0</div>
-        <div class="h5 txt-g margin-top-80">返回首页 丨 查看订单详情 </div>
+        <div class="h5 txt-g margin-top-80 flex-row">
+          <div class="flex-1"></div>
+          <div (click)="tab1()">返回首页</div>
+          <div class="margin-left-30 margin-right-30">|</div>
+          <div (click)="orderComplete()">查看订单详情</div>
+          <div class="flex-1"></div>
+        </div>
 
       </div>
     </div>

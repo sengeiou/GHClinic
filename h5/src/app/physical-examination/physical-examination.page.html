@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content>
-  <div style="background-color: #11838D">
+  <div style="background-color: #11838D" class="padding-top-15">
       <div class="card">
           <span class="span1">体检</span>
           <span class="span2">2019年8月</span>
@@ -36,9 +36,9 @@
   </div>
   <div class="select">
     <span class="title">综合</span>
-    <img alt="" class="img1"/>
+    <img alt="" class="img1" (click)="comprehensive()"/>
     <span class="title">筛选</span>
-    <img  alt="" class="img1"/>
+    <img  alt="" class="img1" (click)="screen()"/>
   </div>
   <hr/>
   <ion-card (click)="detail()">
@@ -126,4 +126,78 @@
           </p>
         </div>
       </ion-card>
+
+
+
+
+
+
+
+
+
+
+      <div id='divOne' style='height:0;display: none'>
+        <div class="f16 txt-black margin-top-40 margin-left-30 padding-bottom-20">综合</div>
+        <hr/>
+        <div class="flex-row flex-center">
+          <div class="flex-1 f16 txt-g margin-left-30 padding-bottom-20 margin-top-30">价格最低</div>
+          <div class="f16 txt-g margin-right-30">√</div>
+        </div>
+        <hr/>
+        <div class="f16 txt-black margin-left-30 padding-bottom-20 margin-top-30">最新套餐</div>
+        <hr/>
+        <div class="f16 txt-black margin-left-30 padding-bottom-20 margin-top-30">销量最高</div>
+      </div>
+
+
+      <div style='opacity:0;' id='divTwo'></div>
+
+
+      <div id='divThree' style='height:0;display: none'>
+
+          <div class="f16 txt-black txt-bold margin-top-80 margin-left-40">性别</div>
+          <div class="flex-row flex-center margin-top-30 margin-left-40">
+            <div class="d1 bg-p txt-white f12">男性</div>
+            <div class="d1 txt-black f12 margin-left-40" style="background-color: #F0F2F5">女性</div>
+          </div>
+
+          <div class="f16 txt-black txt-bold margin-top-80 margin-left-40">人群</div>
+          <div class="flex-row flex-center margin-top-30 margin-left-40">
+            <div class="d1 f12" style="background-color: #F0F2F5">青年男性</div>
+            <div class="d1 f12 margin-left-40" style="background-color: #F0F2F5">青年女性</div>
+            <div class="d1 bg-p f12 txt-white margin-left-40">退休人士</div>
+          </div>
+
+          <div class="f16 txt-black txt-bold margin-top-80 margin-left-40">人群</div>
+          <div class="flex-row flex-center margin-top-30 margin-left-40">
+            <div class="d1 bg-p f12 txt-white">公司入职</div>
+            <div class="d1 f12 margin-left-40" style="background-color: #F0F2F5">儿童入学</div>
+            <div class="d1 f12 margin-left-40" style="background-color: #F0F2F5">驾照考试</div>
+          </div>
+          <div class="flex-row flex-center margin-top-30 margin-left-40">
+            <div class="d1 f12" style="background-color: #F0F2F5">婚检</div>
+            <div class="d1 f12 margin-left-40" style="background-color: #F0F2F5">孕检</div>
+          </div>
+
+
+          <div class="flex-row" style="bottom: 0;position:absolute">
+            <div class="d2 f16" style="background-color: #F9F8F8">重置</div>
+            <div class="d2 f16 txt-white bg-p">确定</div>
+          </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </ion-content>

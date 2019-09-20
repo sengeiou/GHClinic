@@ -35,6 +35,12 @@ export class SuccessfulReservationPage extends AppBase {
   onMyShow() {
    
   }
+
+ 
+
+  appointmentComplete(){
+    this.navigate("appointment-complete")
+  }
   
  
   

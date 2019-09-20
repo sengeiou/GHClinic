@@ -9,7 +9,8 @@
   background-color:white;    
   border-top-left-radius: rpx(37);
   border-top-right-radius: rpx(37);
-  padding-top: rpx(30)
+  padding-top: rpx(30);
+  
 }
 input{
   height: rpx(33*2);
@@ -21,6 +22,11 @@ input{
   background-color: #EBEBEB;
   border-style: none;
 }
+
+.marginTop{
+  margin-top: rpx(-25);
+}
+
 .ion-icon1{
   position: relative;
   left:rpx(-338*2);
