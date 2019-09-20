@@ -35,6 +35,10 @@ export class SuccessfulRegistrationPage extends AppBase {
 
   }
 
+  tab1(){
+    this.backToUrl("tabs/tab1");
+  }
+
 
 
  

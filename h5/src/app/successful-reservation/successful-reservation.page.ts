@@ -42,7 +42,9 @@ export class SuccessfulReservationPage extends AppBase {
     this.navigate("appointment-complete")
   }
   
- 
+ tab1(){
+   this.backToUrl("tabs/tab1");
+ }
   
 
 }
