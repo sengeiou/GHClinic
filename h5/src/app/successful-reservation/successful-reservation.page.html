@@ -7,10 +7,10 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="order!=null">
   <div style="background-color: #11838D">
       <div class="card">
-        <img alt=""/>
+        <img  src='{{uploadpath}}hospital/{{order.hospital_fmtupian}}' alt=""/>
         <p class="p1">预约成功</p>
         <p class="p2">您已预约成功，请准时前往</p>
         <p class="p2 p3">就诊当天请至少提前30分钟到达诊所现场</p>
@@ -19,15 +19,15 @@
 <div>
   <p>
     <span class="span1">就诊人：</span>
-    <span class="span2">张三</span>
+    <span class="span2">{{order.patientname}}</span>
   </p>
   <p>
       <span class="span1">就诊时间：</span>
-      <span class="span2">2019/8/27（周四）11：30 - 12：00</span>
+      <span class="span2">{{order.ordertime_formatting}}</span>
   </p>
   <p>
       <span class="span1">就诊医院：</span>
-      <span class="span2">港和医疗白云分部</span>
+      <span class="span2">{{order.hospital_name}}</span>
   </p>
   <p>
       <span class="span1">就诊科室：</span>
@@ -35,7 +35,7 @@
   </p>
   <p>
       <span class="span1">手机号码：</span>
-      <span class="span2">13838384388</span>
+      <span class="span2">{{order.photo}}</span>
   </p>
 </div>
 <p class="p4">返回首页&nbsp;&nbsp;丨&nbsp;&nbsp; 查看预约详情 </p>

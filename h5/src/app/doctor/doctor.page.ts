@@ -36,30 +36,32 @@ export class DoctorPage extends AppBase {
     this.params;
   }
   doctorinfo = null;
+  hospital = null;
   getdoctoinfo() {
     var api = this.doctorApi;
     api.info({ id: this.params.id }).then((doctorinfo) => {
       console.log(doctorinfo);
       this.doctorinfo = doctorinfo;
-
     })
-
-
   }
 
+  sw = true;
   jt = 3;
   qiansantian = [];
   housantian = [];
   jintian = null;
   xzdate = null;
-  clickdate(d) {
-    console.log(d);
-    this.xzdate = d.date;
 
+  clickdate(d, i) {
+    console.log(d);
+
+    this.xzdate = d.date;
+    this.danqianyuyue = this.dlist[i];
   }
   onMyShow() {
-
+    this.jt = 3;
     this.getdoctoinfo();
+    this.hospital = JSON.parse(this.params.hospital);
     console.log("哈HAHAHAH");
     console.log(this.params.riqi);
     var d = new Date(this.params.riqi);
@@ -79,8 +81,12 @@ export class DoctorPage extends AppBase {
     this.getyishenpaiban(this.qiansantian[2].d1, this.housantian[2].d1);
 
   }
-  appointment() {
-    this.navigate("appointment")
+  appointment(qqq) {
+    if (qqq == undefined) {
+      return
+    }
+
+    this.navigate("appointment", { date: JSON.stringify(qqq), yishen: JSON.stringify(this.doctorinfo), hospital_id:this.hospital.id })
   }
   paiban = [];
   getyishenpaiban(sdate, edate) {
@@ -98,6 +104,8 @@ export class DoctorPage extends AppBase {
 
 
   }
+  danqianyuyue = {};
+  dlist = [];
   czdate() {
     console.log("哈哈哈");
     var qdate = this.qiansantian;
@@ -116,6 +124,7 @@ export class DoctorPage extends AppBase {
     })
     console.log(dlist);
     console.log(paiban);
+
     for (var i = 0; i < dlist.length; i++) {
       dlist[i].rq = [];
 
@@ -125,8 +134,9 @@ export class DoctorPage extends AppBase {
         dlist[i].rq.push(daylist[d]);
 
         for (var j = 0; j < paiban.length; j++) {
+          if (j != paiban.length) {
 
-
+          }
           if (dlist[i].d == paiban[j].fdate) {
 
             if ((dlist[i].rq[d].hour + ':' + dlist[i].rq[d].minute) == paiban[j].ftime) {
@@ -138,21 +148,23 @@ export class DoctorPage extends AppBase {
 
             }
             else {
-           
 
             }
           }
 
 
         }
-     
+
       }
-   
+
 
 
 
 
     }
+
+    this.danqianyuyue = dlist[3];
+    this.dlist = dlist;
     console.log(dlist);
 
 

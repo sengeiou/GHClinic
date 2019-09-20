@@ -39,11 +39,29 @@ export class InformationPage extends AppBase {
   housantian = [];
   jintian = null;
   xzdate=null;
+  yiyuanid=null;
+  fuwuleibie=null;
+  hospital=null;
+  hospitalinfo(){
+   
+   var api=this.memberApi;
+   api.hospitalinfo({id:this.params.yiyuanid}).then((hospital)=>{
+       console.log("hahah");
+       console.log(hospital);
+      this.hospital=hospital;
+
+
+   })
+
+  
+
+  }
+
   onMyShow() {
     this.getdoctor();
-
-    console.log("哈HAHAHAH");
-    console.log(this.params.riqi);
+        this.hospitalinfo();
+      this.fuwuleibie=this.params.fuwuleibie;
+     
     var d = new Date(this.params.riqi);
      
     this.jintian = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d),date:d };
@@ -92,7 +110,7 @@ export class InformationPage extends AppBase {
     })
   }
   doctor(id) {
-    this.navigate("doctor",{ riqi:this.xzdate,id:id})
+    this.navigate("doctor",{ riqi:this.xzdate,id:id,hospital: JSON.stringify(this.hospital)})
   }
   clinic() {
     this.navigate("clinic")

@@ -1,8 +1,8 @@
 <ion-header>
     <ion-toolbar color="primary">
         <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
-        <ion-title>
-            港和医疗白云分部
+        <ion-title *ngIf="hospital!=null">
+            {{hospital.name}}
         </ion-title>
         <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
     </ion-toolbar>
@@ -11,7 +11,7 @@
 <ion-content>
     <div style="background-color: #11838D" *ngIf="qiansantian.length!=0&&housantian.length!=0">
         <div class="card">
-            <span class="span1">儿科</span>
+            <span class="span1">{{fuwuleibie}}</span>
             <span class="span2">2019年8月</span>
             <span class="span8" (click)="clinic()">诊所介绍</span>
 

@@ -95,7 +95,7 @@
     <div>
         <p class="p1"></p>
         <p class="p2">预约诊所</p>
-        <ion-card  *ngFor="let item of hostlist;let i=index;"  (click)="information()">
+        <ion-card  *ngFor="let item of hostlist;let i=index;"  (click)="information(item.hospital_id)">
             <div>
               <div class="div1">
                 <img src='{{uploadpath}}hospital/{{item.hospital_fmtupian}}'/>
