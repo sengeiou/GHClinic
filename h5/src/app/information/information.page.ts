@@ -63,6 +63,7 @@ export class InformationPage extends AppBase {
       this.fuwuleibie=this.params.fuwuleibie;
      
     var d = new Date(this.params.riqi);
+
      
     this.jintian = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d),date:d };
     this.xzdate=this.jintian.date;

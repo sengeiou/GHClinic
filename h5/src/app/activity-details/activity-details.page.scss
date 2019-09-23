@@ -45,14 +45,15 @@
     font-size: rpx(28);
     color: black;
     margin-left: rpx(30);
-    margin-top: rpx(-15)
+    margin-top: rpx(-15);
+    
 }
 .p5{
     text-indent:rpx(50)
 }
 .p6{
     width: rpx(150*2);
-    height: rpx(90);
+
     background-color: #0E858D;
     color:white;
     text-align: center;
@@ -62,7 +63,7 @@
   }
   .p7{
     width: rpx(225*2);
-    height: rpx(90);
+ 
     background-color: #6b3689;
     color:white;
     text-align: center;
@@ -71,7 +72,7 @@
 
   }
   .div1{
-
+    height: rpx(90);
     position: fixed;
     bottom:0;
   }

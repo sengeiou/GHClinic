@@ -15,7 +15,6 @@ const routes: Routes = [
   { path: 'no-duty', loadChildren: './no-duty/no-duty.module#NoDutyPageModule' },
   { path: 'activity-details', loadChildren: './activity-details/activity-details.module#ActivityDetailsPageModule' },
   { path: 'application', loadChildren: './application/application.module#ApplicationPageModule' },
-  { path: 'list', loadChildren: './list/list.module#ListPageModule' },
   { path: 'commodity-details', loadChildren: './commodity-details/commodity-details.module#CommodityDetailsPageModule' },
   { path: 'order', loadChildren: './order/order.module#OrderPageModule' },
   { path: 'successful-trade', loadChildren: './successful-trade/successful-trade.module#SuccessfulTradePageModule' },

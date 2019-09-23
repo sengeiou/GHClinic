@@ -59,17 +59,19 @@
   .span3{
     font-size: rpx(32);
     color: #b9b9b9;
-    margin-left: rpx(350)
+    border:none;
+    outline: none
   }
   .span4{
     font-size: rpx(32);
     color: black;
-    margin-left: rpx(380);
+    margin-left: rpx(320);
   }
   .span5{
     font-size: rpx(32);
     color: #b9b9b9;
-    margin-left: rpx(320)
+    border:none;
+    outline: none
   }
 .p3{
     font-size: rpx(24);
@@ -90,7 +92,7 @@
   // margin-top: rpx(300);
   font-size: rpx(32);
   line-height: rpx(90);
-  float:left;
+
 }
 .p5{
   width: rpx(225*2);
@@ -100,5 +102,9 @@
   text-align: center;
   font-size: rpx(32);
   line-height: rpx(90);
-  float:left;
+
+}
+.icon-24{
+  width: rpx(48);
+  height: rpx(48)
 }

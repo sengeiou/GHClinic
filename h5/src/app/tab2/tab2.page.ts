@@ -27,6 +27,8 @@ export class Tab2Page extends AppBase {
       
   }
 
+  show=false;
+
   onMyLoad(){
     //参数
     this.params;

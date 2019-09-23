@@ -34,13 +34,14 @@ input{
   font-weight: bold;
   font-size: rpx(32);
   color:#6b3689;
+  margin-top:rpx(20)
 }
 .p2{
   width: rpx(90);
   height: rpx(6);
   background-color: #6b3689;
   margin-left: rpx(15);
-  margin-top:rpx(-25)
+  margin-top:rpx(-15)
 }
 .p3{
   font-size: rpx(28);
@@ -52,7 +53,7 @@ input{
   top:rpx(-35)
 }
 .div1{
-  float: left;
+
   margin-left: rpx(54);
   margin-top:rpx(-35)
 }
@@ -93,12 +94,46 @@ img{
   width: rpx(120);
   height: rpx(120);
   position:absolute;
-  top:rpx(1470);
+  top:rpx(970);
   right: rpx(50)
 }
 .margin-tl{
   text-decoration:line-through;
   color: #bfbfbf;
   margin-top:rpx(-30);
+  margin-left: rpx(10)
+}
+.ion-card2{
+  height: rpx(130*2);
+  margin-top: rpx(0)
+}
+.img2{
+  width: rpx(120*2);
+  height: rpx(98*2);
+  border-radius: rpx(20);
+}
+.div4{
+  margin-top: rpx(35);
+  margin-left: rpx(30)
+}
+
+.img3{
+  width: rpx(120);
+  height: rpx(120);
+  position:absolute;
+  top:rpx(1370);
+  right: rpx(50)
+}
+.div-340{
+  width:rpx(340*2);
+  height:rpx(166*2);
+  border-radius:rpx(20);
+  margin-left:0;
+  background:#aaaaaa;
+}
+.marginLeft{
+  margin-left: rpx(-30)
+}
+.margin-left-10{
   margin-left: rpx(10)
 }
