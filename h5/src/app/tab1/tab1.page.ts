@@ -10,7 +10,7 @@ import { MemberApi } from 'src/providers/member.api';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page extends AppBase {
 
@@ -51,6 +51,9 @@ export class Tab1Page extends AppBase {
     this.loadMonthCalendar();
     this.loadWeekCalendar();
     this.getkeshi();
+    
+    console.log(this.mcal);
+
   }
   department = [];
   getkeshi() {
@@ -63,18 +66,20 @@ export class Tab1Page extends AppBase {
 
   }
   hostlist = [];
+  fuwuleibie=null;
   hospital(name) {
     var api = this.memberApi;
     api.departmenthost({ name: name }).then((hostlist) => {
       console.log(hostlist);
       this.hostlist = hostlist;
-
+    this.fuwuleibie=name;
     })
 
 
   }
-  xzrq='';
-  xzy='';
+  xzrq=null;
+  xzy=null;
+  riqi=null;
   asd(d,i){
     console.log("123123123");
     if(d.pass==true)
@@ -82,8 +87,11 @@ export class Tab1Page extends AppBase {
      return  
     }
     else{
+    console.log(d.sdate);
+    console.log(new(Date));
     this.xzrq=d.d; 
     this.xzy=d.f;
+    this.riqi=d.sdate;
     }
     console.log(d);
     console.log(i);
@@ -127,6 +135,12 @@ export class Tab1Page extends AppBase {
         q:sdate.getMonth(),
         timeline: this.timeline(sdate)
       };
+      if(d.today)
+      {
+        this.xzrq=d.d; 
+      
+        this.riqi=d.sdate;
+      }
       wcal.push(d);
     }
     this.wcal = wcal;
@@ -189,6 +203,12 @@ export class Tab1Page extends AppBase {
           d: sdate.getDate(),
           f:sdate.getMonth()+1
         };
+        if(d.today)
+        {
+          this.xzrq=d.d; 
+          this.xzy=d.f;
+          this.riqi=d.sdate;
+        }
         w.push(d);
       }
       mcal.push(w);
@@ -200,8 +220,13 @@ export class Tab1Page extends AppBase {
   search() {
     this.navigate("search")
   }
-  information() {
-    this.navigate("information")
+  information(id) {
+         
+    var yue=this.xzy;
+    var ri=this.xzrq;
+     
+
+    this.navigate("information",{riqi:this.riqi,fuwuleibie:this.fuwuleibie,yiyuanid:id})
   }
   physicalExamination() {
     this.navigate("physical-examination")

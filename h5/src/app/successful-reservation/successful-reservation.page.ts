@@ -27,13 +27,30 @@ export class SuccessfulReservationPage extends AppBase {
     this.headerscroptshow = 480;
 
   }
-  
+  hospital=null;
+  order=null;
   onMyLoad() {
     //参数
     this.params;
+    this.hospital=JSON.parse(this.params.hospital);
+    console.log(this.hospital);
   }
+  getorder(){
+    var api=this.memberApi;
+     api.getorder({id:this.params.id}).then((order)=>{
+
+   this.order=order;
+  console.log(order);
+         
+     })
+  
+
+  }
+
   onMyShow() {
-   
+      
+    this.getorder();
+
   }
 
  

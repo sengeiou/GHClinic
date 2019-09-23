@@ -11,31 +11,43 @@
 <ion-content>
     <div style="background-color: #11838D" class="padding-top-15">
         <div class="card">
-          <p class="p1">2019年8月27日（周四） 11：30 - 12：00</p>
-          <p class="p1">港和医疗白云分部</p>
-          <p class="p1">儿科，张XX，主任医师</p>
+          <p class="p1">{{date.qwe.fdate}}（周四） {{date.qwe.ftime}} - {{hour}}-{{minute}}</p>
+          <p class="p1" *ngIf="hospital!=null">{{hospital.name}}</p>
+          <p class="p1">儿科，{{yishen.name}}，{{yishen.title}}</p>
           <hr/>
         </div>
     </div>
     <div class="div1">
         <span class="span1">费用</span>
-        <span class="span2">￥33.0</span>
+        <span class="span2">￥{{yishen.price}}</span>
     </div>
     <hr/>
-    <div class="div1">
+    <div class="div1 flex-row flex-center">
         <span class="span1">就诊人</span>
-        <span class="span2">张三</span>
+        <div class="flex-1"></div>
+        <input placeholder="请填写就诊人" class="margin-left-40 h5" [value]='jiuzhenren' (change)='jiuzhenren=$event.target.value'
+        style="border:none;outline:medium;color: #262626;text-align: right;" />
+        <div class="width-40"></div>
     </div>
+        
+
+
     <hr/>
-    <div class="div1">
-        <span class="span1">手机号</span>
-        <span class="span3">13838384388</span>
-    </div>
+    <div class="div1 flex-row flex-center">
+      <span class="span1">手机号</span>
+      <div class="flex-1"></div>
+      <input placeholder="请填写手机号" class="margin-left-40 h5" [value]='shoujihao' (change)='shoujihao=$event.target.value'
+      style="border:none;outline:medium;color: #262626;text-align: right;" />
+      <div class="width-40"></div>
+  </div>
     <hr/>
-    <div class="div1">
+    <div class="div1 flex-row flex-center">
         <span class="span1">推荐人</span>
         <span class="span4">（非必填）</span>
-        <span class="txt-gw margin-left-100">请输入推荐人手机号码</span>
+        <div class="flex-1"></div>
+        <input placeholder="请填写推荐人" class="margin-left-40 h5" [value]='tuijianren' (change)='tuijianren=$event.target.value'
+        style="border:none;outline:medium;color: #262626;text-align: right;" />
+        <div class="width-40"></div>
     </div>
     <div class="div2">
       <span class="span1">图片资料</span>

@@ -180,6 +180,40 @@ export class MemberApi {
     }
 
 
+    public hospitalinfo(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'member/hospitalinfo';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('member/hospitalinfo', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('member/hospitalinfo', data, err);
+            });
+    }
+
+
     public info(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'member/info';
         var headers = ApiConfig.GetHeader(url, data);
@@ -312,6 +346,40 @@ export class MemberApi {
                     ApiConfig.DimissLoadingModal();
                 }
                 return ApiConfig.ErrorHandle('member/updatelocation', data, err);
+            });
+    }
+
+
+    public getorder(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'member/getorder';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('member/getorder', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('member/getorder', data, err);
             });
     }
 
