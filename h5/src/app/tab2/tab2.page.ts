@@ -6,11 +6,14 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { ActivityApi } from 'src/providers/activity.api';
+
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  styleUrls: ['tab2.page.scss'],
+  providers: [MemberApi, ActivityApi]
 })
 export class Tab2Page extends AppBase {
 
@@ -21,12 +24,16 @@ export class Tab2Page extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
+    public activityApi:ActivityApi,
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
       
   }
-
+  
+  activity=[];
+  activity1=[];
+  activity2=[];
   show=false;
 
   onMyLoad(){
@@ -34,9 +41,31 @@ export class Tab2Page extends AppBase {
     this.params;
   }
   onMyShow(){
-
+    this.getactivity();
   }
-  activityDetails(){
-    this.navigate("activity-details")
+
+  getactivity(){
+    var api=this.activityApi
+    api.getactivity({}).then((activity)=>{
+      this.activity=activity;
+      for(let i of this.activity){
+        var aT=new Date(i.activityTime).getTime();
+        var nT=new Date().getTime();
+        if(nT-aT<=1000*24*60*60){
+          this.activity1.push(i);
+        }
+        else{
+          this.activity2.push(i);
+        }
+      }
+    })
+  }
+
+  
+
+
+  activityDetails(i){
+
+    this.navigate("activity-details",{id:i})
   }
 }

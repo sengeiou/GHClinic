@@ -21,43 +21,39 @@
         </div>
     </div>
     <div *ngIf="show==false">
-        <ion-card>
-            <ion-card-header class="ion-card-header" 
-            style="background-image: url(https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2331250180,1322677064&fm=26&gp=0.jpg)">                
-            </ion-card-header>
+        <ion-card *ngFor="let ac of activity1;let i=index;" (click)="activityDetails(ac.id)">
+            <ion-card-header class="ion-card-header"  [style.background-image]="'url('+uploadpath+'activity/'+ac.activityCover+')'" ></ion-card-header>                                         
             <ion-card-content>
-              <p class="p2">第二届医疗健康知识讲座肿瘤篇</p>
-              <p class="p3">
+              <div class="p2">{{ac.activityName}}</div>
+              <div class="p3">
                   <ion-icon name="time"></ion-icon>
-                  <span class="span2">2019年8月27日 09：00</span>
-              </p>
-              <p class="p3">
+                  <span class="span2">{{ac.activityTime}}</span>
+              </div>
+              <div class="p3">
                   <ion-icon name="compass"></ion-icon>
-                  <span class="span2">广东省广州市白云区白云五路1111号港和大厦</span>
-              </p>
-            </ion-card-content>
-        </ion-card>
-
-        <ion-card (click)="activityDetails()">
-            <ion-card-header class="ion-card-header"
-             style="background-image: url(https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=743289129,1076801085&fm=26&gp=0.jpg);">                
-            </ion-card-header>
-            <ion-card-content>
-              <p class="p2">XXXXXXXXXXXXXXXX</p>
-              <p class="p3">
-                  <ion-icon name="time"></ion-icon>
-                  <span class="span2">2019年8月27日 09：00</span>
-              </p>
-              <p class="p3">
-                  <ion-icon name="compass"></ion-icon>
-                  <span class="span2">XXXXXXXXXXXXXXXXXXXXX</span>
-              </p>
+                  <span class="span2">{{ac.activitySite}}</span>
+              </div>
             </ion-card-content>
         </ion-card>
 
     </div>
 
-    <div *ngIf="show==true"></div>
+    <div *ngIf="show==true">
+        <ion-card *ngFor="let ac of activity2;let i=index;" (click)="activityDetails(ac.id)">
+                <ion-card-header class="ion-card-header"  [style.background-image]="'url('+uploadpath+'activity/'+ac.activityCover+')'" ></ion-card-header>                                         
+                <ion-card-content>
+                  <div class="p2">{{ac.activityName}}</div>
+                  <div class="p3">
+                      <ion-icon name="time"></ion-icon>
+                      <span class="span2">{{ac.activityTime}}</span>
+                  </div>
+                  <div class="p3">
+                      <ion-icon name="compass"></ion-icon>
+                      <span class="span2">{{ac.activitySite}}</span>
+                  </div>
+                </ion-card-content>
+        </ion-card>
+    </div>
        
 
     

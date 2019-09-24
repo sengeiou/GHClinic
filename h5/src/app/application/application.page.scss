@@ -19,6 +19,7 @@
   img{
     height: rpx(140);
     width: rpx(124*2);
+    border-radius: rpx(10)
   }
   .div1{
     margin-left: rpx(30);
@@ -107,4 +108,9 @@
 .icon-24{
   width: rpx(48);
   height: rpx(48)
+}
+select{
+  border:none;
+  outline: none;
+  background: transparent;
 }
