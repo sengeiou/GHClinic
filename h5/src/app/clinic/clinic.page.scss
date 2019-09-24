@@ -18,14 +18,12 @@
   .img1{
       height:rpx(48) ;
       width:rpx(48);
-      margin-left: rpx(170)
+    //   margin-left: rpx(170)
   }
   .span1{
       font-size: rpx(18*2);
       color :black;
       font-weight: bold;
-      position: relative;
-      top:rpx(-10);
       margin:0 rpx(10) 0 rpx(10); 
   }
   .p1{
@@ -88,7 +86,7 @@
     font-size: rpx(24);
   }
   .div2{
-  
+     
       margin-left:rpx(30);
   }
   .p6{
@@ -119,3 +117,17 @@
       position: relative;
   
   }
+
+
+  .div-360{
+    width:rpx(360*2);
+    height:rpx(200*2);
+    border-radius:rpx(20);
+    margin-left:rpx(15);
+    background:#aaaaaa;
+  }
+  .margin-left-10{
+    margin-left: rpx(10)
+  }
+
+  
