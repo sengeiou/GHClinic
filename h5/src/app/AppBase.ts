@@ -27,7 +27,7 @@ export class AppBase implements OnInit {
     public static memberapi: MemberApi = null;
     public static wechatApi: WechatApi = null;
     public static UNICODE = "gh";
-
+    public static IsLogin = false;
     public statusBarStyle = "X";//{DARK}
     public uploadpath: string = ApiConfig.getUploadPath();
     public util = AppUtil;
@@ -93,6 +93,18 @@ export class AppBase implements OnInit {
         this.onMyLoad();
         this.setStatusBar();
     }
+
+    
+    store(name, value = null) {
+        if (value == null) {
+            return window.localStorage.getItem(name);
+        } else {
+            window.localStorage.setItem(name, value);
+            return "";
+        }
+    }
+
+
     onMyLoad() {
     }
     getInstInfo() {

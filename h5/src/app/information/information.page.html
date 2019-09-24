@@ -1,3 +1,4 @@
+
 <ion-header>
     <ion-toolbar color="primary">
         <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
@@ -12,9 +13,9 @@
     <div style="background-color: #11838D" *ngIf="qiansantian.length!=0&&housantian.length!=0">
         <div class="card">
             <div class="flex-row flex-center">
-              <span class="span1">{{fuwuleibie}}</span>
-              <span class="span2">2019年9月</span>
-              <span class="span8" (click)="clinic()">诊所介绍</span>
+                <span class="span1">{{fuwuleibie}}</span>
+                <span class="span2">2019年9月</span>
+                <span class="span8" (click)="clinic()">诊所介绍</span>
             </div>
 
 
@@ -43,19 +44,25 @@
 
             <div class="flex-row flex-center margin-top">
                 <div class="flex-1"></div>
-                <div (click)="clickdate(qiansantian[2]);jt=0"  [class.jt]="jt==0"  class="rq bb ">{{qiansantian[2].d3}}</div>
+                <div (click)="clickdate(qiansantian[2]);jt=0" [class.jt]="jt==0" class="rq bb ">{{qiansantian[2].d3}}
+                </div>
                 <div class="flex-1"></div>
-                <div (click)="clickdate(qiansantian[1]);jt=1" [class.jt]="jt==1" class="rq bb ">{{qiansantian[1].d3}}</div>
+                <div (click)="clickdate(qiansantian[1]);jt=1" [class.jt]="jt==1" class="rq bb ">{{qiansantian[1].d3}}
+                </div>
                 <div class="flex-1"></div>
-                <div (click)="clickdate(qiansantian[0]);jt=2" [class.jt]="jt==2" class="rq bb ">{{qiansantian[0].d3}}</div>
+                <div (click)="clickdate(qiansantian[0]);jt=2" [class.jt]="jt==2" class="rq bb ">{{qiansantian[0].d3}}
+                </div>
                 <div class="flex-1"></div>
-                <div (click)="clickdate(jintian);jt=3"        [class.jt]="jt==3"  class="rq bb  jt">{{jintian.d3}}</div>
+                <div (click)="clickdate(jintian);jt=3" [class.jt]="jt==3" class="rq bb  jt">{{jintian.d3}}</div>
                 <div class="flex-1"></div>
-                <div (click)="clickdate(housantian[0]);jt=4" [class.jt]="jt==4" class="rq bb ">{{housantian[0].d3}}</div>
+                <div (click)="clickdate(housantian[0]);jt=4" [class.jt]="jt==4" class="rq bb ">{{housantian[0].d3}}
+                </div>
                 <div class="flex-1"></div>
-                <div (click)="clickdate(housantian[1]);jt=5" [class.jt]="jt==5" class="rq bb ">{{housantian[1].d3}}</div>
+                <div (click)="clickdate(housantian[1]);jt=5" [class.jt]="jt==5" class="rq bb ">{{housantian[1].d3}}
+                </div>
                 <div class="flex-1"></div>
-                <div (click)="clickdate(housantian[2]);jt=6" [class.jt]="jt==6" class="rq bb ">{{housantian[2].d3}}</div>
+                <div (click)="clickdate(housantian[2]);jt=6" [class.jt]="jt==6" class="rq bb ">{{housantian[2].d3}}
+                </div>
                 <div class="flex-1"></div>
             </div>
             <hr />
