@@ -15,30 +15,10 @@
          <ion-icon name="search" style="color:#6B3689;" class="ion-icon1"></ion-icon>
          <p class="p1"></p>
          <p class="p2">预约日期</p>
-         <!-- <p class="p3">2019年8月</p>
-         <p>
-            <span class="span1">日</span>  
-            <span class="span2">一</span>
-            <span class="span2">二</span>
-            <span class="span2">三</span> 
-            <span class="span2">四</span>
-            <span class="span2">五</span>
-            <span class="span2">六</span>
-         </p> 
-         <p class="p4">
-            <span class="span3">1</span>  
-            <span class="span4">2</span>
-            <span class="span4">3</span>
-            <span class="span4">4</span> 
-            <span class="span4">5</span>
-            <span class="span4">6</span> 
-            <span class="span4">7</span> 
-         </p>   -->
-         <hr/>
       </div>
     </div>
 
-    <div class="container-fluid mt-5">
+    <div class="container-fluid mt-5 marginTop">
 
       <div>
       
@@ -112,11 +92,14 @@
                     <span style="color:#aaaaaa;">&nbsp;&nbsp;{{item.hospital_phone}}</span>
                 </p>
               </div> 
-              <div class="div2">
-                <ion-icon name="compass" class="ion-icon2"></ion-icon>
-                <span class="span7">{{item.hospital_address}}</span>
-              </div>             
+              <div class="flex-row flex-center margin-left-20" style="clear: both;">
+                <div>
+                  <ion-icon name="compass" class="ion-icon2"></ion-icon>
+                </div>
+                <div class="span7">{{item.hospital_address}}</div>
+              </div>
             </div>
+          
         </ion-card>
      
       </div>

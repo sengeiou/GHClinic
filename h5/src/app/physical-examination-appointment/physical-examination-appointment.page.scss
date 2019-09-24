@@ -42,12 +42,12 @@
 .span2{
 font-size: rpx(32);
 color: #b9b9b9;
-margin-left: rpx(350)
+border:none
 }
 .span3{
   font-size: rpx(32);
   color: #b9b9b9;
-  margin-left: rpx(290) 
+  border:none 
 }
 .div2{
   height: rpx(120);
@@ -75,11 +75,13 @@ margin-left: rpx(350)
   padding-top: rpx(1)
 }
 .p4{
-  width: rpx(349*2);
+  width: 100%;
   height: rpx(90);
   background-color: #6b3689;
   color:white;
   text-align: center;
   line-height: rpx(90);
-  margin-left: rpx(25)
+  position: absolute;
+  bottom:0;
+
 }

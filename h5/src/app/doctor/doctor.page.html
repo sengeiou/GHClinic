@@ -11,36 +11,40 @@
 <ion-content *ngIf="doctorinfo!=null">
   <div style="background-color: #11838D">
     <div class="card">
-      <div class="div1">
+     <div class="flex-row flex-center">
+        <div>
 
-        <img src='{{uploadpath}}doctor/{{doctorinfo.photo}}' />
-      </div>
-      <div class="div1">
-        <p>
-          <span class="name">{{doctorinfo.name}}</span>
-          <span class="zhiWei">{{doctorinfo.title}}</span>
-        </p>
-        <p class="address">
-          {{doctorinfo.Hospital}} </p>
-      </div>
-      <div style="clear: both"></div>
+            <img src='{{uploadpath}}doctor/{{doctorinfo.photo}}' style="border-radius: 50%" />
+          </div>
+          <div >
+            <p>
+              <span class="name">{{doctorinfo.name}}</span>
+              <span class="zhiWei">{{doctorinfo.title}}</span>
+            </p>
+            <p class="address">
+              {{doctorinfo.Hospital}} </p>
+          </div>
+
+     </div>
+
       <hr />
     
-      <div>
-        <p class="p1">专业擅长</p>
-        <p class="p2">{{doctorinfo.description}}</p>
-        <p style="clear: both"></p>
-        <hr />
+      <div class="flex-row flex-center">
+        <div class="p1">专业擅长</div>
+        <div class="p2">{{doctorinfo.description}}</div>
+       
+        
       </div>
+      <hr />
     </div>
   </div>
-  <div class="div2">
-    <span class="span1">预约诊所</span>
-    <span class="span2">{{hospital.name}}</span>
+  <div class="div2 flex-row flex-center">
+    <div class="span1">预约诊所</div>
+    <div class="span2">{{hospital.name}}</div>
   </div>
   <hr />
   <div>
-    <p class="p3">2019年8月</p>
+    <p class="p3">2019年9月</p>
     <hr />
  
     <div class="flex-row flex-center margin-top-80">

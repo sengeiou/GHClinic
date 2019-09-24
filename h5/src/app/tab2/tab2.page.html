@@ -11,16 +11,16 @@
 <ion-content>
     <div style="background-color: #11838D" class="padding-top-15">
         <div class="card">
-            <span style="font-weight:bold;color:#6B3689;">
+            <span style="font-weight:bold;color:#6B3689;" (click)="show=false">
                 最新活动
             </span>
-            <span class="span1">
+            <span class="span1" (click)="show=true">
                 往期活动
             </span>
             <p class="p1"></p>
         </div>
     </div>
-    <div>
+    <div *ngIf="show==false">
         <ion-card>
             <ion-card-header class="ion-card-header" 
             style="background-image: url(https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2331250180,1322677064&fm=26&gp=0.jpg)">                
@@ -56,6 +56,8 @@
         </ion-card>
 
     </div>
+
+    <div *ngIf="show==true"></div>
        
 
     

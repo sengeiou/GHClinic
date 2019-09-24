@@ -27,6 +27,10 @@ export class Tab3Page extends AppBase {
       
   }
 
+  list=false;
+  tab3=true;
+  qiehuan=1;
+
   onMyLoad(){
     //参数
     this.params;
@@ -34,7 +38,9 @@ export class Tab3Page extends AppBase {
   onMyShow(){
 
   }
-  list(){
-    this.navigate("list")
+  CommodityDetails(){
+    this.navigate("commodity-details")
   }
+
+ 
 }

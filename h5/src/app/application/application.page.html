@@ -25,26 +25,29 @@
     <span class="span1">报名人信息</span>
     <span class="span2">（必填）</span>
   </div>
-  <div class="div3">
-      <span class="span1">姓名</span>
-      <span class="span3">请输入报名人姓名</span>
+  <div class="div3 flex-center flex-row">
+      <span class="span1 flex-1">姓名</span>
+      <input class="span3" placeholder="请输入报名人姓名"/>
   </div>
   <hr/>
-  <div class="div3">
+  <div class="div3 flex-row flex-center">
       <span class="span1">选择年龄段</span>
-      <span class="span4">30-40&nbsp;></span>
+      <option class="span4">30-40</option>
+      <img alt="" class="icon-24"/>
   </div>
   <hr/>
-  <div class="div3">
-      <span class="span1">联系方式</span>
-      <span class="span5">请输入手机号码</span>
+  <div class="div3 flex-center flex-row">
+      <span class="span1 flex-1">联系方式</span>
+      <input class="span5" placeholder="请输入手机号码" />
   </div>
   <div class="div4">
-      <p class="p3">重要提示：</p>
-      <p class="p3">1、支持多行文字，文字内容后台编辑。支持多行文字，文字内容后台编辑。</p>
-      <p class="p4">免费</p>
-      <p class="p5" (click)="successfulRegistration()">确认报名</p>
-      <p style="clear: both"></p>
+      <div class="p3">重要提示：</div>
+      <div class="p3">1、支持多行文字，文字内容后台编辑。支持多行文字，文字内容后台编辑。</div>
+      <div class="flex-row flex-center" style="position: absolute;bottom:0">
+          <div class="p4">免费</div>
+          <div class="p5" (click)="successfulRegistration()">确认报名</div>
+      </div>
+     
   </div>
 
 </ion-content>

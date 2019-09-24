@@ -20,7 +20,7 @@
 .span2{
     font-size:rpx(16*2);
     color:black;
-    margin-left: rpx(190)
+    margin-left: rpx(160)
 }
 .span3{
     color:#aaaaaa;
@@ -95,12 +95,13 @@ hr{
     color:black;
     display: inline-block;
     margin-left:rpx(10);
+    margin-bottom: rpx(-35)
   }
   ion-card{
       height: rpx(123*2);
   }
   .div1{
-    float:left;  
+    margin-top:rpx(-20)  
   }
   img{
     margin-left: rpx(35);
@@ -131,7 +132,7 @@ hr{
   .zhiWei{
     font-size: rpx(12*2);
     color:#8A8A8A;
-    margin-left:rpx(10) 
+    margin-left:rpx(20) 
   }
   .fee{
       width: rpx(94*2);
@@ -144,12 +145,14 @@ hr{
   .address{
       font-size:rpx(12*2);
       color:black;
-      margin-left: rpx(20)
+      margin-left: rpx(20);
+      margin-top:rpx(20)
   }
   .shanChang{
       font-size: rpx(24);
       color: #8A8A8A;
-      margin-left: rpx(20)
+      margin-left: rpx(20);
+      margin-top:rpx(20);
   }
   .p4{
     padding-top: rpx(6)
