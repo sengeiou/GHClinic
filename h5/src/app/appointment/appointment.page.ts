@@ -70,7 +70,7 @@ var  api=this.memberApi;
       this.minute = '30';
       this.hour = parseInt(this.date.hour);
     } else {
-
+      this.minute = '00';
       this.hour = parseInt(this.date.hour) + 1;
     }
     console.log(this.hour);

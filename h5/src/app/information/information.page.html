@@ -65,7 +65,7 @@
         <ion-card *ngFor="let item of doctorlist;let i=index">
             <div class="div1">
                 <img src='{{uploadpath}}doctor/{{item.photo}}' />
-                <span class="span7">约满</span>
+                <span class="span7">有号</span>
             </div>
             <div class="div1" (click)="doctor(item.id)">
                 <p class="p4">
