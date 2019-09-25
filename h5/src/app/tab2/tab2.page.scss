@@ -17,7 +17,7 @@
     margin-left:rpx(30);
   }
   .p1{
-    width:rpx(90);
+    width:rpx(110);
     height:rpx(6);
     background-color: #6B3689;
     margin-top: rpx(0);
@@ -25,6 +25,7 @@
   }
   .ion-card-header{
     height: rpx(163*2);
+    background-size: cover
   }
   ion-card-content{
     height: rpx(96*2);

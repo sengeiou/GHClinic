@@ -11,47 +11,43 @@
 <ion-content>
   <div style="background-color: #11838D" class="padding-top-15">
     <div class="card">
-      <ion-card style="
-      background-image: url(https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=743289129,1076801085&fm=26&gp=0.jpg);"
-      class="ion-card"
-      >
+      <ion-card class="ion-card">
+      <img src='{{uploadpath}}activity/{{activity.activityCover}}' />
       </ion-card>
-      <p class="p1">第二届医疗健康知识讲座肿瘤篇</p>
-      <p class="p2">
+      <div class="p1">{{activity.activityName}}</div>
+      <div class="p2">
           活动时间
-      </p>
-      <p class="p3"></p>
-      <p class="p4">2019年8月27日 09：00</p>
+      </div>
+      <div class="p3"></div>
+      <div class="p4">{{activity.activityTime}}</div>
       <hr/>
-      <p class="p2">
+      <div class="p2">
           活动地点
-      </p>
-      <p class="p3"></p>
-      <p class="p4">广东省广州市白云区白云五路1111号港和大厦</p>
+      </div>
+      <div class="p3"></div>
+      <div class="p4">{{activity.activitySite}}</div>
       <hr/>
-      <p class="p2">
+      <div class="p2">
           活动简介
-      </p>
-      <p class="p3"></p>
-      <p class="p4 p5">   
-        港和医疗白云分部始建于2016年，医院拥有内容后台管理员可自行编辑，内容后台管理员可自行编辑，内容后台管理员可自行编辑，内容后台管理员可自行编辑，内容后台管理员可自行编辑，
-        内容后台管理员可自行编辑，内容后台管理员可自行编辑，内容后台管理员可自行编辑，内容后台管理员可自行编辑，内容后台管理员可自行编辑。</p>
+      </div>
+      <div class="p3"></div>
+      <div class="p4 p5">   
+        {{activity.activityBrief}}</div>
       <hr/>
-      <p class="p2">
+      <div class="p2">
           报名须知
-      </p>
-      <p class="p3"></p>
-      <p class="p4">本次报名人数限制：200人</p>
-      <p class="p4">内容后台管理员可自行编辑，内容后台管理员可自行编辑。内容后台管理员可自行编辑，内容后台管理员可自行编辑。内容后台管理员可自行编辑，内容后台管理员可自行编辑。
-        内容后台管理员可自行编辑，内容后台管理员可自行编辑。</p>
+      </div>
+      <div class="p3"></div>
+      <div class="p4">本次报名人数限制：{{activity.xianzhi}}人</div>
+      <div class="p4">{{activity.appnotes}}</div>
       <div class="height-90"></div>
 
 
 
 
       <div class="div1 flex-row flex-center">
-        <div class="p6">免费</div>
-        <div class="p7" (click)="application()">我要报名</div>
+        <div class="p6">{{activity.price==0?'免费':activity.price}}</div>
+        <div class="p7" (click)="application(activity.id)">我要报名</div>
       </div>
 
 
