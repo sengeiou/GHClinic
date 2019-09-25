@@ -48,16 +48,21 @@ export class Tab2Page extends AppBase {
     var api=this.activityApi
     api.getactivity({}).then((activity)=>{
       this.activity=activity;
-      for(let i of this.activity){
+     var  activity1=[];
+     var activity2=[];
+      for(let i of activity){
         var aT=new Date(i.activityTime).getTime();
         var nT=new Date().getTime();
         if(nT-aT<=1000*24*60*60){
-          this.activity1.push(i);
+          activity1.push(i);
         }
         else{
-          this.activity2.push(i);
+        activity2.push(i);
         }
       }
+      this.activity1=activity1;
+      this.activity2=activity2;
+      
     })
   }
 

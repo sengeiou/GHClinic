@@ -144,6 +144,7 @@ export class AppBase implements OnInit {
     getResources() {
         if (AppBase.Resources == null) {
             AppBase.instapi.resources({}, false).then((res) => {
+                console.log(res);
                 AppBase.Resources = res;
                 this.res = res;
             });

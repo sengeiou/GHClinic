@@ -9,24 +9,36 @@
     padding-top: rpx(37);
 }
 
-ion-card-header{
-  height: rpx(163*2);
-}
-ion-card-content{
-  height: rpx(96*2);
-}
-.icon-72{
-  width: rpx(72*2);
-  height: rpx(29*2);
-  line-height: rpx(29*2);
+
+.icon-55{
+  width: rpx(55*2);
+  height: rpx(25*2);
+  margin-left:rpx(69*2);
+  margin-top: rpx(-115);
+  background-color: rgba(#6B3689, 0.6);
+  line-height: rpx(25*2);
+  z-index: 1;
 }
 .icon-18{
   width: rpx(36);
   height: rpx(36)
 }
 
-
-
-.marginTop{
-  margin-top:rpx(-10)
+.icon-26{
+  width: rpx(26*2);
+  height: rpx(6);
 }
+
+.img-124{
+  width: rpx(124*2);
+  height: rpx(140)
+}
+
+.height-148{
+  height: rpx(148*2);
+}
+
+.bc{
+  background-color: rgba(#8a8a8a, 0.6) !important;
+}
+

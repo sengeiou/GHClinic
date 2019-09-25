@@ -31,12 +31,15 @@
     color:black;
     font-weight: bold;
     width:rpx(212*2);
-    margin-top:rpx(0)
+    margin-top:rpx(0);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .p2{
     font-size: rpx(28);
     color:black;
-    margin-top:rpx(-25)
+    margin-top:rpx(40)
   }
   .div2{
     height: rpx(120);
@@ -59,20 +62,23 @@
   }
   .span3{
     font-size: rpx(32);
-    color: #b9b9b9;
+    color: black;
     border:none;
-    outline: none
+    margin-right:rpx(70);
+    outline: none;
+    text-align: right
   }
   .span4{
     font-size: rpx(32);
-    color: black;
     margin-left: rpx(320);
   }
   .span5{
     font-size: rpx(32);
-    color: #b9b9b9;
+    color: black;
     border:none;
-    outline: none
+    margin-right:rpx(70);
+    outline: none;
+    text-align: right
   }
 .p3{
     font-size: rpx(24);
@@ -114,3 +120,8 @@ select{
   outline: none;
   background: transparent;
 }
+
+.yanse{
+  color: #b9b9b9
+}
+

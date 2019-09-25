@@ -15,8 +15,8 @@
         <img alt="" src='{{uploadpath}}activity/{{activity.activityCover}}'/>
       </div>
       <div class="div1">
-        <p class="p1">第二届医疗健康知识讲座肿瘤篇</p>
-        <p class="p2">费用：{{activity.price==0?'免费':activity.price}}</p>
+        <p class="p1">{{activity.activityName}}</p>
+        <p class="p2">费用：{{activity.price==0?'免费':'￥'+activity.price+'.00'}}</p>
       </div>
       <div style="clear: both"></div>
     </div>
@@ -32,8 +32,8 @@
   <hr/>
   <div class="div3 flex-row flex-center">
       <span class="span1">选择年龄段</span>
-      <select class="span4">
-          <option  *ngFor="let i of ages" >{{i.name}}</option>
+      <select class="span4" [(ngModel)]="age" (change)='aa($event)'>
+          <option  *ngFor="let age of ages"  [value]='age.id'>{{age.name}}</option>
       </select>
       
   </div>
@@ -44,12 +44,22 @@
   </div>
   <div class="div4">
       <div class="p3">重要提示：</div>
-      <div class="p3">1、支持多行文字，文字内容后台编辑。支持多行文字，文字内容后台编辑。</div>
-      <div class="flex-row flex-center" style="position: absolute;bottom:0">
-          <div class="p4">{{activity.price==0?'免费':activity.price}}</div>
-          <div class="p5" (click)="successfulRegistration()">确认报名</div>
-      </div>
+      <div class="p3">{{activity.show}}</div>
+      
      
   </div>
+
+
+
+
+
+  <div class="flex-row flex-center" style="position: fixed;bottom:0">
+      <div class="p4">{{activity.price==0?'免费':'￥'+activity.price+'.00'}}</div>
+      <div class="p5" (click)="successfulRegistration()">确认报名</div>
+  </div>
+
+
+
+
 
 </ion-content>
