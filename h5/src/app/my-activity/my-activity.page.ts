@@ -31,9 +31,9 @@ export class MyActivityPage extends AppBase {
   }
 
 
-  
+  // phone=''
   activity1=[];
-  activitysigninfo=[];
+  // show=false
  
 
 
@@ -43,6 +43,9 @@ export class MyActivityPage extends AppBase {
   }
   onMyShow(){
     this.getactivity();
+    console.log(this.MemberInfo)
+    // this.getactivitysigninfo()
+    
   }
 
   getactivity(){
@@ -68,9 +71,12 @@ export class MyActivityPage extends AppBase {
 
 
 
+ 
 
-  applicationDetails(){
-    this.navigate("application-details");
+
+
+  applicationDetails(i){
+    this.navigate("application-details",{id:i});
   }
   
  

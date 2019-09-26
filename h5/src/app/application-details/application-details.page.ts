@@ -6,6 +6,7 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { ActivityApi } from 'src/providers/activity.api';
 
 
 
@@ -13,7 +14,8 @@ import { MemberApi } from 'src/providers/member.api';
 @Component({
   selector: 'app-application-details',
   templateUrl: 'application-details.page.html',
-  styleUrls: ['application-details.page.scss']
+  styleUrls: ['application-details.page.scss'],
+  providers:[MemberApi,ActivityApi]
 })
 export class ApplicationDetailsPage extends AppBase {
 
@@ -24,23 +26,35 @@ export class ApplicationDetailsPage extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
+    public activityApi:ActivityApi,
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
       
   }
-
+  activity=[];
   onMyLoad(){
     //参数
     this.params;
   }
   onMyShow(){
-
+    this.getactivityinfo();
   }
 
+  
   activityInformation(){
     this.navigate("activity-information")
   }
+
+  getactivityinfo(){
+    var api=this.activityApi;
+    api.activityinfo({id: this.params.id}).then(
+      (activity)=>{
+        this.activity=activity;
+      }
+    )
+  }
+
 
  
   

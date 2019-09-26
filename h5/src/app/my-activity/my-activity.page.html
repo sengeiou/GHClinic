@@ -28,13 +28,13 @@
 
 
 
-        <ion-card class="height-148 padding-top-30 padding-left-30" (click)="applicationDetails()" *ngFor="let ac of activity1">
+        <ion-card class="height-148 padding-top-30 padding-left-30" *ngFor="let ac of activity1" (click)="applicationDetails(ac.id)"  >
             <div class="flex-row">
                 <div>
                   <div>
                       <img alt="" class="img-124" src="{{uploadpath}}activity/{{ac.activityCover}}"/>
                   </div> 
-                  <div class="f12 txt-white icon-55 text-center">已报名</div>
+                  <div class="f12 txt-white icon-55 text-center op-50">已报名</div>
                 </div>
                 <div class="margin-left-20 margin-top-10">
                   <div class="f16 txt-bold txt-black width-200" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{ac.activityName}}</div>
