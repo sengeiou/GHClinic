@@ -34,13 +34,19 @@ export class LoginPage extends AppBase {
   mobile = "";
   password = "";
   wechatInstalled = false;
+  needlogin=false;
 
   trylogin() {
+           
+   console.log(this.mobile);
+   console.log(this.password);
+   
 
     this.memberApi.login({
       mobile: this.mobile,
       password: this.password
     }).then((ret) => {
+       
       if (ret.code == "0") {
         AppBase.IsLogin=true;
         this.store("lastloginmobile", this.mobile);

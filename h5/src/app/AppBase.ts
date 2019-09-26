@@ -11,11 +11,11 @@ import { ViewController } from '@ionic/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
 import { OnInit } from '@angular/core';
-
+import { TabsPage } from './tabs/tabs.page';
 declare let wx: any;
 
 export class AppBase implements OnInit {
-    public needlogin = false;
+    public needlogin = true;
 
     public static TABName = "";
     public static LASTTAB = null;
@@ -153,11 +153,66 @@ export class AppBase implements OnInit {
         }
     }
     ionViewDidEnter() {
-        this.onMyShow();
+       
+
+        //AppBase.devicename=AppComponent.Instance.devicename;
+        //AppBase.devicename="AppComponent.Instance.devicename";
+
+        if (TabsPage.Instance != null) {
+            TabsPage.Instance.currentpage = this.currentpage;
+        }
+
+        AppBase.CurrentRoute = this.router;
+        AppBase.CurrentNav = this.navCtrl;
+        AppBase.Current = this;
+     
+
+
+        var token = window.localStorage.getItem("UserToken");
+
+
+   console.log("这是token");
+        console.log(token);
+
+
+
+
+        if (token == null) {
+            if (this.needlogin == true) {
+               this.navigate("login");  
+            } else {
+                this.onMyShow();
+            }
+        } else {
+            console.log(11111);
+            ApiConfig.SetToken(token);
+            AppBase.memberapi.info({}).then((memberinfo) => {
+
+
+                if (memberinfo == null || memberinfo.mobile == undefined || memberinfo.mobile == "") {
+
+                    memberinfo = null;
+                    if (this.needlogin == true) {
+                        this.navigate("login");  
+                        return;
+                    }
+                }
+                AppBase.IsLogin = memberinfo == null ? false : true;
+           
+
+
+                this.MemberInfo = memberinfo;
+            
+          
+                this.onMyShow();
+            });
+        }
+
+        this.firseonshow = false;
     }
 
     onMyShow() {
-
+     
     }
     onPullRefresh(ref) {
         this.onMyShow();

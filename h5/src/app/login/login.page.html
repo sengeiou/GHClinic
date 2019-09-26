@@ -1,18 +1,17 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button (click)='back()'>
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-icon name="arrow-back" class="ion-icon"></ion-icon>
+    <ion-title>
+      {{InstInfo.name}}
+    </ion-title>
+    <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
   </ion-toolbar>
-</ion-header> -->
+</ion-header>
 
 
 
 
-
-<ion-content style="background-image:url('assets/icon/login.png');background-size: 100% 100%;">
+<ion-content>
 
   <div class="icon-40" (click)="back()" style="z-index: 100;">
     <div class="height-50"></div>
@@ -45,7 +44,7 @@
       <div>
         <div class="height207"></div>
         <div class="flex-row   flex-center ">
-          <div class="txt-white  h4-6">登录</div>
+          <div class="txt-white  h4-6 " >登录</div>
           <div style="" class="width-30"></div>
           <div class="txt-white  h4-6 op" (click)="zhuce()">新用户注册</div>
         </div>

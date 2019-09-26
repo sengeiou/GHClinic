@@ -40,14 +40,23 @@ export class Tab1Page extends AppBase {
 
 
   ddate: Date = new Date();
+  ionViewDidEnter() {
 
+    AppBase.TABName = "tab1";
+    AppBase.LASTTAB = this;
+  
+   super.ionViewDidEnter();
+  }
   onMyLoad() {
     this.params;
     this.wtimeline = this.timeline(new Date());
   }
 
   onMyShow() {
+   
+     console.log("jinlaile");
 
+  
     this.loadMonthCalendar();
     this.loadWeekCalendar();
     this.getkeshi();
