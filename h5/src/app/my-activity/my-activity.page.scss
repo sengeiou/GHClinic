@@ -14,7 +14,7 @@
   width: rpx(55*2);
   height: rpx(25*2);
   margin-left:rpx(69*2);
-  margin-top: rpx(-115);
+  margin-top: rpx(-125);
   background-color: rgba(#6B3689, 0.6);
   line-height: rpx(25*2);
   z-index: 1;
@@ -42,3 +42,6 @@
   background-color: rgba(#8a8a8a, 0.6) !important;
 }
 
+.width-200{
+  width:rpx(400);
+}

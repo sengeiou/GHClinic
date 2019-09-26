@@ -28,44 +28,27 @@
 
 
 
-        <ion-card class="height-148 padding-top-30 padding-left-30">
+        <ion-card class="height-148 padding-top-30 padding-left-30" (click)="applicationDetails()" *ngFor="let ac of activity1">
             <div class="flex-row">
                 <div>
                   <div>
-                      <img alt="" class="img-124"/>
+                      <img alt="" class="img-124" src="{{uploadpath}}activity/{{ac.activityCover}}"/>
                   </div> 
                   <div class="f12 txt-white icon-55 text-center">已报名</div>
                 </div>
                 <div class="margin-left-20 margin-top-10">
-                  <div class="f16 txt-bold txt-black">第二届医疗健康知识讲座肿瘤篇</div>
-                  <div class="h5 margin-top-20" style="color: #E51C23">费用：￥188</div>
+                  <div class="f16 txt-bold txt-black width-200" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{ac.activityName}}</div>
+                  <div class="h5 margin-top-20" style="color: #E51C23">{{ac.price==0?'免费':'费用：￥'+ac.price}}</div>
                 </div>
               </div>
-              <div class="margin-top-10">
-                <div class="f12 txt-gw">时间：2019年8月27日 09：00</div>
-                <div class="f12 txt-gw margin-top-10">地址：广东省深圳市南山区创业五路1111号港和大厦</div>
+              <div class="margin-top-50">
+                <div class="f12 txt-gw">时间：{{ac.activityTime}}</div>
+                <div class="f12 txt-gw margin-top-10" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">地址：{{ac.activitySite}}</div>
               </div>
         </ion-card>
 
 
-        <ion-card class="height-148 padding-top-30 padding-left-30">
-            <div class="flex-row">
-                <div>
-                  <div>
-                      <img alt="" class="img-124"/>
-                  </div> 
-                  <div class="f12 txt-white icon-55 text-center bc" >已取消</div>
-                </div>
-                <div class="margin-left-20 margin-top-10">
-                  <div class="f16 txt-bold txt-black">第二届医疗健康知识讲座肿瘤篇</div>
-                  <div class="h5 margin-top-20" style="color: #E51C23">费用：￥188</div>
-                </div>
-              </div>
-              <div class="margin-top-10">
-                <div class="f12 txt-gw">时间：2019年8月27日 09：00</div>
-                <div class="f12 txt-gw margin-top-10">地址：广东省深圳市南山区创业五路1111号港和大厦</div>
-              </div>
-        </ion-card>
+        
  
 
 

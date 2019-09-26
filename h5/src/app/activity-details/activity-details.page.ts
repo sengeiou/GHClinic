@@ -52,7 +52,7 @@ export class ActivityDetailsPage extends AppBase {
         var nT=new Date().getTime();
         var aT=new Date(activity.activityTime).getTime();
         console.log(aT)
-        if(nT-aT<=60*24*60*60){
+        if(nT-aT<=0){
           this.show=true;
         }else{
           this.show=false;

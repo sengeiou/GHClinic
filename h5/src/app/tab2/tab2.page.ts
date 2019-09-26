@@ -53,11 +53,14 @@ export class Tab2Page extends AppBase {
       for(let i of activity){
         var aT=new Date(i.activityTime).getTime();
         var nT=new Date().getTime();
-        if(nT-aT<=1000*24*60*60){
+        console.log(i.id)
+        console.log(aT)
+        console.log(nT)
+        if(nT-aT<=0){
           activity1.push(i);
         }
         else{
-        activity2.push(i);
+          activity2.push(i);
         }
       }
       this.activity1=activity1;

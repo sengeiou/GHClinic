@@ -6,15 +6,16 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
-import { ActivityApi } from 'src/providers/activity.api';
+
+
+
 
 @Component({
-  selector: 'app-my-activity',
-  templateUrl: 'my-activity.page.html',
-  styleUrls: ['my-activity.page.scss'],
-  providers:[MemberApi,ActivityApi]
+  selector: 'app-application-details',
+  templateUrl: 'application-details.page.html',
+  styleUrls: ['application-details.page.scss']
 })
-export class MyActivityPage extends AppBase {
+export class ApplicationDetailsPage extends AppBase {
 
   constructor(public router: Router,
     public navCtrl: NavController,
@@ -23,55 +24,25 @@ export class MyActivityPage extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public activityApi: ActivityApi,
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
       
   }
 
-
-  
-  activity1=[];
-  activitysigninfo=[];
- 
-
-
   onMyLoad(){
     //参数
     this.params;
   }
   onMyShow(){
-    this.getactivity();
+
   }
 
-  getactivity(){
-    var api=this.activityApi
-    api.getactivity({}).then((activity)=>{
-    
-     var  activity1=[];
-     var activity2=[];
-      for(let i of activity){
-        var aT=new Date(i.activityTime).getTime();
-        var nT=new Date().getTime();
-        if(nT-aT<=0){
-          activity1.push(i);
-        }
-       
-      }
-      this.activity1=activity1;
-      
-    
-      
-    })
+  activityInformation(){
+    this.navigate("activity-information")
   }
 
-
-
-
-  applicationDetails(){
-    this.navigate("application-details");
-  }
+ 
   
  
 }

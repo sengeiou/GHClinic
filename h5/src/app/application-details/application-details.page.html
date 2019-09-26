@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-icon name="arrow-back" class="icon-24" (click)="back()"></ion-icon>
+    <ion-title>
+      报名详情
+    </ion-title>
+    <ion-icon name="close" slot="end" class="icon-24"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="background-color: #11838D" class="padding-top-15">
+    <div class="card bg-p height-81">
+      <div class="f16 txt-bold txt-white margin-left-30">已报名</div>
+      <div class="f12 txt-bold txt-white margin-left-30 margin-top-30">付款成功，报名已完成</div>
+    </div>
+  </div>
+
+
+  <div class="flex-row margin-top-50 margin-bottom-40">
+      <div class="f16 margin-left-30">订单号：</div>
+      <div class="f16 margin-left-20">19082705068111</div>
+  </div>
+  
+  <div class="d1">
+      <div class="f16 txt-black">活动信息</div>
+  </div>
+
+  <div class="margin-left-30 margin-top-40 flex-row" (click)="activityInformation()">
+    <div>
+      <img alt="" class="img-124"/>
+    </div>
+    <div class="margin-left-20">
+      <div class="f16 txt-black txt-bold">第二届医疗健康知识讲座肿瘤篇</div>
+      <div class="h5 txt-red ">费用：￥188</div>
+    </div>
+  </div>
+  <hr/>
+
+  <div class="margin-left-30 margin-top-30 flex-row flex-center">
+    <div class="f16 txt-black">地址</div>
+    <div class="f16 txt-black margin-left-40">广东省广州市白云区白云五路1111号港和大厦</div>
+  </div>
+  <hr/>
+
+  <div class="margin-left-30 margin-top-30 flex-row flex-center margin-bottom-30">
+      <div class="f16 txt-black">时间</div>
+      <div class="f16 txt-black margin-left-160">2019年8月27日（周四） 11：30</div>
+  </div>
+
+  <div class="flex-row d1 flex-center">
+    <div class="f16 txt-black">报名人信息</div>
+    <div class="h5 txt-gw margin-left-20">（必填）</div>
+  </div>
+
+  <div class="margin-left-30 margin-top-30 flex-row flex-center margin-bottom-30">
+      <div class="f16 txt-black flex-1">姓名</div>
+      <div class="f16 txt-black margin-right">张三 </div>
+  </div>
+  <hr/>
+
+
+  <div class="margin-left-30 margin-top-30 flex-row flex-center margin-bottom-30">
+      <div class="f16 txt-black flex-1">选择年龄段</div>
+      <div class="f16 txt-black margin-right flex-row flex-center">
+        <div>30-40</div>
+        <img alt="" src="{{uploadpath}}resource/{{res.rightArrow}}" class="icon-15" />
+      </div>
+  </div>
+  <hr/>
+
+  <div class="margin-left-30 margin-top-30 flex-row flex-center margin-bottom-30">
+      <div class="f16 txt-black flex-1">联系方式</div>
+      <div class="f16 txt-black margin-right">13838384388 </div>
+  </div>
+  
+
+  <div class="margin-top-30 padding-top-30" style="background-color: #F0F2F5">
+      <div class="f12 txt-gw margin-left-30">重要提示：</div>
+      <div class="f12 txt-gw margin-left-30">1. 根据医院规定，就诊日当天可能无法取消预约。文字内容后台可编辑。</div>
+      <!-- <div 
+      class="f16 txt-white line-height-45 margin-top-30 height-90 text-center" 
+      style="position: fixed;bottom:0;width:100%;background-color: #BFBFBF"
+      >取消</div> -->
+  </div>
+
+
+<!-- Button trigger modal -->
+  <button type="button" 
+  class="f16 txt-white line-height-45 margin-top-30 height-90 text-center" 
+  style="position: fixed;bottom:0;width:100%;background-color: #BFBFBF" 
+  data-toggle="modal" 
+  data-target="#myModal">
+  取消
+  </button>
+  <div class="modal fade" tabindex="-1" role="dialog" id="myModal" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="text-center">
+            <h4 class="txt-bold f16">取消报名</h4>
+          </div>
+          <div class="text-center">
+            <img alt="" class="icon-100" />
+          </div>
+          <div class="flex-row margin-top-30">
+            <button type="button" class="f16 txt-gw flex-1" >确定取消</button>
+            <button type="button" class="f16 txt-red flex-1" data-dismiss="modal" aria-hidden="true">我点错了</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+
+
+
+
+</ion-content>

@@ -49,6 +49,8 @@ const routes: Routes = [
   { path: 'physical-examination-cancelled', loadChildren: './physical-examination-cancelled/physical-examination-cancelled.module#PhysicalExaminationCancelledPageModule' },
   { path: 'physical-examination-payment', loadChildren: './physical-examination-payment/physical-examination-payment.module#PhysicalExaminationPaymentPageModule' },
   { path: 'physical-examination-complete', loadChildren: './physical-examination-complete/physical-examination-complete.module#PhysicalExaminationCompletePageModule' },
+  { path: 'application-details', loadChildren: './application-details/application-details.module#ApplicationDetailsPageModule' },
+  { path: 'activity-information', loadChildren: './activity-information/activity-information.module#ActivityInformationPageModule' },
 
  
 

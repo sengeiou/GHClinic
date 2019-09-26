@@ -1,0 +1,43 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+.card{   
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(37);
+}
+.height-81{
+  height: rpx(81*2);
+}
+
+
+hr{
+    border: #aaaaaa solid rpx(0.01*2);
+    background-color: #aaaaaa;
+    opacity: 0.2;
+  }
+  
+  .d1{
+    height: rpx(100);
+    line-height: rpx(100);
+    background:#F0F2F5;
+    padding-left: rpx(30)
+  
+  }
+
+  .img-124{
+      width: rpx(124*2);
+      height: rpx(140);
+  }
+
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1 !important;
+    background-color: #000;
+}
+
+  
