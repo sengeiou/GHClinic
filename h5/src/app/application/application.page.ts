@@ -34,7 +34,7 @@ export class ApplicationPage extends AppBase {
   activity=[];
   ages=[];
   id='';
-  ages_id='';
+ 
 
   onMyLoad(){
     //参数
@@ -47,10 +47,7 @@ export class ApplicationPage extends AppBase {
 
 
   }
-  adasd(){
-
-    console.log(1231312312)
-  }
+ 
   getactivityinfo(){
     var api=this.activityApi;
     api.activityinfo({id: this.params.id}).then(
@@ -69,7 +66,10 @@ export class ApplicationPage extends AppBase {
       }
     )
   }
-
+  age=null;
+  aa(e){
+    console.log(this.age);
+  }
   successfulRegistration(){
 
     var xingming=this.xingming;
@@ -81,14 +81,14 @@ export class ApplicationPage extends AppBase {
       return;
     }
     var api=this.activityApi;
-    console.log(this.ages_id);
-    api.signactivity({activty_id: this.id, name: this.xingming, age_id: this.ages_id,
-      phone: this.shoujihao, member_id: 1, status: 'M'}).then(
+
+    api.signactivity({activty_id: this.id, name: xingming, age_id: this.age,
+      phone: shoujihao, member_id: 1, status: 'M'}).then(
       (res)=>{
         console.log(res)
         if (res.code == 0) {
           
-          this.navigate("successful-registration");
+          this.navigate("successful-registration",{id:res.return, activity: JSON.stringify(this.activity)});
   
         }
       })

@@ -24,20 +24,23 @@
       font-size: rpx(32);
       color:black;
       font-weight: bold;
-      margin-left:rpx(30);
+      margin-left:rpx(33);
       margin-top:rpx(-25);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
   }
   .p2{
     font-size: rpx(32);
     font-weight: bold;
     color: black;
-    margin-left:rpx(40);
+    margin-left:rpx(33);
     margin-top:rpx(30)
 }
 .p3{
     width: rpx(64*2);
     height: rpx(30);
-    margin-left:rpx(40);
+    margin-left:rpx(33);
     margin-top: rpx(-22);
     border-radius: rpx(10);
     background-color: #B872E1;

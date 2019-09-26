@@ -6,11 +6,13 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { ActivityApi } from 'src/providers/activity.api';
 
 @Component({
   selector: 'app-successful-registration',
   templateUrl: 'successful-registration.page.html',
-  styleUrls: ['successful-registration.page.scss']
+  styleUrls: ['successful-registration.page.scss'],
+  providers: [MemberApi, ActivityApi]
 })
 export class SuccessfulRegistrationPage extends AppBase {
 
@@ -21,22 +23,37 @@ export class SuccessfulRegistrationPage extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
+    public activityApi:ActivityApi,
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
       
   }
 
+  activity=[];
+  activitysigninfo=[];
+
   onMyLoad(){
     //参数
     this.params;
+    this.activity=JSON.parse(this.params.activity);
   }
   onMyShow(){
 
+    this.getactivitysigninfo();
+
   }
 
-  tab1(){
-    this.backToUrl("tabs/tab1");
+  getactivitysigninfo(){
+    var api=this.activityApi;
+    api.activitysigninfo({id:this.params.id}).then((activitysigninfo)=>{
+      this.activitysigninfo=activitysigninfo;
+      console.log(activitysigninfo)
+    })
+  }
+
+  tab2(){
+    this.backToUrl("tabs/tab2");
   }
 
 

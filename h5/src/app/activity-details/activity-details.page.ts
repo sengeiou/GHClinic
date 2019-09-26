@@ -30,7 +30,10 @@ export class ActivityDetailsPage extends AppBase {
       
   }
 
+  show=false;
   activity=[];
+  // nT=new Date().getTime();
+  // aT=new Date(this.activity.activityName).getTime()
 
   onMyLoad(){
     //参数
@@ -38,16 +41,28 @@ export class ActivityDetailsPage extends AppBase {
   }
   onMyShow(){
     this.getactivityinfo();
-  }
 
+  }
+ 
   getactivityinfo(){
     var api=this.activityApi;
     api.activityinfo({id: this.params.id}).then(
       (activity)=>{
         this.activity=activity;
+        var nT=new Date().getTime();
+        var aT=new Date(activity.activityTime).getTime();
+        console.log(aT)
+        if(nT-aT<=60*24*60*60){
+          this.show=true;
+        }else{
+          this.show=false;
+        }
+       
       }
     )
   }
+
+
 
 
 

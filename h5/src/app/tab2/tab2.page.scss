@@ -14,7 +14,6 @@
   }
   .span1{
     font-weight:bold;
-    margin-left:rpx(30);
   }
   .p1{
     width:rpx(110);
@@ -35,14 +34,43 @@
     font-weight: bold;
     color:black;
     font-size:rpx(16*2);
-    margin-left: rpx(-15*2)
+    margin-left: rpx(-15);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .p3{
     margin-top:rpx(20);
-    margin-left:rpx(-30)
+    margin-left:rpx(-20)
   }
   .span2{
     color:#aaaaaa;
-    margin-left:rpx(6);
+    margin-left:rpx(10);
     font-size:rpx(24);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .bar{
+    width:rpx(110);
+    height:rpx(6);
+    background-color: #6B3689;
+    margin-top: rpx(-22);
+    margin-left:rpx(395)
+  }
+
+  .icon-36{
+    width:rpx(36);
+    height: rpx(36);
+  }
+
+  .icon-55{
+    width:rpx(55);
+    height: rpx(55);
+  }
+
+  .p4{
+      margin-top:rpx(12);
+      margin-left:rpx(-27)   
   }

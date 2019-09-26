@@ -12,29 +12,29 @@
     <div class="card">
       <div class="flex-row flex-column">
         <div class="margin-top-100">
-          <img alt="" class="icon-150 bg-p"/>
+          <img alt="" class="icon-150"  src="{{uploadpath}}activity/{{activity.activityCover}}"/>
         </div>
         <div class="f20 txt-bold txt-black margin-top">报名成功</div>
-        <div class="h5 txt-gw margin-top-60">您已报名成功，请准时前往</div>
-        <div class="h5 txt-gw margin-top-20">活动当天请至少提前30分钟到达现场</div>
+        <div class="f15 txt-gw margin-top-60">您已报名成功，请准时前往</div>
+        <div class="f15 txt-gw margin-top-20">活动当天请至少提前30分钟到达现场</div>
       </div>
 
       <div class="margin-left-80 margin-top-80">
         <div class="flex-row flex-center">
-          <div class="h5 txt-black">报名人：</div>
-          <div class="h5 txt-black margin-left-80">张三</div>
+          <div class="f15 txt-black">报名人：</div>
+          <div class="f15 txt-black margin-left-70">{{activitysigninfo.name}}</div>
         </div>
         <div class="flex-row flex-center margin-top-40">
-          <div class="h5 txt-black">活动时间：</div>
-          <div class="h5 txt-black margin-left-50">2019/8/27（周四）09：00</div>
+          <div class="f15 txt-black">活动时间：</div>
+          <div class="f15 txt-black margin-left-40">{{activity.activityTime}}</div>
         </div>
         <div class="flex-row flex-center margin-top-40">
-          <div class="h5 txt-black">活动地点：</div>
-          <div class="h5 txt-black width-250 margin-left-50">广东省广州市白云区白云五路1111号港和大厦</div>
+          <div class="f15 txt-black">活动地点：</div>
+          <div class="f15 txt-black width-250 margin-left-40" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{activity.activitySite}}</div>
         </div>
         <div class="flex-row flex-center margin-top-40">
-          <div class="h5 txt-black">手机号码：</div>
-          <div class="h5 txt-black margin-left-50">13838384388</div>
+          <div class="f15 txt-black">手机号码：</div>
+          <div class="f15 txt-black margin-left-40">{{activitysigninfo.phone}}</div>
         </div>
       </div>
 
@@ -43,7 +43,7 @@
       
       <div class="flex-row margin-top-80 h5 txt-g">
           <div class="flex-1"></div>
-          <div (click)="tab1()">返回首页</div>
+          <div (click)="tab2()">返回首页</div>
           <div class="margin-left-30 margin-right-30">|</div>
           <div>查看报名详情</div>
           <div class="flex-1"></div>

@@ -11,26 +11,27 @@
 <ion-content>
     <div style="background-color: #11838D" class="padding-top-15">
         <div class="card">
-            <span style="font-weight:bold;color:#6B3689;" (click)="show=false">
+            <span [class.txt-g]="show==false" (click)="show=false" class="txt-bold">
                 最新活动
             </span>
-            <span class="span1" (click)="show=true">
+            <span [class.txt-g]="show==true" [class.] (click)="show=true" class="margin-left-30 txt-bold">
                 往期活动
             </span>
-            <p class="p1"></p>
+            <p [class.p1]="show==false"></p>
+            <p [class.bar]="show==true"></p>
         </div>
     </div>
     <div *ngIf="show==false">
         <ion-card *ngFor="let ac of activity1;let i=index;" (click)="activityDetails(ac.id)">
-            <ion-card-header class="ion-card-header"  [style.background-image]="'url('+uploadpath+'activity/'+ac.activityCover+')'" ></ion-card-header>                                         
+            <ion-card-header class="ion-card-header"  *ngIf="ac.activityCover!=''" [style.background-image]="'url('+uploadpath+'activity/'+ac.activityCover+')'" ></ion-card-header>                                         
             <ion-card-content>
               <div class="p2">{{ac.activityName}}</div>
-              <div class="p3">
-                  <ion-icon name="time"></ion-icon>
+              <div class="p3 flex-row flex-center">
+                    <img  src='{{uploadpath}}resource/{{res.timeLogo}}' class="icon-36"/>
                   <span class="span2">{{ac.activityTime}}</span>
               </div>
-              <div class="p3">
-                  <ion-icon name="compass"></ion-icon>
+              <div class="p4 flex-row flex-center">
+                <img  src='{{uploadpath}}resource/{{res.navigationLogo}}' class="icon-55"/>
                   <span class="span2">{{ac.activitySite}}</span>
               </div>
             </ion-card-content>
@@ -40,16 +41,16 @@
 
     <div *ngIf="show==true">
         <ion-card *ngFor="let ac of activity2;let i=index;" (click)="activityDetails(ac.id)">
-                <ion-card-header class="ion-card-header"  [style.background-image]="'url('+uploadpath+'activity/'+ac.activityCover+')'" ></ion-card-header>                                         
+                <ion-card-header class="ion-card-header"  *ngIf="ac.activityCover!=''" [style.background-image]="'url('+uploadpath+'activity/'+ac.activityCover+')'" ></ion-card-header>                                         
                 <ion-card-content>
                   <div class="p2">{{ac.activityName}}</div>
-                  <div class="p3">
-                      <ion-icon name="time"></ion-icon>
+                  <div class="p3 flex-row flex-center">
+                      <img  src='{{uploadpath}}resource/{{res.timeLogo}}' class="icon-36"/>
                       <span class="span2">{{ac.activityTime}}</span>
                   </div>
-                  <div class="p3">
-                      <ion-icon name="compass"></ion-icon>
-                      <span class="span2">{{ac.activitySite}}</span>
+                  <div class="p4 flex-row flex-center">
+                    <img  src='{{uploadpath}}resource/{{res.navigationLogo}}' class="icon-55"/>
+                    <span class="span2">{{ac.activitySite}}</span>
                   </div>
                 </ion-card-content>
         </ion-card>
