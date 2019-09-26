@@ -7,7 +7,9 @@
     width: rpx(60);
     height: rpx(8);
 }
-
+ion-content{
+    --background: blueviolet !important;
+}
 
 .margin-top-300 {
     margin-top: rpx(150);

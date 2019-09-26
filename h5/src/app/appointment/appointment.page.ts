@@ -90,8 +90,8 @@ var  api=this.memberApi;
     }
     var tuijianren = this.tuijianren;
 
-
-
+   console.log(this.date.qwe.id);
+   console.log(21111);
     var api = this.orderApi;
     api.create({
       member_id: 1, doctor_id: this.yishen.id, schedule_id: this.date.qwe.id,
