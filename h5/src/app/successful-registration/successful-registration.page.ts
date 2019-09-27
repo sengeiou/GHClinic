@@ -55,7 +55,9 @@ export class SuccessfulRegistrationPage extends AppBase {
   tab2(){
     this.backToUrl("tabs/tab2");
   }
-
+  applicationDetails(){
+    this.navigate("application-details")
+  }
 
 
  

@@ -12,7 +12,7 @@
   <div style="background-color: #11838D" class="padding-top-15">
     <div class="card bg-p height-81">
       <div class="f16 txt-bold txt-white margin-left-30">已报名</div>
-      <div class="f12 txt-bold txt-white margin-left-30 margin-top-30">付款成功，报名已完成</div>
+      <div class="f12 txt-bold txt-white margin-left-30 margin-top-30">{{activity.price==0?'免费':'付款成功，报名已完成'}}</div>
     </div>
   </div>
 
@@ -26,26 +26,26 @@
       <div class="f16 txt-black">活动信息</div>
   </div>
 
-  <div class="margin-left-30 margin-top-40 flex-row" (click)="activityInformation()">
+  <div class="margin-left-30 margin-top-40 flex-row" (click)="activityInformation(activity.id)">
     <div>
-      <img alt="" class="img-124"/>
+      <img alt="" class="img-124" src="{{uploadpath}}activity/{{activity.activityCover}}" />
     </div>
     <div class="margin-left-20">
       <div class="f16 txt-black txt-bold">{{activity.activityName}}</div>
-      <div class="h5 txt-red ">费用：￥188</div>
+      <div class="h5 txt-red ">{{activity.price==0?'免费':'费用：￥'+activity.price}}</div>
     </div>
   </div>
   <hr/>
 
   <div class="margin-left-30 margin-top-30 flex-row flex-center">
     <div class="f16 txt-black">地址</div>
-    <div class="f16 txt-black margin-left-40">广东省广州市白云区白云五路1111号港和大厦</div>
+    <div class="f16 txt-black margin-left-40">{{activity.activitySite}}</div>
   </div>
   <hr/>
 
   <div class="margin-left-30 margin-top-30 flex-row flex-center margin-bottom-30">
       <div class="f16 txt-black">时间</div>
-      <div class="f16 txt-black margin-left-160">2019年8月27日（周四） 11：30</div>
+      <div class="f16 txt-black margin-left-40">{{activity.activityTime}}</div>
   </div>
 
   <div class="flex-row d1 flex-center">
@@ -55,7 +55,7 @@
 
   <div class="margin-left-30 margin-top-30 flex-row flex-center margin-bottom-30">
       <div class="f16 txt-black flex-1">姓名</div>
-      <div class="f16 txt-black margin-right">张三 </div>
+      <div class="f16 txt-black margin-right">张三</div>
   </div>
   <hr/>
 
@@ -71,7 +71,7 @@
 
   <div class="margin-left-30 margin-top-30 flex-row flex-center margin-bottom-30">
       <div class="f16 txt-black flex-1">联系方式</div>
-      <div class="f16 txt-black margin-right">13838384388 </div>
+      <div class="f16 txt-black margin-right">11111111111</div>
   </div>
   
 
@@ -103,7 +103,7 @@
             <img alt="" class="icon-100" />
           </div>
           <div class="flex-row margin-top-30">
-            <button type="button" class="f16 txt-gw flex-1" >确定取消</button>
+            <button type="button" class="f16 txt-gw flex-1" (click)="confirmCancellation()" aria-hidden="true" data-dismiss="modal">确定取消</button>
             <button type="button" class="f16 txt-red flex-1" data-dismiss="modal" aria-hidden="true">我点错了</button>
           </div>
         </div><!-- /.modal-content -->

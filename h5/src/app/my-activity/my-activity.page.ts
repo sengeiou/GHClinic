@@ -33,9 +33,14 @@ export class MyActivityPage extends AppBase {
 
   // phone=''
   activity1=[];
+
+ 
+  
+
+
   // show=false
  
-
+ 
 
   onMyLoad(){
     //参数
@@ -45,13 +50,14 @@ export class MyActivityPage extends AppBase {
     this.getactivity();
     console.log(this.MemberInfo)
     // this.getactivitysigninfo()
-    
+  
+   
+     
   }
 
   getactivity(){
     var api=this.activityApi
     api.getactivity({}).then((activity)=>{
-    
      var  activity1=[];
      var activity2=[];
       for(let i of activity){
@@ -59,9 +65,11 @@ export class MyActivityPage extends AppBase {
         var nT=new Date().getTime();
         if(nT-aT<=0){
           activity1.push(i);
+         
         }
        
       }
+
       this.activity1=activity1;
       
     

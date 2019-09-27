@@ -33,28 +33,40 @@ export class ApplicationDetailsPage extends AppBase {
       
   }
   activity=[];
+  // memberinfo=[]
+
+
+  
+
   onMyLoad(){
     //参数
     this.params;
   }
   onMyShow(){
     this.getactivityinfo();
+    console.log(this.MemberInfo); 
+   
   }
 
   
-  activityInformation(){
-    this.navigate("activity-information")
-  }
 
   getactivityinfo(){
     var api=this.activityApi;
     api.activityinfo({id: this.params.id}).then(
       (activity)=>{
         this.activity=activity;
+      
       }
     )
   }
 
+  confirmCancellation(){
+    console.log("已取消");
+  }
+
+  activityInformation(){
+    this.navigate("activity-information",{id:this.params.id})
+  }
 
  
   

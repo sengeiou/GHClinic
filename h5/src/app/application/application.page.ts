@@ -89,7 +89,7 @@ export class ApplicationPage extends AppBase {
         if (res.code == 0) {
           
           this.navigate("successful-registration",{id:res.return, activity: JSON.stringify(this.activity)});
-  
+          
         }
       })
     

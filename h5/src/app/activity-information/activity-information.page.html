@@ -12,39 +12,34 @@
   <div style="background-color: #11838D" class="padding-top-15">
     <div class="card">
       <ion-card class="ion-card">
-      <img src='' />
+      <img src='{{uploadpath}}activity/{{activity.activityCover}}' />
       </ion-card>
-      <div class="p1">第二届医疗健康知识讲座肿瘤篇</div>
+      <div class="p1">{{activity.activityName}}</div>
       <div class="p2">
           活动时间
       </div>
       <div class="p3"></div>
-      <div class="p4">2019年8月27日（周四） 09：00</div>
+      <div class="p4">{{activity.activityTime}}</div>
       <hr/>
       <div class="p2">
           活动地点
       </div>
       <div class="p3"></div>
-      <div class="p4">广东省广州市白云区白云五路1111号港和大厦</div>
+      <div class="p4">{{activity.activitySite}}</div>
       <hr/>
       <div class="p2">
           活动简介
       </div>
       <div class="p3"></div>
       <div class="p4 p5">   
-          港和医疗白云分部始建于2016年，医院拥有内容后台管理员可自行编辑，
-          内容后台管理员可自行编辑，内容后台管理员可自行编辑，内容后台管理员可自行编辑，
-          内容后台管理员可自行编辑，内容后台管理员可自行编辑，内容后台管理员可自行编辑，
-          内容后台管理员可自行编辑，内容后台管理员可自行编辑，内容后台管理员可自行编辑。</div>
+        {{activity.activityBrief}}</div>
       <hr/>
       <div class="p2">
           报名须知
       </div>
       <div class="p3"></div>
-      <div class="p4">本次报名人数限制：200人</div>
-      <div class="p4">内容后台管理员可自行编辑，内容后台管理员可自行编辑。
-        内容后台管理员可自行编辑，内容后台管理员可自行编辑。
-        内容后台管理员可自行编辑，内容后台管理员可自行编辑。内容后台管理员可自行编辑，内容后台管理员可自行编辑。</div>
+      <div class="p4">本次报名人数限制：{{activity.xianzhi}}人</div>
+      <div class="p4">{{activity.show}}</div>
       <div class="height-90"></div>
 
 
@@ -52,7 +47,7 @@
   </div>
 </ion-content>
 <div class="div1 flex-row flex-center">
-    <div class="p6">费用：￥188</div>
+    <div class="p6">{{activity.price==0?"免费":"费用：￥"+activity.price}}</div>
     <div class="p7">已报名</div>
 </div>
 

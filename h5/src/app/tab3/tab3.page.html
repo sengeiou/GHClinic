@@ -11,46 +11,43 @@
 <ion-content>
     <div style="background-color: #11838D" class="padding-top-15">
         <div class="card">
-          <input placeholder="搜索&nbsp;科室/药品" />
+          <input placeholder="搜索&nbsp;科室/药品" (click)="search()"/>
           <ion-icon name="search" style="color:#6B3689;" class="ion-icon1"></ion-icon>  
 
 
-          <div id="carousel-example-generic" class="carousel slide div-340" data-ride="carousel">
-              <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                  1
+            <ion-slides loop="true" autoplay="3000" #hhh auto-play="true" class="div-340">
+              <ion-slide  *ngFor="let lb of lunbo;let i=index;">
+                <div class="flex-wrap">
+                  <img src="{{uploadpath}}marketlunbo/{{lb.photo}}" class="img-340" />    
                 </div>
-                <div class="item" >                  
-                  2
-                </div>
-                <div class="item">            
-                  3
-                </div>
-              </div> 
-              <ol class="carousel-indicators">
-                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active marginLeft"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="1" class="margin-left-10"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="2" class="margin-left-10"></li>
-              </ol>        
-            </div>
+              </ion-slide>
+            </ion-slides>
 
 
 
 
            
-        <div class="flex-row  flex-center margin-top-30">
-          <div class="div1" (click)="qiehuan=1">
+        <div class="flex-row  flex-center margin-top-30" style="justify-content: space-around">
+          <!-- <div class="div1" (click)="qiehuan=1">
             <p class="p1">常用药品</p>
             <p class="p2"></p>
           </div>
           <div class="div1" (click)="qiehuan=2">
             <p class="p3">滋补保健</p>
+            <p class="p2"></p>
           </div>
           <div class="div1" (click)="qiehuan=3">
             <p class="p3">医疗器械</p>
+            <p class="p2"></p>
           </div>
           <div class="div1" (click)="qiehuan=4">
             <p class="p3">医疗器械</p>
+            <p class="p2"></p>
+          </div> -->
+
+          <div *ngFor="let ds of drugstype;let i=index;">
+            <div [class.p1]="qiehuan==(i+1)" (click)="qiehuan=(i+1)">{{ds.name}}</div>
+            <div class="marginTop" [class.p2]="qiehuan==(i+1)"></div>
           </div>
          
         </div>
@@ -174,9 +171,9 @@
           </div>
 
 
-          <div *ngIf="qiehuan==2"></div>
-          <div *ngIf="qiehuan==3"></div>
-          <div *ngIf="qiehuan==4"></div>
+          <div *ngIf="qiehuan==2">2</div>
+          <div *ngIf="qiehuan==3">3</div>
+          <div *ngIf="qiehuan==4">4</div>
           
 
 

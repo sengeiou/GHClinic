@@ -67,6 +67,9 @@ export class ActivityDetailsPage extends AppBase {
 
 
 
+
+
+
   application(id){
     this.navigate("application",{id:id})
   }

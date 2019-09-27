@@ -40,7 +40,7 @@ export class SuccessfulTradePage extends AppBase {
   }
 
   tab1(){
-    this.backToUrl("tabs/tab1");
+    this.backToUrl("tabs/tab3");
   }
 
 }

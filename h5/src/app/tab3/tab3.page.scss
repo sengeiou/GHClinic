@@ -35,7 +35,7 @@ input{
   font-weight: bold;
   font-size: rpx(32);
   color:#6b3689;
-  margin-top:rpx(20)
+ 
 }
 .p2{
   width: rpx(90);
@@ -47,7 +47,7 @@ input{
 .p3{
   font-size: rpx(28);
   color:black;
-  margin-top: rpx(36)
+
 }
 .div0{
   position: relative;
@@ -130,11 +130,20 @@ img{
   height:rpx(166*2);
   border-radius:rpx(20);
   margin-left:rpx(35);
-  background:#aaaaaa;
 }
 .marginLeft{
   margin-left: rpx(-30)
 }
 .margin-left-10{
   margin-left: rpx(10)
+}
+.img-340{
+  width:rpx(340*2);
+  height:rpx(166*2);
+  border-radius:rpx(20);
+  margin:0;
+}
+
+.marginTop{
+  margin-top:rpx(2)
 }

@@ -129,3 +129,14 @@
   .margin-left-10{
     margin-left: rpx(10)
   }
+  
+  .slidelist{
+    width:100%;
+    height:rpx(190*2);
+    overflow:auto
+  }
+
+  .slidelist::-webkit-scrollbar{
+    width:0;
+    height: 0;
+  }
