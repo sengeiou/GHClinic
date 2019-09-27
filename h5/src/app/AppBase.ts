@@ -80,6 +80,7 @@ export class AppBase implements OnInit {
         if(memberinfo!=null){
             AppBase.MemberInfo=JSON.parse(memberinfo);
         }
+        console.log("啊哈哈哈哈哈");
         console.log("rdw",AppBase.MemberInfo);
     }
     setStatusBar() {
@@ -169,7 +170,7 @@ export class AppBase implements OnInit {
 
 
         var token = window.localStorage.getItem("UserToken");
-
+ console.log(this.MemberInfo);
 
    console.log("这是token");
         console.log(token);
@@ -187,8 +188,8 @@ export class AppBase implements OnInit {
             console.log(11111);
             ApiConfig.SetToken(token);
             AppBase.memberapi.info({}).then((memberinfo) => {
-
-
+        console.log("进来了熬哈哈");
+      AppBase.MemberInfo=memberinfo;
                 if (memberinfo == null || memberinfo.mobile == undefined || memberinfo.mobile == "") {
 
                     memberinfo = null;
@@ -199,7 +200,7 @@ export class AppBase implements OnInit {
                 }
                 AppBase.IsLogin = memberinfo == null ? false : true;
            
-
+                 
 
                 this.MemberInfo = memberinfo;
             

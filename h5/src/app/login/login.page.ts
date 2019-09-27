@@ -46,7 +46,7 @@ export class LoginPage extends AppBase {
       mobile: this.mobile,
       password: this.password
     }).then((ret) => {
-       
+      console.log(ret);
       if (ret.code == "0") {
         AppBase.IsLogin=true;
         this.store("lastloginmobile", this.mobile);
@@ -101,6 +101,7 @@ export class LoginPage extends AppBase {
       var code = res["code"];
       this.memberApi.wechatauth({ "oauthcode": code }).then((ret) => {
         loading.dismiss();
+       
         if (ret.code == 0) {
           AppBase.IsLogin = true;
           this.store("UserToken", ret.return);

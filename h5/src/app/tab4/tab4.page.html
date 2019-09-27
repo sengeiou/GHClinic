@@ -16,7 +16,7 @@
             <div>
               <img alt="" class="icon-50"/>
             </div>
-            <div class="f16 txt-black txt-bold margin-left-20">陈XX</div>
+            <div *ngIf='MemberInfo!=null' class="f16 txt-black txt-bold margin-left-20">{{MemberInfo.name}}</div>
             <div>
               <img alt="" class="icon-24 margin-left-500"/>
             </div>
