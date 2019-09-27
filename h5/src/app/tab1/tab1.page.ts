@@ -78,6 +78,18 @@ export class Tab1Page extends AppBase {
   fuwuleibie=null;
   hospital(name) {
     var api = this.memberApi;
+   if(name=="体检")
+   {
+    api.gethospital({ }).then((hostlist) => {
+      console.log(hostlist);
+      this.hostlist = hostlist;
+    this.fuwuleibie=name;
+    })
+   return
+   }
+
+
+    
     api.departmenthost({ name: name }).then((hostlist) => {
       console.log(hostlist);
       this.hostlist = hostlist;
@@ -236,6 +248,15 @@ export class Tab1Page extends AppBase {
      
 
     this.navigate("information",{riqi:this.riqi,fuwuleibie:this.fuwuleibie,yiyuanid:id})
+  }
+  tijian(id)
+  {
+    var yue=this.xzy;
+    var ri=this.xzrq;
+      console.log(id.id);
+
+    this.navigate("physical-examination",{riqi:this.riqi,fuwuleibie:this.fuwuleibie,yiyuanid:id.id})
+
   }
   physicalExamination() {
     this.navigate("physical-examination")
