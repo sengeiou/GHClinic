@@ -72,13 +72,14 @@ export class Tab3Page extends AppBase {
     api.getdrugs({}).then((drugs)=>{
       this.drugs=drugs;
     })
+    
   }
 
 
 
 
-  CommodityDetails(){
-    this.navigate("commodity-details")
+  CommodityDetails(i){
+    this.navigate("commodity-details",{id:i})
   }
   search(){
     this.navigate("search")

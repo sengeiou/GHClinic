@@ -51,7 +51,7 @@ input{
 }
 .div0{
   position: relative;
-  top:rpx(-25)
+  top:rpx(55)
 }
 .div1{
 
@@ -61,14 +61,17 @@ input{
 img{
   width: rpx(76*2);
   height: rpx(78*2);
-  margin-left: rpx(25);
-  margin-top:rpx(20)
+  margin-left: rpx(22);
+  margin-top:rpx(20);
+  border-top-left-radius: rpx(20);
+  border-top-right-radius: rpx(20)
 }
 .ion-card1{
-  width: rpx(105*2);
+  width: 28%;
   height: rpx(160*2);
   display: inline-block;
-  margin-left: rpx(0)
+  margin-left: rpx(0);
+  margin-top:rpx(-30)
 }
 .p4{
   font-size: rpx(28);
@@ -85,7 +88,7 @@ img{
   margin-top:rpx(-23)
 }
 .div2{
-  margin-left: rpx(24);
+  margin-left: rpx(40);
 }
 .div3{
   margin-left: rpx(24);
@@ -95,8 +98,11 @@ img{
   width: rpx(120);
   height: rpx(120);
   position:absolute;
-  top:rpx(970);
-  right: rpx(50)
+  top:rpx(750);
+  right: rpx(50);
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #6b3689 0%,#11838D 100%);
+
 }
 .margin-tl{
   text-decoration:line-through;
@@ -123,7 +129,9 @@ img{
   height: rpx(120);
   position:absolute;
   top:rpx(1370);
-  right: rpx(50)
+  right: rpx(50);
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #6b3689 0%,#11838D 100%);
 }
 .div-340{
   width:rpx(340*2);

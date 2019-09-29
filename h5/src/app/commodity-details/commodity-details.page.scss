@@ -12,14 +12,17 @@
     padding-top: rpx(37);
 }
 .ion-card{
-  margin-top: rpx(0);
+//   margin-top: rpx(0);
+  width: rpx(340*2);
   height:rpx(212*2);
+  margin-left: rpx(35);
+  border-radius: rpx(20)
 }
 .ion-card1{
-  height:rpx(424*2);
+  padding-top: rpx(20)
 }
 .ion-card2{
-    height:rpx(363*2);
+    padding-top: rpx(20)
 }
 .p1{
     color:#F7555A;
@@ -32,14 +35,14 @@
     font-size: rpx(32);
     font-weight: bold;
     margin-left:rpx(30);
-    margin-top:rpx(-20)
+    margin-top:rpx(-10)
 }
 .p3{
     color:#8A8A8A;
     font-size: rpx(24);
     margin-left:rpx(30);
     width: rpx(320*2);
-    margin-top:rpx(-20)
+    margin-top:rpx(-10)
 }
 .p4{
     font-size: rpx(32);

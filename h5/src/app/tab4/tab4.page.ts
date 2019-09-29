@@ -34,6 +34,9 @@ export class Tab4Page extends AppBase {
   onMyShow(){
 
   }
+
+
+  
   address(){
     this.navigate("address")
   }
