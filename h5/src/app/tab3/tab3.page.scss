@@ -95,10 +95,11 @@ img{
   margin-top:rpx(-70)
 }
 .img1{
+  z-index: 1;
   width: rpx(120);
   height: rpx(120);
-  position:absolute;
-  top:rpx(750);
+  position: fixed;
+  top:rpx(1430);
   right: rpx(50);
   border-radius: 50%;
   background: linear-gradient(to bottom, #6b3689 0%,#11838D 100%);
@@ -125,10 +126,11 @@ img{
 }
 
 .img3{
+  z-index: 1;
   width: rpx(120);
   height: rpx(120);
-  position:absolute;
-  top:rpx(1370);
+  position:fixed;
+  top:rpx(1430);
   right: rpx(50);
   border-radius: 50%;
   background: linear-gradient(to bottom, #6b3689 0%,#11838D 100%);

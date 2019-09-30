@@ -7,6 +7,7 @@ import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { ActivityApi } from 'src/providers/activity.api';
+import { ApiConfig } from '../api.config';
 
 @Component({
   selector: 'app-my-activity',
@@ -33,6 +34,9 @@ export class MyActivityPage extends AppBase {
 
   // phone=''
   activity1=[];
+  activityinfo=[];
+  name='';
+  id=1;
 
  
   
@@ -47,45 +51,71 @@ export class MyActivityPage extends AppBase {
     this.params;
   }
   onMyShow(){
-    this.getactivity();
-    console.log(this.MemberInfo)
-    // this.getactivitysigninfo()
-  
+    // this.getactivity();
+    console.log(this.MemberInfo);
+    this.activitysigninfo();
+   
    
      
   }
 
-  getactivity(){
-    var api=this.activityApi
-    api.getactivity({}).then((activity)=>{
-     var  activity1=[];
-     var activity2=[];
-      for(let i of activity){
-        var aT=new Date(i.activityTime).getTime();
-        var nT=new Date().getTime();
-        if(nT-aT<=0){
-          activity1.push(i);
-         
-        }
-       
-      }
+  // getactivity(){
+  //   var api=this.activityApi
+  //   api.getactivity({}).then((activity)=>{
+  //    var  activity1=[];
+  //    var activity2=[];
+  //     for(let i of activity){
+  //       var aT=new Date(i.activityTime).getTime();
+  //       var nT=new Date().getTime();
+  //       if(nT-aT<=0){
+  //         activity1.push(i);
+  //       }      
+  //     }
+  //     this.activity1=activity1;     
+  //   })
+  // }
 
-      this.activity1=activity1;
-      
-    
-      
+  // getactivity(){
+  //   var api=this.activityApi
+  //   api.getactivity({}).then((activity)=>{
+  //    var  activity1=[];
+  //    var activity2=[];
+  //     for(let i of activity){
+  //       var aT=new Date(i.activityTime).getTime();
+  //       var nT=new Date().getTime();
+  //       if(nT-aT<=0){
+  //         activity1.push(i);
+  //         for(let ii of i.activityName){
+  //           console.log(ii)
+  //           api.activitysigninfo({id:25}).then((activityinfo)=>{
+  //                 if(activityinfo.id){
+  //                   this.activityinfo=activityinfo;
+  //                   console.log(activityinfo);
+  //                 }
+  //               })
+  //         }
+  //       }      
+  //     }
+  //     this.activity1=activity1;     
+  //   })
+  // }
+
+
+
+
+
+  
+
+  activitysigninfo(){
+    var api=this.activityApi;
+    api.huoquactivityinfo({}).then((activityinfo)=>{
+      this.activityinfo=activityinfo;
+      console.log(activityinfo);
     })
   }
-
-
-
- 
-
 
 
   applicationDetails(i){
     this.navigate("application-details",{id:i});
   }
-  
- 
 }

@@ -83,7 +83,7 @@ export class ApplicationPage extends AppBase {
     var api=this.activityApi;
 
     api.signactivity({activty_id: this.id, name: xingming, age_id: this.age,
-      phone: shoujihao, member_id: 1, status: 'M'}).then(
+      phone: shoujihao, member_id: 1, status: 'A'}).then(
       (res)=>{
         console.log(res)
         if (res.code == 0) {

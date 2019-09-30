@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
-import {  ActivatedRoute, Params } from '@angular/router';
-import { NavController, ModalController, ToastController, AlertController, NavParams,IonSlides } from '@ionic/angular';
+import { ActivatedRoute, Params } from '@angular/router';
+import { NavController, ModalController, ToastController, AlertController, NavParams, IonSlides } from '@ionic/angular';
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
@@ -12,7 +12,7 @@ import { AddressApi } from 'src/providers/address.api';
   selector: 'app-my-address',
   templateUrl: 'my-address.page.html',
   styleUrls: ['my-address.page.scss'],
-  providers:[AddressApi]
+  providers: [AddressApi]
 })
 export class MyAddressPage extends AppBase {
 
@@ -24,148 +24,169 @@ export class MyAddressPage extends AppBase {
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
     public addressApi: AddressApi,
-    public memberApi:MemberApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    public memberApi: MemberApi) {
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-      
+
   }
-  people="";
-  phone="";
-  member=[];
-  dizhi="";
-  people1="";
-  phone1="";
-  dizhi1="";
-  menpaihao1='';
-  id='';
-  show=false;
-  menpaihao='';
-  addressinfo=[];
-  onMyLoad(){
+  people = "";
+  phone = "";
+  member = [];
+  dizhi = "";
+
+  id = '';
+  
+  menpaihao = '';
+  addressinfo = [];
+  onMyLoad() {
     //参数
     this.params;
   }
-  onMyShow(){
-    this.member.push(this.MemberInfo);
-    console.log(this.member)
-    for(let m of this.member){
-      this.id=m.id;
+  onMyShow() {
+
+
+
+
+    this.getaddressinfo();
+
+
+
+
+
+
+  }
+
+  // close() {
+  //   this.modalCtrl.dismiss({});
+  // }
+
+  id1 = 0;
+
+  // shanchu() {
+
+
+  //   console.log("12313");
+  //   this.showConfirm("是否删除此地址", (ret) => {
+  //     if (ret == true) {
+  //       this.addressApi.shanchuaddress({ id: this.id1 }).then((res) => {
+  //         if (res.code == 0) {
+  //           this.toast("删除成功");
+  //           this.close();
+  //         }
+
+
+  //       })
+  //     }
+  //   });
+  // }
+
+
+  getaddressinfo() {
+    var api = this.addressApi;
+    if (this.params.id == undefined) {
+      return
     }
-    this.getaddress();
 
-    console.log(this.params.id)
-    
-    
-    
+    api.addressinfo({ id: this.params.id }).then((addressinfo) => {
+      var ai = addressinfo;
 
-  }
-  
-  close() {
-    this.modalCtrl.dismiss({});
-  }
+      this.id1 = ai.id;
+      this.addressinfo = addressinfo;
+      this.people = ai.people;
+      this.phone = ai.phone;
+      this.dizhi = ai.dizhi;
+      this.id = ai.member_id;
+      this.menpaihao = ai.menpaihao;
 
- id1=0;
-
-  shanchu() {
-    console.log("12313");
-    this.showConfirm("是否删除此地址", (ret) => {
-      if (ret == true) {
-        this.addressApi.shanchuaddress({ id: this.id1 }).then((res) => {
-          if(res.code==0){
-            this.toast("删除成功");
-            this.close();
-          }
-         
-
-        })
-      }
-    });
-  }
-
-  
-  getaddress(){
-    var api=this.addressApi;
-    api.getaddress({id:this.params.id}).then((addressinfo)=>{
-      for(let ai of addressinfo){
-        if(ai.id==this.params.id){
-          this.id1=ai.id;
-          console.log(this.id1)
-          this.addressinfo=addressinfo;
-          console.log(ai.id)
-          this.people1=ai.people;
-          this.phone1=ai.phone;
-          this.dizhi1=ai.dizhi;
-          this.menpaihao1=ai.menpaihao;
-          this.show=true;
-        }
-        else{
-          this.show=false;
-        }
-        
-      }      
     })
   }
-  
- 
+
+  delete() {
+
+    var id = this.id1;
+    if (id == 0) {
+      return
+    }
+    var api = this.addressApi;
+
+    api.shanchuaddress({ idlist: id }).then((res) => {
+
+      if (res.code == 0) {
+        this.back();
+
+      }
+
+
+    })
 
 
 
-  address(){
-    var id1=this.id1;
-    var id=this.id;
-    var people=this.people;
-    if(people==''){
+
+  }
+
+
+
+  address() {
+    var id1 = this.id1;
+
+    var people = this.people;
+    if (people == '') {
+      console.log(1);
       return;
     }
-    var phone=this.phone;
-    if(phone==''){
+    var phone = this.phone;
+    if (phone == '') {
+      console.log(2);
       return;
     }
-    var dizhi=this.dizhi;
-    if(dizhi==''){
+    var dizhi = this.dizhi;
+    if (dizhi == '') {
+      console.log(3);
       return;
     }
-    var menpaihao=this.menpaihao;
-    if(menpaihao==''){
+    var menpaihao = this.menpaihao;
+    if (menpaihao == '') {
+      console.log(4);
       return;
     }
 
-
-  
-   
-   
-
-   
-      var api=this.addressApi;
-      // api.tianjiaaddress({status:'M',people:people,phone:phone,dizhi:dizhi,menpaihao:menpaihao,member_id:id}).then((res)=>{
-      //   console.log(res)
-      //   if(res.code == 0){
-      //     this.navigate("address",{
-      //       people:people,phone:phone,dizhi:dizhi,menpaihao:menpaihao
-
-      //     })
-      //   }
-        
-      // })
-
-      api.tianjiaaddress({primary_id:id1,status:'M',people:people,phone:phone,dizhi:dizhi,menpaihao:menpaihao,member_id:id}).then((res)=>{
-        console.log(res)
-        if(res.code == 0){
-          this.navigate("address",{
-            people:people,phone:phone,dizhi:dizhi,menpaihao:menpaihao,primary_id:id1
-
-          })
-        }
-        
-      })
+    var canshu = { status: 'A', people: people, phone: phone, dizhi: dizhi, menpaihao: menpaihao }
+    var canshu1 = { primary_id: id1, status: 'A', people: people, phone: phone, dizhi: dizhi, menpaihao: menpaihao }
 
 
-     
 
 
-    
 
-    
+
+    var api = this.addressApi;
+    // api.tianjiaaddress({status:'M',people:people,phone:phone,dizhi:dizhi,menpaihao:menpaihao,member_id:id}).then((res)=>{
+    //   console.log(res)
+    //   if(res.code == 0){
+    //     this.navigate("address",{
+    //       people:people,phone:phone,dizhi:dizhi,menpaihao:menpaihao
+
+    //     })
+    //   }
+
+    // })
+
+    api.tianjiaaddress(id1 == 0 ? canshu : canshu1).then((res) => {
+      console.log(res)
+      if (res.code == 0) {
+
+        this.back();
+
+      }
+
+    })
+
+
+
+
+
+
+
+
   }
 
 }
