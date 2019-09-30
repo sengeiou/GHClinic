@@ -15,12 +15,18 @@
 
 
         <div class="flex-row flex-center margin-left-30">
-            <div>
-              <div class="f18 txt-g txt-bold">全部</div>
-              <div class="icon-26 bg-p margin-top-10"></div>
+            <div (click)='qiehuan=0'>
+              <div class="txt-bold" [class.f18]='qiehuan==0' [class.txt-g]='qiehuan==0'>全部</div>
+              <div class="icon-26 bg-p margin-top-10" *ngIf='qiehuan==0'></div>
             </div>
-            <div class="h5 txt-bold margin-left-80">已报名</div>
-            <div class="h5 txt-bold margin-left-80">已取消</div>
+            <div class="flex-row flex-column margin-left-80" (click)='qiehuan=1'>
+              <div class="txt-bold" [class.f18]='qiehuan==1' [class.txt-g]='qiehuan==1'>已报名</div>
+              <div class="icon-26 bg-p margin-top-10" *ngIf='qiehuan==1'></div>
+            </div>
+            <div class="flex-row flex-column margin-left-80" (click)='qiehuan=2'>
+              <div class="txt-bold" [class.f18]='qiehuan==2' [class.txt-g]='qiehuan==2'>已取消</div>
+              <div class="icon-26 bg-p margin-top-10" *ngIf='qiehuan==2'></div>
+            </div>
         </div>
 
 
@@ -28,24 +34,70 @@
 
 
 
-        <ion-card class="height-148 padding-top-30 padding-left-30" *ngFor="let ac of activityinfo" (click)="applicationDetails(ac.id)"  >
-            <div class="flex-row">
+       <div *ngIf="qiehuan==0">
+        <ion-card class="height-148 padding-top-30 padding-left-30" *ngFor="let ac of activityinfo1" (click)="applicationDetails(ac.id)"  >
+          <div class="flex-row">
+              <div>
                 <div>
-                  <div>
-                      <img alt="" class="img-124" src="{{uploadpath}}activity/{{ac.activty_activityCover}}"/>
-                  </div> 
-                  <div class="f12 txt-white icon-55 text-center op-50">{{ac.status=='A'?"已报名":'已取消'}}</div>
-                </div>
-                <div class="margin-left-20 margin-top-10">
-                  <div class="f16 txt-bold txt-black width-200" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{ac.activty_activityName}}</div>
-                  <div class="h5 margin-top-20" style="color: #E51C23">{{ac.activty_price==0?'免费':'费用：￥'+ac.activty_price}}</div>
-                </div>
+                    <img alt="" class="img-124" src="{{uploadpath}}activity/{{ac.activty_activityCover}}"/>
+                </div> 
+                <div class="f12 txt-white icon-55 text-center op-50 bg" *ngIf="ac.status=='A'">已报名</div>
+                <div class="f12 txt-white icon-55 text-center op-50 bg1" *ngIf="ac.status=='S'">已取消</div>
               </div>
-              <div class="margin-top-50">
-                <div class="f12 txt-gw">时间：{{ac.activty_activityTime}}</div>
-                <div class="f12 txt-gw margin-top-10" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">地址：{{ac.activty_activitySite}}</div>
+              <div class="margin-left-20 margin-top-10">
+                <div class="f16 txt-bold txt-black width-200" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{ac.activty_activityName}}</div>
+                <div class="h5 margin-top-20" style="color: #E51C23">{{ac.activty_price==0?'免费':'费用：￥'+ac.activty_price}}</div>
               </div>
+            </div>
+            <div class="margin-top-50">
+              <div class="f12 txt-gw">时间：{{ac.activty_activityTime}}</div>
+              <div class="f12 txt-gw margin-top-10" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">地址：{{ac.activty_activitySite}}</div>
+            </div>
         </ion-card>
+       </div>
+
+       <div *ngIf="qiehuan==1">
+        <ion-card class="height-148 padding-top-30 padding-left-30" *ngFor="let ac of activityinfo2" (click)="applicationDetails(ac.id)"  >
+          <div class="flex-row">
+              <div>
+                <div>
+                    <img alt="" class="img-124" src="{{uploadpath}}activity/{{ac.activty_activityCover}}"/>
+                </div> 
+                <div class="f12 txt-white icon-55 text-center op-50 bg">已报名</div>
+              </div>
+              <div class="margin-left-20 margin-top-10">
+                <div class="f16 txt-bold txt-black width-200" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{ac.activty_activityName}}</div>
+                <div class="h5 margin-top-20" style="color: #E51C23">{{ac.activty_price==0?'免费':'费用：￥'+ac.activty_price}}</div>
+              </div>
+            </div>
+            <div class="margin-top-50">
+              <div class="f12 txt-gw">时间：{{ac.activty_activityTime}}</div>
+              <div class="f12 txt-gw margin-top-10" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">地址：{{ac.activty_activitySite}}</div>
+            </div>
+        </ion-card>
+       </div>
+
+
+       <div *ngIf="qiehuan==2">
+        <ion-card class="height-148 padding-top-30 padding-left-30" *ngFor="let ac of activityinfo3" (click)="applicationDetails(ac.id)"  >
+          <div class="flex-row">
+              <div>
+                <div>
+                    <img alt="" class="img-124" src="{{uploadpath}}activity/{{ac.activty_activityCover}}"/>
+                </div> 
+                <div class="f12 txt-white icon-55 text-center op-50 bg1">已取消</div>
+              </div>
+              <div class="margin-left-20 margin-top-10">
+                <div class="f16 txt-bold txt-black width-200" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{ac.activty_activityName}}</div>
+                <div class="h5 margin-top-20" style="color: #E51C23">{{ac.activty_price==0?'免费':'费用：￥'+ac.activty_price}}</div>
+              </div>
+            </div>
+            <div class="margin-top-50">
+              <div class="f12 txt-gw">时间：{{ac.activty_activityTime}}</div>
+              <div class="f12 txt-gw margin-top-10" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">地址：{{ac.activty_activitySite}}</div>
+            </div>
+        </ion-card>
+       </div>
         
  
 

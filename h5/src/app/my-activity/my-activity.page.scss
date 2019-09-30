@@ -8,14 +8,18 @@
     border-top-right-radius: rpx(37);
     padding-top: rpx(37);
 }
-
+.bg{
+  background-color: rgba(#6B3689, 0.6);
+}
+.bg1{
+  background-color: rgba(#8a8a8a, 0.6);
+}
 
 .icon-55{
   width: rpx(55*2);
   height: rpx(25*2);
   margin-left:rpx(69*2);
   margin-top: rpx(-125);
-  background-color: rgba(#6B3689, 0.6);
   line-height: rpx(25*2);
   z-index: 1;
 }

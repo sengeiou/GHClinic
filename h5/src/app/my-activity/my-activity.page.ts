@@ -33,10 +33,13 @@ export class MyActivityPage extends AppBase {
 
 
   // phone=''
-  activity1=[];
-  activityinfo=[];
-  name='';
-  id=1;
+ 
+  activityinfo1=[];
+  activityinfo2=[];
+  activityinfo3=[];
+  qiehuan=0;
+
+
 
  
   
@@ -51,67 +54,43 @@ export class MyActivityPage extends AppBase {
     this.params;
   }
   onMyShow(){
-    // this.getactivity();
+
     console.log(this.MemberInfo);
-    this.activitysigninfo();
+    this.huoquactivityinfo();
    
    
      
   }
 
-  // getactivity(){
-  //   var api=this.activityApi
-  //   api.getactivity({}).then((activity)=>{
-  //    var  activity1=[];
-  //    var activity2=[];
-  //     for(let i of activity){
-  //       var aT=new Date(i.activityTime).getTime();
-  //       var nT=new Date().getTime();
-  //       if(nT-aT<=0){
-  //         activity1.push(i);
-  //       }      
-  //     }
-  //     this.activity1=activity1;     
-  //   })
-  // }
 
-  // getactivity(){
-  //   var api=this.activityApi
-  //   api.getactivity({}).then((activity)=>{
-  //    var  activity1=[];
-  //    var activity2=[];
-  //     for(let i of activity){
-  //       var aT=new Date(i.activityTime).getTime();
-  //       var nT=new Date().getTime();
-  //       if(nT-aT<=0){
-  //         activity1.push(i);
-  //         for(let ii of i.activityName){
-  //           console.log(ii)
-  //           api.activitysigninfo({id:25}).then((activityinfo)=>{
-  //                 if(activityinfo.id){
-  //                   this.activityinfo=activityinfo;
-  //                   console.log(activityinfo);
-  //                 }
-  //               })
-  //         }
-  //       }      
-  //     }
-  //     this.activity1=activity1;     
-  //   })
-  // }
-
-
-
-
-
-  
-
-  activitysigninfo(){
+  huoquactivityinfo(){
+    var activityinfo1=[];
+    var activityinfo2=[];
+    var activityinfo3=[];
     var api=this.activityApi;
     api.huoquactivityinfo({}).then((activityinfo)=>{
-      this.activityinfo=activityinfo;
-      console.log(activityinfo);
+      for(let ai of activityinfo){
+        var aT=new Date(ai.activty_activityTime).getTime();
+        console.log(ai.activty_activityTime)
+        var nT=new Date().getTime();
+        if(nT-aT<=0){
+          activityinfo1.push(ai)
+          console.log(ai)
+          if(ai.status=='A'){
+            activityinfo2.push(ai)
+            console.log(ai)
+          }
+          if(ai.status=='S'){
+            activityinfo3.push(ai)
+            console.log(ai)
+          }
+        }
+      }
+      
     })
+    this.activityinfo1=activityinfo1;
+    this.activityinfo2=activityinfo2;
+    this.activityinfo3=activityinfo3;
   }
 
 

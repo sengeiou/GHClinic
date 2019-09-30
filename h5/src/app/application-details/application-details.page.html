@@ -12,7 +12,7 @@
   <div style="background-color: #11838D" class="padding-top-15">
     <div class="card bg-p height-81">
       <div class="f16 txt-bold txt-white margin-left-30">已报名</div>
-      <div class="f12 txt-bold txt-white margin-left-30 margin-top-30">{{activity.price==0?'免费':'付款成功，报名已完成'}}</div>
+      <div class="f12 txt-bold txt-white margin-left-30 margin-top-30">{{activityinfo.activty_price==0?'免费':'付款成功，报名已完成'}}</div>
     </div>
   </div>
 
@@ -26,26 +26,26 @@
       <div class="f16 txt-black">活动信息</div>
   </div>
 
-  <div class="margin-left-30 margin-top-40 flex-row" (click)="activityInformation(activity.id)">
+  <div class="margin-left-30 margin-top-40 flex-row" (click)="activityInformation(activityinfo.id)">
     <div>
-      <img alt="" class="img-124" src="{{uploadpath}}activity/{{activity.activityCover}}" />
+      <img alt="" class="img-124" src="{{uploadpath}}activity/{{activityinfo.activty_activityCover}}" />
     </div>
     <div class="margin-left-20">
-      <div class="f16 txt-black txt-bold">{{activity.activityName}}</div>
-      <div class="h5 txt-red ">{{activity.price==0?'免费':'费用：￥'+activity.price}}</div>
+      <div class="f16 txt-black txt-bold">{{activityinfo.activty_activityName}}</div>
+      <div class="h5 txt-red ">{{activityinfo.activty_price==0?'免费':'费用：￥'+activityinfo.activty_price}}</div>
     </div>
   </div>
   <hr/>
 
   <div class="margin-left-30 margin-top-30 flex-row flex-center">
     <div class="f16 txt-black">地址</div>
-    <div class="f16 txt-black margin-left-40">{{activity.activitySite}}</div>
+    <div class="f16 txt-black margin-left-40">{{activityinfo.activty_activitySite}}</div>
   </div>
   <hr/>
 
   <div class="margin-left-30 margin-top-30 flex-row flex-center margin-bottom-30">
       <div class="f16 txt-black">时间</div>
-      <div class="f16 txt-black margin-left-40">{{activity.activityTime}}</div>
+      <div class="f16 txt-black margin-left-40">{{activityinfo.activty_activityTime}}</div>
   </div>
 
   <div class="flex-row d1 flex-center">
@@ -55,7 +55,7 @@
 
   <div class="margin-left-30 margin-top-30 flex-row flex-center margin-bottom-30">
       <div class="f16 txt-black flex-1">姓名</div>
-      <div class="f16 txt-black margin-right">张三</div>
+      <div class="f16 txt-black margin-right">{{activityinfo.name}}</div>
   </div>
   <hr/>
 
@@ -63,7 +63,7 @@
   <div class="margin-left-30 margin-top-30 flex-row flex-center margin-bottom-30">
       <div class="f16 txt-black flex-1">选择年龄段</div>
       <div class="f16 txt-black margin-right flex-row flex-center">
-        <div>30-40</div>
+        <div>{{activityinfo.age_name}}</div>
         <img alt="" src="{{uploadpath}}resource/{{res.rightArrow}}" class="icon-15" />
       </div>
   </div>
@@ -71,7 +71,7 @@
 
   <div class="margin-left-30 margin-top-30 flex-row flex-center margin-bottom-30">
       <div class="f16 txt-black flex-1">联系方式</div>
-      <div class="f16 txt-black margin-right">11111111111</div>
+      <div class="f16 txt-black margin-right">{{activityinfo.phone}}</div>
   </div>
   
 
@@ -100,7 +100,7 @@
             <h4 class="txt-bold f16">取消报名</h4>
           </div>
           <div class="text-center">
-            <img alt="" class="icon-100" />
+            <img alt="" class="icon-100" src="{{uploadpath}}resource/{{res.cancelbaoming}}" />
           </div>
           <div class="flex-row margin-top-30">
             <button type="button" class="f16 txt-gw flex-1" (click)="confirmCancellation()" aria-hidden="true" data-dismiss="modal">确定取消</button>

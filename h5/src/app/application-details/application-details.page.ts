@@ -34,6 +34,8 @@ export class ApplicationDetailsPage extends AppBase {
   }
   activity=null;
   // memberinfo=[]
+  activityinfo=[];
+  status='';
 
 
   
@@ -43,18 +45,20 @@ export class ApplicationDetailsPage extends AppBase {
     this.params;
   }
   onMyShow(){
-    this.getactivityinfo();
+    this.activitysigninfo();
     console.log(this.MemberInfo); 
    
   }
 
   
 
-  getactivityinfo(){
+  activitysigninfo(){
     var api=this.activityApi;
-    api.activityinfo({id: this.params.id}).then(
-      (activity)=>{
-        this.activity=activity;
+    api.activitysigninfo({id: this.params.id}).then(
+      (activityinfo)=>{
+        this.activityinfo=activityinfo;
+        console.log(activityinfo);
+        
       
       }
     )
@@ -62,10 +66,15 @@ export class ApplicationDetailsPage extends AppBase {
 
   confirmCancellation(){
     console.log("已取消");
+
+    var api=this.activityApi;
+    api.cancelactivity({id:this.params.id}).then((res)=>{
+      this.back();
+    })
   }
 
   activityInformation(id){
-    this.navigate("activity-information",{id:this.params.id})
+    this.navigate("activity-information",{id:id})
   }
 
  
