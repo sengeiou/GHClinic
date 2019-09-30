@@ -27,10 +27,10 @@ export class CommodityDetailsPage extends AppBase {
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
-      
+       this.drugsinfo={};
   }
 
-  drugsinfo=[];
+  drugsinfo=null;
 
   onMyLoad(){
     //参数

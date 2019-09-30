@@ -69,7 +69,7 @@ export class DoctorPage extends AppBase {
 
     this.jintian = {
       d1: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(),
-      d: d.getFullYear() + "-" + (d.getMonth() + 1 > 9 ? d.getMonth() + 1 : '0' + (d.getMonth() + 1)) + "-" + d.getDate(), d2:
+      d:AppUtil.FormatDate(AppUtil.FormatDateTime( d)), d2:
         (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d
     };
     this.qiansantian = this.getQianDay(this.params.riqi);
@@ -135,10 +135,13 @@ export class DoctorPage extends AppBase {
 
         for (var j = 0; j < paiban.length; j++) {
           if (j != paiban.length) {
+           
+          } 
+       console.log(dlist[i].d);
+       console.log(paiban[j].fdate);
 
-          }
           if (dlist[i].d == paiban[j].fdate) {
-
+           console.log(1);
             if ((dlist[i].rq[d].hour + ':' + dlist[i].rq[d].minute) == paiban[j].ftime) {
               console.log("成功");
               console.log((dlist[i].rq[d].hour + ':' + dlist[i].rq[d].minute));
@@ -202,20 +205,20 @@ export class DoctorPage extends AppBase {
     d = new Date(q).getTime();
     d = +d + 1000 * 60 * 60 * 24;
     d = new Date(d);
-    var sdata = { d1: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d: d.getFullYear() + "-" + (d.getMonth() + 1 > 9 ? d.getMonth() + 1 : '0' + (d.getMonth() + 1)) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
+    var sdata = { d1: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d:AppUtil.FormatDate(AppUtil.FormatDateTime( d)), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
     qiansantian[0] = sdata;
 
     d = new Date(q).getTime();
     d = +d + 2000 * 60 * 60 * 24;
     d = new Date(d);
-    var sdata = { d1: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d: d.getFullYear() + "-" + (d.getMonth() + 1 > 9 ? d.getMonth() + 1 : '0' + (d.getMonth() + 1)) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
+    var sdata = { d1: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d:AppUtil.FormatDate(AppUtil.FormatDateTime( d)), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
     qiansantian[1] = sdata;
 
 
     d = new Date(q).getTime();
     d = +d + 3000 * 60 * 60 * 24;
     d = new Date(d);
-    var sdata = { d1: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d: d.getFullYear() + "-" + (d.getMonth() + 1 > 9 ? d.getMonth() + 1 : '0' + (d.getMonth() + 1)) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
+    var sdata = { d1: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d:AppUtil.FormatDate(AppUtil.FormatDateTime( d)), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
     qiansantian[2] = sdata;
 
 
@@ -230,20 +233,20 @@ export class DoctorPage extends AppBase {
     d = new Date(q).getTime();
     d = +d - 1000 * 60 * 60 * 24;
     d = new Date(d);
-    var sdata = { d1: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d: d.getFullYear() + "-" + (d.getMonth() + 1 > 9 ? d.getMonth() + 1 : '0' + (d.getMonth() + 1)) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
+    var sdata = { d1: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d:AppUtil.FormatDate(AppUtil.FormatDateTime( d)), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
     qiansantian[0] = sdata;
 
     d = new Date(q).getTime();
     d = +d - 2000 * 60 * 60 * 24;
     d = new Date(d);
-    var sdata = { d1: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d: d.getFullYear() + "-" + (d.getMonth() + 1 > 9 ? d.getMonth() + 1 : '0' + (d.getMonth() + 1)) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
+    var sdata = { d1: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d:AppUtil.FormatDate(AppUtil.FormatDateTime( d)), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
     qiansantian[1] = sdata;
 
 
     d = new Date(q).getTime();
     d = +d - 3000 * 60 * 60 * 24;
     d = new Date(d);
-    var sdata = { d1: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d: d.getFullYear() + "-" + (d.getMonth() + 1 > 9 ? d.getMonth() + 1 : '0' + (d.getMonth() + 1)) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
+    var sdata = { d1: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d:AppUtil.FormatDate(AppUtil.FormatDateTime( d)), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
     qiansantian[2] = sdata;
 
 
