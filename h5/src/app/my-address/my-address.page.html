@@ -14,22 +14,22 @@
       <div *ngIf='show==false'>
         <div class="flex-row margin-left-30">
           <div style="color: #B9B9B9" class="f16 flex-1">收货人</div>
-          <input class="f16 margin-right-30" [value]='people' (change)='people=$event.target.value' />
+          <input class="f16 margin-right-30" [value]='people' (change)='people=$event.target.value' placeholder="请输入收货人"/>
         </div>
         <div class="border-bw margin-top-30"></div>
         <div class="flex-row margin-left-30 margin-top-30">
           <div style="color: #B9B9B9" class="f16 flex-1">手机号码</div>
-          <input class="f16 margin-right-30" [value]='phone' (change)='phone=$event.target.value' />
+          <input class="f16 margin-right-30" [value]='phone' (change)='phone=$event.target.value' placeholder="请输入手机号码" />
         </div>
         <div class="border-bw margin-top-30"></div>
         <div class="flex-row margin-left-30 margin-top-30">
             <div style="color: #B9B9B9" class="f16 flex-1">地址</div>
-            <input class="f16 margin-right-30" [value]='dizhi' (change)='dizhi=$event.target.value' />
+            <input class="f16 margin-right-30" [value]='dizhi' (change)='dizhi=$event.target.value' placeholder="请输入地址" />
           </div>
           <div class="border-bw margin-top-30"></div>
           <div class="flex-row margin-left-30 margin-top-30">
               <div style="color: #B9B9B9" class="f16 flex-1">门牌号</div>
-              <input class="f16 margin-right-30" [value]='menpaihao' (change)='menpaihao=$event.target.value'  />
+              <input class="f16 margin-right-30" [value]='menpaihao' (change)='menpaihao=$event.target.value' placeholder="请输入门牌号" />
             </div>
             <div class="border-bw margin-top-30"></div>
             <div class="flex-row margin-left-30 margin-top-30">
@@ -69,7 +69,7 @@
           <div class="border-bw margin-top-30"></div>
           <div class="flex-row margin-left-30 margin-top-30">
               <div style="color: #B9B9B9" class="f16 flex-1">门牌号</div>
-              <input class="f16 margin-right-30" [value]='menpaihao1' (change)='menpaihao1=$event.target.value'/>
+              <input class="f16 margin-right-30" [value]='menpaihao1' (change)='menpaihao1=$event.target.value' />
             </div>
             <div class="border-bw margin-top-30"></div>
             <div class="flex-row margin-left-30 margin-top-30">

@@ -43,7 +43,7 @@ export class AddressPage extends AppBase {
 
   getaddress(){
     var api=this.addressApi;
-    api.getaddress({people:this.params.people,phone:this.params.phone,dizhi:this.params.dizhi,menpaihao:this.params.menpaihao}).then((address)=>{
+    api.getaddress({primary_id:this.params.primary_id,people:this.params.people,phone:this.params.phone,dizhi:this.params.dizhi,menpaihao:this.params.menpaihao}).then((address)=>{
       console.log(address)
       if(address==''||address==undefined){
         this.show=false

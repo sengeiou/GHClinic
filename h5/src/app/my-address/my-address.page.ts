@@ -56,6 +56,7 @@ export class MyAddressPage extends AppBase {
     console.log(this.params.id)
     
     
+    
 
   }
   
@@ -88,6 +89,7 @@ export class MyAddressPage extends AppBase {
       for(let ai of addressinfo){
         if(ai.id==this.params.id){
           this.id1=ai.id;
+          console.log(this.id1)
           this.addressinfo=addressinfo;
           console.log(ai.id)
           this.people1=ai.people;
@@ -109,6 +111,7 @@ export class MyAddressPage extends AppBase {
 
 
   address(){
+    var id1=this.id1;
     var id=this.id;
     var people=this.people;
     if(people==''){
@@ -126,20 +129,39 @@ export class MyAddressPage extends AppBase {
     if(menpaihao==''){
       return;
     }
+
+
+  
+   
    
 
    
       var api=this.addressApi;
-      api.tianjiaaddress({status:'M',people:people,phone:phone,dizhi:dizhi,menpaihao:menpaihao,member_id:id}).then((res)=>{
+      // api.tianjiaaddress({status:'M',people:people,phone:phone,dizhi:dizhi,menpaihao:menpaihao,member_id:id}).then((res)=>{
+      //   console.log(res)
+      //   if(res.code == 0){
+      //     this.navigate("address",{
+      //       people:people,phone:phone,dizhi:dizhi,menpaihao:menpaihao
+
+      //     })
+      //   }
+        
+      // })
+
+      api.tianjiaaddress({primary_id:id1,status:'M',people:people,phone:phone,dizhi:dizhi,menpaihao:menpaihao,member_id:id}).then((res)=>{
         console.log(res)
         if(res.code == 0){
           this.navigate("address",{
-            people:people,phone:phone,dizhi:dizhi,menpaihao:menpaihao
+            people:people,phone:phone,dizhi:dizhi,menpaihao:menpaihao,primary_id:id1
 
           })
         }
         
       })
+
+
+     
+
 
     
 
