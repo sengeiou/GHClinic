@@ -28,7 +28,7 @@ export class DoctorPage extends AppBase {
     public memberApi: MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-
+  this.danqianyuyue={};
   }
 
   onMyLoad() {
@@ -104,7 +104,7 @@ export class DoctorPage extends AppBase {
 
 
   }
-  danqianyuyue = {};
+  danqianyuyue = null;
   dlist = [];
   czdate() {
     console.log("哈哈哈");

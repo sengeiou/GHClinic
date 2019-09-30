@@ -27,11 +27,12 @@ export class SuccessfulRegistrationPage extends AppBase {
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
-      
+      this.activity={};
+      this.activitysigninfo={};
   }
 
-  activity=[];
-  activitysigninfo=[];
+  activity=null;
+  activitysigninfo=null;
 
   onMyLoad(){
     //参数

@@ -36,7 +36,7 @@ export class AppBase implements OnInit {
     public static InstInfo = null;
     public static MemberInfo=null;
     public InstInfo = {h5sharelogo:"",h5sharetitle:"",h5sharedesc:"",tel:"", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
-    public MemberInfo = { avatarUrl: "", nickName: "",h5openid:"",unionid:"" };
+    public MemberInfo = { avatarUrl: "", nickName: "",h5openid:"",unionid:"",name:''};
     public static MYBABY = [];
     public mybaby = [];
     public options = null;

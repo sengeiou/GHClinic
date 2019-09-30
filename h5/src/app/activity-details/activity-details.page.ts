@@ -27,11 +27,11 @@ export class ActivityDetailsPage extends AppBase {
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
-      
+      this.activity={};
   }
 
   show=false;
-  activity=[];
+  activity=null;
   // nT=new Date().getTime();
   // aT=new Date(this.activity.activityName).getTime()
 

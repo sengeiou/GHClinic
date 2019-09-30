@@ -27,11 +27,11 @@ export class ApplicationPage extends AppBase {
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
-      
+       this.activity={};
   }
   xingming='';
   shoujihao='';
-  activity=[];
+  activity=null;
   ages=[];
   id='';
  

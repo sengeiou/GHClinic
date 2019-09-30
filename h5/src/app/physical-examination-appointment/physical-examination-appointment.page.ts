@@ -25,18 +25,27 @@ export class PhysicalExaminationAppointmentPage extends AppBase {
     public memberApi: MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-
+    this.d={};
   }
-  
+  hospital=null;
+  hospitalinfo(){
+   
+    var api=this.memberApi;
+    api.hospitalinfo({id:this.params.yiyuanid}).then((hospital)=>{
+        console.log("hahah");
+        console.log(hospital);
+       this.hospital=hospital;
+    })
+ 
+   }
   onMyLoad() {
-    //参数
     this.params;
   }
+  d=null;
   onMyShow() {
-   
+    this.hospitalinfo();
+    var d =JSON.parse(this.params.riqi);
+    console.log("qweqweqew");
+    this.d=d;
   }
-
- 
-  
-
 }

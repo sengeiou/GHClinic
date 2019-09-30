@@ -8,15 +8,15 @@
       </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="hospital.name==undefined">
   <div style="background-color: #11838D" class="padding-top-15;">
     <div class="card">
-      <p class="p1">2019年8月27日（周四）</p>
-      <p class="p1">港和医疗白云分部</p>
-      <p class="p1">
+      <div class="p1">{{d.d}}（周{{d.d4}}）</div>
+      <div class="p1">{{hospital.name}}</div>
+      <div class="p1">
         A套餐，男性
-        <span class="span0">￥288.00</span>
-      </p>
+        <div class="span0">￥288.00</div>
+      </div>
     </div>
   </div>
   <div class="div2">

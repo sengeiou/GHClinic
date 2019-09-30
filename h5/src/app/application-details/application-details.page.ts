@@ -30,9 +30,9 @@ export class ApplicationDetailsPage extends AppBase {
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
-      
+    this.activity='';
   }
-  activity=[];
+  activity=null;
   // memberinfo=[]
 
 
@@ -64,7 +64,7 @@ export class ApplicationDetailsPage extends AppBase {
     console.log("已取消");
   }
 
-  activityInformation(){
+  activityInformation(id){
     this.navigate("activity-information",{id:this.params.id})
   }
 
