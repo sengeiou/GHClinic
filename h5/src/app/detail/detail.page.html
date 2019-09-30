@@ -8,48 +8,76 @@
       </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content  *ngIf="setmealinfo.name!=undefined">
   <div style="background-color: #11838D" class="padding-top-15">
       <div class="card">
-        <p class="p1">
-          <span class="span1">A套餐</span>
-          <span class="span2">男性</span>
-        </p>
-        <p class="p1">
-          <span class="span3">肝功能</span>
-          <span class="span3 span4">肾功能</span>
-          <span class="span3 span4">心电图</span>
-          <span class="span3 span4">耳鼻喉</span>
-        </p>
-        <hr/>
-        <p>
-          <span class="span5">预约诊所</span>
-          <span class="span6">港和医疗白云分部</span>
-        </p>
+        <div class="p1 flex-row ">
+          <div class="span1">{{setmealinfo.name}}</div>
+          <div class="span2">男性</div>
+        </div>
+        <div class="flex-row  margin-left-20 margin-top-20  flex-wrap" style="width:100%">
+          <div *ngFor="let item of setmealinfo.tijianxian" class="span99">{{item.name}}</div>
+        </div>
         <hr/>
       </div>
   </div>
-  <div>
-    <p class="p2">2019年9月</p>
-    <p>
-       <span class="span7">日</span>  
-       <span class="span8">一</span>
-       <span class="span8">二</span>
-       <span class="span8">三</span> 
-       <span class="span8">四</span>
-       <span class="span8">五</span>
-       <span class="span8">六</span>
-    </p> 
-    <p class="p3">
-       <span class="span9">1</span>  
-       <span class="span10">2</span>
-       <span class="span10">3</span>
-       <span class="span10">4</span> 
-       <span class="span10">5</span>
-       <span class="span10">6</span> 
-       <span class="span10">7</span> 
-    </p>
-    <hr/>  
+  <div style="" *ngIf="qiansantian.length!=0&&housantian.length!=0">
+    <div class="card">
+      <div class="flex-row flex-center">
+      <div class="flex-1"></div>
+        <div>2019年9月</div>
+        <div class="flex-1"></div>
+      </div>
+
+
+
+      <div class="flex-row flex-center margin-top-40">
+        <div class="flex-1"></div>
+        <div class="rq  bb1">{{qiansantian[2].d4}}</div>
+        <div class="flex-1"></div>
+        <div class="rq  bb1 ">{{qiansantian[1].d4}}</div>
+        <div class="flex-1"></div>
+        <div class="rq  bb1 ">{{qiansantian[0].d4}}</div>
+        <div class="flex-1"></div>
+        <div class="rq   bb1 ">{{jintian.d4}}</div>
+        <div class="flex-1"></div>
+        <div class="rq  bb1 ">{{housantian[0].d4}}</div>
+        <div class="flex-1"></div>
+        <div class="rq  bb1 ">{{housantian[1].d4}}</div>
+        <div class="flex-1"></div>
+        <div class="rq  bb1 ">{{housantian[2].d4}}</div>
+        <div class="flex-1"></div>
+      </div>
+
+
+
+
+
+      <div class="flex-row flex-center margin-top">
+        <div class="flex-1"></div>
+        <div (click)="clickdate(qiansantian[2]);jt=0" [class.jt]="jt==0" class="rq bb ">{{qiansantian[2].d3}}
+        </div>
+        <div class="flex-1"></div>
+        <div (click)="clickdate(qiansantian[1]);jt=1" [class.jt]="jt==1" class="rq bb ">{{qiansantian[1].d3}}
+        </div>
+        <div class="flex-1"></div>
+        <div (click)="clickdate(qiansantian[0]);jt=2" [class.jt]="jt==2" class="rq bb ">{{qiansantian[0].d3}}
+        </div>
+        <div class="flex-1"></div>
+        <div (click)="clickdate(jintian);jt=3" [class.jt]="jt==3" class="rq bb  jt">{{jintian.d3}}</div>
+        <div class="flex-1"></div>
+        <div (click)="clickdate(housantian[0]);jt=4" [class.jt]="jt==4" class="rq bb ">{{housantian[0].d3}}
+        </div>
+        <div class="flex-1"></div>
+        <div (click)="clickdate(housantian[1]);jt=5" [class.jt]="jt==5" class="rq bb ">{{housantian[1].d3}}
+        </div>
+        <div class="flex-1"></div>
+        <div (click)="clickdate(housantian[2]);jt=6" [class.jt]="jt==6" class="rq bb ">{{housantian[2].d3}}
+        </div>
+        <div class="flex-1"></div>
+      </div>
+      <hr />
+    </div>
   </div>
   <div class="div1">
     <p class="p4"></p>
@@ -57,28 +85,21 @@
       预约日期
       <span class="project">共3项检查项</span>
     </p>
-    <p class="p6">一般检查</p>
-    <p class="p7">身高、体重、腰围</p>
-    <p class="p8">用仪器检查身高、体重、腰围，根据BMI指数和腰围判断是否存在偏瘦、中心性肥胖及评估相关性疾病的风险</p>
-    <p class="p6">耳鼻喉科</p>
-    <p class="p7">耳鼻喉科</p>
-    <p class="p8">通过对耳、鼻咽、扁桃喉等器官的常规检查，初步筛查常见疾病</p>
-    <p class="p6">肾功能</p>
-    <p class="p7">肾功能二项</p>
-    <p class="p8">主要用于诊断各种肾脏疾病、痛风以及高血压、糖尿病等的辅助诊断</p>
-    <hr/>
-    <p class="p7">血尿酸</p>
-    <p class="p8">检测尿酸含量，用于痛风的诊断</p>
-    <hr/>
+    <div *ngFor="let item of setmealinfo.tijianxian">
+    <p class="p6">{{item.name}}</p>
+    <p class="p7">{{item.jianjie}}</p>
+    <p class="p8">{{item.xianxi}}</p>
+  </div>
+  
   </div>
   <div class="div1">
     <p class="p4"></p>
     <p class="p5">
         体检须知
     </p>
-    <p class="p9">支持多行文字，文字内容后台编辑。支持多行文字，文字内容后台编辑。</p>
+    <p class="p9">{{setmealinfo.xuzhi}}</p>
     <div class="div1 flex-row flex-center" style="position: fixed;bottom:0">
-      <div class="p10">合计：<span class="p2" style="color: red">￥288.00</span></div>
+      <div class="p10">合计：<span class="p2" style="color: red">￥{{setmealinfo.price}}</span></div>
       <div class="p11" (click)="physicalExaminationAppointment()">立即预约</div>
     </div>
   </div>

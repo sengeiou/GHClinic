@@ -1,168 +1,167 @@
 <ion-header>
-    <ion-toolbar color="primary">
-        <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
-        <ion-title>
-          港和医疗白云分部
-        </ion-title>
-        <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
-      </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
+    <ion-title>
+      港和医疗白云分部
+    </ion-title>
+    <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div style="background-color: #11838D" *ngIf="qiansantian.length!=0&&housantian.length!=0">
     <div class="card">
-        <div class="flex-row flex-center">
-            <span class="span1">{{fuwuleibie}}</span>
-            <span class="span2">2019年9月</span>
-            <span class="span8" (click)="clinic()">诊所介绍</span>
+      <div class="flex-row flex-center">
+        <span class="span1">{{fuwuleibie}}</span>
+        <span class="span2">2019年9月</span>
+        <span class="span8" (click)="clinic()">诊所介绍</span>
+      </div>
+
+
+
+      <div class="flex-row flex-center margin-top-40">
+        <div class="flex-1"></div>
+        <div class="rq  bb1">{{qiansantian[2].d4}}</div>
+        <div class="flex-1"></div>
+        <div class="rq  bb1 ">{{qiansantian[1].d4}}</div>
+        <div class="flex-1"></div>
+        <div class="rq  bb1 ">{{qiansantian[0].d4}}</div>
+        <div class="flex-1"></div>
+        <div class="rq   bb1 ">{{jintian.d4}}</div>
+        <div class="flex-1"></div>
+        <div class="rq  bb1 ">{{housantian[0].d4}}</div>
+        <div class="flex-1"></div>
+        <div class="rq  bb1 ">{{housantian[1].d4}}</div>
+        <div class="flex-1"></div>
+        <div class="rq  bb1 ">{{housantian[2].d4}}</div>
+        <div class="flex-1"></div>
+      </div>
+
+
+
+
+
+      <div class="flex-row flex-center margin-top">
+        <div class="flex-1"></div>
+        <div (click)="clickdate(qiansantian[2]);jt=0" [class.jt]="jt==0" class="rq bb ">{{qiansantian[2].d3}}
         </div>
-
-
-
-        <div class="flex-row flex-center margin-top-40">
-            <div class="flex-1"></div>
-            <div class="rq  bb1">{{qiansantian[2].d4}}</div>
-            <div class="flex-1"></div>
-            <div class="rq  bb1 ">{{qiansantian[1].d4}}</div>
-            <div class="flex-1"></div>
-            <div class="rq  bb1 ">{{qiansantian[0].d4}}</div>
-            <div class="flex-1"></div>
-            <div class="rq   bb1 ">{{jintian.d4}}</div>
-            <div class="flex-1"></div>
-            <div class="rq  bb1 ">{{housantian[0].d4}}</div>
-            <div class="flex-1"></div>
-            <div class="rq  bb1 ">{{housantian[1].d4}}</div>
-            <div class="flex-1"></div>
-            <div class="rq  bb1 ">{{housantian[2].d4}}</div>
-            <div class="flex-1"></div>
+        <div class="flex-1"></div>
+        <div (click)="clickdate(qiansantian[1]);jt=1" [class.jt]="jt==1" class="rq bb ">{{qiansantian[1].d3}}
         </div>
-
-
-
-
-
-        <div class="flex-row flex-center margin-top">
-            <div class="flex-1"></div>
-            <div (click)="clickdate(qiansantian[2]);jt=0" [class.jt]="jt==0" class="rq bb ">{{qiansantian[2].d3}}
-            </div>
-            <div class="flex-1"></div>
-            <div (click)="clickdate(qiansantian[1]);jt=1" [class.jt]="jt==1" class="rq bb ">{{qiansantian[1].d3}}
-            </div>
-            <div class="flex-1"></div>
-            <div (click)="clickdate(qiansantian[0]);jt=2" [class.jt]="jt==2" class="rq bb ">{{qiansantian[0].d3}}
-            </div>
-            <div class="flex-1"></div>
-            <div (click)="clickdate(jintian);jt=3"   [class.jt]="jt==3" class="rq bb  jt">{{jintian.d3}}</div>
-            <div class="flex-1"></div>
-            <div (click)="clickdate(housantian[0]);jt=4" [class.jt]="jt==4" class="rq bb ">{{housantian[0].d3}}
-            </div>
-            <div class="flex-1"></div>
-            <div (click)="clickdate(housantian[1]);jt=5" [class.jt]="jt==5" class="rq bb ">{{housantian[1].d3}}
-            </div>
-            <div class="flex-1"></div>
-            <div (click)="clickdate(housantian[2]);jt=6" [class.jt]="jt==6" class="rq bb ">{{housantian[2].d3}}
-            </div>
-            <div class="flex-1"></div>
+        <div class="flex-1"></div>
+        <div (click)="clickdate(qiansantian[0]);jt=2" [class.jt]="jt==2" class="rq bb ">{{qiansantian[0].d3}}
         </div>
-        <hr />
+        <div class="flex-1"></div>
+        <div (click)="clickdate(jintian);jt=3" [class.jt]="jt==3" class="rq bb  jt">{{jintian.d3}}</div>
+        <div class="flex-1"></div>
+        <div (click)="clickdate(housantian[0]);jt=4" [class.jt]="jt==4" class="rq bb ">{{housantian[0].d3}}
+        </div>
+        <div class="flex-1"></div>
+        <div (click)="clickdate(housantian[1]);jt=5" [class.jt]="jt==5" class="rq bb ">{{housantian[1].d3}}
+        </div>
+        <div class="flex-1"></div>
+        <div (click)="clickdate(housantian[2]);jt=6" [class.jt]="jt==6" class="rq bb ">{{housantian[2].d3}}
+        </div>
+        <div class="flex-1"></div>
+      </div>
+      <hr />
     </div>
-</div>
+  </div>
   <div class="select">
     <span class="title">综合</span>
-    <img src='{{uploadpath}}resource/{{res.bottom_b}}' class="img1" (click)="comprehensive()"/>
+    <img src='{{uploadpath}}resource/{{res.bottom_b}}' class="img1" (click)="comprehensive()" />
     <span class="title">筛选</span>
-    <img  src='{{uploadpath}}resource/{{res.bottom_b}}' class="img1" (click)="screen()"/>
+    <img src='{{uploadpath}}resource/{{res.bottom_b}}' class="img1" (click)="screen()" />
   </div>
-  <hr/>
-  <ion-card *ngFor='let item of taocan' (click)="detail()">
-    <div>
-        <div class="div1">
-          <img alt="" class="img2"/>
+  <hr />
+  <ion-card *ngFor='let item of taocan' (click)="detail(item.id)">
+    <div class="flex-row ">
+      <div class="div1">
+        <img src="{{uploadpath}}setmeal/{{item.cover}}" alt="" class="img2" />
+      </div>
+
+      <div class="div2">
+        <div>
+          <span class="span7">{{item.name}}</span>
+          <span class="span8">男性</span>
         </div>
-        <div  class="div2">
-          <p>
-            <span class="span7">A套餐</span>
-            <span class="span8">男性</span>
-          </p>
-          <p>
-            <span class="span9">肝功能</span>
-            <span class="span9 span10">肾功能</span>
-            <span class="span9 span10">心电图</span>
-          </p>
-          <p>
-            <span class="span9">耳鼻喉</span>
-          </p>
-        </div>
-        <div style="clear: both"></div>
-    </div> 
-    <div>
-      <p class="p2">
-        <span class="span11">费用：￥288.00</span>
-        <span class="span12">立即预约</span>
-      </p>
-    </div>
-  </ion-card>
+        <div class="flex-row  flex-wrap" style="width:100%">
+        <div *ngFor="let item1 of item.tijianxian" class="span9">{{item1.name}}</div>
+      </div>
+
+        
+      </div>
+
  
-
-
-
-
-
-
-
-
-
-      <div id='divOne' style='height:0;display: none'>
-        <div class="f16 txt-black margin-top-40 margin-left-30 padding-bottom-20">综合</div>
-        <hr/>
-        <div class="flex-row flex-center">
-          <div class="flex-1 f16 txt-g margin-left-30 padding-bottom-20 margin-top-30">价格最低</div>
-          <div class="f16 txt-g margin-right-30">√</div>
-        </div>
-        <hr/>
-        <div class="f16 txt-black margin-left-30 padding-bottom-20 margin-top-30">最新套餐</div>
-        <hr/>
-        <div class="f16 txt-black margin-left-30 padding-bottom-20 margin-top-30">销量最高</div>
+    </div>
+      <div>
+        <p class="p2">
+          <span class="span11">费用：￥288.00</span>
+          <span class="span12">立即预约</span>
+        </p>
       </div>
+  </ion-card>
 
 
-      <!-- <div style='opacity:0;' id='divTwo'></div> -->
-      <div id='divTwo' style="display: none"></div>
 
 
-      <div id='divThree' style='height:0;display: none'>
-
-          <div class="f16 txt-black txt-bold margin-top-80 margin-left-40">性别</div>
-          <div class="flex-row flex-center margin-top-30 margin-left-40">
-            <div class="d1 bg-p txt-white f12">男性</div>
-            <div class="d1 txt-black f12 margin-left-40" style="background-color: #F0F2F5">女性</div>
-          </div>
-
-          <div class="f16 txt-black txt-bold margin-top-80 margin-left-40">人群</div>
-          <div class="flex-row flex-center margin-top-30 margin-left-40">
-            <div class="d1 f12" style="background-color: #F0F2F5">青年男性</div>
-            <div class="d1 f12 margin-left-40" style="background-color: #F0F2F5">青年女性</div>
-            <div class="d1 bg-p f12 txt-white margin-left-40">退休人士</div>
-          </div>
-
-          <div class="f16 txt-black txt-bold margin-top-80 margin-left-40">人群</div>
-          <div class="flex-row flex-center margin-top-30 margin-left-40">
-            <div class="d1 bg-p f12 txt-white">公司入职</div>
-            <div class="d1 f12 margin-left-40" style="background-color: #F0F2F5">儿童入学</div>
-            <div class="d1 f12 margin-left-40" style="background-color: #F0F2F5">驾照考试</div>
-          </div>
-          <div class="flex-row flex-center margin-top-30 margin-left-40">
-            <div class="d1 f12" style="background-color: #F0F2F5">婚检</div>
-            <div class="d1 f12 margin-left-40" style="background-color: #F0F2F5">孕检</div>
-          </div>
 
 
-          <div class="flex-row" style="bottom: 0;position:absolute">
-            <div class="d2 f16" style="background-color: #F9F8F8">重置</div>
-            <div class="d2 f16 txt-white bg-p">确定</div>
-          </div>
 
-      </div>
+
+
+
+  <div id='divOne' style='height:0;display: none'>
+    <div class="f16 txt-black margin-top-40 margin-left-30 padding-bottom-20">综合</div>
+    <hr />
+    <div class="flex-row flex-center">
+      <div class="flex-1 f16 txt-g margin-left-30 padding-bottom-20 margin-top-30">价格最低</div>
+      <div class="f16 txt-g margin-right-30">√</div>
+    </div>
+    <hr />
+    <div class="f16 txt-black margin-left-30 padding-bottom-20 margin-top-30">最新套餐</div>
+    <hr />
+    <div class="f16 txt-black margin-left-30 padding-bottom-20 margin-top-30">销量最高</div>
+  </div>
+
+
+  <!-- <div style='opacity:0;' id='divTwo'></div> -->
+  <div id='divTwo' style="display: none"></div>
+
+
+  <div id='divThree' style='height:0;display: none'>
+
+    <div class="f16 txt-black txt-bold margin-top-80 margin-left-40">性别</div>
+    <div class="flex-row flex-center margin-top-30 margin-left-40">
+      <div class="d1 bg-p txt-white f12">男性</div>
+      <div class="d1 txt-black f12 margin-left-40" style="background-color: #F0F2F5">女性</div>
+    </div>
+
+    <div class="f16 txt-black txt-bold margin-top-80 margin-left-40">人群</div>
+    <div class="flex-row flex-center margin-top-30 margin-left-40">
+      <div class="d1 f12" style="background-color: #F0F2F5">青年男性</div>
+      <div class="d1 f12 margin-left-40" style="background-color: #F0F2F5">青年女性</div>
+      <div class="d1 bg-p f12 txt-white margin-left-40">退休人士</div>
+    </div>
+
+    <div class="f16 txt-black txt-bold margin-top-80 margin-left-40">人群</div>
+    <div class="flex-row flex-center margin-top-30 margin-left-40">
+      <div class="d1 bg-p f12 txt-white">公司入职</div>
+      <div class="d1 f12 margin-left-40" style="background-color: #F0F2F5">儿童入学</div>
+      <div class="d1 f12 margin-left-40" style="background-color: #F0F2F5">驾照考试</div>
+    </div>
+    <div class="flex-row flex-center margin-top-30 margin-left-40">
+      <div class="d1 f12" style="background-color: #F0F2F5">婚检</div>
+      <div class="d1 f12 margin-left-40" style="background-color: #F0F2F5">孕检</div>
+    </div>
+
+
+    <div class="flex-row" style="bottom: 0;position:absolute">
+      <div class="d2 f16" style="background-color: #F9F8F8">重置</div>
+      <div class="d2 f16 txt-white bg-p">确定</div>
+    </div>
+
+  </div>
 
 
 

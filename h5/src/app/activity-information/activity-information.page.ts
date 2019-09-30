@@ -30,10 +30,10 @@ export class ActivityInformationPage extends AppBase {
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
-      
+      this.activity={};
   }
 
-  activity=[];
+  activity=null;
 
   onMyLoad(){
     //参数

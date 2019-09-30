@@ -26,6 +26,7 @@ export class Tab1Page extends AppBase {
     this.headerscroptshow = 480;
 
   }
+  xz=3;
   mdate: Date = new Date();
   myear = "";
   mmonth = "";

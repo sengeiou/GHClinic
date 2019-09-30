@@ -7,15 +7,37 @@
 }
 .card{
     background-color:white;    
-    border-top-left-radius: rpx(37);
-    border-top-right-radius: rpx(37);
-    padding-top: rpx(25)
+   
+    padding-top: rpx(25);
   }
   hr{
     border: #aaaaaa solid rpx(0.01*2);
     background-color: #aaaaaa;
     opacity: 0.2;
   }
+  .rq{
+    text-align: center;
+  }
+  .bb{
+  width:rpx(60);
+  height: rpx(60);
+  line-height: rpx(60);
+  border:solid #aaaaaa rpx(2);
+  border-radius: 50%;
+  }
+  .bb1{
+
+    width:rpx(60);
+    height: rpx(60);
+    line-height: rpx(60);
+    
+  }
+  .jt{
+ background: #6B3689;
+ color:white;
+  }
+
+  
   .span1{
     font-size: rpx(32);
     color: black;
@@ -67,6 +89,13 @@
 }
 .p3{
   margin-bottom: rpx(40)
+}
+.span99{
+  background-color: #F0F2F5;
+  font-size: rpx(24);
+  color: #8a8a8a;
+  border-radius: rpx(100);
+  padding:rpx(6) rpx(16)
 }
 .span9{
   color:black;

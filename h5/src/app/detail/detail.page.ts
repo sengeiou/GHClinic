@@ -7,11 +7,13 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { SetmealApi } from 'src/providers/setmeal.api';
 
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.page.html',
   styleUrls: ['./detail.page.scss'],
+  providers:[SetmealApi]
 })
 export class DetailPage extends AppBase {
 
@@ -21,25 +23,157 @@ export class DetailPage extends AppBase {
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
+    public setmealApi:SetmealApi,
     public sanitizer: DomSanitizer,
     public memberApi: MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-
+       this.setmealinfo={};
   }
-  
+  jt = 3;
+  qiansantian = [];
+  housantian = [];
+  jintian = null;
+  xzdate=null;
+  yiyuanid=null;
+  fuwuleibie=null;
+  hospital=null;
+  taocan=[];
+  setmealinfo=null;
   onMyLoad() {
     //参数
+    
     this.params;
   }
-  onMyShow() {
+  hospitalinfo(){
    
+    var api=this.memberApi;
+    api.hospitalinfo({id:this.params.yiyuanid}).then((hospital)=>{
+        console.log("hahah");
+        console.log(hospital);
+       this.hospital=hospital;
+
+ 
+    })
+ 
+   }
+
+    
+   taocaninfo(id)
+   {
+   var api=this.setmealApi;
+
+    api.setmealinfo({id:id}).then((setmealinfo)=>{
+      console.log("taocanxiangqin",setmealinfo);
+   this.setmealinfo=setmealinfo;
+
+    })
+
+
+   }
+  onMyShow() {
+
+    this.hospitalinfo();
+    this.taocaninfo(this.params.id);
+    var d = new Date(this.params.riqi);
+    this.jintian = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d),date:d };
+    this.xzdate=this.jintian.date;
+    this.qiansantian = this.getQianDay(this.params.riqi);
+    console.log(this.qiansantian);
+    this.housantian = this.getNextDay(this.params.riqi);
+    console.log(this.housantian);
   }
   physicalExaminationAppointment(){
-    this.navigate("physical-examination-appointment")
+    this.navigate("physical-examination-appointment",{ riqi: JSON.stringify(this.ddddd), id: this.params.id, yiyuanid: this.params.yiyuanid })
   }
- 
+  getNextDay(d) {
+    var qiansantian = [];
+    var q = d;
+    d = new Date(q).getTime();
+    d = +d + 1000 * 60 * 60 * 24;
+    d = new Date(d);
+    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d) ,date:d}
+    qiansantian[0] = sdata;
   
+    d = new Date(q).getTime();
+    d = +d + 2000 * 60 * 60 * 24;
+    d = new Date(d);
+    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d),date:d }
+    qiansantian[1] = sdata;
+  
+  
+    d = new Date(q).getTime();
+    d = +d + 3000 * 60 * 60 * 24;
+    d = new Date(d);
+    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d) ,date:d}
+    qiansantian[2] = sdata;
+  
+  
+  
+  
+    return qiansantian;
+  }
+  
+  getQianDay(d) {
+    var qiansantian = [];
+    var q = d;
+    d = new Date(q).getTime();
+    d = +d - 1000 * 60 * 60 * 24;
+    d = new Date(d);
+    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d),date:d }
+    qiansantian[0] = sdata;
+  
+    d = new Date(q).getTime();
+    d = +d - 2000 * 60 * 60 * 24;
+    d = new Date(d);
+    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d),date:d }
+    qiansantian[1] = sdata;
+  
+  
+    d = new Date(q).getTime();
+    d = +d - 3000 * 60 * 60 * 24;
+    d = new Date(d);
+    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d),date:d }
+    qiansantian[2] = sdata;
+  
+  
+  
+  
+    return qiansantian;
+  }
+  
+  getxinqi(d) {
+  
+    var d = d.getDay();
+  
+    switch (d) {
+      case 0:
+        return '日';
+      case 1:
+        return '一';
+      case 2:
+        return '二';
+      case 3:
+        return '三';
+      case 4:
+        return '四';
+      case 5:
+        return '五';
+      case 6:
+        return '六';
+    }
+  
+  
+  
+  }
+  ddddd=null;
+  clickdate(d) {
+
+    this.xzdate=d.date;
+     this.ddddd=d;
+ console.log(d);
+  
+  }
 
 }
 
