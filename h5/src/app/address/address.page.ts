@@ -60,7 +60,15 @@ export class AddressPage extends AppBase {
 
 
   myAdress(i){
+        
+    if(i==0)
+    {
+      this.navigate("my-address")
+    }
+  else{
+
     this.navigate("my-address",{id: i})
+  }
   }
 
 }
