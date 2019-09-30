@@ -36,6 +36,7 @@ export class Tab3Page extends AppBase {
   tab3=true;
   qiehuan=1;
   lunbo=[];
+  drugs=[];
   drugstype=[];
   onMyLoad(){
     //参数
@@ -47,7 +48,7 @@ export class Tab3Page extends AppBase {
     slides.startAutoplay();
     this.getlunbo();
     this.getdrugstype();
-
+    this.getdrugs();
   }
 
 
@@ -66,11 +67,19 @@ export class Tab3Page extends AppBase {
     })
   }
 
+  getdrugs(){
+    var api=this.marketApi;
+    api.getdrugs({}).then((drugs)=>{
+      this.drugs=drugs;
+    })
+    
+  }
 
 
 
-  CommodityDetails(){
-    this.navigate("commodity-details")
+
+  CommodityDetails(i){
+    this.navigate("commodity-details",{id:i})
   }
   search(){
     this.navigate("search")

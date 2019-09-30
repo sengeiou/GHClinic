@@ -24,150 +24,54 @@
             </ion-slides>
 
 
+            <div class="flex-row  flex-center margin-top-30" style="justify-content: space-around">
+
+              <div *ngFor="let ds of drugstype;let i=index;" (click)="qiehuan=(i+1)">
+                <div [class.p1]="qiehuan==(i+1)">{{ds.name}}</div>
+                <div class="marginTop" [class.p2]="qiehuan==(i+1)"></div>
+              </div>
+             
+            </div>
+
 
 
            
-        <div class="flex-row  flex-center margin-top-30" style="justify-content: space-around">
-          <!-- <div class="div1" (click)="qiehuan=1">
-            <p class="p1">常用药品</p>
-            <p class="p2"></p>
-          </div>
-          <div class="div1" (click)="qiehuan=2">
-            <p class="p3">滋补保健</p>
-            <p class="p2"></p>
-          </div>
-          <div class="div1" (click)="qiehuan=3">
-            <p class="p3">医疗器械</p>
-            <p class="p2"></p>
-          </div>
-          <div class="div1" (click)="qiehuan=4">
-            <p class="p3">医疗器械</p>
-            <p class="p2"></p>
-          </div> -->
-
-          <div *ngFor="let ds of drugstype;let i=index;">
-            <div [class.p1]="qiehuan==(i+1)" (click)="qiehuan=(i+1)">{{ds.name}}</div>
-            <div class="marginTop" [class.p2]="qiehuan==(i+1)"></div>
-          </div>
-         
-        </div>
+      
         
         <div class="div0" *ngIf="tab3==true&&qiehuan==1">
-          <div class="div2 flex-row flex-center">
-            <ion-card class="ion-card1">
-              <img alt=""/>
-              <p class="p4">小儿止咳糖浆</p>
-              <p class="p5">￥ 68.0</p>
-              <p class="f12 margin-tl">原价 ￥ 78.0</p>
-            </ion-card>
-            <ion-card class="ion-card1">
-              <img alt=""/>
-              <p class="p4">艾附暖宫丸</p>
-              <p class="p5">￥ 68.0</p>
-              <p class="f12 margin-tl">原价 ￥ 78.0</p>
-            </ion-card>
-            <ion-card class="ion-card1">
-              <img alt=""/>
-              <p class="p4">999感冒灵...</p>
-              <p class="p5">￥ 68.0</p>
-              <p class="f12 margin-tl">原价 ￥ 78.0</p>
+          <div class="div2">
+            <ion-card class="ion-card1" *ngFor="let i of drugs" (click)="CommodityDetails(i.id)">
+              <img alt="" src="{{uploadpath}}drugs/{{i.photo}}"/>
+              <p class="p4 oneline">{{i.name}}</p>
+              <p class="p5">￥ {{i.price}}</p>
+              <p class="f12 margin-tl">原价 ￥ {{i.onprice}}</p>
             </ion-card>
           </div>
-          <div class="div3 flex-row flex-center">
-            <ion-card class="ion-card1">
-              <img alt=""/>
-              <p class="p4">维生素D</p>
-              <p class="p5">￥ 68.0</p>
-              <p class="f12 margin-tl">原价 ￥ 78.0</p>
-            </ion-card>
-            <ion-card class="ion-card1">
-              <img alt=""/>
-              <p class="p4">维生素D</p>
-              <p class="p5">￥ 68.0</p>
-              <p class="f12 margin-tl">原价 ￥ 78.0</p>
-            </ion-card>
-            <ion-card class="ion-card1">
-              <img alt=""/>
-              <p class="p4">钙镁片</p>
-              <p class="p5">￥ 68.0</p>
-              <p class="f12 margin-tl">原价 ￥ 78.0</p>
-            </ion-card>
-          </div>
-          <div class="div3 flex-row flex-center">
-            <ion-card class="ion-card1">
-              <img alt=""/>
-              <p class="p4">维生素D</p>
-              <p class="p5">￥ 68.0</p>
-              <p class="f12 margin-tl">原价 ￥ 78.0</p>
-            </ion-card>
-            <ion-card class="ion-card1">
-              <img alt=""/>
-              <p class="p4">维生素D</p>
-              <p class="p5">￥ 68.0</p>
-              <p class="f12 margin-tl">原价 ￥ 78.0</p>
-            </ion-card>
-            <ion-card class="ion-card1">
-              <img alt=""/>
-              <p class="p4">钙镁片</p>
-              <p class="p5">￥ 68.0</p>
-              <p class="f12 margin-tl">原价 ￥ 78.0</p>
-            </ion-card>
-          </div>
-          <img alt="" class="img1" (click)="list=true;tab3=false"/> 
+          <img alt="" class="img1" (click)="list=true;tab3=false" src="{{uploadpath}}resource/{{res.list}}"/> 
          
         </div>
 
 
 
-        <div *ngIf="list==true&&qiehuan==1">
-            <ion-card class="ion-card2" (click)="CommodityDetails()">
+        <div *ngIf="list==true&&qiehuan==1" class="margin-top-30">
+            <ion-card class="ion-card2" *ngFor="let i of drugs;let a=index" (click)="CommodityDetails(i.id)">
               <div class="flex-row flex-center">
                 <div>
-                  <img alt="" class="img2"/>
+                  <img alt="" class="img2" src="{{uploadpath}}drugs/{{i.photo}}"/>
                 </div>
                 <div class="div4">
-                  <p class="h5 txt-black txt-bold margin-left-30">999感冒灵颗粒</p>
-                  <p class="f12 txt-gw margin-left-30">上臂式智能加压全自动量血压器 家用高精准老人血压测量仪器医用测压仪器</p>
+                  <p class="h5 txt-black txt-bold margin-left-30">{{i.name}}</p>
+                  <p class="f12 txt-gw margin-left-30">{{i.introduce}}</p>
                   <p class="margin-left-30">
-                    <span style="color:#F7555A" class="h5 txt-bold">￥ 68.0</span>
-                    <span style="text-decoration:line-through;color: #BFBFBF;" class="margin-left-30 f12">原价 ￥ 78.0</span>
+                    <span style="color:#F7555A" class="h5 txt-bold">￥ {{i.price}}</span>
+                    <span style="text-decoration:line-through;color: #BFBFBF;" class="margin-left-30 f12">原价 ￥ {{i.onprice}}</span>
                   </p>
                 </div>
               
               </div>
             </ion-card>
-            <ion-card class="ion-card2">
-                <div class="flex-row flex-center">
-                  <div>
-                    <img alt="" class="img2"/>
-                  </div>
-                  <div class="div4">
-                    <p class="h5 txt-black txt-bold margin-left-30">艾附暖宫丸</p>
-                    <p class="f12 txt-gw margin-left-30">上臂式智能加压全自动量血压器 家用高精准老人血压测量仪器医用测压仪器</p>
-                    <p class="margin-left-30">
-                        <span style="color:#F7555A" class="txt-bold h5">￥ 368.0</span>
-                        <span style="text-decoration:line-through;color: #BFBFBF;" class="margin-left-30 f12">原价 ￥ 78.0</span>
-                    </p>
-                  </div>
-                </div>
-              </ion-card>
-              <ion-card class="ion-card2">
-                  <div class="flex-row flex-center">
-                    <div>
-                      <img alt="" class="img2"/>
-                    </div>
-                    <div class="div4">
-                      <p class="h5 txt-black txt-bold margin-left-30">欧姆龙HEM-7209</p>
-                      <p class="f12 txt-gw margin-left-30">上臂式智能加压全自动量血压器 家用高精准老人血压测量仪器医用测压仪器</p>
-                      <p class="margin-left-30">
-                          <span style="color:#F7555A" class="txt-bold h5">￥ 368.0</span>
-                          <span style="text-decoration:line-through;color: #BFBFBF;" class="margin-left-30 f12">原价 ￥ 78.0</span>
-                      </p>
-                    </div>
-                   
-                  </div>
-                </ion-card>
-                <img alt="" class="img3" (click)="tab3=true;list=false"/>
+            
+                <img alt="" class="img3" (click)="tab3=true;list=false" src="{{uploadpath}}resource/{{res.list2}}" />
           </div>
 
 

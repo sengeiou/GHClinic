@@ -11,35 +11,86 @@
 <ion-content>
   <div style="background-color: #11838D" class="padding-top-15">
     <div class="card">
-      <div class="flex-row margin-left-30">
-        <div style="color: #B9B9B9" class="f16">收货人</div>
-        <div class="f16 margin-left-540">刘大大</div>
-      </div>
-      <div class="border-bw margin-top-30"></div>
-      <div class="flex-row margin-left-30 margin-top-30">
-        <div style="color: #B9B9B9" class="f16">手机号码</div>
-        <div class="f16 margin-left-400">13838384388</div>
-      </div>
-      <div class="border-bw margin-top-30"></div>
-      <div class="flex-row margin-left-30 margin-top-30">
-          <div style="color: #B9B9B9" class="f16">地址</div>
-          <div class="f16 margin-left-260">深圳市罗湖区东门中路2110号</div>
+      <div *ngIf='show==false'>
+        <div class="flex-row margin-left-30">
+          <div style="color: #B9B9B9" class="f16 flex-1">收货人</div>
+          <input class="f16 margin-right-30" [value]='people' (change)='people=$event.target.value' />
         </div>
         <div class="border-bw margin-top-30"></div>
         <div class="flex-row margin-left-30 margin-top-30">
-            <div style="color: #B9B9B9" class="f16">门牌号</div>
-            <div class="f16 margin-left-360">东方大厦11楼1111</div>
+          <div style="color: #B9B9B9" class="f16 flex-1">手机号码</div>
+          <input class="f16 margin-right-30" [value]='phone' (change)='phone=$event.target.value' />
+        </div>
+        <div class="border-bw margin-top-30"></div>
+        <div class="flex-row margin-left-30 margin-top-30">
+            <div style="color: #B9B9B9" class="f16 flex-1">地址</div>
+            <input class="f16 margin-right-30" [value]='dizhi' (change)='dizhi=$event.target.value' />
           </div>
           <div class="border-bw margin-top-30"></div>
           <div class="flex-row margin-left-30 margin-top-30">
-              <div style="color: #B9B9B9" class="f16">设置为默认地址</div>
-              <div class="f16 margin-left-500 txt-white bg-p icon-24 radius-50 text-center">√</div>
+              <div style="color: #B9B9B9" class="f16 flex-1">门牌号</div>
+              <input class="f16 margin-right-30" [value]='menpaihao' (change)='menpaihao=$event.target.value'  />
             </div>
             <div class="border-bw margin-top-30"></div>
-            <div style="position: absolute;bottom:0" class="flex-row">
-              <div style="background-color: #B9B9B9" class="txt-white d1 text-center">删除</div>
-              <div class="txt-white bg-p d1 text-center" (click)="preservedAddress()">保存</div>
+            <div class="flex-row margin-left-30 margin-top-30">
+                <div style="color: #B9B9B9" class="f16">设置为默认地址</div>
+                <div class="margin-left-500 icon-24">
+                  <img alt="" src="{{uploadpath}}resource/{{res.dagou}}"/>
+                </div>
+              </div>
+              <div class="border-bw margin-top-30"></div>
+              <div style="position: absolute;bottom:0" class="flex-row">
+                <div style="background-color: #B9B9B9" class="txt-white d1 text-center">删除</div>
+                <div class="txt-white bg-p d1 text-center" (click)="address()">保存</div>
+              </div>
+      </div>
+
+
+
+      
+
+
+
+      <div *ngIf='show==true'>
+        <div class="flex-row margin-left-30">
+          <div style="color: #B9B9B9" class="f16 flex-1">收货人</div>
+          <input class="f16 margin-right-30" [value]='people1' (change)='people1=$event.target.value' />
+        </div>
+        <div class="border-bw margin-top-30"></div>
+        <div class="flex-row margin-left-30 margin-top-30">
+          <div style="color: #B9B9B9" class="f16 flex-1">手机号码</div>
+          <input class="f16 margin-right-30" [value]='phone1' (change)='phone1=$event.target.value' />
+        </div>
+        <div class="border-bw margin-top-30"></div>
+        <div class="flex-row margin-left-30 margin-top-30">
+            <div style="color: #B9B9B9" class="f16 flex-1">地址</div>
+            <input class="f16 margin-right-30" [value]='dizhi1' (change)='dizhi1=$event.target.value'/>
+          </div>
+          <div class="border-bw margin-top-30"></div>
+          <div class="flex-row margin-left-30 margin-top-30">
+              <div style="color: #B9B9B9" class="f16 flex-1">门牌号</div>
+              <input class="f16 margin-right-30" [value]='menpaihao1' (change)='menpaihao1=$event.target.value'/>
             </div>
+            <div class="border-bw margin-top-30"></div>
+            <div class="flex-row margin-left-30 margin-top-30">
+                <div style="color: #B9B9B9" class="f16">设置为默认地址</div>
+                <div class="margin-left-500 icon-24">
+                  <img alt="" src="{{uploadpath}}resource/{{res.dagou}}"/>
+                </div>
+              </div>
+              <div class="border-bw margin-top-30"></div>
+              <div style="position: absolute;bottom:0" class="flex-row">
+                <div style="background-color: #B9B9B9" class="txt-white d1 text-center" (click)="shanchu()">删除</div>
+                <div class="txt-white bg-p d1 text-center" (click)="address()">保存</div>
+              </div>
+      </div>
+
+
+
+
+
+
+            
 
 
 

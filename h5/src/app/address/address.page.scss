@@ -5,7 +5,7 @@
     background-color:white;    
     border-top-left-radius: rpx(37);
     border-top-right-radius: rpx(37);
-    padding-top: rpx(37);
+    padding-top: rpx(10);
 }
 .icon-247{
   width:rpx(247*2);
@@ -16,4 +16,15 @@
   width:rpx(375*2);
   height: rpx(48*2);
   line-height: rpx(48*2)
+}
+
+.d1{
+  width: rpx(53*2);
+  height: rpx(40);
+  line-height: rpx(40);
+  text-align: center;
+  border-radius: rpx(40)
+}
+.width-270{
+  width:rpx(270*2)
 }
