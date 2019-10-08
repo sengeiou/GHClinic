@@ -29,6 +29,7 @@ export class MyAddressPage extends AppBase {
     this.headerscroptshow = 480;
 
   }
+  isToggled=false
   people = "";
   phone = "";
   member = [];
@@ -54,6 +55,14 @@ export class MyAddressPage extends AppBase {
 
 
 
+  }
+
+
+  toggleFun(e) {
+   
+    console.log(e.detail.checked);
+    this.isToggled = e.detail.checked
+    console.log(this.isToggled);
   }
 
   // close() {
@@ -96,6 +105,7 @@ export class MyAddressPage extends AppBase {
       this.phone = ai.phone;
       this.dizhi = ai.dizhi;
       this.id = ai.member_id;
+      this.isToggled = ai.isdefault_value == 'Y' ? true : false;
       this.menpaihao = ai.menpaihao;
 
     })
@@ -131,27 +141,37 @@ export class MyAddressPage extends AppBase {
 
     var people = this.people;
     if (people == '') {
+      this.toast("请输入收货人");
       console.log(1);
       return;
     }
     var phone = this.phone;
     if (phone == '') {
+      this.toast("请输入手机号");
       console.log(2);
       return;
     }
+    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    if (!myreg.test(phone)) {
+      this.toast("手机号格式不正确");
+      return
+    }
+
     var dizhi = this.dizhi;
     if (dizhi == '') {
+      this.toast("请输入地址");
       console.log(3);
       return;
     }
     var menpaihao = this.menpaihao;
     if (menpaihao == '') {
+      this.toast("请输入门牌号");
       console.log(4);
       return;
     }
 
-    var canshu = { status: 'A', people: people, phone: phone, dizhi: dizhi, menpaihao: menpaihao }
-    var canshu1 = { primary_id: id1, status: 'A', people: people, phone: phone, dizhi: dizhi, menpaihao: menpaihao }
+    var canshu = { status: 'A', people: people, phone: phone, dizhi: dizhi, menpaihao: menpaihao,isdefault: this.isToggled ? 'Y' : 'N', }
+    var canshu1 = { primary_id: id1, status: 'A', people: people, phone: phone, dizhi: dizhi, menpaihao: menpaihao,isdefault: this.isToggled ? 'Y' : 'N', }
 
 
 

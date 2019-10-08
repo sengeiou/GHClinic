@@ -32,6 +32,7 @@ export class ActivityDetailsPage extends AppBase {
 
   show=false;
   activity=null;
+
   // nT=new Date().getTime();
   // aT=new Date(this.activity.activityName).getTime()
 
@@ -71,6 +72,7 @@ export class ActivityDetailsPage extends AppBase {
 
 
   application(id){
+  
     this.navigate("application",{id:id})
   }
  

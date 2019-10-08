@@ -12,34 +12,34 @@
   <div style="background-color: #11838D" class="padding-top-15">
     <div class="card">
       <ion-card class="ion-card">
-      <img src='{{uploadpath}}activity/{{activity.activityCover}}' />
+      <img src='{{uploadpath}}activity/{{activityinfo.activty_activityCover}}' />
       </ion-card>
-      <div class="p1">{{activity.activityName}}</div>
+      <div class="p1">{{activityinfo.activty_activityName}}</div>
       <div class="p2">
           活动时间
       </div>
       <div class="p3"></div>
-      <div class="p4">{{activity.activityTime}}</div>
+      <div class="p4">{{activityinfo.activty_activityTime}}</div>
       <hr/>
       <div class="p2">
           活动地点
       </div>
       <div class="p3"></div>
-      <div class="p4">{{activity.activitySite}}</div>
+      <div class="p4">{{activityinfo.activty_activitySite}}</div>
       <hr/>
       <div class="p2">
           活动简介
       </div>
       <div class="p3"></div>
       <div class="p4 p5">   
-        {{activity.activityBrief}}</div>
+        {{activityinfo.activty_activityBrief}}</div>
       <hr/>
       <div class="p2">
           报名须知
       </div>
       <div class="p3"></div>
-      <div class="p4">本次报名人数限制：{{activity.xianzhi}}人</div>
-      <div class="p4">{{activity.show}}</div>
+      <div class="p4">本次报名人数限制：{{activityinfo.activty_xianzhi}}人</div>
+      <div class="p4">{{activityinfo.activty_show}}</div>
       <div class="height-90"></div>
 
 
@@ -47,8 +47,9 @@
   </div>
 </ion-content>
 <div class="div1 flex-row flex-center">
-    <div class="p6">{{activity.price==0?"免费":"费用：￥"+activity.price}}</div>
-    <div class="p7">已报名</div>
+    <div class="p6">{{activityinfo.activty_price==0?"免费":"费用：￥"+activityinfo.activty_price}}</div>
+    <div class="p7" *ngIf='activityinfo.status=="A"'>已报名</div>
+    <div class="p7" *ngIf='activityinfo.status=="S"' (click)="application(activityinfo.activty_id)">继续报名</div>
 </div>
 
 

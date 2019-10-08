@@ -32,11 +32,12 @@
               <input class="f16 margin-right-30" [value]='menpaihao' (change)='menpaihao=$event.target.value' placeholder="请输入门牌号" />
             </div>
             <div class="border-bw margin-top-30"></div>
-            <div class="flex-row margin-left-30 margin-top-30">
+            <div class="flex-row margin-left-30 margin-top-30 flex-center">
                 <div style="color: #B9B9B9" class="f16">设置为默认地址</div>
-                <div class="margin-left-500 icon-24">
+                <ion-toggle color="success" [value]="isToggled" (ionChange)="toggleFun($event)" class="margin-left-400"></ion-toggle>
+                <!-- <div class="margin-left-500 icon-24">
                   <img alt="" src="{{uploadpath}}resource/{{res.dagou}}"/>
-                </div>
+                </div> -->
               </div>
               <div class="border-bw margin-top-30"></div>
               <div style="position: absolute;bottom:0" class="flex-row">

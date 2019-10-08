@@ -7,6 +7,7 @@ import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { ActivityApi } from 'src/providers/activity.api';
+import { ConsoleReporter } from 'jasmine';
 
 @Component({
   selector: 'app-application',
@@ -33,7 +34,10 @@ export class ApplicationPage extends AppBase {
   shoujihao='';
   activity=null;
   ages=[];
+  aactivity=[];
   id='';
+
+
  
 
   onMyLoad(){
@@ -41,12 +45,14 @@ export class ApplicationPage extends AppBase {
     this.params;
   }
   onMyShow(){
-
     this.getactivityinfo();
     this.getage();
-
-
   }
+
+
+  
+
+
  
   getactivityinfo(){
     var api=this.activityApi;
@@ -70,20 +76,33 @@ export class ApplicationPage extends AppBase {
   aa(e){
     console.log(this.age);
   }
-  successfulRegistration(){
 
+
+  successfulRegistration(){
+    var id=this.id;
     var xingming=this.xingming;
     if (xingming == '') {
+      this.toast("请输入姓名");
       return;
     }
     var shoujihao = this.shoujihao;
     if (shoujihao == '') {
+      this.toast("请输入手机号");
       return;
     }
+    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    if (!myreg.test(shoujihao)) {
+      this.toast("手机号格式不正确");
+      return
+    }
+
+
     var api=this.activityApi;
 
-    api.signactivity({activty_id: this.id, name: xingming, age_id: this.age,
-      phone: shoujihao, member_id: 1, status: 'A'}).then(
+    var canshu={activty_id: id, name: xingming, age_id: this.age,phone: shoujihao, status: 'A'}
+    var canshu1={primary_id:this.params.i,activty_id: id, name: xingming, age_id: this.age,phone: shoujihao, status: 'A'}
+
+    api.signactivity(this.params.i==undefined?canshu:canshu1).then(
       (res)=>{
         console.log(res)
         if (res.code == 0) {
@@ -92,7 +111,6 @@ export class ApplicationPage extends AppBase {
           
         }
       })
-    
   }
 
  

@@ -30,32 +30,38 @@ export class ActivityInformationPage extends AppBase {
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
-      this.activity={};
+    
   }
-
-  activity=null;
+  i=0;
+  activityinfo=[];
 
   onMyLoad(){
     //参数
     this.params;
   }
   onMyShow(){
-    this.getactivityinfo();
+    this.getactivitysigninfo();
   }
 
 
-  getactivityinfo(){
+  getactivitysigninfo(){
     var api=this.activityApi;
-    api.activityinfo({id: this.params.id}).then(
-      (activity)=>{
-        this.activity=activity;
+    api.activitysigninfo({id: this.params.id}).then(
+      (activityinfo)=>{
+        this.activityinfo=activityinfo;
+        console.log(activityinfo)
+        this.i=activityinfo.id;
       
       }
     )
   }
 
 
-  
+
+  application(id){
+    var i=this.i;
+    this.navigate("application",{id:id,i:i});
+  }
  
   
  
