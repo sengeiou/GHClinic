@@ -110,6 +110,11 @@ export class ApplicationPage extends AppBase {
           this.navigate("successful-registration",{id:res.return, activity: JSON.stringify(this.activity)});
           
         }
+         if(res.code == -2){
+
+          this.toast("超出限制");
+         }
+
       })
   }
 

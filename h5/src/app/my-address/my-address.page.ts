@@ -7,6 +7,7 @@ import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { AddressApi } from 'src/providers/address.api';
+import { ApiConfig } from '../api.config';
 
 @Component({
   selector: 'app-my-address',
@@ -59,7 +60,7 @@ export class MyAddressPage extends AppBase {
 
 
   toggleFun(e) {
-   
+  
     console.log(e.detail.checked);
     this.isToggled = e.detail.checked
     console.log(this.isToggled);
