@@ -42,8 +42,9 @@ export class Tab3Page extends AppBase {
     //参数
     this.params;
   }
+  rad=1;
   onMyShow(){
-
+    this.rad = 375 * 1.0 / screen.width;
     var slides = document.querySelector('ion-slides');
     slides.startAutoplay();
     this.getlunbo();

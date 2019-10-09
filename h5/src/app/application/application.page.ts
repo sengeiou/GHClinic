@@ -7,7 +7,7 @@ import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { ActivityApi } from 'src/providers/activity.api';
-import { ConsoleReporter } from 'jasmine';
+// import { ConsoleReporter } from 'jasmine';
 
 @Component({
   selector: 'app-application',

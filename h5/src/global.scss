@@ -760,7 +760,14 @@
   .margin-right {
     margin-right: px(10);
   }
-  
+  .scroll-x{
+    overflow: hidden;
+    overflow-x: scroll;
+  }
+  .scroll-x::-webkit-scrollbar{
+    width:0;
+    height: 0;
+  }
   .radius-50 {
     border-radius: 50%;
   }

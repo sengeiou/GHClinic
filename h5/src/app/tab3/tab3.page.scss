@@ -38,7 +38,7 @@ input{
  
 }
 .p2{
-  width: rpx(90);
+  width: rpx(90); 
   height: rpx(6);
   background-color: #6b3689;
   margin-left: rpx(15);
@@ -99,7 +99,7 @@ img{
   width: rpx(120);
   height: rpx(120);
   position: fixed;
-  top:rpx(1430);
+  top:rpx(1330);
   right: rpx(50);
   border-radius: 50%;
   background: linear-gradient(to bottom, #6b3689 0%,#11838D 100%);
@@ -130,7 +130,7 @@ img{
   width: rpx(120);
   height: rpx(120);
   position:fixed;
-  top:rpx(1430);
+  top:rpx(1330);
   right: rpx(50);
   border-radius: 50%;
   background: linear-gradient(to bottom, #6b3689 0%,#11838D 100%);
@@ -157,3 +157,17 @@ img{
 .marginTop{
   margin-top:rpx(2)
 }
+
+.slidelist{
+  width:100vw;
+  // height: rpx(100);
+}
+
+
+.marginRight{
+  width: 20vw;
+  margin-right: rpx(60)
+}
+
+
+
