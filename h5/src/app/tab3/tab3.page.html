@@ -28,7 +28,7 @@
        
               <div class="flex-row flex-center"  [ngStyle]="{'width.px': drugstype.length*95*rad }">
               <div *ngFor="let ds of drugstype;let i=index;" (click)="qiehuan=(i+1)" class="marginRight">
-                 <div [class.p1]="qiehuan==(i+1)">{{ds.name}}</div>
+                <div [class.p1]="qiehuan==(i+1)">{{ds.name}}</div>
                 <div class="marginTop" [class.p2]="qiehuan==(i+1)"></div> 
 
                
