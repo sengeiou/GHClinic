@@ -27,13 +27,8 @@
             <div class="  margin-top-30 margin-left-40 slidelist scroll-x" >
        
               <div class="flex-row flex-center"  [ngStyle]="{'width.px': drugstype.length*95*rad }">
-<<<<<<< HEAD
-              <div *ngFor="let ds of drugstype;let i=index;" (click)="qiehuan=(i+1)" class="marginRight">
-                <div [class.p1]="qiehuan==(i+1)">{{ds.name}}</div>
-=======
               <div *ngFor="let ds of drugstype;let i=index;" (click)="qiehuan=(i+1);getdrugs(ds.id)" class="marginRight">
                  <div [class.p1]="qiehuan==(i+1)">{{ds.name}}</div>
->>>>>>> a7962bc3ca60b85a9750b23c717853249af9e406
                 <div class="marginTop" [class.p2]="qiehuan==(i+1)"></div> 
 
                
