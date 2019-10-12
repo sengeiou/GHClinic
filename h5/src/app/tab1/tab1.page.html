@@ -1,24 +1,70 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <!-- <ion-toolbar color="primary">
     <ion-icon name="arrow-back" class="ion-icon"></ion-icon>
     <ion-title>
       {{InstInfo.name}}
     </ion-title>
     <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
-  </ion-toolbar>
+  </ion-toolbar> -->
+  <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
 </ion-header>
 
 <ion-content>
-    <div style="background-color: #11838D;" class="padding-top-15">
-        <div class="card">
-         <input placeholder="搜索&nbsp;科室/药品" (click)="search()"/>
-         <ion-icon name="search" style="color:#6B3689;" class="ion-icon1"></ion-icon>
-         <p class="p1"></p>
-         <p class="p2">预约日期</p>
+    <div style="background: radial-gradient(#268B73,#0F848D) ;" class="padding-top-40">
+      <div (click)="search()">
+        <input placeholder="搜索科室/药品名称"/>
+        <ion-icon name="search" class="ion-icon1"></ion-icon>
+      </div>
+      <div class="txt-white f18 text-center margin-top-60">预约服务</div>
+      <div class="card">
+         <div class="txt-black f16 txt-bold margin-left-30">预约科室</div>
+         <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar"/>
       </div>
     </div>
 
-    <div class="container-fluid mt-5 marginTop">
+    <div>
+      <div style="display:inline-block;" class="margin-left-50">
+        <div>
+          <img src='{{uploadpath}}resource/{{res.tijian}}' class="icon-60" />
+        </div>
+        <div class="xuanzhong">
+          <img src='{{uploadpath}}resource/{{res.xuanzhon}}' class="icon-18"  />
+        </div>
+        <div class="margin-top-80 margin-left-30">体检</div>
+      </div>
+    </div>
+
+    
+    <div class="margin-top-60">
+      <div class="txt-black f16 txt-bold margin-left-30">预约诊所</div>
+      <div (click)="information()">
+        <div class="margin-top-30">
+          <ion-card class="card1"  [style.background-image]="'url('+uploadpath+'resource/'+res.clinic+')'"></ion-card>
+        </div>
+        <div style="z-index: 1111;" class="marginTop">
+          <ion-card class="card2 flex-row flex-center">
+            <div class="flex-column margin-left-30">
+              <div class="oneline f18 txt-bold txt-black">港和医疗天河分部</div>
+              <div class="txt-gw f12 margin-top ">020 - 88888888</div>
+              <div class="oneline txt-gw f12 margin-top">广州市白云区粤海街道凤凰路美乐家115号</div>
+            </div>
+            <div>
+              <img src="{{uploadpath}}resource/{{res.phone}}" class="icon-30"/>
+            </div>
+          </ion-card> 
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- <div class="container-fluid mt-5 marginTop">
 
       <div>
       
@@ -137,7 +183,7 @@
         
    
 
-      </div>      
+      </div>       -->
 
 
 

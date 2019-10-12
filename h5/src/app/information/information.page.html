@@ -1,16 +1,90 @@
 
 <ion-header>
-    <ion-toolbar color="primary">
+    <!-- <ion-toolbar color="primary">
         <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
         <ion-title *ngIf="hospital!=null">
             {{hospital.name}}
         </ion-title>
         <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
-    </ion-toolbar>
+    </ion-toolbar> -->
+    <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
 </ion-header>
 
 <ion-content>
-    <div style="background-color: #11838D" *ngIf="qiansantian.length!=0&&housantian.length!=0">
+    <div style="background: radial-gradient(#268B73,#0F848D) ;" class="padding-top-40">
+        <div class="flex-row flex-center">
+            <div class="marginTop" (click)="back()">
+                <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+            </div>
+            <div class="f12 txt-white margin-left-5">上一步</div>
+            <div class="f16 txt-white margin-left-160">广州白云分部</div>
+            <div class="f12 txt-white margin-left-160" (click)="clinic()">诊所介绍</div>
+        </div>
+        <div class="card">
+            <div class="txt-black f16 txt-bold margin-left-30">预约信息</div>
+            <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar"/>
+            <div class="flex-row">
+                <div class="marginTop1">
+                    <img src="{{uploadpath}}resource/{{res.guanyuwomen}}" class="icon-10" />
+                </div>
+                <div class="f12 txt-gw margin-left-30">诊所：</div>
+                <div class="f12 txt-black margin-left-30">港和医疗广州白云分部</div>
+            </div>
+            <div class="flex-row margin-top-40">
+                <div class="marginTop1">
+                    <img src="{{uploadpath}}resource/{{res.wodehuodon}}" class="icon-10" />
+                </div>
+                <div class="f12 txt-gw margin-left-30">科室：</div>
+                <div class="f12 txt-black margin-left-30">内科</div>
+            </div>
+            <div class="flex-row margin-top-40">
+                <div class="marginTop1">
+                    <img src="{{uploadpath}}resource/{{res.wodeyuyue}}" class="icon-10" />
+                </div>
+                <div class="f12 txt-gw margin-left-30">日期：</div>
+                <div class="f12 txt-black margin-left-30">2019年10月11日</div>
+                <div class="f12 txt-gw margin-left-200">展开修改</div>
+                <div class="marginTopLeft">
+                    <img src="{{uploadpath}}resource/{{res.bottomarrow}}" class="icon-10" />
+                </div>
+            </div>
+            <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">预约医生</div>
+            <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar"/>
+            <div class="flex-row flex-center" (click)='doctor()'>
+                <div>
+                    <img src="{{uploadpath}}resource/{{res.photo2}}" class="icon-128" />
+                    <div class="f12 txt-white beijin">有号</div>
+                </div>
+                <div class="flex-column margin-left-70">
+                    <div class="flex-row flex-center margin-top-30">
+                        <div style="color: #11838D;" class="f18">董娜</div>
+                        <div class="f12 txt-white margin-left-40" style="background: #11838D;border-radius:20px;">主任医生</div>
+                    </div>
+                    <div class="f16 txt-black margin-top">中山大学第一附属医院</div>
+                    <div class="f16 txt-gw margin-top">擅长：发育、幼儿急诊、手足口病疱疹性咽峡炎、呼吸道感染</div>
+                    <div class="flex-row flex-center margin-top">
+                        <div class="f16 txt-gw">费用：</div>
+                        <div class="f16 red">￥33.00</div>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+
+
+
+        </div>
+    </div>
+    
+    
+
+
+
+
+
+
+
+
+    <!-- <div style="background-color: #11838D" *ngIf="qiansantian.length!=0&&housantian.length!=0">
         <div class="card">
             <div class="flex-row flex-center">
                 <span class="span1">{{fuwuleibie}}</span>
@@ -87,5 +161,5 @@
             </div>
         </ion-card>
 
-    </div>
+    </div> -->
 </ion-content>

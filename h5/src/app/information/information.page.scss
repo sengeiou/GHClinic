@@ -11,6 +11,11 @@
     border-top-right-radius: rpx(37);
     padding-top: rpx(37);
 }
+.bg{
+  width:100%;
+  height:rpx(100);
+  background-size: cover;
+}
 .span1{
     font-size: rpx(16*2);
     color:black;
@@ -162,4 +167,50 @@ hr{
     font-size: rpx(32);
     font-weight: bold;
     margin-left: rpx(150)
+  }
+  .icon-32{
+    width:rpx(32);
+    height: rpx(32);
+  }
+  .marginTop{
+    margin-top:rpx(-32)
+  }
+  .card{
+    background-color:white;    
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(30);
+    margin-top:rpx(40)
+    
+  }
+  .horizontalbar{
+    display: block;
+    margin-top:rpx(-46);
+    width:rpx(60*2);
+    margin-left:rpx(20);
+    margin-bottom: rpx(-30);
+  }
+  .icon-10{
+    width:rpx(40);
+    height: rpx(40);
+    
+  }
+  .marginTop1{
+    margin-top:rpx(-42)
+  }
+  .marginTopLeft{
+    margin-top:rpx(-38);
+    margin-left:rpx(-16)
+  }
+  .icon-128{
+    width:rpx(200);
+    height: rpx(128*2);
+  }
+  .beijin{
+    position: relative;
+    margin-left:rpx(35);
+    margin-top:rpx(-60);
+    width:rpx(60);
+    z-index: 1111;
+    background-color:rgba($color: red, $alpha: 0.5);
   }
