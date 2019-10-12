@@ -49,7 +49,7 @@ export class Tab3Page extends AppBase {
     slides.startAutoplay();
     this.getlunbo();
     this.getdrugstype();
-    this.getdrugs();
+    
   }
 
 
@@ -65,16 +65,23 @@ export class Tab3Page extends AppBase {
     var api=this.marketApi;
     api.getdrugstype({}).then((drugstype)=>{
       this.drugstype=drugstype;
+      console.log(drugstype);
+      this.getdrugs(drugstype[0].id);
+
+    
     })
   }
 
-  getdrugs(){
+  getdrugs(type){
     var api=this.marketApi;
-    api.getdrugs({}).then((drugs)=>{
+    api.getdrugs({drugs_type:type}).then((drugs)=>{
+
+      console.log("asdasds"+drugs);
       this.drugs=drugs;
     })
     
   }
+ 
 
 
 

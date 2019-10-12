@@ -38,32 +38,36 @@ export class Tab4Page extends AppBase {
 
   
   address(){
-    this.navigate("address")
+    this.navigate("address");
   }
+  gouwuche(){
 
+   this.navigate("carts");
+
+  }
   myOrder(){
-    this.navigate("my-order")
+    this.navigate("my-order");
   }
 
   MyAppointment(){
-    this.navigate("my-appointment")
+    this.navigate("my-appointment");
   }
 
   myNews(){
-    this.navigate("my-news")
+    this.navigate("my-news");
   }
 
   myPhysicalExamination(){
-    this.navigate("my-physical-examination")
+    this.navigate("my-physical-examination");
   }
 
   myActivity(){
-    this.navigate("my-activity")
+    this.navigate("my-activity");
   }
 
 
   myCustomer(){
-    this.navigate("my-customer")
+    this.navigate("my-customer");
   }
 
  

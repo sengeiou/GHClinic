@@ -214,40 +214,6 @@ export class ActivityApi {
     }
 
 
-    public signactivity(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'activity/signactivity';
-        var headers = ApiConfig.GetHeader(url, data);
-        let options = new RequestOptions({ headers: headers });
-        let body = ApiConfig.ParamUrlencoded(data);
-        let loading = null;
-
-        if (showLoadingModal) {
-            loading = ApiConfig.GetLoadingModal();
-        }
-
-        return this.http.post(url, body, options).toPromise()
-            .then((res) => {
-                if (ApiConfig.DataLoadedHandle('activity/signactivity', data, res)) {
-                    if (showLoadingModal) {
-                        ApiConfig.DimissLoadingModal();
-                    }
-                    if (res==null) {
-                        return null;
-                    }
-                    return res.json();
-                } else {
-                    return Promise.reject(res);
-                }
-            })
-            .catch(err => {
-                if (showLoadingModal) {
-                    ApiConfig.DimissLoadingModal();
-                }
-                return ApiConfig.ErrorHandle('activity/signactivity', data, err);
-            });
-    }
-
-
     public huoquactivityinfo(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'activity/huoquactivityinfo';
         var headers = ApiConfig.GetHeader(url, data);
@@ -278,6 +244,40 @@ export class ActivityApi {
                     ApiConfig.DimissLoadingModal();
                 }
                 return ApiConfig.ErrorHandle('activity/huoquactivityinfo', data, err);
+            });
+    }
+
+
+    public signactivity(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'activity/signactivity';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('activity/signactivity', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('activity/signactivity', data, err);
             });
     }
 
