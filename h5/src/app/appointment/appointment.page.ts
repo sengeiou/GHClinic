@@ -78,39 +78,42 @@ var  api=this.memberApi;
 
   }
 
-  successfulReservation() {
+  // successfulReservation() {
 
-    var jiuzhenren = this.jiuzhenren;
-    if (jiuzhenren == '') {
-      return;
-    }
-    var shoujihao = this.shoujihao;
-    if (shoujihao == '') {
-      return;
-    }
-    var tuijianren = this.tuijianren;
+  //   var jiuzhenren = this.jiuzhenren;
+  //   if (jiuzhenren == '') {
+  //     return;
+  //   }
+  //   var shoujihao = this.shoujihao;
+  //   if (shoujihao == '') {
+  //     return;
+  //   }
+  //   var tuijianren = this.tuijianren;
 
-   console.log(this.date.qwe.id);
-   console.log(21111);
-    var api = this.orderApi;
-    api.create({
-      member_id: 1, doctor_id: this.yishen.id, schedule_id: this.date.qwe.id,
-      patientname: jiuzhenren, patientsexual: 'M', photo: shoujihao, tuijianren: tuijianren,hospital_id:this.hospital.id
-    }).then((res) => {
-           console.log(res);
-           console.log(this.date.qwe.id);
+  //  console.log(this.date.qwe.id);
+  //  console.log(21111);
+  //   var api = this.orderApi;
+  //   api.create({
+  //     member_id: 1, doctor_id: this.yishen.id, schedule_id: this.date.qwe.id,
+  //     patientname: jiuzhenren, patientsexual: 'M', photo: shoujihao, tuijianren: tuijianren,hospital_id:this.hospital.id
+  //   }).then((res) => {
+  //          console.log(res);
+  //          console.log(this.date.qwe.id);
           
-      if (res.code == 0) {
-        this.navigate("successful-reservation",{id:res.return, hospital: JSON.stringify(this.hospital)});
+  //     if (res.code == 0) {
+  //       this.navigate("successful-reservation",{id:res.return, hospital: JSON.stringify(this.hospital)});
 
-      }
+  //     }
 
-    })
-
-
+  //   })
 
 
 
+
+
+  // }
+  successfulReservation(){
+    this.navigate("successful-reservation")
   }
 
 

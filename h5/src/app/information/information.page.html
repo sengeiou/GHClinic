@@ -11,64 +11,114 @@
 </ion-header>
 
 <ion-content>
-    <div style="background: radial-gradient(#268B73,#0F848D) ;" class="padding-top-40">
+    <div style="background: #0F848D ;" class="padding-top-40">
         <div class="flex-row flex-center">
             <div class="marginTop" (click)="back()">
                 <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
             </div>
-            <div class="f12 txt-white margin-left-5">上一步</div>
+            <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
             <div class="f16 txt-white margin-left-160">广州白云分部</div>
             <div class="f12 txt-white margin-left-160" (click)="clinic()">诊所介绍</div>
         </div>
         <div class="card">
             <div class="txt-black f16 txt-bold margin-left-30">预约信息</div>
             <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar"/>
-            <div class="flex-row">
+            <div class="flex-row margin-top-40">
                 <div class="marginTop1">
-                    <img src="{{uploadpath}}resource/{{res.guanyuwomen}}" class="icon-10" />
+                    <img src="{{uploadpath}}resource/{{res.zhensuo}}" class="icon-10" />
                 </div>
                 <div class="f12 txt-gw margin-left-30">诊所：</div>
                 <div class="f12 txt-black margin-left-30">港和医疗广州白云分部</div>
             </div>
             <div class="flex-row margin-top-40">
                 <div class="marginTop1">
-                    <img src="{{uploadpath}}resource/{{res.wodehuodon}}" class="icon-10" />
+                    <img src="{{uploadpath}}resource/{{res.keshi}}" class="icon-10" />
                 </div>
                 <div class="f12 txt-gw margin-left-30">科室：</div>
                 <div class="f12 txt-black margin-left-30">内科</div>
             </div>
             <div class="flex-row margin-top-40">
                 <div class="marginTop1">
-                    <img src="{{uploadpath}}resource/{{res.wodeyuyue}}" class="icon-10" />
+                    <img src="{{uploadpath}}resource/{{res.riqi}}" class="icon-10" />
                 </div>
                 <div class="f12 txt-gw margin-left-30">日期：</div>
-                <div class="f12 txt-black margin-left-30">2019年10月11日</div>
-                <div class="f12 txt-gw margin-left-200">展开修改</div>
-                <div class="marginTopLeft">
+                <div class="f12 txt-black margin-left-30">{{myear}}年{{mmonth}}月</div>
+                <div class="f12 txt-gw margin-left-200" (click)="zhankai=true" *ngIf="zhankai==false">展开修改</div>
+                <div class="f12 txt-gw margin-left-260" (click)="zhankai=false" *ngIf="zhankai==true">收起</div>
+
+                <div class="marginTopLeft" (click)="zhankai=true" *ngIf="zhankai==false">
                     <img src="{{uploadpath}}resource/{{res.bottomarrow}}" class="icon-10" />
                 </div>
+                <div class="marginTopLeft" (click)="zhankai=false" *ngIf="zhankai==true">
+                    <img src="{{uploadpath}}resource/{{res.toparrow}}" class="icon-10" />
+                </div>
             </div>
+            <div *ngIf="zhankai==true">
+                <div class="container-fluid mt-5 margin-top-30">
+                    <div>
+                    
+                        <div class="tabbody padding-20 ">
+                          <div class=" primary-block  text-white ">
+                            <div class="flex-row flex-center ">
+                              <div class="h3 padding-20" (click)="addMonth(-1)">
+                                <i class="fa fa-angle-left"></i>
+                              </div>
+                              <div class="flex-1 text-center">{{myear}}年{{mmonth}}月</div>
+                              <div class="h3 padding-20" (click)="addMonth(1)">
+                                <i class="fa fa-angle-right "></i>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="flex-row  primary-block  text-white">
+                            <div class="flex-1 h6 txt-bold padding-20 text-center">日</div>
+                            <div class="flex-1 h6 txt-bold padding-20 text-center">一</div>
+                            <div class="flex-1 h6 txt-bold padding-20 text-center">二</div>
+                            <div class="flex-1 h6 txt-bold padding-20 text-center">三</div>
+                            <div class="flex-1 h6 txt-bold  padding-20 text-center">四</div>
+                            <div class="flex-1 h6 txt-bold padding-20 text-center">五</div>
+                            <div class="flex-1 h6 txt-bold padding-20 text-center">六</div>
+                          </div>
+                          <div class="flex-row " *ngFor="let w of mcal">
+                            <div class="flex-1" *ngFor="let d of w;let i=index;">
+                              <div class="mdate padding-20 text-center" (click)='asd(d,i)' [class.issat]="i==6"  [class.xzrq]='d.d==xzrq&&d.f==xzy' [class.pass]='d.pass==true' [class.today]='d.today==true'>
+                                <div class=" ">{{d.today?"今":d.d}}</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
             <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">预约医生</div>
             <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar"/>
+
+
             <div class="flex-row flex-center" (click)='doctor()'>
                 <div>
                     <img src="{{uploadpath}}resource/{{res.photo2}}" class="icon-128" />
                     <div class="f12 txt-white beijin">有号</div>
                 </div>
                 <div class="flex-column margin-left-70">
-                    <div class="flex-row flex-center margin-top-30">
-                        <div style="color: #11838D;" class="f18">董娜</div>
-                        <div class="f12 txt-white margin-left-40" style="background: #11838D;border-radius:20px;">主任医生</div>
-                    </div>
-                    <div class="f16 txt-black margin-top">中山大学第一附属医院</div>
-                    <div class="f16 txt-gw margin-top">擅长：发育、幼儿急诊、手足口病疱疹性咽峡炎、呼吸道感染</div>
                     <div class="flex-row flex-center margin-top">
-                        <div class="f16 txt-gw">费用：</div>
-                        <div class="f16 red">￥33.00</div>
+                        <div style="color: #11838D;" class="f18 margin-top-40">董娜</div>
+                        <div class="f12 txt-white margin-left-40 biaoqian margin-top-40">主任医生</div>
+                    </div>
+                    <div class="f12 txt-black margin-top">中山大学第一附属医院</div>
+                    <div class="f12 txt-gw margin-top">擅长：发育、幼儿急诊、手足口病疱疹性咽峡炎、呼吸道感染</div>
+                    <div class="flex-row flex-center margin-top">
+                        <div class="f12 txt-gw">费用：</div>
+                        <div class="f16 txt-bold" style="color: #DF4747;">￥33.00</div>
                     </div>
                 </div>
             </div>
-            <hr/>
+        
 
 
 

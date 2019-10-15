@@ -81,12 +81,16 @@ export class DoctorPage extends AppBase {
     this.getyishenpaiban(this.qiansantian[2].d1, this.housantian[2].d1);
 
   }
-  appointment(qqq) {
-    if (qqq == undefined) {
-      return
-    }
+  // appointment(qqq) {
+  //   if (qqq == undefined) {
+  //     return
+  //   }
 
-    this.navigate("appointment", { date: JSON.stringify(qqq), yishen: JSON.stringify(this.doctorinfo), hospital_id:this.hospital.id })
+  //   this.navigate("appointment", { date: JSON.stringify(qqq), yishen: JSON.stringify(this.doctorinfo), hospital_id:this.hospital.id })
+  // }
+
+  appointment(){
+    this.navigate("appointment")
   }
   paiban = [];
   getyishenpaiban(sdate, edate) {
