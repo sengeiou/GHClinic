@@ -2,15 +2,73 @@
     @return ($px * 100vw) / 750;
   }
 .ion-icon{
-    height:rpx(24*2);
-    width:rpx(24*2)
+    height:rpx(18*2);
+    width:rpx(18*2);
+    margin-top:rpx(27)
 }
 .card{
-    background-color:white;    
-    border-top-left-radius: rpx(37);
-    border-top-right-radius: rpx(37);
-    padding-top: rpx(37)
+  background-color:white;    
+  border-top-left-radius: rpx(37);
+  border-top-right-radius: rpx(37);
+  padding-top: rpx(30);
+  margin-top:rpx(40)
+  
+}
+.icon-32{
+  width:rpx(32);
+  height: rpx(32);
+  margin-top:rpx(30)
+}
+.bg{
+  width:100%;
+  height:rpx(100);
+  background-size: cover;
+}
+  .marginTop{
+    margin-top:rpx(-32)
   }
+  .marginTop1{
+    margin-top:rpx(-10)
+  }
+  .dibu{
+    width:rpx(175*2);
+    height:rpx(70);
+    line-height: rpx(70);
+    text-align: center;
+    border-top: rpx(2) #11838D solid;
+    border-bottom: rpx(2) #11838D solid;
+    border-left: rpx(2) #11838D solid;
+    border-top-left-radius: rpx(10);
+    border-bottom-left-radius: rpx(10);
+  }
+  .bc{
+    background-color: #11838D;
+  }
+  .c{
+    color:#11838D;
+  }
+  .dibu1{
+    width:rpx(175*2);
+    height:rpx(70);
+    line-height: rpx(70);
+    text-align: center;
+    border-top: rpx(2) #11838D solid;
+    border-bottom: rpx(2) #11838D solid;
+    border-right: rpx(2) #11838D solid;
+    border-top-right-radius: rpx(10);
+    border-bottom-right-radius: rpx(10);
+  }
+  .kuangao{
+    width: rpx(350);
+    height: rpx(90);
+    line-height: rpx(90);
+    text-align: center;
+  }
+
+
+
+
+
   hr{
     border: #aaaaaa solid rpx(0.01*2);
     background-color: #aaaaaa;
@@ -33,9 +91,23 @@
     line-height: rpx(60);
     
   }
+  .biaoqian{
+    background: #11838D;
+    width:rpx(70*2);
+    border-radius:20px;
+    padding:rpx(4) rpx(8) rpx(4) rpx(12)
+  }
   .jt{
  background: #6B3689;
  color:white;
+  }
+  .horizontalbar{
+    display: block;
+    margin-top:rpx(0);
+    width:rpx(50*2);
+    height:rpx(6);
+    margin-left:rpx(30);
+    // margin-bottom: rpx(-30);
   }
   img{
       height: rpx(120);

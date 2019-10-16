@@ -10,27 +10,39 @@
   border-top-left-radius: rpx(37);
   border-top-right-radius: rpx(37);
   padding-top: rpx(30);
+  margin-top:rpx(60)
   
 }
 input{
   height: rpx(33*2);
   width:rpx(344*2);
-  text-align: center;
   border-radius: rpx(40);
   font-size: rpx(13*2);
   margin-left: rpx(15*2);
+  padding-left:rpx(55);
   background-color: #EBEBEB;
   border-style: none;
 }
 
 .marginTop{
-  margin-top: rpx(-25);
+  margin-top: rpx(-120);
+}
+
+.margin-top-10{
+  margin-top:rpx(10);
+}
+
+.icon-60{
+  width:rpx(66);
+  height: rpx(34*2);
 }
 
 .ion-icon1{
+  width:rpx(35);
+  height: rpx(35);
   position: relative;
-  left:rpx(-338*2);
-  top:rpx(3*2)
+  left:rpx(38);
+  top:rpx(-56)
 }
 .p1{
   width:rpx(6);
@@ -41,13 +53,13 @@ input{
   display: inline-block;
   margin-bottom:0
 }
-.p2{
-  font-size: rpx(16*2);
-  font-weight:bold;
-  color:black;
-  display: inline-block;
-  margin-left:rpx(10);
-}
+// .p2{
+//   font-size: rpx(16*2);
+//   font-weight:bold;
+//   color:black;
+//   display: inline-block;
+//   margin-left:rpx(30);
+// }
 .p3{
   font-size: rpx(16*2);
   color:black;
@@ -122,6 +134,15 @@ hr{
  background: #6B3689;
 
 }
+.bg{
+  width:100%;
+  height:rpx(100);
+  background-size: cover;
+}
+
+.bg1{
+  background-color: rgba($color: #ffffff, $alpha: 0.8);
+}
 .span6{
   color:black;
   margin-left: rpx(30*2);
@@ -150,14 +171,22 @@ ion-card{
   float:left;
   margin-bottom: rpx(-20)
 }
-img{
-  width:rpx(109*2);
-  height:rpx(75*2);
+// img{
+//   width:rpx(109*2);
+//   height:rpx(75*2);
+// }
+.horizontalbar{
+  display: block;
+  margin-top:rpx(0);
+  width:rpx(50*2);
+  height:rpx(6);
+  margin-left:rpx(30)
 }
-ion-card-title{
-  font-size: rpx(16*2);
-  margin-top: rpx(20)
+.xuanzhong{
+  margin-left:rpx(60);
+  margin-top:rpx(-140);
 }
+
 .div2{
   clear: both;
   padding-left:rpx(20);
@@ -214,3 +243,17 @@ ion-card-title{
 .wtime{
   border-bottom: #dee2e6 1px dotted; 
 }
+.card1{
+  height:rpx(173*2);
+  background-size: cover;
+}
+.card2{
+  width:rpx(307*2);
+  height: rpx(86*2);
+  margin-left:rpx(375-307);
+}
+.icon-25{
+  width:rpx(50);
+  height: rpx(50);
+}
+

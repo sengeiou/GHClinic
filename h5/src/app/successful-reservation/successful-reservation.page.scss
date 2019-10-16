@@ -6,16 +6,43 @@
     width:rpx(24*2)
 }
 .card{
-    background-color:white;    
-    border-top-left-radius: rpx(37);
-    border-top-right-radius: rpx(37);
-    padding-top: rpx(37);
-    text-align: center
-  }
+  background-color:white;    
+  border-top-left-radius: rpx(37);
+  border-top-right-radius: rpx(37);
+  padding-top: rpx(30);
+  margin-top:rpx(40)
+  
+}
+.icon-32{
+  width:rpx(32);
+  height: rpx(32);
+  margin-top:rpx(30)
+}
+.marginTop{
+  margin-top:rpx(-32)
+}
   img{
       width: rpx(150*2);
       height: rpx(150*2);
       margin-top:rpx(150)
+  }
+  .bg{
+    width:100%;
+    height:rpx(100);
+    background-size: cover;
+  }
+  .bg1{
+    height:rpx(300);
+    background-size: cover;
+    margin-top:rpx(0)
+  }
+  .icon-10{
+    width:rpx(40);
+    height: rpx(40);
+    
+  }
+  .marginTop1{
+    margin-top:rpx(-155)
   }
   .p1{
       font-size: rpx(40);
