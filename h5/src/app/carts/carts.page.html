@@ -13,12 +13,12 @@
     <div class="card">
       <ion-card *ngFor="let item of gouwuchelist" class="card1 flex-row flex-center">
         <div class="flex-1"></div>
-        <div class="icon-24 " (click)="item.selected_value='N';jisuan()" *ngIf="item.selected_value=='Y'">
+        <div class="icon-24 " (click)="item.selected_value='N';quxiao(item)" *ngIf="item.selected_value=='Y'">
 
           <img class="icon-24 " src="{{uploadpath}}resource/{{res.xuanzhon}}">
         </div>
 
-        <div class="icon-24 " (click)="item.selected_value='Y';jisuan()" *ngIf="item.selected_value=='N'">
+        <div class="icon-24 " (click)="item.selected_value='Y';xuanze(item)" *ngIf="item.selected_value=='N'">
 
           <img class="icon-24 " src="{{uploadpath}}resource/{{res.weixuanzhon}}">
         </div>
@@ -29,7 +29,7 @@
         </div>
         <div class="margin-left-20 marginTop">
           <div class="f16 txt-black txt-bold">{{item.drugs_name}}</div>
-          <div class="h5 txt-gg margin-top-30">规格：0.5g*12片</div>
+          <div class="h5 txt-gg margin-top-30">规格：{{item.drugs_guige}}</div>
           <div class="flex-row flex-center margin-top-40">
             <div class="f16 txt-bold " style="color: #F7555A">￥{{item.drugs_price}}</div>
             <div class="flex-row flex-center margin-left-50">
@@ -63,6 +63,8 @@
 
 
       <img (click)="quxiaoquanxuan()" *ngIf="zz" class="icon-24 margin-left-40" src="{{uploadpath}}resource/{{res.xuanzhon}}">
+
+
 
 
 

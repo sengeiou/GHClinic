@@ -14,62 +14,48 @@
         <div class="d1 margin-left-40"></div>
         <div class="f16 txt-bold txt-black margin-left-10">收货信息</div>
       </div>
-    <div class="flex-row flex-center margin-top-30">
+    <div  (click)="address()"  class="flex-row flex-center margin-top-30">
       <div style="color:#BFBFBF" class="f16 margin-left-40 txt-bold">请添加收货地址</div>
       <ion-icon class="icon-24 ion-icon-r" name="arrow-dropright"></ion-icon>
     </div>
+
     <div class="f16 txt-black w-h margin-top-30" style="background-color: #F0F2F5">
       <div class="margin-left-40 txt-bold">商品清单</div>
     </div>
-    <div class="flex-row flex-center margin-top-30">
+    <div *ngFor="let item of gouwuche" class="flex-row flex-center margin-top-30">
       
    
         <div>
-          <img alt="" class="icon-90 bg-p margin-left-40" />
+          <img alt="" src="{{uploadpath}}drugs/{{item.drugs_photo}}" class="icon-90  margin-left-40" />
         </div>
         <div class="margin-left-20 marginTop">
-          <div class="f16 txt-black txt-bold">999感冒灵颗粒</div>
-          <div class="h5 txt-gg margin-top-30">规格：0.5g*12片</div>
+          <div class="f16 txt-black txt-bold">{{item.drugs_id_name}}</div>
+          <div class="h5 txt-gg margin-top-30">规格：{{item.drugs_guige}}</div>
           <div class="flex-row flex-center margin-top-40">
-            <div class="f16 txt-bold " style="color: #F7555A">￥ 88.0</div>
+            <div class="f16 txt-bold " style="color: #F7555A">￥ {{item.drugs_price}}</div>
             <div class="f16 txt-black flex-row flex-center margin-left-750">
-                x1
+               x{{item.num}}
             </div>
           </div>
         </div>  
       </div>
       <hr/>
-      <div class="flex-row flex-center margin-top-30">
-      
-   
-        <div>
-          <img alt="" class="icon-90 bg-p margin-left-40" />
-        </div>
-        <div class="margin-left-20 marginTop">
-          <div class="f16 txt-black txt-bold">艾附暖宫丸</div>
-          <div class="h5 txt-gg margin-top-30">规格：0.5g*12片</div>
-          <div class="flex-row flex-center margin-top-40">
-            <div class="f16 txt-bold " style="color: #F7555A">￥ 188.0</div>
-            <div class="f16 txt-black flex-row flex-center margin-left-750">
-                x1
-            </div>
-          </div>
-        </div>  
-      </div>
+    
       <hr/>
       <div class="flex-row margin-top-30 margin-bottom-30">
-        <div class="f16 txt-black margin-left-40">共2件，应付金额：</div>
-        <div class="f16 margin-left-360" style="color:#F7555A">￥276.0</div>
+        <div class="f16 txt-black margin-left-40">共{{jian}}件，应付金额：</div>
+        <div class="f16 margin-left-360" style="color:#F7555A">￥{{zonjia}}</div>
       </div>
       <hr/>
   
       <hr/>
       <div class="margin-left-40 margin-top-30">
         <div class="f16 txt-black margin-bottom-30">备注：</div>
-        <div calss="f16" style="color: #BFBFBF">请填写买家留言</div>
+        <textarea  
+        calss="f16" style="color: #BFBFBF"></textarea>
       </div>
       <div class="flex-row margin-top-30" style="position: absolute;bottom:0">
-        <div class="text-center txt-white f16 icon-255" style="background-color: #0E858D">合计：￥276.0</div>
+        <div class="text-center txt-white f16 icon-255" style="background-color: #0E858D">合计：￥{{zonjia}}</div>
         <div class="text-center txt-white f16 bg-p icon-120" (click)="successfulTrade()">确认支付</div>
       </div>
     </div>

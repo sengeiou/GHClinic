@@ -83,8 +83,41 @@ export class CartsPage extends AppBase {
   onMyShow() {
     this.getgouwuche();
   }
-  order() {
+  order() {  
+    
+    if(this.zonjia==0)
+    {
+
+      this.toast("必须选择商品");
+      return
+    }
+
     this.navigate("order")
+  }
+  quxiao(item){
+    var api = this.dindanApi;
+
+    api.addgouwuche({ drugs_id: item.drugs_id, num: 0, selected: 'N', status: 'A' }).then((res) => {
+
+      if (res.code == 0) {
+        
+        this.jisuan();
+      }
+
+    })
+  }
+  xuanze(item){
+
+    var api = this.dindanApi;
+
+    api.addgouwuche({ drugs_id: item.drugs_id, num: 0, selected: 'Y', status: 'A' }).then((res) => {
+
+      if (res.code == 0) {
+   
+        this.jisuan();
+      }
+
+    })
   }
   jia(item) {
 
