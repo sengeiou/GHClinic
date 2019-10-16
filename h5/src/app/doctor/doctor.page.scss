@@ -14,6 +14,19 @@
   margin-top:rpx(40)
   
 }
+.height-180 {
+  margin-top:rpx(-60);
+  height: rpx(180*2);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.margin-top-50{
+  margin-top:rpx(50*2)
+}
+
+.padding-top-50{
+  padding-top:rpx(50*2)
+}
 .icon-32{
   width:rpx(32);
   height: rpx(32);
@@ -239,4 +252,31 @@ td{
     border:#d2d2d2 solid rpx(4);
     width: rpx(220);
     height: rpx(120);
+}
+
+
+.tabbody{
+  background: white;
+  border:#dee2e6 solid 1px;
+  border-radius: 0.25rem;
+  border-top: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.mdate{
+  height:rpx(80);
+  border-left: #dee2e6 solid 1px;
+  border-bottom: #dee2e6 solid 1px;
+}
+.issat{
+  border-right: #dee2e6 solid 1px;
+}
+.xzrq{
+  background: red;
+}
+.pass{
+  background: #eeeeee;
+}
+.today{
+  background: #6B3689;
 }

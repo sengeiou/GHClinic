@@ -2,27 +2,46 @@
     @return ($px * 100vw) / 750;
 }
 
-
+.bg{
+    width:100%;
+    height:rpx(100);
+    // line-height: rpx(100);
+    background-size: cover;
+  }
 .icon-30-4 {
     width: rpx(60);
     height: rpx(8);
 }
-ion-content{
-    --background: blueviolet !important;
+.icon-75-4 {
+    width: rpx(150);
+    height: rpx(8);
+}
+// ion-content{
+//     --background: blueviolet !important;
+// }
+
+.margin-top-200 {
+    margin-top: rpx(100);
 }
 
-.margin-top-300 {
-    margin-top: rpx(150);
+.txt-g{
+    color: #11838D;
+}
+.background{
+    background: #11838D;
 }
 
 .icon-310 {
     width:rpx(310*2);
     height: rpx(90);
+    border-radius: rpx(10);
+}
+
+.icon-40{
+    width:rpx(80);
+    height: rpx(80);
 }
 
 .margin-top-50 {
     margin-top: rpx(50);
-}
-.margin-top-100{
-    margin-top: rpx(100);                    
 }

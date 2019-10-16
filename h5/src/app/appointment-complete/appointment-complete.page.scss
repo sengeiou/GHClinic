@@ -1,11 +1,11 @@
 @function rpx($px) {
     @return ($px * 100vw) / 750;
   }
-.card{   
-    border-top-left-radius: rpx(37);
-    border-top-right-radius: rpx(37);
-    padding-top: rpx(37);
-}
+// .card{   
+//     border-top-left-radius: rpx(37);
+//     border-top-right-radius: rpx(37);
+//     padding-top: rpx(37);
+// }
 .height-81{
   height: rpx(81*2);
 }
@@ -21,4 +21,28 @@ hr{
   background:#F0F2F5;
   padding-left: rpx(30)
 
+}
+.icon-32{
+  width:rpx(32);
+  height: rpx(32);
+
+}
+
+// .marginTop{
+//   margin-top:rpx(-32)
+// }
+
+.card{
+  background-color:white;    
+  border-top-left-radius: rpx(37);
+  border-top-right-radius: rpx(37);
+  padding-top: rpx(30);
+  margin-top:rpx(40)
+  
+}
+
+.bg{
+width:100%;
+height:rpx(100);
+background-size: cover;
 }

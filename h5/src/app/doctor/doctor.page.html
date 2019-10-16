@@ -18,23 +18,66 @@
         </div>
         <div class="f12 txt-white margin-left-10" (click)="back()">上一步</div>
         <div class="f16 txt-white margin-left-200">医生详情</div>
-        <ion-icon name="close" class="icon-24 margin-left-260"></ion-icon>
+       
     </div>
     <div class="card">
-      <div style="background-image: linear-gradient(to bottom , #fffffa, #22BAC1);" class="height-151">
-        <div class="margin-left-300 margin-top-100">
-          <div style="color: #11838D;" class="f18">董娜</div>
-          <div class="f18 txt-black margin-top">中山大学第一附属医院</div>
-          <div class="f16 txt-white biaoqian margin-top">主任医生</div>
+      <div [style.background-image]="'url('+uploadpath+'resource/'+res.beijing+')'" class="height-180">
+        <div [style.background-image]="'url('+uploadpath+'resource/'+res.doctor+')'" class="height-180">
+          <div class="margin-left-360 margin-top-50 padding-top-50">
+            <div style="color: #11838D;" class="f18">董娜</div>
+            <div class="f18 txt-black margin-top">中山大学第一附属医院</div>
+            <div class="f16 txt-white biaoqian margin-top">主任医生</div>
+          </div>
         </div>
       </div>
+      
       <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">专业擅长</div>
       <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar"/>
       <div class="margin-left-30 margin-top-20 txt-gw">内科主任医生</div>
       <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">预约日期</div>
       <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar"/>
 
-      <div></div>
+
+
+      <div class="container-fluid mt-5 margin-top-30">
+          <div>
+          
+              <div class="tabbody padding-20 ">
+                <div class=" primary-block  text-white ">
+                  <div class="flex-row flex-center ">
+                    <div class="h3 padding-20" (click)="addMonth(-1)">
+                      <i class="fa fa-angle-left"></i>
+                    </div>
+                    <div class="flex-1 text-center">{{myear}}年{{mmonth}}月</div>
+                    <div class="h3 padding-20" (click)="addMonth(1)">
+                      <i class="fa fa-angle-right "></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex-row  primary-block  text-white">
+                  <div class="flex-1 h6 txt-bold padding-20 text-center">日</div>
+                  <div class="flex-1 h6 txt-bold padding-20 text-center">一</div>
+                  <div class="flex-1 h6 txt-bold padding-20 text-center">二</div>
+                  <div class="flex-1 h6 txt-bold padding-20 text-center">三</div>
+                  <div class="flex-1 h6 txt-bold  padding-20 text-center">四</div>
+                  <div class="flex-1 h6 txt-bold padding-20 text-center">五</div>
+                  <div class="flex-1 h6 txt-bold padding-20 text-center">六</div>
+                </div>
+                <div class="flex-row " *ngFor="let w of mcal">
+                  <div class="flex-1" *ngFor="let d of w;let i=index;">
+                    <div class="mdate padding-20 text-center" (click)='asd(d,i)' [class.issat]="i==6"  [class.xzrq]='d.d==xzrq&&d.f==xzy' [class.pass]='d.pass==true' [class.today]='d.today==true'>
+                      <div class=" ">{{d.today?"今":d.d}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+
+
+
+
+      
 
       <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">选择时间段</div>
       <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar"/>

@@ -27,6 +27,7 @@
 
 
 
+
   
   .border-bottom {
     border-bottom: 1px solid #e6e6e6;
@@ -44,6 +45,15 @@
     text-overflow: ellipsis;
     /*超出部分文字以...显示*/
   }
+
+  
+ 
+
+
+
+  
+
+
 
   .modal {
     position: fixed;
@@ -692,6 +702,10 @@
   .margin-left-20 {
     margin-left: px(10);
   }
+
+  .margin-left-26 {
+    margin-left: px(13);
+  }
   
   .margin-left-30 {
     margin-left: px(15);
@@ -707,6 +721,10 @@
   
   .margin-left-50 {
     margin-left: px(25);
+  }
+
+  .margin-left-60 {
+    margin-left: px(30);
   }
 
   .margin-left-70 {
@@ -751,6 +769,10 @@
 
   .margin-left-540 {
     margin-left: px(270)
+  }
+
+  .margin-left-750 {
+    margin-left: px(375)
   }
   
   .margin-right-15 {
