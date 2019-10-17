@@ -1,15 +1,26 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <!-- <ion-toolbar color="primary">
         <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
         <ion-title>
           确认报名         
         </ion-title>
         <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
-      </ion-toolbar>
+      </ion-toolbar> -->
+      <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
+     
 </ion-header>
 
 <ion-content>
-  <div style="background-color: #11838D" class="padding-top-15">
+    <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
+        <div class="flex-row flex-center margin-left-30">
+            <div class="marginTop" (click)="back()">
+                <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+            </div>
+            <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
+            <div class="f16 txt-white margin-left-160">确认报名</div>
+        </div>
+    </div>
+    <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
     <div class="card">
       <div class="div1">
         <img alt="" src='{{uploadpath}}activity/{{activity.activityCover}}'/>
@@ -20,7 +31,7 @@
       </div>
       <div style="clear: both"></div>
     </div>
-  </div>
+  
   <div class="div2">
     <span class="span1">报名人信息</span>
     <span class="span2">（必填）</span>

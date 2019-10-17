@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content>
-  <div style="background: #0F848D ;" class="padding-top-40">
+  <div style="background: #0F848D ; position:fixed;width:100%" class="padding-top-40 height-110">
     <div class="flex-row flex-center">
       <div class="marginTop margin-left-30"  (click)="back()">
         <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
@@ -19,6 +19,8 @@
       <div class="f16 txt-white margin-left-200">确认预约</div>
      
     </div>
+  </div>
+  <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
     <div class="card">
 
       <div class="flex-row flex-center margin-left-30">
@@ -89,7 +91,7 @@
 
 
     </div>
-  </div>
+  
     <!-- <div style="background-color: #11838D" class="padding-top-15">
         <div class="card">
           <p class="p1">{{date.qwe.fdate}}（周四） {{date.qwe.ftime}} - {{hour}}:{{minute}}</p>

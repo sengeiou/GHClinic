@@ -1,12 +1,13 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <!-- <ion-toolbar color="primary">
         
         <ion-title>
           个人中心
         </ion-title>
       
         <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
-      </ion-toolbar>
+      </ion-toolbar> -->
+      <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
 </ion-header>
 
 <ion-content>
@@ -14,7 +15,7 @@
         <div class="card">
           <div class="flex-row flex-center margin-left-40">
             <div>
-              <img src='{{uploadpath}}resource/{{res.photo}}'   class="icon-50 radius-50 border-p"/>
+              <img src='{{uploadpath}}resource/{{res.photo}}'   class="icon-50 radius-50 border-gg"/>
             </div>
             <div *ngIf='MemberInfo!=null' class="f16 txt-black txt-bold margin-left-20">{{MemberInfo.name}}</div>
            

@@ -11,9 +11,17 @@
     border-top-right-radius: rpx(37);
     padding-top: rpx(37);
 }
-.ion-card{
-  margin-top: rpx(20);
-  height:rpx(166*2);
+.bg{
+  width:100%;
+  height:rpx(100);
+  background-size: cover;
+}
+.ion-icon1{
+  width:rpx(35);
+  height: rpx(35);
+  position: relative;
+  left:rpx(-300*2);
+  // top:rpx(-56)
 }
 input{
   height: rpx(33*2);
@@ -24,7 +32,7 @@ input{
   margin-left: rpx(15*2);
   background-color: #EBEBEB;
   border-style: none;
-  margin-bottom: rpx(30)
+  margin-bottom: rpx(-10)
 }
 .ion-icon1{
   position: relative;
@@ -34,13 +42,13 @@ input{
 .p1{
   font-weight: bold;
   font-size: rpx(32);
-  color:#6b3689;
+  color:#11838D;
  
 }
 .p2{
   width: rpx(90); 
   height: rpx(6);
-  background-color: #6b3689;
+  background-color: #11838D;
   margin-left: rpx(15);
   margin-top:rpx(-15)
 }
@@ -103,6 +111,7 @@ img{
   right: rpx(50);
   border-radius: 50%;
   background: linear-gradient(to bottom, #6b3689 0%,#11838D 100%);
+  opacity: 0.7;
 
 }
 .margin-tl{
@@ -134,6 +143,7 @@ img{
   right: rpx(50);
   border-radius: 50%;
   background: linear-gradient(to bottom, #6b3689 0%,#11838D 100%);
+  opacity: 0.7;
 }
 .div-340{
   width:rpx(340*2);

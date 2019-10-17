@@ -9,8 +9,21 @@
     background-color:white;    
     border-top-left-radius: rpx(37);
     border-top-right-radius: rpx(37);
-    padding-top: rpx(37);
-}
+    padding-top: rpx(30);
+    margin-top:rpx(-40)
+    
+  }
+.height-110{
+    height: rpx(110);
+  }
+  .height-40{
+    height: rpx(40);
+    margin-top:rpx(110);
+  }
+
+.icon-32{
+    width:rpx(28);
+    height: rpx(28);}
 .ion-card{
 //   margin-top: rpx(0);
   width: rpx(340*2);
@@ -18,6 +31,11 @@
   margin-left: rpx(35);
   border-radius: rpx(20)
 }
+.bg{
+    width:100%;
+    height:rpx(100);
+    background-size: cover;
+  }
 .ion-card1{
   padding-top: rpx(20)
 }
@@ -56,7 +74,7 @@
     margin-left:rpx(30);
     margin-top: rpx(-50);
     border-radius: rpx(10);
-    background-color: #B872E1;
+    background-color: #0F848D;
 }
 .d1{
     width:rpx(55.5*2);

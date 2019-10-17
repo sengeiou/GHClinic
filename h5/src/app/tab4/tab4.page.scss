@@ -15,10 +15,15 @@
 .icon-131{
   height: rpx(131*2);
 }
+.bg{
+  width:100%;
+  height:rpx(100);
+  background-size: cover;
+}
 .d1{
   width:rpx(6);
   height: rpx(30);
-  background-color:#6B3689;
+  background-color:#11838D;
 }
 .box {
   justify-content: space-around;
