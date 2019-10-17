@@ -1,11 +1,13 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-icon name="arrow-back" class="ion-icon"></ion-icon>
-    <ion-title>
+  <!-- <ion-toolbar color="primary">
+    <ion-icon name="arrow-back" class="ion-icon"></ion-icon> -->
+    <!-- <ion-title>
       {{InstInfo.name}}
-    </ion-title>
-    <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
-  </ion-toolbar>
+    </ion-title> -->
+    <!-- <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
+  </ion-toolbar> -->
+  <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" >
+  </div>
 </ion-header>
 
 
@@ -13,13 +15,13 @@
 
 <ion-content>
 
-  <div class="icon-40" (click)="back()" style="z-index: 100;">
+  <!-- <div class="icon-40" (click)="back()" style="z-index: 100;">
     <div class="height-50"></div>
     <img [src]="uploadpath+'resource/'+res.back" class="icon-20 margin-left-40 margin-top-10">
-  </div>
+  </div> -->
   <!-- <ion-icon (click)="back()" class="txt-white" name="ios-arrow-back" style="font-size:px(20)"></ion-icon> -->
   
-  <img  />
+  <!-- <img  /> -->
   
   <!-- <div class=" margin-left-10 flex-center flex-row ">
     <div class="txt-white h7">登录</div>
@@ -37,16 +39,18 @@
   
   
   
-  <div class=" bg" style="width:100vw;height:100vh">
+  <div style="width:100vw;height:100vh" class="margin-top-200">
   
     <div class="padding">
   
       <div>
         <div class="height207"></div>
         <div class="flex-row   flex-center ">
-          <div class="txt-white  h4-6 " >登录</div>
-          <div style="" class="width-30"></div>
-          <div class="txt-white  h4-6 op" (click)="zhuce()">新用户注册</div>
+          <div class="flex-column">
+            <div class=" h4-6 margin-left-60 txt-g">登录</div>
+            <div style="" class="icon-30-4 background margin-left-60"></div>
+          </div>
+          <div class=" h4-6 op margin-left-40 txt-gw" (click)="zhuce()">新用户注册</div>
         </div>
         <div class="white_block"></div>
         <div class="height-40"></div>
@@ -54,7 +58,7 @@
         <div>
           <div class="flex-row column">
             <!-- <div class="txt-white">手机号</div> -->
-            <div class="flex-row flex-center shurukuang">
+            <div class="flex-row flex-center shurukuang icon-310 background margin-left-60">
               <div class="width-16"></div>
               <div class="txt-white h5">+86</div>
               <img [src]="uploadpath+'resource/'+res.bottom" class=" icon-20 margin-left-10">
@@ -70,7 +74,7 @@
         <div class="margin-top-40">
           <div class="flex-row column">
             <!-- <div class="txt-white">密码</div> -->
-            <div class="flex-row flex-center shurukuang">
+            <div class="flex-row flex-center shurukuang icon-310 background margin-left-60">
               <div class="width-16"></div>
               <ion-input class="txt-white sjh padding-left-40" placeholder="请输入密码" type="password" [(ngModel)]="password"
                 maxlength="30"></ion-input>
@@ -86,40 +90,37 @@
   
           </div>
         </div>
-  
-        <div class="hr"></div>
-  
-  
+
   
         <div class="">
           <div style="" class="height-60"></div>
           <!-- <ion-button   size="block" color="danger"  class="h4-5 dl" (click)="trylogin()" >登 录</ion-button> -->
-          <ion-button size="block" color="mycolor" class="h4-5 dl" (click)="trylogin()">登 录</ion-button>
+          <ion-button size="block" color="mycolor" class="h4-5 dl icon-310 background margin-left-60 margin-top-150" (click)="trylogin()">登 录</ion-button>
         </div>
   
         <div class="margin-top-25 margin-bottom50 ">
           <div class="flex-row flex-center">
-            <div (click)="navigate('/register')" class='flex-1 txt-gray'></div>
-            <div class="h5 txt-white op" (click)="navigate('forgetpassword')">忘记密码</div>
+            <div class='flex-4'></div>
+            <div class="h5 txt-black op flex-1" (click)="zhuce(1)">忘记密码</div>
           </div>
         </div>
   
         <div style="" class="height-87"></div>
   
-        <div *ngIf="wechatInstalled==true" class="under ">
+        <div class="under margin-top-200">
           <!-- <div  class="under"> -->
   
   
           <div class="flex-row flex-center">
-            <div class="h5 txt-white flex-1 text-center">第三方账号登录</div>
+            <div class="h5 txt-black flex-1 text-center">第三方账号登录</div>
           </div>
   
           <!-- v-if="wechatInstalled==true" -->
-          <div class="height-80"></div>
+        
   
           <div class=" flex-row flex-column">
             <!-- <img [src]="uploadpath+'resource/'+res.mobile" class="icon-30"> -->
-            <img [src]="uploadpath+'resource/'+res.wechat" class="weixin" style="" type="primary" plain size="large"
+            <img [src]="uploadpath+'resource/'+res.wechat" class="icon-40 margin-top-30" style="" type="primary" plain size="large"
               (click)="checkWechatAuth()">
           </div>
   

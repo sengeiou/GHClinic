@@ -222,9 +222,12 @@ hr{
     padding:rpx(4) rpx(8) rpx(4) rpx(8)
   }
 
+  .border-1{
+    border:#dee2e6 solid rpx(1);
+  }
   .tabbody{
     background: white;
-    border:#dee2e6 solid 1px;
+    // border:#dee2e6 solid 1px;
     border-radius: 0.25rem;
     border-top: 0px;
     border-top-left-radius: 0px;
@@ -232,18 +235,37 @@ hr{
   }
   .mdate{
     height:rpx(80);
-    border-left: #dee2e6 solid 1px;
-    border-bottom: #dee2e6 solid 1px;
+    // border-left: #dee2e6 solid 1px;
+    // border-bottom: #dee2e6 solid 1px;
   }
-  .issat{
-    border-right: #dee2e6 solid 1px;
-  }
+  // .issat{
+  //   border-right: #dee2e6 solid 1px;
+  // }
   .xzrq{
-    background: red;
+    width: rpx(80);
+    height: rpx(80);
+    // line-height: rpx(80);
+    // border-radius: 50%;
+    background: #0F848D;
   }
   .pass{
-    background: #eeeeee;
+    width: rpx(80);
+    height: rpx(80);
+    // line-height: rpx(80);
+    // border-radius: 50%;
+    background: #dee2e6;
   }
   .today{
-    background: #6B3689;
+    width: rpx(80);
+    height: rpx(80);
+    // line-height: rpx(80);
+    // border-radius: 50%;
+    background: red;
+  }
+  .yuanquan{
+    width: rpx(80);
+    height: rpx(80);
+    // line-height: rpx(80);
+    border:#dee2e6 solid rpx(1);
+    border-radius: 50%;
   }

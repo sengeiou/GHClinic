@@ -119,6 +119,13 @@
     text-align: center;
     line-height: rpx(90);
     border-radius: rpx(10);
-    width: 100%;
+    width: rpx(350*2);
+    position:fixed;
+    bottom:rpx(20)
+}
+
+.icon-80{
+  width:rpx(80);
+  height: rpx(80);
 }
 

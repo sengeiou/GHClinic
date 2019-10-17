@@ -1,18 +1,27 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <!-- <ion-toolbar color="primary">
         <ion-icon name="arrow-back" class="icon-24" (click)="back()"></ion-icon>
         <ion-title>
           预约详情
         </ion-title>
         <ion-icon name="close" slot="end" class="icon-24"></ion-icon>
-      </ion-toolbar>
+      </ion-toolbar> -->
+    <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
 </ion-header>
 
 <ion-content>
-    <div style="background-color: #11838D" class="padding-top-15">
-        <div class="card bg-p height-81">
-          <div class="f16 txt-bold txt-white margin-left-30">已完成</div>
-          <div class="f12 txt-bold txt-white margin-left-30 margin-top-30">交易成功，预约已完成</div>
+    <div style="background: #0F848D ;" class="padding-top-40">
+        <div class="flex-row flex-center">
+            <div class="margin-left-40" (click)="back()">
+                <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+            </div>
+            <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
+            <div class="f16 txt-white margin-left-160">预约详情</div>
+        </div>
+            
+        <div class="card  height-81">
+          <div class="f16 txt-bold txt-black margin-left-30">已完成</div>
+          <div class="f12 txt-bold txt-black margin-left-30 margin-top-30">交易成功，预约已完成</div>
         </div>
     </div>
 
@@ -61,7 +70,7 @@
       </div>
     </div>
 
-    <div class="margin-top-30 padding-top-30" style="background-color: #F0F2F5">
+    <div class="margin-top-30 padding-top-30" style="background-color: #F0F2F5;height: 100%;">
         <div class="f12 txt-gw margin-left-30">重要提示：</div>
         <div class="f12 txt-gw margin-left-30">1. 根据医院规定，就诊日当天可能无法取消预约。文字内容后台可编辑。</div>    
     </div>

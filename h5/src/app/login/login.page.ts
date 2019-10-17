@@ -30,7 +30,7 @@ export class LoginPage extends AppBase {
     this.headerscroptshow = 480;
       
   }
-
+  show=true;
   mobile = "";
   password = "";
   wechatInstalled = false;
@@ -83,9 +83,9 @@ export class LoginPage extends AppBase {
   onMyShow() {
 
   }
-  zhuce() {
+  zhuce(id) {
     console.log(123);
-    this.navigate("/register");
+    this.navigate("/register",{id:id});
 
   }
   async checkWechatAuth() {

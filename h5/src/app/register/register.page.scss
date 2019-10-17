@@ -1,40 +1,66 @@
-@function px($px) {
-    @return ($px * 100vw ) / 414;
-  }
+@function rpx($px) {
+  @return ($px * 100vw) / 750;
+}
+
+
   
+.icon-32{
+  width:rpx(32);
+  height: rpx(32);
+  margin-top:rpx(30)
+}
+
+.marginTop{
+  margin-top:rpx(-32)
+}
+
+.card{
+  background-color:white;    
+  border-top-left-radius: rpx(37);
+  border-top-right-radius: rpx(37);
+  padding-top: rpx(30);
+  margin-top:rpx(40)
+  
+}
+
+.bg{
+width:100%;
+height:rpx(100);
+background-size: cover;
+}
   .codeinput {
-      font-size: px(40);
+      font-size: rpx(80);
       text-align: center;
-      width: px(50);
+      width: rpx(100);
       border:0px;
-      border-bottom: gray px(2) solid;
+      border-bottom: gray rpx(4) solid;
     }
     .fillc {
-      border-bottom: #6badff px(2) solid;
+      border-bottom: #6badff rpx(4) solid;
     }
     .height-28{
-      height:px(28)
+      height:rpx(56)
     }
     .padding{
-      padding-left: px(42);
-      padding-right: px(42);
+      padding-left: rpx(42*2);
+      padding-right: rpx(42*2);
     }
     .height-60{
-      height: px(60);
+      height: rpx(120);
     }
     .btn{
-      font-size:px(16);
-      height: px(48);
+      font-size:rpx(16*2);
+      height: rpx(48*2);
     }
     .h5{
-      font-size: px(18);
+      font-size: rpx(18*2);
     }
     .icon-13{
-      height: px(18);
-      width: px(18);
+      height: rpx(18*2);
+      width: rpx(18*2);
     }
     .margin-left-10{
-      margin-left: px(10)
+      margin-left: rpx(10*2)
     }
     .opa{
       opacity: 0.5;

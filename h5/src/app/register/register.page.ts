@@ -32,7 +32,7 @@ export class RegisterPage extends AppBase {
       
   }
 
-
+  condition=true;
   diyici = false;
   mobile = "";
   name = "";
@@ -51,6 +51,12 @@ export class RegisterPage extends AppBase {
   show = 1;
   timer = null;
 needlogin=false;
+onMyShow() {
+ console.log(this.params.id)
+ if(this.params.id==1){
+   this.condition=false;
+ }else{this.condition=true}
+}
   xianshimima() {
     this.ismima = !this.ismima;
   }
