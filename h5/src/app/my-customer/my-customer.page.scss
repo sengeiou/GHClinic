@@ -1,12 +1,31 @@
 @function rpx($px) {
     @return ($px * 100vw) / 750;
   }
-
+ 
+.bg{
+  width:100%;
+  height:rpx(100);
+  background-size: cover;
+}
 .card{
-    background-color:white;
-    border-top-left-radius: rpx(37);
-    border-top-right-radius: rpx(37);
-    padding-top: rpx(37);
+  background-color:white;    
+  border-top-left-radius: rpx(37);
+  border-top-right-radius: rpx(37);
+  padding-top: rpx(30);
+  margin-top:rpx(-40)
+  
+}
+.height-110{
+  height: rpx(110);
+}
+.height-40{
+  height: rpx(40);
+  margin-top:rpx(110);
+}
+
+.icon-32{
+  width:rpx(28);
+  height: rpx(28);
 }
 hr{
   border: #aaaaaa solid rpx(0.01*2);
@@ -17,7 +36,7 @@ hr{
 .d1{
   width:rpx(6);
   height: rpx(30);
-  background-color:#6B3689;
+  background-color:#0F848D;
 }
 
 .border-bottom {
@@ -27,4 +46,7 @@ hr{
 .width-100{
   width: rpx(100);
   margin-right: rpx(55)
+}
+.bc{
+  background-color: #0F848D;
 }

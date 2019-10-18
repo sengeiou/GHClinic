@@ -1,20 +1,30 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <!-- <ion-toolbar color="primary">
         <ion-icon name="arrow-back" class="icon-24" (click)="back()"></ion-icon>
         <ion-title>
           我的订单
         </ion-title>
         <ion-icon name="close" slot="end" class="icon-24"></ion-icon>
-      </ion-toolbar>
+      </ion-toolbar> -->
+      <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
 </ion-header>
 
 <ion-content>
-  <div style="background-color: #11838D" class="padding-top-15">
+  <div style="background: #0F848D ;position:fixed;width:100%;z-index: 1;" class="padding-top-40 height-110">
+    <div class="flex-row flex-center margin-left-30">
+        <div  (click)="back()">
+            <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+        </div>
+        <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
+        <div class="f16 txt-white margin-left-160">我的订单</div>
+    </div>
+  </div>
+  <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
     <div class="card">
       <div class="flex-row flex-center margin-left-30">
         <div>
-          <div class="f18 txt-g txt-bold">全部</div>
-          <div class="icon-26 bg-p margin-top-10"></div>
+          <div class="f18 c txt-bold">全部</div>
+          <div class="icon-26 bc margin-top-10"></div>
         </div>
         <div class="h5 txt-bold margin-left-80">待付款</div>
         <div class="h5 txt-bold margin-left-80">待收货</div>
@@ -22,7 +32,7 @@
       </div>
 
       <ion-card class="height-320" (click)="orderCancelled()">
-        <div class="margin-left-30 margin-top-30">
+        <div class="margin-left-30 margin-top-20">
           <div class="flex-row flex-center"> 
             <div class="h5 txt-black">2019/8/27 11：30</div>
             <div class="h5 txt-gw margin-left-360">已取消</div>
@@ -40,7 +50,7 @@
 
 
       <ion-card class="height-247" (click)="orderPayment()">
-          <div class="margin-left-30 margin-top-30">
+          <div class="margin-left-30 margin-top-20">
             <div class="flex-row flex-center">
               <div class="h5 txt-black">2019/8/27 11：30</div>
               <div class="h5 txt-gw margin-left-360" style="color: #F7555A">待付款</div>
@@ -68,7 +78,7 @@
 
 
       <ion-card class="height-320" (click)="orderSign()">
-          <div class="margin-left-30 margin-top-30">
+          <div class="margin-left-30 margin-top-20">
             <div class="flex-row flex-center">
               <div class="h5 txt-black">2019/8/27 11：30</div>
               <div class="h5 txt-gw margin-left-360">待收货</div>
@@ -91,7 +101,7 @@
 
 
       <ion-card class="height-320" (click)="orderComplete()">
-          <div class="margin-left-30 margin-top-30">
+          <div class="margin-left-30 margin-top-20">
             <div class="flex-row flex-center">
               <div class="h5 txt-black">2019/8/27 11：30</div>
               <div class="h5 margin-left-360" style="color: #11838D">已完成</div>
@@ -114,6 +124,6 @@
 
 
     </div>
-  </div>
+
 
 </ion-content>

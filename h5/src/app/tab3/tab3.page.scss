@@ -5,12 +5,12 @@
     height:rpx(24*2);
     width:rpx(24*2)
 }
-.card{
-    background-color:white;    
-    border-top-left-radius: rpx(37);
-    border-top-right-radius: rpx(37);
-    padding-top: rpx(37);
-}
+// .card{
+//     background-color:white;    
+//     border-top-left-radius: rpx(37);
+//     border-top-right-radius: rpx(37);
+//     padding-top: rpx(37);
+// }
 .bg{
   width:100%;
   height:rpx(100);
@@ -20,19 +20,36 @@
   width:rpx(35);
   height: rpx(35);
   position: relative;
-  left:rpx(-300*2);
-  // top:rpx(-56)
+  left:rpx(38);
+  top:rpx(-56)
+}
+.card{
+  background-color:white;    
+  border-top-left-radius: rpx(37);
+  border-top-right-radius: rpx(37);
+  padding-top: rpx(30);
+  margin-top:rpx(-40);
+  margin-bottom: rpx(-80);
+  
 }
 input{
   height: rpx(33*2);
   width:rpx(344*2);
-  text-align: center;
   border-radius: rpx(40);
   font-size: rpx(13*2);
   margin-left: rpx(15*2);
+  padding-left:rpx(55);
   background-color: #EBEBEB;
   border-style: none;
-  margin-bottom: rpx(-10)
+}
+
+.height-240{
+  height: rpx(240)
+}
+
+.height-40{
+  height: rpx(40); 
+  margin-top:rpx(240);
 }
 .ion-icon1{
   position: relative;

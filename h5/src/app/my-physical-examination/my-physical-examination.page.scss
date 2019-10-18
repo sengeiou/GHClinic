@@ -2,17 +2,42 @@
     @return ($px * 100vw) / 750;
   }
 
-.card{
-    background-color:white;
+  .card{
+    background-color:white;    
     border-top-left-radius: rpx(37);
     border-top-right-radius: rpx(37);
-    padding-top: rpx(37);
-}
-.icon-26{
-  width: rpx(26*2);
-  height: rpx(6);
-}
+    padding-top: rpx(30);
+    margin-top:rpx(-40)
+    
+  }
+  .bg{
+    width:100%;
+    height:rpx(100);
+    background-size: cover;
+  }
+  .bc{
+    background-color: #0F848D;
+  }
+  .c{
+    color: #0F848D;
+  }
+  .height-110{
+    height: rpx(110);
+  }
+  .height-40{
+    height: rpx(40);
+    margin-top:rpx(110);
+  }
 
-.height-280{
-  height: rpx(280)
-}
+  .icon-32{
+    width:rpx(28);
+    height: rpx(28);
+  }
+  .icon-26{
+    width: rpx(26*2);
+    height: rpx(6);
+  }
+
+  .height-280{
+    height: rpx(280)
+  }

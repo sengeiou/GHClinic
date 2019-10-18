@@ -1,13 +1,34 @@
 @function rpx($px) {
     @return ($px * 100vw) / 750;
   }
-.card{   
+  .card{
+    background-color:white;    
     border-top-left-radius: rpx(37);
     border-top-right-radius: rpx(37);
-    padding-top: rpx(37);
+    padding-top: rpx(30);
+    margin-top:rpx(-40)
+    
+  }
+.height-110{
+    height: rpx(110);
+  }
+  .height-40{
+    height: rpx(40);
+    margin-top:rpx(110);
+  }
+
+.icon-32{
+    width:rpx(28);
+    height: rpx(28);
 }
 .height-81{
   height: rpx(81*2);
+}
+
+.bg{
+  width:100%;
+  height:rpx(100);
+  background-size: cover;
 }
 
 hr{
@@ -19,7 +40,7 @@ hr{
 .d1{
   width:rpx(6);
   height: rpx(30);
-  background-color:#6B3689;
+  background-color:#0F848D;
 }
 .d2{
   width: rpx(53*2);

@@ -6,11 +6,31 @@
     width:rpx(24*2)
 }
 .card{
-    background-color:white;    
-    border-top-left-radius: rpx(37);
-    border-top-right-radius: rpx(37);
-    padding-top: rpx(37)
-  }
+  background-color:white;    
+  border-top-left-radius: rpx(37);
+  border-top-right-radius: rpx(37);
+  padding-top: rpx(30);
+  margin-top:rpx(-40)
+  
+}
+.height-110{
+  height: rpx(110);
+}
+.height-40{
+  height: rpx(40);
+  margin-top:rpx(110);
+}
+
+.icon-32{
+  width:rpx(28);
+  height: rpx(28);
+}
+  
+.bg{
+  width:100%;
+  height:rpx(100);
+  background-size: cover;
+}
   .ion-card{
     margin-top: rpx(0);
     height:rpx(200*2);
@@ -38,7 +58,7 @@
       margin-left:rpx(40);
       margin-top: rpx(-50);
       border-radius: rpx(10);
-      background-color: #B872E1;
+      background-color: #0F848D;
   }
   .img2{
       width:rpx(80);
