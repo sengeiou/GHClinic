@@ -1,21 +1,38 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <!-- <ion-toolbar color="primary">
         <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
         <ion-title>
           搜索
         </ion-title>
-      </ion-toolbar>
+      </ion-toolbar> -->
+      <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
   </ion-header>
   
   <ion-content>
-      <div style="background-color: #11838D" class="padding-top-15">
+      <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
+          <div class="flex-row flex-center margin-left-30">
+              <div (click)="back()">
+                  <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+              </div>
+              <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
+              <div class="f16 txt-white margin-left-160">搜索</div>
+          </div>
+      </div>
+      <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
           <div class="card">
-              <input placeholder="艾附暖宫丸" />
-              <ion-icon name="search" style="color:#6B3689;" class="ion-icon1"></ion-icon>
-              <span class="cancel">取消</span>
-              <p class="p1">搜索历史</p>
-              <ion-icon name="trash" class="ion-icon2"></ion-icon>
-              <p>
+              <div class="flex-row flex-center">
+                <div>
+                    <input placeholder="搜索科室/药品名称"/>
+                    <img src="{{uploadpath}}resource/{{res.sousuo}}" class="ion-icon1"/>
+                </div>
+                <div class="cancel">取消</div>
+              </div>
+              <div class="flex-center flex-row margin-top-40">
+                  <div class="p1">搜索历史</div>
+                  <ion-icon name="trash" class="ion-icon2"></ion-icon>
+              </div>
+              <div></div>
+              <!-- <p>
                   <span class="span1">内科</span>
                   <span class="span2">艾附暖宫丸</span>
                   <span class="span2">妇科</span>
@@ -29,7 +46,7 @@
                   </p>
                   <p>
                     <span class="span1">氨麻苯美片</span>
-                  </p>
+                  </p> -->
                   <hr/>
                   <div class="f13 margin-left-30">搜索结果</div>
                   <ion-card class="flex-row flex-center height-260 marginTop">
@@ -47,6 +64,6 @@
                       </div>  
                     </ion-card>
           </div>
-      </div>
+      
   </ion-content>
   

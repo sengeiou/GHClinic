@@ -10,7 +10,8 @@
   border-top-left-radius: rpx(37);
   border-top-right-radius: rpx(37);
   padding-top: rpx(30);
-  margin-top:rpx(60)
+  margin-top:rpx(-40);
+  margin-bottom: rpx(-80);
   
 }
 input{
@@ -22,6 +23,15 @@ input{
   padding-left:rpx(55);
   background-color: #EBEBEB;
   border-style: none;
+}
+
+.height-240{
+  height: rpx(240)
+}
+
+.height-40{
+  height: rpx(40); 
+  margin-top:rpx(240);
 }
 
 .marginTop{
@@ -177,10 +187,10 @@ ion-card{
 // }
 .horizontalbar{
   display: block;
-  margin-top:rpx(0);
+  margin-top:rpx(5);
   width:rpx(50*2);
   height:rpx(6);
-  margin-left:rpx(30)
+  margin-left:rpx(30);
 }
 .xuanzhong{
   margin-left:rpx(60);

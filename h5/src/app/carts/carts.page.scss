@@ -9,7 +9,22 @@
     background-color:white;    
     border-top-left-radius: rpx(37);
     border-top-right-radius: rpx(37);
-    padding-top: rpx(37);
+    padding-top: rpx(30);
+    margin-top:rpx(-30)
+    
+  }
+.height-110{
+    height: rpx(115);
+  }
+  .height-40{
+    height: rpx(40);
+    margin-top:rpx(115);
+  }
+
+.icon-32{
+    width:rpx(28);
+    height: rpx(28);
+    margin-top:rpx(-5)
 }
 .card1{
     height: rpx(130*2);
@@ -28,8 +43,8 @@
 }
 .border-bt{
     width: rpx(80);
-    height: rpx(44);
-    line-height: rpx(44);
+    height: rpx(43);
+    line-height: rpx(43);
     border-bottom: 1px solid #D8DCE6;
     border-top: 1px solid #D8DCE6
 }
@@ -37,11 +52,16 @@
     width: rpx(255*2);
     height: rpx(100);
     line-height: rpx(100);
-    background-color: #0E858D;
+    background-color: #6B3689 ;
 }
 .d2{
     width: rpx(120*2);
     height: rpx(100);
     line-height: rpx(100);
-    background-color: #6B3689;
+    background-color: #0E858D;
 }
+.bg{
+    width:100%;
+    height:rpx(100);
+    background-size: cover;
+  }

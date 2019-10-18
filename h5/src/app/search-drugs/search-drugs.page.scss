@@ -5,11 +5,29 @@
     height:rpx(24*2);
     width:rpx(24*2)
   }
-.card{
-    background-color:white;
+  .card{
+    background-color:white;    
     border-top-left-radius: rpx(37);
     border-top-right-radius: rpx(37);
-    padding-top: rpx(37);
+    padding-top: rpx(30);
+    margin-top:rpx(-40)
+    
+  }
+.height-110{
+    height: rpx(110);
+  }
+  .height-40{
+    height: rpx(40);
+    margin-top:rpx(110);
+  }
+
+.icon-32{
+    width:rpx(28);
+    height: rpx(28);}
+.bg{
+  width:100%;
+  height:rpx(100);
+  background-size: cover;
 }
 input{
     height: rpx(33*2);
@@ -28,9 +46,11 @@ input{
   }
 
   .ion-icon1{
+    width:rpx(35);
+    height: rpx(35);
     position: relative;
-    left:rpx(-338*2);
-    top:rpx(3*2)
+    left:rpx(-300*2);
+    // top:rpx(-56)
   }
   .cancel{
       font-size: rpx(14*2);
@@ -44,9 +64,10 @@ input{
   .ion-icon2{
     height:rpx(24*2);
     width:rpx(24*2);
-    position: absolute;
-    top:rpx(65*2);
-    right:rpx(20)
+    margin-left:rpx(550)
+    // position: absolute;
+    // top:rpx(65*2);
+    // right:rpx(20)
   }
   hr{
     border: #aaaaaa solid rpx(0.01*2);

@@ -169,8 +169,8 @@ hr{
     margin-left: rpx(150)
   }
   .icon-32{
-    width:rpx(32);
-    height: rpx(32);
+    width:rpx(28);
+    height: rpx(28);
   }
   .marginTop{
     margin-top:rpx(-32)
@@ -180,12 +180,19 @@ hr{
     border-top-left-radius: rpx(37);
     border-top-right-radius: rpx(37);
     padding-top: rpx(30);
-    margin-top:rpx(40)
+    margin-top:rpx(-40)
     
+  }
+  .height-110{
+    height: rpx(110);
+  }
+  .height-40{
+    height: rpx(40);
+    margin-top:rpx(110);
   }
   .horizontalbar{
     display: block;
-    margin-top:rpx(0);
+    margin-top:rpx(5);
     width:rpx(50*2);
     height:rpx(6);
     margin-left:rpx(30);
@@ -246,6 +253,8 @@ hr{
     height: rpx(80);
     // line-height: rpx(80);
     // border-radius: 50%;
+    // border:none;
+    color:white;
     background: #0F848D;
   }
   .pass{
@@ -253,13 +262,16 @@ hr{
     height: rpx(80);
     // line-height: rpx(80);
     // border-radius: 50%;
+    color:#8a8a8a;
     background: #dee2e6;
   }
   .today{
+    color:black;
     width: rpx(80);
     height: rpx(80);
     // line-height: rpx(80);
     // border-radius: 50%;
+    // border:none;
     background: red;
   }
   .yuanquan{

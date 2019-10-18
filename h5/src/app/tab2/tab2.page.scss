@@ -5,6 +5,14 @@
     height:rpx(24*2);
     width:rpx(24*2)
 }
+.bg{
+  width:100%;
+  height:rpx(100);
+  background-size: cover;
+}
+.txt-g {
+  color:#11838D;
+}
 .card{
     background-color:white;    
     border-top-left-radius: rpx(37);
@@ -18,7 +26,7 @@
   .p1{
     width:rpx(110);
     height:rpx(6);
-    background-color: #6B3689;
+    background-color: #11838D;
     margin-top: rpx(0);
     margin-left:rpx(242)
   }
@@ -55,7 +63,7 @@
   .bar{
     width:rpx(110);
     height:rpx(6);
-    background-color: #6B3689;
+    background-color: #11838D;
     margin-top: rpx(-22);
     margin-left:rpx(395)
   }
@@ -66,8 +74,9 @@
   }
 
   .icon-55{
-    width:rpx(55);
-    height: rpx(55);
+    width:rpx(38);
+    height: rpx(38);
+    margin-left:rpx(5)
   }
 
   .p4{

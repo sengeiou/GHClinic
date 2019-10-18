@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content>
-    <div style="background: #0F848D ;" class="padding-top-40">
+    <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
         <div class="flex-row flex-center">
             <div class="margin-left-40" (click)="back()">
                 <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
@@ -18,12 +18,13 @@
             <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
             <div class="f16 txt-white margin-left-160">预约详情</div>
         </div>
-            
+    </div>
+    <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
         <div class="card  height-81">
           <div class="f16 txt-bold txt-black margin-left-30">已完成</div>
           <div class="f12 txt-bold txt-black margin-left-30 margin-top-30">交易成功，预约已完成</div>
         </div>
-    </div>
+    
 
 
     <div class="flex-row margin-top-30 margin-bottom-30">

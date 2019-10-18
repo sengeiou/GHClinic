@@ -23,8 +23,8 @@ hr{
 
 }
 .icon-32{
-  width:rpx(32);
-  height: rpx(32);
+  width:rpx(28);
+  height: rpx(28);
 
 }
 
@@ -37,8 +37,15 @@ hr{
   border-top-left-radius: rpx(37);
   border-top-right-radius: rpx(37);
   padding-top: rpx(30);
-  margin-top:rpx(40)
+  margin-top:rpx(-40)
   
+}
+.height-110{
+  height: rpx(110);
+}
+.height-40{
+  height: rpx(40);
+  margin-top:rpx(110);
 }
 
 .bg{

@@ -10,22 +10,24 @@
 </ion-header>
 
 <ion-content>
-    <div style="background: radial-gradient(#268B73,#0F848D) ;" class="padding-top-40">
+    <div style="background: radial-gradient(#268B73,#0F848D) ;position:fixed;" class="padding-top-40 height-240">
       <div (click)="search()">
         <input placeholder="搜索科室/药品名称"/>
         <img src="{{uploadpath}}resource/{{res.sousuo}}" class="ion-icon1"/>
       </div>
       <div class="txt-white f18 text-center margin-top-20">预约服务</div>
+    </div>
+    <div style="background: #0F848D;width: 100%;" class="height-40"></div>
       <div class="card">
          <div class="txt-black f16 txt-bold margin-left-30">预约科室</div>
          <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar"/>
       </div>
-    </div>
+    
 
-    <div>
+    <div class="margin-left-40">
 
 
-      <div style="display:inline-block;" class="margin-left-50 margin-top-40">
+      <div style="display:inline-block;" class="margin-left-70 margin-top-150">
         <div>
           <img src='{{uploadpath}}resource/{{res.neike}}' class="icon-60" />
         </div>
@@ -34,6 +36,8 @@
           <img src='{{uploadpath}}resource/{{res.queren}}' class="icon-18"  />
         </div>
       </div>
+
+
 
       
     </div>

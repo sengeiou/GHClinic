@@ -6,11 +6,29 @@
     width:rpx(24*2)
 }
 .card{
-    background-color:white;    
-    border-top-left-radius: rpx(37);
-    border-top-right-radius: rpx(37);
-    padding-top: rpx(37)
-  }
+  background-color:white;    
+  border-top-left-radius: rpx(37);
+  border-top-right-radius: rpx(37);
+  padding-top: rpx(30);
+  margin-top:rpx(-40)
+  
+}
+.bg{
+  width:100%;
+  height:rpx(100);
+  background-size: cover;
+}
+.height-110{
+  height: rpx(110);
+}
+.height-40{
+  height: rpx(40);
+  margin-top:rpx(110);
+}
+
+.icon-32{
+  width:rpx(28);
+  height: rpx(28);}
   hr{
     border: #aaaaaa solid rpx(0.01*2);
     background-color: #aaaaaa;
@@ -94,7 +112,7 @@
 .p4{
   width: rpx(150*2);
   height: rpx(90);
-  background-color: #0E858D;
+  background-color:  #6b3689;
   color:white;
   text-align: center;
   // margin-top: rpx(300);
@@ -105,7 +123,7 @@
 .p5{
   width: rpx(225*2);
   height: rpx(90);
-  background-color: #6b3689;
+  background-color: #0E858D;
   color:white;
   text-align: center;
   font-size: rpx(32);
