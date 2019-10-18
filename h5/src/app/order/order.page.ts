@@ -81,9 +81,8 @@ export class OrderPage extends AppBase {
     
       api.createorder({}).then((res)=>{
             
-        wechatapi.prepay({ id: res.id, h5: "Y" }).then((payret) => {
+        wechatapi.prepay({ id: res.return, h5: "Y" }).then((payret) => {
           if (payret.code != 0) {
-
             this.showAlert(payret.result);
             return;
           }
