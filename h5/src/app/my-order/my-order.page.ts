@@ -6,11 +6,13 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { DindanApi } from 'src/providers/dindan.api';
 
 @Component({
   selector: 'app-my-order',
   templateUrl: 'my-order.page.html',
-  styleUrls: ['my-order.page.scss']
+  styleUrls: ['my-order.page.scss'],
+  providers:[DindanApi]
 })
 export class MyOrderPage extends AppBase {
 
@@ -20,34 +22,46 @@ export class MyOrderPage extends AppBase {
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
+    public dindanApi:DindanApi,
     public sanitizer: DomSanitizer,
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
       
   }
-
+  order=[];
+  qiehuan=0;
   onMyLoad(){
     //参数
     this.params;
   }
   onMyShow(){
+  this.getmyorder();
+  }
+  getmyorder(){
+   var api=this.dindanApi;
+   api.myorder({}).then((order)=>{
+     console.log(order);
+   this.order=order;
+
+   })
+
 
   }
 
-  orderCancelled(){
-    this.navigate("order-cancelled")
+  orderCancelled(id){
+    this.navigate("order-cancelled",{id:id})
   }
   
-  orderPayment(){
-    this.navigate("order-payment")
+  orderPayment(id){
+    this.navigate("order-payment",{id:id})
   }
 
-  orderSign(){
-    this.navigate("order-sign")
+  orderSign(id){
+    this.navigate("order-sign",{id:id})
   }
 
-  orderComplete(){
-    this.navigate("order-complete")
+  orderComplete(id){
+    this.navigate("order-complete",{id:id})
   }
 }

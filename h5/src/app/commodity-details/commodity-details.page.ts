@@ -61,8 +61,10 @@ export class CommodityDetailsPage extends AppBase {
 
   }
 
+ 
+
   order() {
-    this.navigate("order")
+    this.navigate("order",{id:this.params.id})
   }
   cart() {
     this.navigate("carts")

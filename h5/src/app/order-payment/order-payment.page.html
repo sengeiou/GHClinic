@@ -8,7 +8,7 @@
       </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="orderinfo!=null">
   <div style="background-color: #11838D" class="padding-top-15">
     <div class="card bg-p height-81">
       <div class="f16 txt-bold txt-white margin-left-30">待付款</div>
@@ -30,17 +30,17 @@
 
   <div class="f16 txt-black d3">商品清单</div>
 
-  <div class="flex-row flex-center margin-top-30">
+  <div *ngFor="let item of orderinfo.orders" class="flex-row flex-center margin-top-30">
       <div>
-        <img alt="" class="icon-90 bg-p margin-left-40" />
+        <img src="{{uploadpath}}drugs/{{item.photo}}" alt="" class="icon-90 bg-p margin-left-40" />
       </div>
       <div class="margin-left-20">
-        <div class="f16 txt-black txt-bold">999感冒灵颗粒</div>
-        <div class="h5 txt-gg margin-top-30">规格：0.5g*12片</div>
+        <div class="f16 txt-black txt-bold">{{item.drugsname}}</div>
+        <div class="h5 txt-gg margin-top-30">规格：{{item.guige}}</div>
         <div class="flex-row flex-center margin-top-40">
-          <div class="f16 txt-bold " style="color: #F7555A">￥ 88.0</div>
+          <div class="f16 txt-bold " style="color: #F7555A">￥{{item.price}}</div>
           <div class="f16 txt-black flex-row flex-center margin-left-400">
-                x1
+                x{{item.num}}
           </div>
         </div>
       </div>  
@@ -48,27 +48,13 @@
   <hr/>
 
 
-  <div class="flex-row flex-center margin-top-30">
-      <div>
-        <img alt="" class="icon-90 bg-p margin-left-40" />
-      </div>
-      <div class="margin-left-20">
-        <div class="f16 txt-black txt-bold">艾附暖宫丸</div>
-        <div class="h5 txt-gg margin-top-30">规格：0.5g*12片</div>
-        <div class="flex-row flex-center margin-top-40">
-          <div class="f16 txt-bold " style="color: #F7555A">￥ 188.0</div>
-          <div class="f16 txt-black flex-row flex-center margin-left-400">
-                x1
-          </div>
-        </div>
-      </div>  
-  </div>
+  
   <hr/>
 
 
   <div class="flex-row margin-top-30 margin-bottom-30">
-    <div class="f16 txt-black margin-left-40">共2件，应付金额：</div>
-    <div class="f16 margin-left-360" style="color:#F7555A">￥276.0</div>
+    <div class="f16 txt-black margin-left-40">共{{orderinfo.orders.length}}件，应付金额：</div>
+    <div class="f16 margin-left-360" style="color:#F7555A">￥{{orderinfo.amount}}</div>
   </div>
   <hr/>
 
@@ -79,17 +65,17 @@
     </div>
     <div class="flex-row margin-top-30 margin-bottom-30">
       <div class="f16 txt-gw margin-left-40">订单编号:</div>
-      <div class="f16 margin-left-20">1909091231547</div>
+      <div class="f16 margin-left-20">{{orderinfo.orderno}}</div>
     </div>
     <div class="flex-row margin-bottom-30">
       <div class="f16 txt-gw margin-left-40">订单日期:</div>
-      <div class="f16 margin-left-20">2019/09/09 14：18</div>
+      <div class="f16 margin-left-20">{{orderinfo.submit_time}}</div>
     </div>
     <div class="f16 txt-black d3">备注:</div>
     <div class="f16 margin-left-30 margin-top-30" style="color: #BFBFBF">请填写买家留言</div>
 
     <div class="flex-row margin-top-30" style="position: fixed;bottom:0">
-      <div style="background-color: #B9B9B9" class="txt-white d4 text-center">取消</div>
+      <div  (click)="quxiao()" style="background-color: #B9B9B9" class="txt-white d4 text-center">取消</div>
       <div class="txt-white bg-p d4 text-center">去付款</div>
     </div>
     

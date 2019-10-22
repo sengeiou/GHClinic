@@ -22,6 +22,7 @@
     <div class="f16 txt-black w-h margin-top-30" style="background-color: #F0F2F5">
       <div class="margin-left-40 txt-bold">商品清单</div>
     </div>
+    <div *ngIf="isf==1">
     <div *ngFor="let item of gouwuche" class="flex-row flex-center margin-top-30">
       
    
@@ -39,12 +40,40 @@
           </div>
         </div>  
       </div>
+    </div>
+    
+
+    <div *ngIf="isf==2">
+      <div *ngFor="let item of gouwuche" class="flex-row flex-center margin-top-30">
+        
+     
+          <div>
+            <img alt="" src="{{uploadpath}}drugs/{{item.photo}}" class="icon-90  margin-left-40" />
+          </div>
+          <div class="margin-left-20 marginTop">
+            <div class="f16 txt-black txt-bold">{{item.name}}</div>
+            <div class="h5 txt-gg margin-top-30">规格：{{item.guige}}</div>
+            <div class="flex-row flex-center margin-top-40">
+              <div class="f16 txt-bold " style="color: #F7555A">￥ {{item.price}}</div>
+              <div class="f16 txt-black flex-row flex-center margin-left-750">
+                 x1
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+  
       <hr/>
     
       <hr/>
-      <div class="flex-row margin-top-30 margin-bottom-30">
+      <div *ngIf="isf==1" class="flex-row margin-top-30 margin-bottom-30">
         <div class="f16 txt-black margin-left-40">共{{jian}}件，应付金额：</div>
         <div class="f16 margin-left-360" style="color:#F7555A">￥{{zonjia}}</div>
+      </div>
+
+      <div *ngIf="isf==2" class="flex-row margin-top-30 margin-bottom-30">
+        <div class="f16 txt-black margin-left-40">共1件，应付金额：</div>
+        <div class="f16 margin-left-360" style="color:#F7555A">￥{{gouwuche[0].price}}</div>
       </div>
       <hr/>
   
@@ -55,7 +84,9 @@
         calss="f16" style="color: #BFBFBF"></textarea>
       </div>
       <div class="flex-row margin-top-30" style="position: absolute;bottom:0">
-        <div class="text-center txt-white f16 icon-255" style="background-color: #0E858D">合计：￥{{zonjia}}</div>
+        <div *ngIf="isf==1"  class="text-center txt-white f16 icon-255" style="background-color: #0E858D">合计：￥{{zonjia}}</div>
+
+        <div *ngIf="isf==2"  class="text-center txt-white f16 icon-255" style="background-color: #0E858D">合计：￥{{gouwuche[0].price}}</div>
         <div class="text-center txt-white f16 bg-p icon-120" (click)="successfulTrade()">确认支付</div>
       </div>
     </div>

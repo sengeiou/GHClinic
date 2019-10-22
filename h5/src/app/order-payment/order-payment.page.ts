@@ -6,11 +6,13 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { DindanApi } from 'src/providers/dindan.api';
 
 @Component({
   selector: 'app-order-payment',
   templateUrl: 'order-payment.page.html',
-  styleUrls: ['order-payment.page.scss']
+  styleUrls: ['order-payment.page.scss'],
+  providers:[DindanApi]
 })
 export class OrderPaymentPage extends AppBase {
 
@@ -18,6 +20,7 @@ export class OrderPaymentPage extends AppBase {
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
+    public dindanApi:DindanApi,
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
@@ -26,13 +29,38 @@ export class OrderPaymentPage extends AppBase {
     this.headerscroptshow = 480;
       
   }
-
+   orderinfo=null;
   onMyLoad(){
     //参数
     this.params;
   }
-  onMyShow(){
+  getdindaninfo(){
+  var api=this.dindanApi;
+   api.myorderinfo({id:this.params.id}).then((orderinfo)=>{
+   console.log(orderinfo);
+    this.orderinfo=orderinfo;
+   })
+   
 
+  }
+
+  quxiao(){
+
+    console.log(1231321313);
+    var api =this.dindanApi;
+    api.quxiaoorder({id:this.params.id}).then(()=>{
+       
+         this.toast("取消成功");
+         this.back();
+  
+  
+    })
+  
+  
+    }
+  
+  onMyShow(){
+   this.getdindaninfo();
   }
 
  
