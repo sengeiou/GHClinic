@@ -1,20 +1,30 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <!-- <ion-toolbar color="primary">
         <ion-icon name="arrow-back" class="icon-24" (click)="back()"></ion-icon>
         <ion-title>
           订单详情
         </ion-title>
         <ion-icon name="close" slot="end" class="icon-24"></ion-icon>
-      </ion-toolbar>
+      </ion-toolbar> -->
+      <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
 </ion-header>
 
 <ion-content *ngIf="orderinfo!=null">
-  <div style="background-color: #11838D" class="padding-top-15">
-    <div class="card bg-p height-81">
-      <div class="f16 txt-bold txt-white margin-left-30">待付款</div>
-      <div class="f12 txt-bold txt-white margin-left-30 margin-top-30">等待买家付款，超过24小时将自动取消</div>
+  <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
+    <div class="flex-row flex-center margin-left-30">
+        <div  (click)="back()">
+            <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+        </div>
+        <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
+        <div class="f16 txt-white margin-left-160">订单详情</div>
     </div>
   </div>
+  <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
+    <div class="card  height-81">
+      <div class="f16 txt-bold txt-black margin-left-30">待付款</div>
+      <div class="f12 txt-bold txt-black margin-left-30 margin-top-30">等待买家付款，超过24小时将自动取消</div>
+    </div>
+
   <div>
     <div class="flex-row flex-center margin-top">
       <div class="d1 margin-left-30"></div>
@@ -23,7 +33,7 @@
     <div class="flex-row flex-center margin-left-30 margin-top-30">
       <div class="f16">刘大大</div>
       <div class="f16 margin-left-20">13838384388</div>
-      <div class="bg-p txt-white d2 margin-left-20">默认</div>
+      <div class="bc txt-white d2 margin-left-20">默认</div>
     </div>
     <div class="h5 txt-gw margin-left-30 margin-top-20 margin-bottom-20">广东省深圳市罗湖区八卦一路13号XX汽修厂</div>
   </div>
@@ -72,11 +82,11 @@
       <div class="f16 margin-left-20">{{orderinfo.submit_time}}</div>
     </div>
     <div class="f16 txt-black d3">备注:</div>
-    <div class="f16 margin-left-30 margin-top-30" style="color: #BFBFBF">请填写买家留言</div>
-
+    <div class="f16 margin-left-30 margin-top-30" style="color: #BFBFBF">{{orderinfo.beizhu}}</div>
+    <div class="height-100"></div>
     <div class="flex-row margin-top-30" style="position: fixed;bottom:0">
       <div  (click)="quxiao()" style="background-color: #B9B9B9" class="txt-white d4 text-center">取消</div>
-      <div class="txt-white bg-p d4 text-center">去付款</div>
+      <div class="txt-white bc d4 text-center">去付款</div>
     </div>
     
 

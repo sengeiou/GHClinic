@@ -11,12 +11,16 @@
 </ion-header>
 
 <ion-content>
-    <div style="background-color: #11838D" class="padding-top-15">
+  <div style="background: radial-gradient(#268B73,#0F848D) ;position:fixed;z-index: 1;" class="padding-top-40 height-240">
+    <div (click)="search()">
+      <input placeholder="搜索科室/药品名称"/>
+      <img src="{{uploadpath}}resource/{{res.sousuo}}" class="ion-icon1"/>
+    </div>
+    <div class="txt-white f18 text-center margin-top-10">健康商城</div>
+  </div>
+  <div style="background: #0F848D;width: 100%;" class="height-40"></div>
         <div class="card">
-            <div (click)="search()">
-                <input placeholder="搜索科室/药品名称"/>
-                <img src="{{uploadpath}}resource/{{res.sousuo}}" class="ion-icon1"/>
-            </div> 
+           
 
 
             <ion-slides loop="true" autoplay="3000" #hhh auto-play="true" class="div-340">
@@ -83,34 +87,8 @@
 
 
        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
         
         </div>
-    </div>
+    
 </ion-content>

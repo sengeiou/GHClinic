@@ -39,9 +39,10 @@ export class SuccessfulTradePage extends AppBase {
     this.navigate("order-complete")
   }
 
-  tab1(){
+  tab3(){
     this.backToUrl("tabs/tab3");
   }
+
 
 }
 

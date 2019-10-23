@@ -147,4 +147,7 @@ export class CartsPage extends AppBase {
 
 
   }
+  gotosc(){
+    AppBase.CurrentRoute.navigateByUrl("/tabs/tab3");
+  }
 }

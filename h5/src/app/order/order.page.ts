@@ -36,7 +36,7 @@ export class OrderPage extends AppBase {
   gouwuche = [];
   zonjia = 0;
   jian = 0;
-
+  beizhu="";
   isf=0;
   qwe = "请填写买家留言";
   onMyLoad() {
@@ -107,6 +107,10 @@ export class OrderPage extends AppBase {
 
   }
   successfulTrade() {
+
+  
+   
+
     var wechatapi = this.wechatApi;
     var api = this.dindanApi;
 
@@ -118,7 +122,7 @@ export class OrderPage extends AppBase {
       console.log(res);
       if(res.code==0)
       {
-        api.createorder({lingshi:1}).then((res) => {
+        api.createorder({lingshi:1,beizhu:this.beizhu}).then((res) => {
 
           wechatapi.prepay({ id: res.return, h5: "Y" }).then((payret) => {
             if (payret.code != 0) {

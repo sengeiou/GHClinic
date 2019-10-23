@@ -1,15 +1,25 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <!-- <ion-toolbar color="primary">
         <ion-icon name="arrow-back" class="icon-24" (click)="back()"></ion-icon>
         <ion-title>
           我的客户
         </ion-title>
         <ion-icon name="close" slot="end" class="icon-24"></ion-icon>
-      </ion-toolbar>
+      </ion-toolbar> -->
+      <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
 </ion-header>
 
 <ion-content>
-    <div style="background-color: #11838D" class="padding-top-15">
+  <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
+    <div class="flex-row flex-center margin-left-30">
+        <div  (click)="back()">
+            <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+        </div>
+        <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
+        <div class="f16 txt-white margin-left-160">我的客户</div>
+    </div>
+  </div>
+  <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
       <div class="card">
         <div class="flex-row flex-center">
           <div class="d1 margin-left-30"></div>
@@ -17,7 +27,7 @@
         </div>
 
 
-        <div class="flex-row flex-center bg-p height-96 margin-top-30" style="justify-content: space-around">
+        <div class="flex-row flex-center bc height-96 margin-top-30" style="justify-content: space-around">
           <div class="h5 txt-white txt-bold">序号</div>
           <div class="h5 txt-white txt-bold">客户姓名</div>
           <div class="h5 txt-white txt-bold">手机号码</div>
@@ -65,6 +75,6 @@
 
 
       </div>
-    </div>
+
 
 </ion-content>

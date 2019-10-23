@@ -43,8 +43,8 @@
   <hr/>
   <div class="div3 flex-row flex-center">
       <span class="span1">选择年龄段</span>
-      <select class="span4" [(ngModel)]="age" (change)='aa($event)'>
-          <option  *ngFor="let age of ages"  [value]='age.id'>{{age.name}}</option>
+      <select class="span4" [(ngModel)]="age" (change)='aa($event)' >
+          <option  *ngFor="let age of ages"  [value]='age.id' >{{age.name}}</option>
       </select>
       
   </div>
