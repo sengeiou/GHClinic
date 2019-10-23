@@ -1,0 +1,77 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+
+
+
+.bg{
+    width:100%;
+    height:rpx(100);
+    background-size: cover;
+}
+.card{
+    background-color:white;    
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(30);
+    margin-top:rpx(-40)  
+}
+.height-110{
+    height: rpx(110);
+}
+.height-40{
+    height: rpx(40);
+    margin-top:rpx(110);
+}
+.icon-32{
+    width:rpx(28);
+    height: rpx(28);
+    margin-top:rpx(-7)
+}
+
+.marginTop{
+    margin-top:rpx(2)
+}
+  
+.slidelist{
+    width:100vw;
+}
+  
+  
+.marginRight{
+    width: 10vw;
+    margin-right: rpx(40)
+}
+
+.p1{
+    font-weight: bold;
+    font-size: rpx(32);
+    color:#11838D;   
+}
+.p2{
+    width: rpx(45); 
+    height: rpx(6);
+    background-color: #11838D;
+    // margin-left: rpx(15);
+    // margin-top:rpx(-15)
+}
+
+.width-230{
+    width:rpx(230*2)
+}
+
+.icon-113{
+    width:rpx(113*2);
+    height: rpx(79*2);
+    border-radius: rpx(10);
+}
+
+.scroll-x{
+    overflow: hidden;
+    overflow-x: scroll;
+}
+  .scroll-x::-webkit-scrollbar{
+    width:0;
+    height: 0;
+}

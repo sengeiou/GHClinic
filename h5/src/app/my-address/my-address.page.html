@@ -16,7 +16,7 @@
                 <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
             </div>
             <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
-            <div class="f16 txt-white margin-left-160">我的地址</div>
+            <div class="f16 txt-white margin-left-200">我的地址</div>
         </div>
     </div>
     <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
@@ -51,10 +51,27 @@
               </div>
               <div class="border-bw margin-top-30"></div>
               <div style="position: absolute;bottom:0" class="flex-row">
-                <div style="background-color: #B9B9B9" (click)="delete()" class="txt-white d1 text-center">删除</div>
+                <div style="background-color: #B9B9B9"  class="txt-white d1 text-center" data-toggle="modal" data-target="#myModal">删除</div>
                 <div class="txt-white bg-p d1 text-center" (click)="address()">保存</div>
               </div>
       </div>
+
+      <div class="modal fade" tabindex="-1" role="dialog" id="myModal" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="text-center">
+                <h4 class="txt-bold f16">删除地址</h4>
+              </div>
+              <div class="text-center">
+                <img alt="" class="icon-100" src="{{uploadpath}}resource/{{res.cancelbaoming}}" />
+              </div>
+              <div class="flex-row margin-top-30">
+                <button type="button" class="f16 txt-gw flex-1" (click)="delete()">确定删除</button>
+                <button type="button" class="f16 txt-red flex-1" data-dismiss="modal" aria-hidden="true">我点错了</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
 

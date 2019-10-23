@@ -32,7 +32,7 @@ export class Tab4Page extends AppBase {
     this.params;
   }
   onMyShow(){
-
+     console.log(this.MemberInfo)
   }
 
 
@@ -69,6 +69,9 @@ export class Tab4Page extends AppBase {
   myCustomer(){
     this.navigate("my-customer");
   }
-
+ 
+  wenzhantuison(){
+    this.navigate("wen-zhan-tui-son")
+  }
  
 }

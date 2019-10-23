@@ -1,0 +1,68 @@
+<ion-header>
+  <!-- <ion-toolbar>
+    <ion-title>wen-zhan-tui-son</ion-title>
+  </ion-toolbar> -->
+  <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
+</ion-header>
+
+<ion-content>
+    <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
+        <div class="flex-row flex-center margin-left-30">
+            <div (click)="back()">
+                <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+            </div>
+            <div class="f16 txt-white margin-left">文章推送</div>
+        </div>
+    </div>
+    <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
+    <div class="card">
+
+
+        <div class="margin-left-40 slidelist scroll-x" [ngStyle]="{'width.px': wenzhangtype.length*85*rad }">
+            
+          <div class="flex-row flex-center">
+            <div (click)="show=false;qiehuan=0">
+              <div class="marginRight" [class.p1]="qiehuan==0">全部</div>
+              <div class="marginTop" [class.p2]="qiehuan==0"></div>
+            </div>
+            <div *ngFor="let wzt of wenzhangtype;let i=index;" (click)="show=true;qiehuan=(i+1);getwenzhang(wzt.id)">
+             <div [class.p1]="qiehuan==(i+1)" class="marginRight">{{wzt.name}}</div>
+             <div class="marginTop" [class.p2]="qiehuan==(i+1)"></div> 
+            </div>
+          </div>  
+        </div>
+
+        
+        <div class="margin-top-40 margin-left-40" *ngIf="qiehuan==0">
+          <div *ngFor="let wz of wenzhang;let i=index;" class="flex-row flex-center margin-top-40">
+            <div>
+              <img src="{{uploadpath}}wenzhang/{{wz.photo}}" class="icon-113"/>
+            </div>
+            <div class="margin-left">
+              <div class="f16 txt-bold txt-black width-230">{{wz.name}}</div>
+              <div class="f12 txt-gw margin-top-30">{{wz.time}} </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="margin-top-40 margin-left-40"  *ngFor="let wz of wzhang;let i=index;">
+            <div class="flex-row flex-center margin-top-40" *ngIf="show==true">
+              <div>
+                <img src="{{uploadpath}}wenzhang/{{wz.photo}}" class="icon-113"/>
+              </div>
+              <div class="margin-left">
+                <div class="f16 txt-bold txt-black width-230">{{wz.name}}</div>
+                <div class="f12 txt-gw margin-top-30">{{wz.time}} </div>
+              </div>
+            </div>
+        </div>
+
+
+
+
+
+    
+    </div>
+
+</ion-content>
