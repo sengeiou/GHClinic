@@ -46,6 +46,25 @@
   height: rpx(185*2);
 }
 .icon-10{
-  width: rpx(80);
-  height:rpx(80)
+  width: rpx(60);
+  height:rpx(60);
+  margin-left:rpx(15)
+}
+.r{
+  border-radius: rpx(20);
+}
+.icon-64{
+  width:rpx(64*2);
+  height:rpx(64*2);
+}
+.marginTop{
+  margin-top:rpx(-30)
+}
+
+.horizontalbar{
+  display: block;
+  margin-top:rpx(5);
+  width:rpx(50*2);
+  height:rpx(6);
+  margin-left:rpx(30);
 }
