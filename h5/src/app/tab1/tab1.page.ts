@@ -109,14 +109,12 @@ export class Tab1Page extends AppBase {
      return  
     }
     else{
-    console.log(d.sdate);
-    console.log(new(Date));
+  
     this.xzrq=d.d; 
     this.xzy=d.f;
     this.riqi=d.sdate;
     }
-    console.log(d);
-    console.log(i);
+   
   }
   addMonth(m) {
     this.mdate = new Date(this.mdate.getFullYear(), this.mdate.getMonth() + m, 1);

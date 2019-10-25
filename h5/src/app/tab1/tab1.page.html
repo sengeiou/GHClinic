@@ -27,11 +27,11 @@
     <div class="margin-left-40">
 
 
-      <div style="display:inline-block;" class="margin-left-70 margin-top-150">
+      <div  (click)="xz=item.id;hospital(item.name)"  *ngFor='let item of department;let idx=index' style="display:inline-block;" class="margin-left-70 margin-top-150">
         <div>
-          <img src='{{uploadpath}}resource/{{res.neike}}' class="icon-60" />
+          <img src='{{uploadpath}}department/{{item.img}}' class="icon-60" />
         </div>
-        <div class="margin-top-10 f16 margin-left-10">内科</div>
+        <div class="margin-top-10 f16 margin-left-10">{{item.name}}</div>
         <div class="xuanzhong">
           <img src='{{uploadpath}}resource/{{res.queren}}' class="icon-18"  />
         </div>
@@ -48,19 +48,19 @@
         <div class="txt-black f16 txt-bold margin-left-30">预约诊所</div>
         <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar"/>
       </div>
-      <div (click)="information()">
+      <div  *ngFor="let item of hostlist;let i=index;"  (click)="information(item.hospital_id)" >
         <div class="margin-top-30">
-          <ion-card class="card1"  [style.background-image]="'url('+uploadpath+'resource/'+res.clinic+')'"></ion-card>
+          <ion-card class="card1"  [style.background-image]="'url('+uploadpath+'hospital/'+item.hospital_fmtupian+')'"></ion-card>
         </div>
         <div style="z-index: 1111;" class="marginTop">
           <ion-card class="card2 flex-row flex-center bg1">
             <div class="flex-column margin-left-30">
-              <div class="oneline f18 txt-bold txt-black">港和医疗天河分部</div>
-              <div class="txt-gw f12 margin-top ">020 - 88888888</div>
-              <div class="oneline txt-gw f12 margin-top">广州市白云区粤海街道凤凰路美乐家115号</div>
+              <div class="oneline f18 txt-bold txt-black">{{item.hospital_id_name}}</div>
+              <div class="txt-gw f12 margin-top ">{{item.hospital_phone}}</div>
+              <div class="oneline txt-gw f12 margin-top">{{item.hospital_name}}</div>
             </div>
             <div>
-              <img src="{{uploadpath}}resource/{{res.phone}}" class="icon-25 margin-left-40"/>
+              <img   src="{{uploadpath}}resource/{{res.phone}}" class="icon-25 margin-left-40"/>
             </div>
           </ion-card> 
         </div>
