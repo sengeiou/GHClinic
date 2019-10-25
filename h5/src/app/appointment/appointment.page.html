@@ -78,7 +78,8 @@
 
 
       <div class="margin-left-30 margin-top-40">
-        <img class="icon-80" />
+        <input type="file" (change)='upload($event)' />
+        <img src="{{uploadpath}}appointment/{{filename}}" />
       </div>
 
       

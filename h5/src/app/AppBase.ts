@@ -12,6 +12,12 @@ import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
 import { OnInit } from '@angular/core';
 import { TabsPage } from './tabs/tabs.page';
+
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+import { Http } from '@angular/http';
+import { RequestOptions } from '@angular/http';
+
+
 declare let wx: any;
 
 export class AppBase implements OnInit {
@@ -356,5 +362,39 @@ export class AppBase implements OnInit {
         });
         await actionSheet.present();
     }
+    async uploadFile(transfer: FileTransfer, filepath: string, module: string) {
+        filepath=filepath.split("?")[0];
+        let options: FileUploadOptions = {
+            fileKey: 'img',
+            fileName: filepath
+        }
+        //alert(filepath);
 
+        var fileTransfer: FileTransferObject = await transfer.create();
+        return fileTransfer.upload(filepath, ApiConfig.getFileUploadAPI() + "?field=img&module=" + module, options)
+            .then((data) => {
+                // success
+                //alert(data.response);
+                return data.response.toString().split("|~~|")[1];
+            }, (err) => {
+                this.showModal("上传失败，请联系管理员");
+                // error
+            })
+    }
+    async uploadBase64(http:Http, base64: string, module: string) {
+        
+        //alert(filepath);
+        var url=ApiConfig.getFileUploadAPI();
+        var data={base64:base64,module};
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+
+        return http.post(url,body,options).toPromise().then((data:any) => {
+            // success
+            //alert(data.response);
+            console.log("uploadBase64",data);
+            return data._body.toString().split("|~~|")[1];
+        });
+    }
 }

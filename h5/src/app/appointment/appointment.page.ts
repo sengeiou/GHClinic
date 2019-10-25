@@ -8,12 +8,14 @@ import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { OrderApi } from 'src/providers/order.api';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-appointment',
   templateUrl: './appointment.page.html',
   styleUrls: ['./appointment.page.scss'],
-  providers: [MemberApi, OrderApi]
+  providers: [MemberApi, OrderApi, FileTransfer]
 })
 export class AppointmentPage extends AppBase {
 
@@ -25,7 +27,9 @@ export class AppointmentPage extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi: MemberApi) {
+    public memberApi: MemberApi,
+    public http:Http,
+    private transfer: FileTransfer) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
 
@@ -35,7 +39,7 @@ export class AppointmentPage extends AppBase {
   jiuzhenren = '';
   shoujihao = '';
   tuijianren = '';
-  hospital=null;
+  hospital = null;
   onMyLoad() {
     //参数
     this.params;
@@ -45,16 +49,16 @@ export class AppointmentPage extends AppBase {
     this.yishen = JSON.parse(this.params.yishen);
     console.log(this.yishen);
     this.gethospital();
-     
+
   }
-  gethospital(){ 
-var  api=this.memberApi;
-  api.hospitalinfo({id:this.params.hospital_id}).then((hospital)=>{
-   
-    this.hospital=hospital;
-     console.log(this.hospital);
-     console.log("niudad");    
-  })
+  gethospital() {
+    var api = this.memberApi;
+    api.hospitalinfo({ id: this.params.hospital_id }).then((hospital) => {
+
+      this.hospital = hospital;
+      console.log(this.hospital);
+      console.log("niudad");
+    })
 
 
   }
@@ -99,7 +103,7 @@ var  api=this.memberApi;
   //   }).then((res) => {
   //          console.log(res);
   //          console.log(this.date.qwe.id);
-          
+
   //     if (res.code == 0) {
   //       this.navigate("successful-reservation",{id:res.return, hospital: JSON.stringify(this.hospital)});
 
@@ -112,10 +116,26 @@ var  api=this.memberApi;
 
 
   // }
-  successfulReservation(){
-    this.navigate("successful-reservation")
+  successfulReservation() {
+    this.navigate("successful-reservation");
   }
 
+  filename="";
+  upload(ec) {
+    var that=this;
+    var file = ec.target.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload =  (e:any)=>{
+      var data = e.target.result;
+      console.log(data);
+      that.uploadBase64(that.http,data,"appointment").then((filename)=>{
+        //alert(filename);
+        that.filename=filename;
+      });
+    }
+
+  }
 
 }
 
