@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content>
-    <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
+    <div style="background: #0F848D ;position:fixed;width:100%;z-index: 1;" class="padding-top-40 height-110">
         <div class="flex-row flex-center margin-left-30">
             <div class="marginTop" (click)="back()">
                 <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
@@ -77,7 +77,7 @@
       </div>
       <div class="f12 txt-black margin-left-20" (click)="cart()">购物车</div>
     </div>
-    <div class="d2 txt-white bg-p text-center" (click)="addcart()" >加入购物车</div>
+    <div class="d2 txt-black text-center" (click)="addcart()"  style="background-color: #8a8a8a" >加入购物车</div>
     <div class="d2 txt-white text-center" (click)="order()" style="background-color:#0E858D">立即购买</div>
    
   </div>

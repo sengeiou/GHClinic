@@ -135,4 +135,6 @@
   width:rpx(80);
   height: rpx(80);
 }
-
+input::-webkit-input-placeholder {
+  font-size: rpx(24);
+}

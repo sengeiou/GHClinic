@@ -30,7 +30,7 @@ export class ActivityDetailsPage extends AppBase {
       this.activity={};
   }
 
-  show=false;
+  show=true;
   activity=null;
 
   // nT=new Date().getTime();
