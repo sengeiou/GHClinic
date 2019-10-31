@@ -77,7 +77,9 @@ export class Tab1Page extends AppBase {
   }
   hostlist = [];
   fuwuleibie=null;
-  hospital(name) {
+  hospital(item) {
+
+    var name =item.name;
     var api = this.memberApi;
    if(name=="体检")
    {
@@ -91,7 +93,7 @@ export class Tab1Page extends AppBase {
 
 
     
-    api.departmenthost({ name: name }).then((hostlist) => {
+    api.departmenthost({ id: item.id }).then((hostlist) => {
       console.log(hostlist);
       this.hostlist = hostlist;
     this.fuwuleibie=name;
