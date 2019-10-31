@@ -71,6 +71,7 @@ export class ConferenceComponent extends AppBase {
 
   onMyShow() {
     this.orderApi.info({ id: this.params.order_id }).then((orderinfo: any) => {
+      console.log(orderinfo,'ppp')
       this.orderinfo = orderinfo;
       this.doctorApi.info({ id: orderinfo.doctor_id }).then((doctorinfo: any) => {
         this.doctorinfo = doctorinfo;
