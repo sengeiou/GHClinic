@@ -27,13 +27,19 @@
     <div class="margin-left-40">
 
 
-      <div  (click)="xz=item.id;hospital(item.name)"  *ngFor='let item of department;let idx=index' style="display:inline-block;" class="margin-left-70 margin-top-150">
+      <div  (click)="xz=item.id;hospital(item)"  *ngFor='let item of department;let idx=index' style="display:inline-block;" class="margin-left-70 margin-top-150">
         <div>
           <img src='{{uploadpath}}department/{{item.img}}' class="icon-60" />
         </div>
         <div class="margin-top-10 f16 margin-left-10">{{item.name}}</div>
-        <div class="xuanzhong">
-          <img src='{{uploadpath}}resource/{{res.queren}}' class="icon-18"  />
+        <div *ngIf="xz==item.id" class="xuanzhong">
+          <img   src='{{uploadpath}}resource/{{res.queren}}' class="icon-18"  />
+
+        </div>
+
+        <div  *ngIf="xz!=item.id" class="xuanzhong">
+          <img  src='' class="icon-18"  />
+          
         </div>
       </div>
 
@@ -50,14 +56,14 @@
       </div>
       <div  *ngFor="let item of hostlist;let i=index;"  (click)="information(item.hospital_id)" >
         <div class="margin-top-30">
-          <ion-card class="card1"  [style.background-image]="'url('+uploadpath+'hospital/'+item.hospital_fmtupian+')'"></ion-card>
+          <ion-card class="card1"  [style.background-image]="'url('+uploadpath+'hospital/'+item.fmtupian+')'"></ion-card>
         </div>
         <div style="z-index: 1111;" class="marginTop">
           <ion-card class="card2 flex-row flex-center bg1">
             <div class="flex-column margin-left-30">
-              <div class="oneline f18 txt-bold txt-black">{{item.hospital_id_name}}</div>
-              <div class="txt-gw f12 margin-top ">{{item.hospital_phone}}</div>
-              <div class="oneline txt-gw f12 margin-top">{{item.hospital_name}}</div>
+              <div class="oneline f18 txt-bold txt-black">{{item.name}}</div>
+              <div class="txt-gw f12 margin-top ">{{item.phone}}</div>
+              <div class="oneline txt-gw f12 margin-top">{{item.summary}}</div>
             </div>
             <div>
               <img   src="{{uploadpath}}resource/{{res.phone}}" class="icon-25 margin-left-40"/>

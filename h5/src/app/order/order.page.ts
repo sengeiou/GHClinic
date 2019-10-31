@@ -164,7 +164,7 @@ export class OrderPage extends AppBase {
 
 
 
-    api.createorder({}).then((res) => {
+    api.createorder({beizhu:this.beizhu}).then((res) => {
 
       wechatapi.prepay({ id: res.return, h5: "Y" }).then((payret) => {
         if (payret.code != 0) {

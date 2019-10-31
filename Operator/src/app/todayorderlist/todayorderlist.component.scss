@@ -26,3 +26,20 @@
   -webkit-box-shadow: 2px 2px 5px #333333;
   box-shadow: 2px 2px 5px #333333;
 }
+
+.btns{
+  width: 117px;
+  height: 40px;
+  background: #F0F2F5;
+  border: 1px solid #F5F5F5;
+  text-align: center;
+  line-height: 40px;
+  color: #8A8A8A;
+  cursor: pointer;
+}
+
+.btn-active{
+  background: #446AD8;
+  color: #fff !important;
+
+}

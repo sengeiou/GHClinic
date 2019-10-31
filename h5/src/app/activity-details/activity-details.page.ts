@@ -49,6 +49,7 @@ export class ActivityDetailsPage extends AppBase {
     var api=this.activityApi;
     api.activityinfo({id: this.params.id}).then(
       (activity)=>{
+        console.log(activity);
         this.activity=activity;
         var nT=new Date().getTime();
         var aT=new Date(activity.activityTime).getTime();
