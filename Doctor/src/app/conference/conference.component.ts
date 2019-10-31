@@ -136,6 +136,7 @@ export class ConferenceComponent extends AppBase {
         // localvideo.onloadedmetadata = function (e) {
         //   localvideo.play();
         // };
+        that.mystream=stream;
 
         var meter = WebRTCAPI.SoundMeter({
           stream: info.stream,

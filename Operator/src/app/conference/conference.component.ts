@@ -168,11 +168,12 @@ export class ConferenceComponent extends AppBase {
         }
       }, (info) => {
         // info { stream }
-        var stream = info.stream;
-        // localvideo.srcObject = stream;
-        // localvideo.onloadedmetadata = function (e) {
-        //   localvideo.play();
-        // };
+        // var stream = info.stream;
+        //  localvideo.srcObject = stream;
+        //  localvideo.onloadedmetadata = function (e) {
+        //    localvideo.play();
+        //  };
+        that.mystream=info.stream;
 
         var meter = WebRTCAPI.SoundMeter({
           stream: info.stream,
@@ -187,6 +188,7 @@ export class ConferenceComponent extends AppBase {
 
 
           rtc.on('onLocalStreamAdd', function (data) {
+            //alert(data);
             if (data && data.stream) {
               var stream = data.stream;
               localvideo.srcObject = stream;
