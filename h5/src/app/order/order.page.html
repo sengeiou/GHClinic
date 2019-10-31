@@ -1,14 +1,24 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <!-- <ion-toolbar color="primary">
         <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
         <ion-title>
           确认订单
         </ion-title>
-      </ion-toolbar>
+      </ion-toolbar> -->
+      <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
 </ion-header>
 
 <ion-content>
-  <div style="background-color: #11838D" class="padding-top-15">
+  <div style="background: #0F848D ;position:fixed;width:100%;z-index: 1;" class="padding-top-40 height-110">
+    <div class="flex-row flex-center margin-left-30">
+        <div  (click)="back()">
+            <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+        </div>
+        <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
+        <div class="f16 txt-white margin-left-200">确认订单</div>
+    </div>
+  </div>
+  <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
     <div class="card">
       <div class="flex-row flex-center">
         <div class="d1 margin-left-40"></div>
@@ -65,7 +75,7 @@
   
       <hr/>
     
-      <hr/>
+
       <div *ngIf="isf==1" class="flex-row margin-top-30 margin-bottom-30">
         <div class="f16 txt-black margin-left-40">共{{jian}}件，应付金额：</div>
         <div class="f16 margin-left-360" style="color:#F7555A">￥{{zonjia}}</div>
@@ -77,18 +87,18 @@
       </div>
       <hr/>
   
-      <hr/>
+
       <div class="margin-left-40 margin-top-30">
         <div class="f16 txt-black margin-bottom-30">备注：</div>
         <textarea  
         calss="f16" style="color: #BFBFBF" [(ngModel)]="beizhu"></textarea>
       </div>
       <div class="flex-row margin-top-30" style="position: absolute;bottom:0">
-        <div *ngIf="isf==1"  class="text-center txt-white f16 icon-255" style="background-color: #0E858D">合计：￥{{zonjia}}</div>
+        <div *ngIf="isf==1"  class="text-center txt-black f16 icon-255" style="background-color: #8a8a8a">合计：￥{{zonjia}}</div>
 
-        <div *ngIf="isf==2"  class="text-center txt-white f16 icon-255" style="background-color: #0E858D">合计：￥{{gouwuche[0].price}}</div>
-        <div class="text-center txt-white f16 bg-p icon-120" (click)="successfulTrade()">确认支付</div>
+        <div *ngIf="isf==2"  class="text-center txt-black f16 icon-255" style="background-color: #8a8a8a">合计：￥{{gouwuche[0].price}}</div>
+        <div class="text-center txt-white f16 icon-120" (click)="successfulTrade()" style="background-color: #0E858D">确认支付</div>
       </div>
     </div>
-  </div>
+  
 </ion-content>

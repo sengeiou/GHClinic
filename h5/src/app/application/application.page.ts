@@ -78,6 +78,8 @@ export class ApplicationPage extends AppBase {
   }
 
 
+ 
+
   successfulRegistration(){
     var id=this.id;
     var xingming=this.xingming;
@@ -90,11 +92,14 @@ export class ApplicationPage extends AppBase {
       this.toast("请输入手机号");
       return;
     }
+   
     var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
     if (!myreg.test(shoujihao)) {
       this.toast("手机号格式不正确");
       return
     }
+   
+    
 
 
     var api=this.activityApi;

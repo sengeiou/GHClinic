@@ -17,7 +17,7 @@
                 <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
             </div>
             <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
-            <div class="f16 txt-white margin-left-200">活动详情</div>
+            <div class="f16 txt-white margin-left-190">活动详情</div>
            
         </div>
     </div>
@@ -52,7 +52,7 @@
       <div class="p3"></div>
       <div class="p4">本次报名人数限制：{{activity.xianzhi}}人</div>
       <div class="p4">{{activity.appnotes}}</div>
-      <div class="height-90"></div>
+      <div class="height-100"></div>
 
 
     </div>
@@ -61,6 +61,10 @@
 <div class="div1 flex-row flex-center" *ngIf="show==true">
     <div class="p6">{{activity.price==0?'免费':'￥'+activity.price+'.00'}}</div>
     <div class="p7" (click)="application(activity.id)">我要报名</div>
+</div>
+<div class="div1 flex-row flex-center" *ngIf="show==false">
+    <div class="p6">{{activity.price==0?'免费':'￥'+activity.price+'.00'}}</div>
+    <div class="p7">报名已过期</div>
 </div>
 
 

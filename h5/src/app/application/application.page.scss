@@ -103,17 +103,21 @@
     color: #8a8a8a;
     margin-left: rpx(30)
 }
+.p9{
+  width: rpx(350*2);
+  margin-top:rpx(10)
+}
 .div4{
     // height: rpx(300);
     background-color:rgba($color: #aaaaaa, $alpha: 0.2); 
     padding-top: rpx(10);
-    height: 50%;
+    // height: 50%;
 }
 .p4{
   width: rpx(150*2);
   height: rpx(90);
-  background-color:  #6b3689;
-  color:white;
+  background-color:  #aaaaaa;
+  color:black;
   text-align: center;
   // margin-top: rpx(300);
   font-size: rpx(32);
@@ -142,5 +146,8 @@ select{
 
 .yanse{
   color: #b9b9b9
+}
+.margin-left-190{
+  margin-left:rpx(190)
 }
 

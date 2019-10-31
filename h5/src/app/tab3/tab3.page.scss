@@ -134,7 +134,7 @@ img{
 .margin-tl{
   text-decoration:line-through;
   color: #bfbfbf;
-  margin-top:rpx(-30);
+  margin-top:rpx(-20);
   margin-left: rpx(10)
 }
 .ion-card2{
@@ -145,10 +145,20 @@ img{
   width: rpx(120*2);
   height: rpx(98*2);
   border-radius: rpx(20);
+  // margin-top:rpx(30)
 }
 .div4{
-  margin-top: rpx(35);
-  margin-left: rpx(30)
+  margin-top: rpx(30);
+  margin-left: rpx(30);
+  width:rpx(181*2)
+}
+
+.line{
+  overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
 }
 
 .img3{
