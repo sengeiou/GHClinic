@@ -7,11 +7,13 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { HospitalApi } from 'src/providers/hospital.api';
 
 @Component({
   selector: 'app-clinic',
   templateUrl: './clinic.page.html',
   styleUrls: ['./clinic.page.scss'],
+  providers:[HospitalApi,MemberApi]
 })
 export class ClinicPage extends AppBase {
 
@@ -22,18 +24,31 @@ export class ClinicPage extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi: MemberApi) {
+    public memberApi: MemberApi,
+    public hospitalApi:HospitalApi
+    ) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-
+      this.info={};
   }
   
   onMyLoad() {
     //参数
     this.params;
   }
+  bannerlist=[];
+  departmentlist=[];
+  info=null;
   onMyShow() {
-   
+   this.hospitalApi.bannerlist({hospital_id:this.params.hospital_id}).then((bannerlist)=>{
+     this.bannerlist=bannerlist;
+   });
+   this.hospitalApi.department({hospital_id:this.params.hospital_id}).then((departmentlist)=>{
+     this.departmentlist=departmentlist;
+   });
+   this.memberApi.hospitalinfo({id:this.params.hospital_id}).then((info)=>{
+     this.info=info;
+   })
   }
 
 

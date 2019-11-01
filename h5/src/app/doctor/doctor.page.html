@@ -26,9 +26,9 @@
       <div [style.background-image]="'url('+uploadpath+'resource/'+res.beijing+')'" class="height-180">
         <div [style.background-image]="'url('+uploadpath+'resource/'+res.doctor+')'" class="height-180">
           <div class="margin-left-360 margin-top-50 padding-top-50">
-            <div style="color: #11838D;" class="f18">董娜</div>
-            <div class="f18 txt-black margin-top">中山大学第一附属医院</div>
-            <div class="f16 txt-white biaoqian margin-top">主任医生</div>
+            <div style="color: #11838D;" class="f18">{{doctorinfo.name}}</div>
+            <div class="f18 txt-black margin-top">{{doctorinfo.hospital}}</div>
+            <div class="f16 txt-white biaoqian margin-top">{{doctorinfo.title}}</div>
           </div>
         </div>
       </div>

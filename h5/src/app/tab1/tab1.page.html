@@ -27,7 +27,7 @@
     <div class="margin-left-40">
 
 
-      <div  (click)="xz=item.id;hospital(item)"  *ngFor='let item of department;let idx=index' style="display:inline-block;" class="margin-left-70 margin-top-150">
+      <div  (click)="hospital(item)"  *ngFor='let item of department;let idx=index' style="display:inline-block;" class="margin-left-70 margin-top-150">
         <div>
           <img src='{{uploadpath}}department/{{item.img}}' class="icon-60" />
         </div>
@@ -49,12 +49,12 @@
     </div>
 
     
-    <div class="margin-top-150">
+    <div class="margin-top-150" *ngIf="item!=null" id="hostlist">
       <div>
         <div class="txt-black f16 txt-bold margin-left-30">预约诊所</div>
         <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar"/>
       </div>
-      <div  *ngFor="let item of hostlist;let i=index;"  (click)="information(item.hospital_id)" >
+      <div  *ngFor="let item of hostlist;let i=index;"  (click)="information(item.id)" >
         <div class="margin-top-30">
           <ion-card class="card1"  [style.background-image]="'url('+uploadpath+'hospital/'+item.fmtupian+')'"></ion-card>
         </div>
@@ -75,157 +75,6 @@
 
 
 
-
-
-
-
-
-
-    <!-- <div class="container-fluid mt-5 marginTop">
-
-      <div>
-      
-            <div class="tabbody padding-20 ">
-              <div class=" primary-block  text-white ">
-                <div class="flex-row flex-center ">
-                  <div class="h3 padding-20" (click)="addMonth(-1)">
-                    <i class="fa fa-angle-left"></i>
-                  </div>
-                  <div class="flex-1 text-center">{{myear}}年{{mmonth}}月</div>
-                  <div class="h3 padding-20" (click)="addMonth(1)">
-                    <i class="fa fa-angle-right "></i>
-                  </div>
-                </div>
-              </div>
-              <div class="flex-row  primary-block  text-white">
-                <div class="flex-1 h6 txt-bold padding-20 text-center">日</div>
-                <div class="flex-1 h6 txt-bold padding-20 text-center">一</div>
-                <div class="flex-1 h6 txt-bold padding-20 text-center">二</div>
-                <div class="flex-1 h6 txt-bold padding-20 text-center">三</div>
-                <div class="flex-1 h6 txt-bold  padding-20 text-center">四</div>
-                <div class="flex-1 h6 txt-bold padding-20 text-center">五</div>
-                <div class="flex-1 h6 txt-bold padding-20 text-center">六</div>
-              </div>
-              <div class="flex-row " *ngFor="let w of mcal">
-                <div class="flex-1" *ngFor="let d of w;let i=index;">
-                  <div class="mdate padding-20 text-center" (click)='asd(d,i)' [class.issat]="i==6"  [class.xzrq]='d.d==xzrq&&d.f==xzy' [class.pass]='d.pass==true' [class.today]='d.today==true'>
-                    <div class=" ">{{d.today?"今":d.d}}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-         
-        
-     
-      </div>
-    
-    
-    </div>
-    
-    <div>
-        <p class="p1"></p>
-        <p class="p2">服务类别</p>
-        <div  class="flex-row flex-center flex-wrap marginTop">
-
-          <div  (click)="xz=item.id;hospital(item.name)"  [class.lbxz]='xz==item.id' *ngFor='let item of department;let idx=index' class="lb" >{{item.name}}</div>
-          <div  (click)="xz=-1;hospital('体检')" [class.lbxz]='xz==-1' class="lb" >体检</div>
-        </div>
-    
-       
-        
-    </div>
-    <div  *ngIf="xz!=-1">
-        <p class="p1"></p>
-        <p class="p2">预约诊所</p>
-        <ion-card  *ngFor="let item of hostlist;let i=index;"  (click)="information(item.hospital_id)">
-            <div>
-              <div class="div1">
-                <img src='{{uploadpath}}hospital/{{item.hospital_fmtupian}}'/>
-              </div>
-              <div class="div1">
-                <ion-card-title>{{item.hospital_name}}</ion-card-title>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <p style="margin-top: 0">
-                    <ion-icon name="call"></ion-icon>
-                    <span style="color:#aaaaaa;">&nbsp;&nbsp;{{item.hospital_phone}}</span>
-                </p>
-              </div> 
-              <div class="flex-row flex-center margin-left-20" style="clear: both;">
-                <div>
-                  <ion-icon name="compass" class="ion-icon2"></ion-icon>
-                </div>
-                <div class="span7">{{item.hospital_address}}</div>
-              </div>
-            </div>
-          
-        </ion-card>
-        
-   
-
-      </div>
-      <div *ngIf="xz==-1">
-        <p class="p1"></p>
-        <p class="p2">预约诊所</p>
-        <ion-card  *ngFor="let item of hostlist;let i=index;"  (click)="tijian(item)">
-            <div>
-              <div class="div1">
-                <img src='{{uploadpath}}hospital/{{item.fmtupian}}'/>
-              </div>
-              <div class="div1">
-                <ion-card-title>{{item.name}}</ion-card-title>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <p style="margin-top: 0">
-                    <ion-icon name="call"></ion-icon>
-                    <span style="color:#aaaaaa;">&nbsp;&nbsp;{{item.phone}}</span>
-                </p>
-              </div> 
-              <div class="flex-row flex-center margin-left-20" style="clear: both;">
-                <div>
-                  <ion-icon name="compass" class="ion-icon2"></ion-icon>
-                </div>
-                <div class="span7">{{item.address}}</div>
-              </div>
-            </div>
-          
-        </ion-card>
-        
-   
-
-      </div>       -->
-
-
-
-    <!-- <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>Resources</ion-label>
-      </ion-list-header>
-      <ion-item href="https://ionicframework.com/docs/">
-        <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Ionic Documentation</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
-        <ion-icon slot="start" color="medium" name="build"></ion-icon>
-        <ion-label>Scaffold Out Your App</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/layout/structure">
-        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-        <ion-label>Change Your App Layout</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/theming/basics">
-        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
-        <ion-label>Theme Your App</ion-label>
-      </ion-item>
-    </ion-list> -->
-   
 </ion-content>
 
 
