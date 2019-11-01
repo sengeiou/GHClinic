@@ -95,7 +95,7 @@
 
 
 
-        <ion-card *ngIf="item.status=='F'" class="height-320" (click)="orderComplete(item.id)">
+        <ion-card *ngIf="item.status=='F'||item.status=='G'" class="height-320" (click)="orderComplete(item.id)">
           <div class="margin-left-30 margin-top-30">
             <div class="flex-row flex-center">
               <div class="h5 txt-black">{{item.submit_time_formatting}}</div>
@@ -193,18 +193,18 @@
       <ion-card *ngIf="item.status=='F'" class="height-320" (click)="orderComplete(item.id)">
         <div class="margin-left-30 margin-top-30">
           <div class="flex-row flex-center">
-            <div class="h5 txt-black">2019/8/27 11：30</div>
+            <div class="h5 txt-black">{{item.submit_time_formatting}}</div>
             <div class="h5 margin-left-360" style="color: #11838D">已完成</div>
           </div>
-          <div *ngFor="let orders of item.orders" class="flex-row flex-center margin-top-20">
+          <div *ngFor="let orders of item.orders" class="flex-row flex-center margin-top-30">
             <div>
-              <img alt="" class="icon-60" />
+              <img  src="{{uploadpath}}drugs/{{orders.drugsphoto}}"alt="" class="icon-60" />
             </div>
-            <div class="f16 txt-black margin-left-30">XXXXXXXXX</div>
-            <div class="f16 txt-black margin-left-260">x1</div>
+            <div class="f16 txt-black margin-left-30">{{orders.drugsname}}</div>
+            <div class="f16 txt-black margin-left-260">x{{orders.num}}</div>
           </div>
           <div class="flex-row flex-center">
-            <div class="h5 txt-black">共1件，合计：￥288.0</div>
+            <div class="h5 txt-black">共{{item.orders.length}}件，合计：￥{{item.amount}}</div>
             <div class="f12 border-pg text-center margin-left-260" style="color: #F7555A">去评价</div>
           </div>
         </div>

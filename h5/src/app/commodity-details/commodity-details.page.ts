@@ -33,7 +33,7 @@ export class CommodityDetailsPage extends AppBase {
   }
 
   drugsinfo = null;
-
+  pinlun=[];
   onMyLoad() {
     //参数
     this.params;
@@ -48,6 +48,13 @@ export class CommodityDetailsPage extends AppBase {
       this.drugsinfo = drugsinfo;
       console.log(drugsinfo)
     })
+   api.pinlun({drugs_id:this.params.id}).then((pinlun)=>{
+      this.pinlun=pinlun;
+      console.log(pinlun);  
+
+
+   })
+
   }
   addcart() {
     

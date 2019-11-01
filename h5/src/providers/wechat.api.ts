@@ -44,8 +44,8 @@ export class WechatApi {
     }
 
 
-    public notify4(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'wechat/notify4';
+    public notify(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'wechat/notify';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -57,7 +57,7 @@ export class WechatApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('wechat/notify4', data, res)) {
+                if (ApiConfig.DataLoadedHandle('wechat/notify', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -73,7 +73,7 @@ export class WechatApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('wechat/notify4', data, err);
+                return ApiConfig.ErrorHandle('wechat/notify', data, err);
             });
     }
 

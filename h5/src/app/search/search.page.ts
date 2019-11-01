@@ -7,11 +7,13 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { MarketApi } from 'src/providers/market.api';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.page.html',
   styleUrls: ['./search.page.scss'],
+  providers:[MarketApi]
 })
 export class SearchPage extends AppBase {
 
@@ -19,6 +21,7 @@ export class SearchPage extends AppBase {
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
+    public marketApi:MarketApi,
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
@@ -33,12 +36,17 @@ export class SearchPage extends AppBase {
     this.params;
   }
   onMyShow() {
+    var api=this.marketApi;
+     api.keywordlist(()=>{
+
+      
+     })
    
   }
 
-  searchDrugs(){
-    this.navigate("search-drugs")
-  }
+  // searchDrugs(){
+  //   this.navigate("search-drugs")
+  // }
 
   
 

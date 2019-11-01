@@ -6,61 +6,50 @@
     </ion-title>
     <ion-icon name="close" slot="end" class="icon-24"></ion-icon>
   </ion-toolbar> -->
-  <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
+  <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg"></div>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="orderinfo!=null">
   <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
     <div class="flex-row flex-center margin-left-30">
-        <div  (click)="back()">
-            <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
-        </div>
-        <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
-        <div class="f16 txt-white margin-left-160">评价</div>
+      <div (click)="back()">
+        <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+      </div>
+      <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
+      <div class="f16 txt-white margin-left-160">评价</div>
     </div>
   </div>
-  <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
-    <div class="card">
+  <div style="background: #0F848D;width: 100%;" class="height-40"></div>
+  <div class="card">
+
+    <div *ngFor="let  item of  orderinfo.orders">
 
       <div class="flex-row flex-center border-bottom padding-bottom-15">
         <div>
-          <img alt="" class="icon-40 margin-left-40" />
+          <img src="{{uploadpath}}drugs/{{item.photo}}" class="icon-40 margin-left-40" />
         </div>
-        <div class="h5 txt-black margin-left-20">999感冒灵颗粒</div>
+        <div class="h5 txt-black margin-left-20">{{item.name}}</div>
       </div>
 
 
       <div class="flex-row flex-center margin-top-30">
         <div>
-          <img alt="" class="icon-20 margin-left-40" />
+          <img src="{{uploadpath}}resource/{{res.bj}}" class="icon-20 margin-left-40" />
         </div>
-        <div class="h5 txt-black margin-left-20">请对商品进行评价，说说它的优点和美中不足。</div>
+        <textarea  [(ngModel)]="item.beizhu" class="h5 txt-black margin-left-20"></textarea>
       </div>
 
-
-
-      <div class="flex-row flex-center border-bottom padding-bottom-15 margin-top-75">
-          <div>
-            <img alt="" class="icon-40 margin-left-40" />
-          </div>
-          <div class="h5 txt-black margin-left-20">艾附暖宫丸</div>
-        </div>
-  
-  
-        <div class="flex-row flex-center margin-top-30">
-          <div>
-            <img alt="" class="icon-20 margin-left-40" />
-          </div>
-          <div class="h5 txt-black margin-left-20">请对商品进行评价，说说它的优点和美中不足。</div>
-        </div>
-
-
-
-        <div class="f16 txt-white line-height-48 bc height-96 text-center" style="position: absolute;bottom:0;width:100%">提交发布</div>
-
-
-
     </div>
- 
+
+
+
+
+    <div  (click)="tijiao()" class="f16 txt-white line-height-48 bc height-96 text-center" style="position: absolute;bottom:0;width:100%">
+      提交发布</div>
+
+
+
+  </div>
+
 
 </ion-content>

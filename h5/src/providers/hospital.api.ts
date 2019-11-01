@@ -3,15 +3,15 @@ import { Http } from '@angular/http';
 import { RequestOptions } from '@angular/http';
 import { ApiConfig } from '../app/api.config'
 @Injectable()
-export class WenzhangApi {
+export class HospitalApi {
 
     constructor(public http: Http) {
 
     }
 
 
-    public getwenzhang(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'wenzhang/getwenzhang';
+    public bannerlist(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'hospital/bannerlist';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -23,7 +23,7 @@ export class WenzhangApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('wenzhang/getwenzhang', data, res)) {
+                if (ApiConfig.DataLoadedHandle('hospital/bannerlist', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -39,13 +39,13 @@ export class WenzhangApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('wenzhang/getwenzhang', data, err);
+                return ApiConfig.ErrorHandle('hospital/bannerlist', data, err);
             });
     }
 
 
-    public getwenzhangtype(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'wenzhang/getwenzhangtype';
+    public department(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'hospital/department';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -57,7 +57,7 @@ export class WenzhangApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('wenzhang/getwenzhangtype', data, res)) {
+                if (ApiConfig.DataLoadedHandle('hospital/department', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -73,7 +73,7 @@ export class WenzhangApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('wenzhang/getwenzhangtype', data, err);
+                return ApiConfig.ErrorHandle('hospital/department', data, err);
             });
     }
 
