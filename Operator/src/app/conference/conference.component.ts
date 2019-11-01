@@ -37,7 +37,7 @@ export class ConferenceComponent extends AppBase {
   }
 
 
-  showtype = 3;//1聊天记录，2病人信息，3.设置
+  showtype = 1;//1病人信息，2聊天记录，3.设置
 
   setting = 1;
 
@@ -71,6 +71,7 @@ export class ConferenceComponent extends AppBase {
 
   onMyShow() {
     this.orderApi.info({ id: this.params.order_id }).then((orderinfo: any) => {
+      console.log(orderinfo,'ppp')
       this.orderinfo = orderinfo;
       this.doctorApi.info({ id: orderinfo.doctor_id }).then((doctorinfo: any) => {
         this.doctorinfo = doctorinfo;
@@ -104,7 +105,8 @@ export class ConferenceComponent extends AppBase {
         }
       });
     },5000);
-
+    this.orderApi.start({order_id: this.params.order_id}).then(()=>{
+    })
   }
   onUnload(){
     if(this.timeinterval!=null){
@@ -168,11 +170,12 @@ export class ConferenceComponent extends AppBase {
         }
       }, (info) => {
         // info { stream }
-        var stream = info.stream;
-        // localvideo.srcObject = stream;
-        // localvideo.onloadedmetadata = function (e) {
-        //   localvideo.play();
-        // };
+        // var stream = info.stream;
+        //  localvideo.srcObject = stream;
+        //  localvideo.onloadedmetadata = function (e) {
+        //    localvideo.play();
+        //  };
+        that.mystream=info.stream;
 
         var meter = WebRTCAPI.SoundMeter({
           stream: info.stream,
@@ -187,6 +190,7 @@ export class ConferenceComponent extends AppBase {
 
 
           rtc.on('onLocalStreamAdd', function (data) {
+            //alert(data);
             if (data && data.stream) {
               var stream = data.stream;
               localvideo.srcObject = stream;
@@ -243,7 +247,14 @@ export class ConferenceComponent extends AppBase {
     })
   }
 
-
+  determine(){
+    console.log(this.params.order_id,'ppp')  
+    this.orderApi.end({order_id: this.params.order_id}).then((ret)=>{
+      if(ret){
+        this.navigate("/todayorderlist");
+      }
+    })
+  }
 
   loadDevice() {
     navigator.mediaDevices.enumerateDevices()

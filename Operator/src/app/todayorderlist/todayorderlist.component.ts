@@ -69,14 +69,15 @@ export class TodayorderlistComponent extends AppBase {
   }
 
   loadClock(){
-    console.log("reloading t1",(new Date()));
+    // console.log("reloading t1",(new Date()));
     this.clock=AppUtil.FormatDateTime(new Date());
   }
   loadOrder(){
-    console.log("reloading t2",(new Date()));
+    // console.log("reloading t2",(new Date()));
     var that=this;
     
     that.operatorApi.todayorderlist({}).then((list:[any])=>{
+      console.log(list,'list')
       var orderA=[];
       var orderB=[];
       var orderC=[];
@@ -105,9 +106,13 @@ export class TodayorderlistComponent extends AppBase {
         that.orderD=orderD;
         that.orderE=orderE;
         that.orderF=orderF;
+        that.orders = that.orderA
+       console.log(that.orderA,'oooooo')
+       console.log(this.isA(item),'ppp')
       }
-
+    
     });
+  
   }
 
   isA(item){
@@ -158,7 +163,71 @@ export class TodayorderlistComponent extends AppBase {
   }
 
   gotoConference(order){
-    this.navigate("/conference",{order_id:order.id});
+    console.log(order)
+    if(order.orderstatus=='A'){
+      this.navigate("/conference",{order_id:order.id});
+    }
+  }
+  orders=[]
+  waiting(e){
+    console.log(e,'e')
+    var current = e.target
+    current.classList.add('btn-active')
+    var others = e.target.parentElement.childNodes
+    for(let i=0;i<others.length;i++){
+      if(current!=others[i]){
+        others[i].classList.remove('btn-active')
+      }
+    }
+    this.orders = this.orderA
+
+  }
+
+  progress(e){
+    var current = e.target
+    current.classList.add('btn-active')
+    var others = e.target.parentElement.childNodes
+    for(let i=0;i<others.length;i++){
+      if(current!=others[i]){
+        others[i].classList.remove('btn-active')
+      }
+    }
+    this.orders = this.orderB
+  }
+
+  over(e){
+    var current = e.target
+    current.classList.add('btn-active')
+    var others = e.target.parentElement.childNodes
+    for(let i=0;i<others.length;i++){
+      if(current!=others[i]){
+        others[i].classList.remove('btn-active')
+      }
+    }
+    this.orders = this.orderC
+  }
+
+  pass(e){
+    var current = e.target
+    current.classList.add('btn-active')
+    var others = e.target.parentElement.childNodes
+    for(let i=0;i<others.length;i++){
+      if(current!=others[i]){
+        others[i].classList.remove('btn-active')
+      }
+    }
+    this.orders = this.orderD
+  }
+
+  all(e){
+    var current = e.target
+    current.classList.add('btn-active')
+    var others = e.target.parentElement.childNodes
+    for(let i=0;i<others.length;i++){
+      if(current!=others[i]){
+        others[i].classList.remove('btn-active')
+      }
+    }
   }
 
 }

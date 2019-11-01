@@ -50,6 +50,7 @@ export class CommodityDetailsPage extends AppBase {
     })
   }
   addcart() {
+    
     var api = this.dindanApi;
 
     api.addgouwuche({ drugs_id: this.params.id, num: 1, selected: 'N', status: 'A' }).then((res) => {
@@ -58,7 +59,6 @@ export class CommodityDetailsPage extends AppBase {
         
     })
         
-
   }
 
  

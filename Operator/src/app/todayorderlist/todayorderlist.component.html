@@ -9,7 +9,55 @@
       {{clock}}
     </div>
   </div>
-  <div class="padding-20 bg-white">
+
+  <div class="margin-top-20 bg-white padding-20 flex-row" style="width: 100%">
+    <div class=" btns btn-active" (click)='waiting($event)'> 待会诊 </div>
+    <div class=" btns" (click)='progress($event)'> 会诊中</div>
+    <div class=" btns" (click)='over($event)'>已结束</div>
+    <div class=" btns" (click)='pass($event)'>已过号</div>
+    <div class="btns" (click)='all($event)'> 全部</div>
+  </div>
+
+
+  <div class="margin-10 " style="width: 100%;">
+           
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead class="text-center" style="background: #D2D2D2;">
+              <tr>
+                <th>是否支付</th>
+                <th>预约时间</th>
+                <th>姓名</th>
+                <th>电话</th>
+                <th>科室</th>
+                <th>医生信息</th>
+                <th>状态</th>
+                <!-- <th>操作</th> -->
+              </tr>
+          </thead>
+          <tbody class="h5 text-center">
+              <tr *ngFor='let item of orders'>
+                 <td>{{item.ispay_name}}</td>
+                 <td>{{item.schedule_id_name}}</td>
+                 <td>{{item.patientname}}</td>
+                 <td>{{item.photo}}</td>
+                 <td>{{item.department_id_name}}</td>
+                 <td>{{item.doctor_id_name}}</td>
+                 <td (click)="gotoConference(item)" style="cursor: pointer;">
+                   <div *ngIf='item.orderstatus=="A"' style="color:#2850C3">{{item.orderstatus_name}}</div>
+                   <div *ngIf='item.orderstatus=="B"' style="color:#FF9800">{{item.orderstatus_name}}...</div>
+                   <div *ngIf='item.orderstatus=="C"'>{{item.orderstatus_name}}</div>
+                   <div *ngIf='item.orderstatus=="D"' style="color:#8A8A8A">{{item.orderstatus_name}}</div>
+                  </td>
+              </tr>
+              
+          </tbody>
+      </table>
+    </div>
+                   
+  </div>
+
+  <!-- <div class="padding-20 bg-white">
     <div class="flex-row">
       <div class="flex-1  colA">
         <div class="ordertitle orderA">待会诊</div>
@@ -184,5 +232,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
