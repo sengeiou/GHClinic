@@ -12,13 +12,15 @@
 
 <ion-content>
     <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
-        <div class="flex-row flex-center margin-left-30">
-            <div class="marginTop" (click)="back()">
+        <div class="" style="text-align: center;"><div class="f16 txt-white ">确认报名</div></div>
+            <div class="flex-row flex-center margin-left-30 mt">
+              <div class="mtt" (click)="back()">
                 <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+              </div>
+              <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
             </div>
-            <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
-            <div class="f16 txt-white margin-left-190">确认报名</div>
-        </div>
+            
+     
     </div>
     <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
     <div class="card">
@@ -53,7 +55,7 @@
       <span class="span1 flex-1">联系方式</span>
       <input class="span5" placeholder="请输入手机号码" [value]='shoujihao' (change)='shoujihao=$event.target.value;' maxlength="11" />
   </div>
-  <div class="div4" style="height: 70%;">
+  <div class="div4" style="height: 80%;">
       <div class="p3 margin-top">注意事项：</div>
       <div class="p3 p9">{{activity.show}}</div>
       

@@ -42,7 +42,6 @@ export class ActivityDetailsPage extends AppBase {
   }
   onMyShow(){
     this.getactivityinfo();
-
   }
  
   getactivityinfo(){
@@ -56,8 +55,10 @@ export class ActivityDetailsPage extends AppBase {
         console.log(aT)
         if(nT-aT<=0){
           this.show=true;
+          console.log(activity.activityTime);
         }else{
           this.show=false;
+          console.log(activity.activityTime);
         }
        
       }

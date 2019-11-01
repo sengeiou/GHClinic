@@ -16,47 +16,47 @@
       <div class="marginTop" (click)="back()">
         <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
       </div>
-      <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
-      <div class="f16 txt-white margin-left-160">购物车</div>
-      <div class="h5 txt-white margin-left-300" (click)="clinic()">编辑</div>
+     
+      <div class="f18 txt-white margin-left">购物车</div>
 
 
   
 
     </div>
   </div>
+
   <div style="background: #0F848D;width: 100%;" class="height-40"></div>
   <div class="card">
     <ion-card *ngFor="let item of gouwuchelist" class="card1 flex-row flex-center">
       <div class="flex-1"></div>
-      <div class="icon-24 " (click)="item.selected_value='N';quxiao(item)" *ngIf="item.selected_value=='Y'">
+      <div class="icon-24 ml" (click)="item.selected_value='N';quxiao(item)" *ngIf="item.selected_value=='Y'">
 
         <img class="icon-24 " src="{{uploadpath}}resource/{{res.xuanzhon}}">
       </div>
 
-      <div class="icon-24 " (click)="item.selected_value='Y';xuanze(item)" *ngIf="item.selected_value=='N'">
+      <div class="icon-24 ml" (click)="item.selected_value='Y';xuanze(item)" *ngIf="item.selected_value=='N'">
 
         <img class="icon-24 " src="{{uploadpath}}resource/{{res.weixuanzhon}}">
       </div>
-      <div class="icon-90  margin-left-20">
+      <div class="icon-90 br margin-left-20 margin-top-40">
 
         <img src="{{uploadpath}}drugs/{{item.drugs_photo}}">
 
       </div>
-      <div class="margin-left-20 marginTop">
+      <div class="margin-left-20 margin-top-30">
         <div class="f16 txt-black txt-bold">{{item.drugs_name}}</div>
         <div class="h5 txt-gg margin-top-30">规格：{{item.drugs_guige}}</div>
         <div class="flex-row flex-center margin-top-40">
           <div class="f16 txt-bold " style="color: #F7555A">￥{{item.drugs_price}}</div>
-          <div class="flex-row flex-center margin-left-50">
-            <div (click)="jian(item)" class="h5 txt-black icon-24 border-bw border-lr text-center line-height-24"
+          <div class="flex-row flex-center margin-left-70 z" >
+            <div (click)="jian(item)" class="h5 txt-black icon-24 border-lr  text-center line-height-24"
               style="background-color:#F5F7FA">
               -
             </div>
             <div class="h5 txt-black border-bt text-center">
               {{item.num}}
             </div>
-            <div (click)="jia(item)" class="h5 txt-black icon-24 border-bw border-rr text-center line-height-24"
+            <div (click)="jia(item)" class="h5 txt-black icon-24 border-rr  text-center line-height-24"
               style="background-color:#F5F7FA">
               +
             </div>
@@ -89,7 +89,7 @@
 
 
 
-      <div class="txt-white f16 margin-left-100">合计：￥{{zonjia}}</div>
+      <div class="txt-black f16 margin-left-100">合计：￥{{zonjia}}</div>
 
     </div>
     <div class="d2 text-center txt-white f16" (click)="order()">
