@@ -82,19 +82,19 @@
     font-size: rpx(32);
     color: black;
     border:none;
-    margin-right:rpx(70);
+    margin-right:rpx(30);
     outline: none;
     text-align: right
   }
   .span4{
     font-size: rpx(32);
-    margin-left: rpx(320);
+    margin-left: rpx(360);
   }
   .span5{
     font-size: rpx(32);
     color: black;
     border:none;
-    margin-right:rpx(70);
+    margin-right:rpx(30);
     outline: none;
     text-align: right
   }
@@ -150,4 +150,9 @@ select{
 .margin-left-190{
   margin-left:rpx(190)
 }
-
+.mt{
+  margin-top:rpx(-39);
+}
+.mtt{
+  margin-top:rpx(-4);
+}

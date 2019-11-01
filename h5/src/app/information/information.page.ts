@@ -25,10 +25,10 @@ export class InformationPage extends AppBase {
     public memberApi: MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-
+    this.hospital = {};
   }
 
-  zhankai=false;
+  zhankai = false;
   mdate: Date = new Date();
   myear = "";
   mmonth = "";
@@ -56,22 +56,22 @@ export class InformationPage extends AppBase {
   qiansantian = [];
   housantian = [];
   jintian = null;
-  xzdate=null;
-  yiyuanid=null;
-  fuwuleibie=null;
-  hospital=null;
-  hospitalinfo(){
-   
-   var api=this.memberApi;
-   api.hospitalinfo({id:this.params.yiyuanid}).then((hospital)=>{
-       console.log("hahah");
-       console.log(hospital);
-      this.hospital=hospital;
+  xzdate = null;
+  yiyuanid = null;
+  fuwuleibie = null;
+  hospital = null;
+  hospitalinfo() {
+
+    var api = this.memberApi;
+    api.hospitalinfo({ id: this.params.yiyuanid }).then((hospital) => {
+      console.log("hahah");
+      console.log(hospital);
+      this.hospital = hospital;
 
 
-   })
+    })
 
-  
+
 
   }
 
@@ -79,14 +79,14 @@ export class InformationPage extends AppBase {
     this.loadMonthCalendar();
     this.loadWeekCalendar();
     this.getdoctor();
-        this.hospitalinfo();
-      this.fuwuleibie=this.params.fuwuleibie;
-     
+    this.hospitalinfo();
+    this.fuwuleibie = this.params.fuwuleibie;
+
     var d = new Date(this.params.riqi);
 
-     
-    this.jintian = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d),date:d };
-    this.xzdate=this.jintian.date;
+
+    this.jintian = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d };
+    this.xzdate = this.jintian.date;
     this.qiansantian = this.getQianDay(this.params.riqi);
     console.log(this.qiansantian);
     this.housantian = this.getNextDay(this.params.riqi);
@@ -120,12 +120,12 @@ export class InformationPage extends AppBase {
   }
   clickdate(d) {
 
-    this.xzdate=d.date;
-  
+    this.xzdate = d.date;
+
   }
   getdoctor() {
     var api = this.memberApi;
-    api.getdoctor({}).then((doctorlist) => {
+    api.getdoctor({departmentname:this.params.fuwuleibie,hospital_id:this.params.yiyuanid,riqi:this.riqi}).then((doctorlist) => {
       console.log(doctorlist);
       this.doctorlist = doctorlist;
     })
@@ -134,12 +134,12 @@ export class InformationPage extends AppBase {
   //   this.navigate("doctor",{ riqi:this.xzdate,id:id,hospital: JSON.stringify(this.hospital)})
   // }
 
-  doctor() {
-    this.navigate("doctor");
+  doctor(id) {
+    this.navigate("doctor",{id:id,departmentname:this.params.fuwuleibie,hospital_id:this.params.yiyuanid,riqi:this.riqi});
   }
 
   clinic() {
-    this.navigate("clinic")
+    this.navigate("clinic",{hospital_id:this.params.yiyuanid})
   }
   getNextDay(d) {
     var qiansantian = [];
@@ -147,20 +147,20 @@ export class InformationPage extends AppBase {
     d = new Date(q).getTime();
     d = +d + 1000 * 60 * 60 * 24;
     d = new Date(d);
-    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d) ,date:d}
+    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
     qiansantian[0] = sdata;
 
     d = new Date(q).getTime();
     d = +d + 2000 * 60 * 60 * 24;
     d = new Date(d);
-    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d),date:d }
+    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
     qiansantian[1] = sdata;
 
 
     d = new Date(q).getTime();
     d = +d + 3000 * 60 * 60 * 24;
     d = new Date(d);
-    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d) ,date:d}
+    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
     qiansantian[2] = sdata;
 
 
@@ -175,20 +175,20 @@ export class InformationPage extends AppBase {
     d = new Date(q).getTime();
     d = +d - 1000 * 60 * 60 * 24;
     d = new Date(d);
-    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d),date:d }
+    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
     qiansantian[0] = sdata;
 
     d = new Date(q).getTime();
     d = +d - 2000 * 60 * 60 * 24;
     d = new Date(d);
-    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d),date:d }
+    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
     qiansantian[1] = sdata;
 
 
     d = new Date(q).getTime();
     d = +d - 3000 * 60 * 60 * 24;
     d = new Date(d);
-    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d),date:d }
+    var sdata = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d }
     qiansantian[2] = sdata;
 
 
@@ -200,21 +200,21 @@ export class InformationPage extends AppBase {
 
 
 
-  xzrq=null;
-  xzy=null;
-  riqi=null;
-  asd(d,i){
+  xzrq = null;
+  xzy = null;
+  riqi = "";
+  asd(d, i) {
     console.log("123123123");
-    if(d.pass==true)
-    {
-     return  
+    if (d.pass == true) {
+      return
     }
-    else{
-    console.log(d.sdate);
-    console.log(new(Date));
-    this.xzrq=d.d; 
-    this.xzy=d.f;
-    this.riqi=d.sdate;
+    else {
+      console.log(d.sdate);
+      console.log(new (Date));
+      this.xzrq = d.d;
+      this.xzy = d.f;
+      this.riqi = d.dt;
+      this.getdoctor();
     }
     console.log(d);
     console.log(i);
@@ -254,14 +254,13 @@ export class InformationPage extends AppBase {
         pass: sdatetime < nowtime,
         today: sdate.getFullYear() == now.getFullYear() && sdate.getMonth() == now.getMonth() && sdate.getDate() == now.getDate(),
         d: sdate.getDate(),
-        q:sdate.getMonth(),
+        q: sdate.getMonth(),
+        dt:AppUtil.FormatDate(AppUtil.FormatDateTime( sdate)),
         timeline: this.timeline(sdate)
       };
-      if(d.today)
-      {
-        this.xzrq=d.d; 
-      
-        this.riqi=d.sdate;
+      if (d.today) {
+        this.xzrq = d.d;
+        //this.riqi = d.dt;
       }
       wcal.push(d);
     }
@@ -322,13 +321,13 @@ export class InformationPage extends AppBase {
           pass: sdatetime < nowtime,
           today: sdate.getFullYear() == now.getFullYear() && sdate.getMonth() == now.getMonth() && sdate.getDate() == now.getDate(),
           d: sdate.getDate(),
-          f:sdate.getMonth()+1
+          dt:AppUtil.FormatDate(AppUtil.FormatDateTime( sdate)),
+          f: sdate.getMonth() + 1
         };
-        if(d.today)
-        {
-          this.xzrq=d.d; 
-          this.xzy=d.f;
-          this.riqi=d.sdate;
+        if (d.today) {
+          this.xzrq = d.d;
+          this.xzy = d.f;
+          //this.riqi = d.dt;
         }
         w.push(d);
       }

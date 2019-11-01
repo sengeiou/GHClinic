@@ -6,130 +6,105 @@
     </ion-title>
     <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
   </ion-toolbar> -->
-  <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
+  <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg"></div>
 </ion-header>
 
 <ion-content>
   <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
     <div class="flex-row flex-center margin-left-30">
-        <div  (click)="back()">
-            <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
-        </div>
-        <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
-        <div class="f16 txt-white margin-left-160">诊所主页</div>
+      <div (click)="back()">
+        <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+      </div>
+      <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
+      <div class="f16 txt-white flex-1 text-center">诊所主页</div>
     </div>
   </div>
-  <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
-      <div class="card">
+  <div style="background: #0F848D;width: 100%;" class="height-40"></div>
+  <div class="card">
 
 
 
-          <div id="carousel-example-generic" class="carousel slide div-360" data-ride="carousel">
-              <div class="carousel-inner" role="listbox">
-                 <div class="item active">
-                    1
-                 </div>
-                 <div class="item" >                  
-                    2
-                 </div>
-                 <div class="item">            
-                    3
-                 </div>
-               </div> 
-               <ol class="carousel-indicators">
-                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                 <li data-target="#carousel-example-generic" data-slide-to="1" class="margin-left-10"></li>
-                 <li data-target="#carousel-example-generic" data-slide-to="2" class="margin-left-10"></li>
-               </ol>        
-          </div>
-           
+    <ion-slides pager="true" [options]="slideOpts" class="div-360" *ngIf="bannerlist.length>0">
+      <ion-slide *ngFor="let item of bannerlist">
+        <img src="{{uploadpath}}hospitalbanner/{{item.img}}" />
+      </ion-slide>
+    </ion-slides>
 
 
 
 
 
 
-          <div class="flex-row flex-center margin-top-30" style="justify-content: center">
-            <img alt="" class="img1"/>
-            <div class="span1">港和医疗白云分部</div>
-            <img alt="" class="img1"/>
-          </div>
-          <p class="p1">
-              医疗服务
-          </p>
-          <p class="p2"></p>
-      <div>
-        <div class="div0">
-          <img alt="" class="img2"/>
-          <p class="p3">预约挂号</p>
-        </div>
-        <div class="div1">
-          <img alt="" class="img2"/>
-          <p class="p3">在线问诊</p>
-        </div>
-        <div class="div1">
-          <img alt="" class="img2"/>
-          <p class="p3">远程医疗</p>
-        </div>
-        <div class="div1">
-          <img alt="" class="img2"/>
-          <p class="p3">健康体检</p>
-        </div>
-        <div style="clear:both"></div>
-      </div>
-      <hr/>
-      </div>
-  
-  <div>
-      <p class="p1">
-          医疗团队
-      </p>
-      <p class="p2"></p>
 
-  
-        
-      <div class="flex-row margin-top-40 slidelist">
-        <div class="flex-row flex-center">
-          <div class="div2" (click)="doctor()">
-              <img alt="" class="img3"/>
-              <p class="p4">
-                <span class="span2">张XX</span>
-                <span class="span3">主任医师</span>
-              </p>
-              <p class="p5">擅长：发育、幼儿急诊、手足口病、疱疹性咽...</p>
-          </div>
-        </div>       
-      </div>
-             
-      <hr/>
-  </div>
-  <div>
-      <p class="p1">
-          诊所信息
-      </p>
-      <p class="p2"></p>
-      <p class="p6">营业时间：08：00-12：00/14：00-18：00</p>
-      <hr/>
-      <p class="p6">诊所电话：020-255888888</p>
-      <hr/>
-  <div>
-    <p class="p6" style="float: left">服务项目：</p>
-    <p class="p7" style="float: left">
-       一般体检，三高检测，内科，外科，耳鼻喉科，儿科，妇科，产科，呼吸科，消化科，骨科，项目内容后台管理员可自行编辑，项目内容后台管理员可自行编辑项目内容后台管理员可自行编辑......
+    <div class="flex-row flex-center margin-top-30" style="justify-content: center">
+      <img alt="" class="img1" />
+      <div class="span1">{{info.name}}</div>
+      <img alt="" class="img1" />
+    </div>
+    <p class="p1">
+      医疗服务
     </p>
-    <p style="clear: both;"></p>
-    <hr/>
+    <p class="p2"></p>
+    <div>
+      <div class="div0" *ngFor="let item of departmentlist">
+        <img alt="" class="img2" src="{{uploadpath}}department/{{item.img}}" />
+        <p class="p3">{{item.name}}</p>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+    <hr />
   </div>
+
+  <!-- <div>
+    <p class="p1">
+      医疗团队
+    </p>
+    <p class="p2"></p>
+
+
+
+    <div class="flex-row margin-top-40 slidelist">
+      <div class="flex-row flex-center">
+        <div class="div2" (click)="doctor()">
+          <img alt="" class="img3" />
+          <p class="p4">
+            <span class="span2">张XX</span>
+            <span class="span3">主任医师</span>
+          </p>
+          <p class="p5">擅长：发育、幼儿急诊、手足口病、疱疹性咽...</p>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+  </div> -->
+  <div>
+    <p class="p1">
+      诊所信息
+    </p>
+    <p class="p2"></p>
+    <p class="p6">营业时间：{{info.openning}}</p>
+    <hr />
+    <p class="p6">诊所电话：{{info.phone}}</p>
+    <hr />
+    <div>
+      <p class="p6" style="float: left">服务项目：</p>
+      <p class="p7" style="float: left">
+        {{info.servicedesc}}
+      </p>
+      <p style="clear: both;"></p>
+      <hr />
+    </div>
   </div>
   <div>
-      <p class="p1">
-          诊所地址
-      </p>
-      <p class="p2"></p>
-      <img alt="" class="img4"/>
-      <div class="flex-row flex-center margin-top">
-          <img alt="" class="compass"/>
-          <div class="address">广东省广州市白云区白云五路1111号港和大厦</div>
-      </div>
+    <p class="p1">
+      诊所地址
+    </p>
+    <p class="p2"></p>
+    <img alt="" class="img4" />
+    <div class="flex-row flex-center margin-top">
+      <img alt="" class="compass" />
+      <div class="address">{{info.address}}</div>
+    </div>
   </div>
 </ion-content>
