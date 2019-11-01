@@ -16,7 +16,8 @@
     position: absolute;
     z-index: 100;
     margin-left:-250px;
-    margin-top: calc( 100vh  - 340px )  
+    margin-bottom: calc( 100vh  - 340px )  ;
+    margin-top: 10px;
 }
 
 .menu{
@@ -31,6 +32,8 @@
     border-bottom-right-radius: 5px;
 }
 .menuopt{
+    width: 70px;
+    height: 62px;
     background: rgba(0,0,0,0.5 );
     color:white;
     font-size: 20px;
@@ -106,6 +109,20 @@
 }
 
 .jiuzhenxinxi {
-    width: 90%;
+    width: 80%;
+    height: 600px;
     background: #fff;
+    margin-left: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.padding-24 {
+    padding: 12.5px;
+}
+
+.images {
+    width: 109px;
+    height: 81px;
+    margin-right: 5px;
 }

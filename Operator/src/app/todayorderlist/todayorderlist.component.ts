@@ -164,7 +164,9 @@ export class TodayorderlistComponent extends AppBase {
 
   gotoConference(order){
     console.log(order)
-    this.navigate("/conference",{order_id:order.id});
+    if(order.orderstatus=='A'){
+      this.navigate("/conference",{order_id:order.id});
+    }
   }
   orders=[]
   waiting(e){
