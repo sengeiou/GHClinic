@@ -119,16 +119,33 @@ export class AppBase implements OnInit {
     onMyLoad() {
     }
     getInstInfo() {
+        console.log(454444);
         if (AppBase.InstInfo == null) {
-            AppBase.instapi.info({}, false).then((instinfo) => {
-                AppBase.InstInfo = instinfo;
-                this.InstInfo = instinfo;
-                console.log(instinfo);
+            console.log(123113131);
+            AppBase.instapi.info({}, false).then((InstInfo) => {
+                alert(0);
+                AppBase.InstInfo = InstInfo;
+                this.InstInfo = InstInfo;
+                console.log(InstInfo);
                 console.log("aaabbbccc", AppBase.STATICRAND);
-
+                if (this.params.code != undefined && this.params.state == AppBase.STATICRAND) {
+                    alert(1);
+                } else {
+                    alert(2);
+                    if (AppBase.MemberInfo == null||1==1) {
+                        var url = window.location.href;
+                        //url="http://yuyue.helpfooter.com/tabs/tab1";
+                        var redirecturl = encodeURIComponent(url);
+                        var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri=" + redirecturl + "&response_type=code&scope=snsapi_userinfo&state=" + AppBase.STATICRAND + "#wechat_redirect";
+                        console.log({ redurl });
+                        
+                        window.location.href=redurl;
+                    }
+                }
             });
         } else {
             this.InstInfo = AppBase.InstInfo;
+            //this.setWechatShare();
         }
     }
     getMemberInfo() {

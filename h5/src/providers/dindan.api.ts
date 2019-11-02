@@ -180,6 +180,40 @@ export class DindanApi {
     }
 
 
+    public pinjiashanpin(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'dindan/pinjiashanpin';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('dindan/pinjiashanpin', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('dindan/pinjiashanpin', data, err);
+            });
+    }
+
+
     public quxiaoorder(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'dindan/quxiaoorder';
         var headers = ApiConfig.GetHeader(url, data);
@@ -210,6 +244,40 @@ export class DindanApi {
                     ApiConfig.DimissLoadingModal();
                 }
                 return ApiConfig.ErrorHandle('dindan/quxiaoorder', data, err);
+            });
+    }
+
+
+    public yipinjia(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'dindan/yipinjia';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('dindan/yipinjia', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('dindan/yipinjia', data, err);
             });
     }
 

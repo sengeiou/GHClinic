@@ -21,32 +21,24 @@
     <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
         <div class="card">
             <div class="flex-row flex-center">
-              <div (click)="searchDrugs()">
-                  <input placeholder="搜索科室/药品名称"/>
+              <div >
+                  <input  [(ngModel)]="gjz " placeholder="搜索科室/药品名称"/>
                   <img src="{{uploadpath}}resource/{{res.sousuo}}" class="ion-icon1"/>
               </div>
-              <div class="cancel">取消</div>
+              <div (click)="sousuo()" class="cancel">确定</div>
             </div>
             <div class="flex-row flex-center margin-top-40">
               <div class="p1">搜索历史</div>
               <ion-icon name="trash" class="ion-icon2"></ion-icon>
             </div>
             <div></div>
-            <!-- <p>
+             <p>
                 <span class="span1">内科</span>
                 <span class="span2">艾附暖宫丸</span>
                 <span class="span2">妇科</span>
                 <span class="span2">男科</span>               
               </p>
-              <p>
-                  <span class="span1">布诺芬</span>
-                  <span class="span2">999感冒灵颗粒</span>
-                  <span class="span2">产科</span>
-                  <span class="span2">体检</span>
-                </p>
-                <p>
-                  <span class="span1">氨麻苯美片</span>
-                </p> -->
+          
         </div>
     
 </ion-content>
