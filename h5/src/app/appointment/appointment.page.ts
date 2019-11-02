@@ -106,7 +106,7 @@ export class AppointmentPage extends AppBase {
           if (res.code == 0) {
             this.navigate("successful-reservation",{id:res.return, hospital_id:  this.params.hospital_id});
           }else if(res.code=="233"){
-            var order_id=res.return["id"];
+            var order_id=res.return["order_id"];
             WeixinJSBridge.invoke(
                 'getBrandWCPayRequest', res.return,
                   (res) => {
