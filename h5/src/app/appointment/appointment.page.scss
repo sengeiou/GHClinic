@@ -1,140 +1,179 @@
 @function rpx($px) {
-    @return ($px * 100vw) / 750;
-  }
-.ion-icon{
-    height:rpx(24*2);
-    width:rpx(24*2)
+  @return ($px * 100vw) / 750;
 }
-.card{
-    background-color:white;    
-    border-top-left-radius: rpx(37);
-    border-top-right-radius: rpx(37);
-    padding-top: rpx(30);
-    margin-top:rpx(-40) 
-  }
-  .height-110{
-    height: rpx(110);
-  }
-  .height-40{
-    height: rpx(40);
-    margin-top:rpx(110);
-  }
-  .icon-32{
-    width:rpx(28);
-    height: rpx(28);
-    margin-top:rpx(30);
-  }
-  hr{
-    border: #aaaaaa solid rpx(0.01*2);
-    background-color: #aaaaaa;
-    opacity: 0.2;
-  }
-  .bg{
-    width:100%;
-    height:rpx(100);
-    background-size: cover;
-  }
-  .marginTop{
-    margin-top:rpx(-32)
-  }
-  .marginTop1{
-    margin-top:rpx(-10)
-  }
-  .marginTop2{
-    margin-top:rpx(-4)
-  }
-  .icon-10{
-    width:rpx(40);
-    height: rpx(40);
-    
-  }
-  .icon-5{
-    width:rpx(30);
-    height: rpx(30);
-    
-  }
-  .horizontalbar{
-    display: block;
-    margin-top:rpx(5);
-    width:rpx(50*2);
-    height:rpx(6);
-    margin-left:rpx(30);
-    // margin-bottom: rpx(-30);
-  }
-  .width-40{
-      width: rpx(40);
-  }
-  .p1{
-      font-size: rpx(32);
-      color:black;
-      margin-left: rpx(30)
-  }
-  .div1{
-    margin-top:rpx(30);
-    margin-bottom:rpx(30)
+
+
+@function px($px) {
+  @return ($px * 100vw) / 414;
 }
-.span1{
-    font-size: rpx(32);
-    color: black;
-    margin-left: rpx(30);
+
+.ion-icon {
+  height: rpx(24*2);
+  width: rpx(24*2)
 }
-.span2{
+
+.card {
+  background-color: white;
+  border-top-left-radius: rpx(37);
+  border-top-right-radius: rpx(37);
+  padding-top: rpx(30);
+  margin-top: rpx(-40)
+}
+
+.height-110 {
+  height: rpx(110);
+}
+
+.height-40 {
+  height: rpx(40);
+  margin-top: rpx(110);
+}
+
+.icon-32 {
+  width: rpx(28);
+  height: rpx(28);
+  margin-top: rpx(30);
+}
+
+hr {
+  border: #aaaaaa solid rpx(0.01*2);
+  background-color: #aaaaaa;
+  opacity: 0.2;
+}
+
+.bg {
+  width: 100%;
+  height: rpx(100);
+  background-size: cover;
+}
+
+.marginTop {
+  margin-top: rpx(-32)
+}
+
+.marginTop1 {
+  margin-top: rpx(-10)
+}
+
+.marginTop2 {
+  margin-top: rpx(-4)
+}
+
+.icon-10 {
+  width: rpx(40);
+  height: rpx(40);
+
+}
+
+.icon-5 {
+  width: rpx(30);
+  height: rpx(30);
+
+}
+
+.horizontalbar {
+  display: block;
+  margin-top: rpx(5);
+  width: rpx(50*2);
+  height: rpx(6);
+  margin-left: rpx(30);
+  // margin-bottom: rpx(-30);
+}
+
+.width-40 {
+  width: rpx(40);
+}
+
+.p1 {
+  font-size: rpx(32);
+  color: black;
+  margin-left: rpx(30)
+}
+
+.div1 {
+  margin-top: rpx(30);
+  margin-bottom: rpx(30)
+}
+
+.span1 {
+  font-size: rpx(32);
+  color: black;
+  margin-left: rpx(30);
+}
+
+.span2 {
   font-size: rpx(32);
   color: black;
   margin-left: rpx(500)
 }
-.span3{
-    font-size: rpx(32);
-    color: black;
-    margin-left: rpx(358) 
-}
-.div2{
-    height: rpx(120);
-    background-color:rgba($color: #aaaaaa, $alpha: 0.2); 
-    line-height: rpx(120)
-}
-.span4{
-    font-size: rpx(28);
-    color: #8a8a8a;
-    margin-left: rpx(20) 
-}
-.p2{
-    font-size: rpx(28);
-    color: #8a8a8a;
-    margin-left: rpx(30)
-}
-.img1{
-    height: rpx(140);
-    width: rpx(140);
-    margin-left: rpx(30)
-}
-.p3{
-    font-size: rpx(24);
-    color: #8a8a8a;
-    margin-left: rpx(30)
-}
-.div3{
-    height: rpx(300);
-    background-color:rgba($color: #aaaaaa, $alpha: 0.2); 
-    padding-top: rpx(10)
-}
-.p4{
-  
-    height: rpx(90);
-    background-color: #11838d;
-    color:white;
-    text-align: center;
-    line-height: rpx(90);
-    border-radius: rpx(10);
-    width: rpx(350*2);
-    position:fixed;
-    bottom:rpx(20)
+
+.span3 {
+  font-size: rpx(32);
+  color: black;
+  margin-left: rpx(358)
 }
 
-.icon-80{
-  width:rpx(80);
+.div2 {
+  height: rpx(120);
+  background-color: rgba($color: #aaaaaa, $alpha: 0.2);
+  line-height: rpx(120)
+}
+
+.span4 {
+  font-size: rpx(28);
+  color: #8a8a8a;
+  margin-left: rpx(20)
+}
+
+.p2 {
+  font-size: rpx(28);
+  color: #8a8a8a;
+  margin-left: rpx(30)
+}
+
+.img1 {
+  height: rpx(140);
+  width: rpx(140);
+  margin-left: rpx(30)
+}
+
+.p3 {
+  font-size: rpx(24);
+  color: #8a8a8a;
+  margin-left: rpx(30)
+}
+
+.div3 {
+  height: rpx(300);
+  background-color: rgba($color: #aaaaaa, $alpha: 0.2);
+  padding-top: rpx(10)
+}
+
+.p4 {
+
+  height: rpx(90);
+  background-color: #11838d;
+  color: white;
+  text-align: center;
+  line-height: rpx(90);
+  border-radius: rpx(10);
+  width: rpx(350*2);
+  position: fixed;
+  bottom: rpx(20)
+}
+
+.icon-80 {
+  width: rpx(80);
   height: rpx(80);
 }
+
 input::-webkit-input-placeholder {
   font-size: rpx(24);
+}
+
+.fileupload {
+  position: absolute;
+  background: red;
+  margin-top: px(-50);
+  opacity: 0;
 }

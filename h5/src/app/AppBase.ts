@@ -40,16 +40,20 @@ export class AppBase implements OnInit {
     public static Resources = null;
     public res = null;
     public static InstInfo = null;
-    public static MemberInfo=null;
-    public InstInfo = {h5sharelogo:"",h5sharetitle:"",h5sharedesc:"",tel:"", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
-    public MemberInfo = { avatarUrl: "", nickName: "",h5openid:"",unionid:"",name:''};
+    public static MemberInfo = null;
+    public InstInfo = {
+        orderlimit: 2, h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "",
+        h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "",
+        memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: ""
+    };
+    public MemberInfo = { avatarUrl: "", nickName: "", h5openid: "", unionid: "", name: '' };
     public static MYBABY = [];
     public mybaby = [];
     public options = null;
     public params: Params = null;
 
-    public keyt="memberinfo99";
-    public stat="stat9";
+    public keyt = "memberinfo99";
+    public stat = "stat9";
 
     public firseonshow = true;
     public scrolltop = 0;
@@ -58,7 +62,7 @@ export class AppBase implements OnInit {
     static Current = null;
     currentpage = "";
 
-    static STATICRAND="";
+    static STATICRAND = "";
 
 
     public constructor(
@@ -74,20 +78,20 @@ export class AppBase implements OnInit {
             this.params = params;
         });
         this.res = [];
-        var stat=window.sessionStorage.getItem(this.stat);
-        if(stat==null){
-            stat=parseInt((Math.random()*99999.9).toString()).toString();
-            window.sessionStorage.setItem(this.stat,stat);
+        var stat = window.sessionStorage.getItem(this.stat);
+        if (stat == null) {
+            stat = parseInt((Math.random() * 99999.9).toString()).toString();
+            window.sessionStorage.setItem(this.stat, stat);
         }
-        AppBase.STATICRAND=stat;
+        AppBase.STATICRAND = stat;
 
-        var memberinfo=window.localStorage.getItem(this.keyt);
-        
-        if(memberinfo!=null){
-            AppBase.MemberInfo=JSON.parse(memberinfo);
+        var memberinfo = window.localStorage.getItem(this.keyt);
+
+        if (memberinfo != null) {
+            AppBase.MemberInfo = JSON.parse(memberinfo);
         }
         console.log("啊哈哈哈哈哈");
-        console.log("rdw",AppBase.MemberInfo);
+        console.log("rdw", AppBase.MemberInfo);
     }
     setStatusBar() {
         //  this.statusBar.styleLightContent();
@@ -101,7 +105,7 @@ export class AppBase implements OnInit {
         this.setStatusBar();
     }
 
-    
+
     store(name, value = null) {
         if (value == null) {
             return window.localStorage.getItem(name);
@@ -120,8 +124,8 @@ export class AppBase implements OnInit {
                 AppBase.InstInfo = instinfo;
                 this.InstInfo = instinfo;
                 console.log(instinfo);
-                console.log("aaabbbccc",AppBase.STATICRAND);
-               
+                console.log("aaabbbccc", AppBase.STATICRAND);
+
             });
         } else {
             this.InstInfo = AppBase.InstInfo;
@@ -138,14 +142,14 @@ export class AppBase implements OnInit {
 
         });
     }
-    shouye(){
-        
-  
+    shouye() {
 
- 
-    this.navigate("/tabs/tab1");
- 
-   
+
+
+
+        this.navigate("/tabs/tab1");
+
+
 
     }
     getResources() {
@@ -160,7 +164,7 @@ export class AppBase implements OnInit {
         }
     }
     ionViewDidEnter() {
-       
+
 
         //AppBase.devicename=AppComponent.Instance.devicename;
         //AppBase.devicename="AppComponent.Instance.devicename";
@@ -172,13 +176,13 @@ export class AppBase implements OnInit {
         AppBase.CurrentRoute = this.router;
         AppBase.CurrentNav = this.navCtrl;
         AppBase.Current = this;
-     
+
 
 
         var token = window.localStorage.getItem("UserToken");
- console.log(this.MemberInfo);
+        console.log(this.MemberInfo);
 
-   console.log("这是token");
+        console.log("这是token");
         console.log(token);
 
 
@@ -186,7 +190,7 @@ export class AppBase implements OnInit {
 
         if (token == null) {
             if (this.needlogin == true) {
-               this.navigate("login");  
+                this.navigate("login");
             } else {
                 this.onMyShow();
             }
@@ -194,23 +198,23 @@ export class AppBase implements OnInit {
             console.log(11111);
             ApiConfig.SetToken(token);
             AppBase.memberapi.info({}).then((memberinfo) => {
-        console.log("进来了熬哈哈");
-      AppBase.MemberInfo=memberinfo;
+                console.log("进来了熬哈哈");
+                AppBase.MemberInfo = memberinfo;
                 if (memberinfo == null || memberinfo.mobile == undefined || memberinfo.mobile == "") {
 
                     memberinfo = null;
                     if (this.needlogin == true) {
-                        this.navigate("login");  
+                        this.navigate("login");
                         return;
                     }
                 }
                 AppBase.IsLogin = memberinfo == null ? false : true;
-           
-                 
+
+
 
                 this.MemberInfo = memberinfo;
-            
-          
+
+
                 this.onMyShow();
             });
         }
@@ -219,7 +223,7 @@ export class AppBase implements OnInit {
     }
 
     onMyShow() {
-     
+
     }
     onPullRefresh(ref) {
         this.onMyShow();
@@ -247,8 +251,8 @@ export class AppBase implements OnInit {
         }
         this.isbacking = true;
         //alert(this.Params.fromtab);
-        if(history.length<2){
-            this.navCtrl.navigateBack('tabs/tab1' );
+        if (history.length < 2) {
+            this.navCtrl.navigateBack('tabs/tab1');
             return;
         }
         if (this.params.fromtab != undefined) {
@@ -363,7 +367,7 @@ export class AppBase implements OnInit {
         await actionSheet.present();
     }
     async uploadFile(transfer: FileTransfer, filepath: string, module: string) {
-        filepath=filepath.split("?")[0];
+        filepath = filepath.split("?")[0];
         let options: FileUploadOptions = {
             fileKey: 'img',
             fileName: filepath
@@ -381,19 +385,19 @@ export class AppBase implements OnInit {
                 // error
             })
     }
-    async uploadBase64(http:Http, base64: string, module: string) {
-        
+    async uploadBase64(http: Http, base64: string, module: string) {
+
         //alert(filepath);
-        var url=ApiConfig.getFileUploadAPI();
-        var data={base64:base64,module};
+        var url = ApiConfig.getFileUploadAPI();
+        var data = { base64: base64, module };
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
 
-        return http.post(url,body,options).toPromise().then((data:any) => {
+        return http.post(url, body, options).toPromise().then((data: any) => {
             // success
             //alert(data.response);
-            console.log("uploadBase64",data);
+            console.log("uploadBase64", data);
             return data._body.toString().split("|~~|")[1];
         });
     }

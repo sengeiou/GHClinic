@@ -10,12 +10,13 @@ import { MemberApi } from 'src/providers/member.api';
 import { OrderApi } from 'src/providers/order.api';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { Http } from '@angular/http';
+import { DoctorApi } from 'src/providers/doctor.api';
 
 @Component({
   selector: 'app-appointment',
   templateUrl: './appointment.page.html',
   styleUrls: ['./appointment.page.scss'],
-  providers: [MemberApi, OrderApi, FileTransfer]
+  providers: [MemberApi, OrderApi, FileTransfer, DoctorApi]
 })
 export class AppointmentPage extends AppBase {
 
@@ -28,111 +29,110 @@ export class AppointmentPage extends AppBase {
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
     public memberApi: MemberApi,
-    public http:Http,
+    public doctorApi: DoctorApi,
+    public http: Http,
     private transfer: FileTransfer) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-
+    this.hospital = {};
+    this.doctor = {};
+    this.schedule = {};
   }
-  date = null;
-  yishen = null;
-  jiuzhenren = '';
-  shoujihao = '';
+  patientname = '';
+  patientsexual = 'M';
+  patientmobile = '';
   tuijianren = '';
   hospital = null;
+  doctor = null;
+  schedule = null;
   onMyLoad() {
     //参数
     this.params;
-    var date = JSON.parse(this.params.date);
-    this.date = date;
-    console.log(this.date);
-    this.yishen = JSON.parse(this.params.yishen);
-    console.log(this.yishen);
     this.gethospital();
+    this.getDoctor();
+    this.getSchedule();
 
   }
   gethospital() {
     var api = this.memberApi;
     api.hospitalinfo({ id: this.params.hospital_id }).then((hospital) => {
-
       this.hospital = hospital;
-      console.log(this.hospital);
-      console.log("niudad");
     })
-
-
+  }
+  getDoctor() {
+    var api = this.doctorApi;
+    api.info({ id: this.params.doctor_id }).then((doctor) => {
+      this.doctor = doctor;
+    })
+  }
+  getSchedule() {
+    var api = this.doctorApi;
+    api.scheduleinfo({ id: this.params.schedule_id }).then((schedule) => {
+      this.schedule = schedule;
+    })
   }
   hour = null;
   minute = null;
   onMyShow() {
-    console.log(this.date.hour);
-    console.log("08");
-    console.log(parseInt(this.date.hour));
-    console.log(parseInt("08"));
-    if (this.date.minute == '00') {
-
-      this.minute = '30';
-      this.hour = parseInt(this.date.hour);
-    } else {
-      this.minute = '00';
-      this.hour = parseInt(this.date.hour) + 1;
-    }
-    console.log(this.hour);
-    console.log(this.minute);
+    
 
   }
 
-  // successfulReservation() {
-
-  //   var jiuzhenren = this.jiuzhenren;
-  //   if (jiuzhenren == '') {
-  //     return;
-  //   }
-  //   var shoujihao = this.shoujihao;
-  //   if (shoujihao == '') {
-  //     return;
-  //   }
-  //   var tuijianren = this.tuijianren;
-
-  //  console.log(this.date.qwe.id);
-  //  console.log(21111);
-  //   var api = this.orderApi;
-  //   api.create({
-  //     member_id: 1, doctor_id: this.yishen.id, schedule_id: this.date.qwe.id,
-  //     patientname: jiuzhenren, patientsexual: 'M', photo: shoujihao, tuijianren: tuijianren,hospital_id:this.hospital.id
-  //   }).then((res) => {
-  //          console.log(res);
-  //          console.log(this.date.qwe.id);
-
-  //     if (res.code == 0) {
-  //       this.navigate("successful-reservation",{id:res.return, hospital: JSON.stringify(this.hospital)});
-
-  //     }
-
-  //   })
-
-
-
-
-
-  // }
   successfulReservation() {
-    this.navigate("successful-reservation");
+
+    var patientname = this.patientname;
+    var patientmobile = this.patientmobile;
+    if (patientname.trim() == '') {
+      this.toast("请输入就诊人姓名");
+      return;
+    }
+    if (patientmobile.trim() == '') {
+      this.toast("请输入就诊人联系电话");
+      return;
+    }
+    var tuijianren = this.tuijianren;
+
+    this.showConfirm("我已经确保所有信息填写无误",(ret)=>{
+      if(ret){
+
+        var api = this.orderApi;
+        api.create({
+          member_id: 1, doctor_id: this.params.doctor_id, schedule_id: this.params.schedule_id,hospital_id:this.hospital.id,
+          patientname: patientname, patientmobile: patientmobile, tuijianren: tuijianren,photolist:this.photolist.join(",")
+        }).then((res) => {
+          if (res.code == 0) {
+            this.navigate("successful-reservation",{id:res.return, hospital_id:  this.params.hospital_id});
+          }else if(res.code=="233"){
+            alert("微信支付");
+          }else{
+            this.toast(res.result);
+          }
+        })
+      }
+    });
+
+
   }
 
-  filename="";
+  photolist = [];
   upload(ec) {
-    var that=this;
+    var that = this;
     var file = ec.target.files[0];
-    var reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload =  (e:any)=>{
-      var data = e.target.result;
-      console.log(data);
-      that.uploadBase64(that.http,data,"appointment").then((filename)=>{
-        //alert(filename);
-        that.filename=filename;
-      });
+    console.log("file",file);
+    if(file.type=='image/jpeg'||file.type=='image/png'){
+      
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (e: any) => {
+        var data = e.target.result;
+        console.log(data);
+        that.uploadBase64(that.http, data, "appointment").then((filename) => {
+          //alert(filename);
+          that.photolist.push(filename);
+        });
+      }
+    }else{
+      this.toast("请上传图片文件");
     }
 
   }

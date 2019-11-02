@@ -6,122 +6,119 @@
     </ion-title>
     <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
   </ion-toolbar> -->
-  <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
+  <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg"></div>
 </ion-header>
 
 <!-- <ion-content *ngIf="doctorinfo!=null"> -->
 <ion-content>
   <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
     <div class="flex-row flex-center">
-        <div class="marginTop" (click)="back()">
-          <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
-        </div>
-        <div class="f12 txt-white margin-left-10" (click)="back()">上一步</div>
-        <div class="f16 txt-white margin-left-200">医生详情</div>
-       
+      <div class="marginTop" (click)="back()">
+        <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+      </div>
+      <div class="f12 txt-white margin-left-10" (click)="back()">上一步</div>
+      <div class="f16 txt-white margin-left-200">医生详情{{paiban.length}}</div>
+
     </div>
   </div>
-  <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
-    <div class="card">
-      <div [style.background-image]="'url('+uploadpath+'resource/'+res.beijing+')'" class="height-180">
-        <div [style.background-image]="'url('+uploadpath+'resource/'+res.doctor+')'" class="height-180">
-          <div class="margin-left-360 margin-top-50 padding-top-50">
-            <div style="color: #11838D;" class="f18">{{doctorinfo.name}}</div>
-            <div class="f18 txt-black margin-top">{{doctorinfo.hospital}}</div>
-            <div class="f16 txt-white biaoqian margin-top">{{doctorinfo.title}}</div>
-          </div>
+  <div style="background: #0F848D;width: 100%;" class="height-40"></div>
+  <div class="card">
+    <div [style.background-image]="'url('+uploadpath+'resource/'+res.beijing+')'" class="height-180">
+      <div [style.background-image]="'url('+uploadpath+'doctor/'+doctorinfo.photo+')'" class="height-180">
+        <div class="margin-left-360 margin-top-50 padding-top-50">
+          <div style="color: #11838D;" class="f18">{{doctorinfo.name}}</div>
+          <div class="f18 txt-black margin-top">{{doctorinfo.hospital}}</div>
+          <div class="f16 txt-white biaoqian margin-top">{{doctorinfo.title}}</div>
         </div>
       </div>
-      
-      <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">专业擅长</div>
-      <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar"/>
-      <div class="margin-left-30 margin-top-20 txt-gw">内科主任医生</div>
-      <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">预约日期</div>
-      <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar"/>
+    </div>
 
+    <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">专业擅长</div>
+    <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
+    <div class="margin-left-30 margin-top-20 txt-gw">{{doctorinfo.summary}}</div>
+    <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">预约日期</div>
+    <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
 
+    <div>
+      <div class="">
+        <div>
 
-      <div>
-        <div class="">
+          <div class="tabbody padding-20 ">
             <div>
-            
-                <div class="tabbody padding-20 ">
-                  <div>
-                    <div class="flex-row flex-center ">
-                      <div class="h3 padding-20" (click)="addMonth(-1)">
-                        <i class="fa fa-angle-left"></i>
-                      </div>
-                      <div class="flex-1 text-center" style="color: #0F848D;">{{myear}}年{{mmonth}}月</div>
-                      <div class="h3 padding-20" (click)="addMonth(1)">
-                        <i class="fa fa-angle-right "></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="border-1"></div>
-                  <div class="flex-row  txt-gw">
-                    <div class="flex-1 h6 txt-bold padding-20 text-center">日</div>
-                    <div class="flex-1 h6 txt-bold padding-20 text-center">一</div>
-                    <div class="flex-1 h6 txt-bold padding-20 text-center">二</div>
-                    <div class="flex-1 h6 txt-bold padding-20 text-center">三</div>
-                    <div class="flex-1 h6 txt-bold  padding-20 text-center">四</div>
-                    <div class="flex-1 h6 txt-bold padding-20 text-center">五</div>
-                    <div class="flex-1 h6 txt-bold padding-20 text-center">六</div>
-                  </div>
-                  <div class="border-1"></div>
-
-                  <div class="flex-row " *ngFor="let w of mcal">
-                    <div class="flex-1" *ngFor="let d of w;let i=index;">
-                      <div class="mdate padding-20 text-center margin-left-10 yuanquan margin-top-30" (click)='asd(d,i)' [class.issat]="i==6"  [class.xzrq]='d.d==xzrq&&d.f==xzy' [class.pass]='d.pass==true' [class.today]='d.today==true'>
-                        <div class="">{{d.d}}</div>
-                      </div>
-                    </div>
-                  </div>
-
-
+              <div class="flex-row flex-center ">
+                <div class="h3 padding-20" (click)="addMonth(-1)">
+                  <i class="fa fa-angle-left"></i>
                 </div>
+                <div class="flex-1 text-center" style="color: #0F848D;">{{myear}}年{{mmonth}}月</div>
+                <div class="h3 padding-20" (click)="addMonth(1)">
+                  <i class="fa fa-angle-right "></i>
+                </div>
+              </div>
             </div>
+            <div class="border-1"></div>
+            <div class="flex-row  txt-gw">
+              <div class="flex-1 h6 txt-bold padding-20 text-center">日</div>
+              <div class="flex-1 h6 txt-bold padding-20 text-center">一</div>
+              <div class="flex-1 h6 txt-bold padding-20 text-center">二</div>
+              <div class="flex-1 h6 txt-bold padding-20 text-center">三</div>
+              <div class="flex-1 h6 txt-bold  padding-20 text-center">四</div>
+              <div class="flex-1 h6 txt-bold padding-20 text-center">五</div>
+              <div class="flex-1 h6 txt-bold padding-20 text-center">六</div>
+            </div>
+            <div class="border-1"></div>
+
+            <div class="flex-row " *ngFor="let w of mcal">
+              <div class="flex-1" *ngFor="let d of w;let i=index;">
+                <div class="mdate padding-20 text-center margin-left-10 yuanquan margin-top-30" (click)='asd(d,i)'
+                  [class.issat]="i==6" [class.xzrq]='d.dt==riqi' [class.pass]='d.pass==true'
+                  [class.today]='d.today==true'>
+                  <div class="">{{d.d}}</div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
         </div>
+      </div>
     </div>
 
 
 
 
-      
-
-      <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">选择时间段</div>
-      <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar"/>
-      <div class="flex-row margin-top-30" style="justify-content: center;">
-        <div class="dibu bc txt-white">上午</div>
-        <div class="dibu1 c">下午</div>
-      </div>
-      <div class="flex-row margin-top-40" style="justify-content: center;">
-        <ion-card class="kuangao">
-          <div class="flex-row">
-            <img src="{{uploadpath}}resource/{{res.time}}" class="ion-icon"/>
-            <div class="margin-left">8:00-8:30</div>
-            <div class="margin-left-40 c">约满</div>
-          </div>
-          </ion-card>
-        <ion-card class="kuangao" (click)="appointment()" style="margin-left: 15px;">
-          <div class="flex-row">
-            <img src="{{uploadpath}}resource/{{res.time}}" class="ion-icon"/>
-            <div class="margin-left">8:30-9:00</div>
-            <div class="margin-left-40" style="color: #DF4747;">有号</div>
-          </div>
-        </ion-card>
-      </div>
 
 
-    
-   
-
-
-
-
-
-
+    <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">选择时间段</div>
+    <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
+    <!-- <div class="flex-row margin-top-30" style="justify-content: center;">
+      <div class="dibu bc txt-white">上午</div>
+      <div class="dibu1 c">下午</div>
+    </div> -->
+    <div *ngIf="paiban.length==0">
+      当日无排班
     </div>
-  
+    <div class="flex-row flex-wrap margin-top-40" style="justify-content: center;">
+      <div class="kuangao" *ngFor="let ban of paiban">
+        <div class="flex-row" (click)='appointment(ban)'>
+          <img src="{{uploadpath}}resource/{{res.time}}" class="ion-icon" />
+          <div class="margin-left">{{ban.ftime}}</div>
+          <div class="margin-left-40 c" *ngIf="ban.bookingcount>=InstInfo.orderlimit">约满</div>
+          <div class="margin-left-40" *ngIf="ban.bookingcount<InstInfo.orderlimit" style="color: #DF4747;">有号</div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
 
 
 
