@@ -11,6 +11,7 @@ import { OrderApi } from 'src/providers/order.api';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { Http } from '@angular/http';
 import { DoctorApi } from 'src/providers/doctor.api';
+declare let WeixinJSBridge: any; 
 
 @Component({
   selector: 'app-appointment',
@@ -97,13 +98,24 @@ export class AppointmentPage extends AppBase {
 
         var api = this.orderApi;
         api.create({
-          member_id: 1, doctor_id: this.params.doctor_id, schedule_id: this.params.schedule_id,hospital_id:this.hospital.id,
-          patientname: patientname, patientmobile: patientmobile, tuijianren: tuijianren,photolist:this.photolist.join(",")
+           doctor_id: this.params.doctor_id, schedule_id: this.params.schedule_id,hospital_id:this.hospital.id,
+          patientname: patientname, patientmobile: patientmobile, tuijianren: tuijianren,photolist:this.photolist.join(","),
+          openid:this.openid
         }).then((res) => {
+
           if (res.code == 0) {
             this.navigate("successful-reservation",{id:res.return, hospital_id:  this.params.hospital_id});
           }else if(res.code=="233"){
-            alert("微信支付");
+            var order_id=res.return["id"];
+            WeixinJSBridge.invoke(
+                'getBrandWCPayRequest', res.return,
+                  (res) => {
+                  if(res.err_msg == "get_brand_wcpay_request:ok" ){
+                    this.navigate("successful-reservation",{id:order_id, hospital_id:  this.params.hospital_id});
+                  } else {
+                    this.toast(res.errMsg);
+                  }
+                });
           }else{
             this.toast(res.result);
           }

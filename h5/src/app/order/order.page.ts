@@ -124,7 +124,7 @@ export class OrderPage extends AppBase {
       {
         api.createorder({lingshi:1,beizhu:this.beizhu}).then((res) => {
 
-          wechatapi.prepay({ id: res.return, h5: "Y" }).then((payret) => {
+          wechatapi.prepay({ id: res.return,openid:this.openid}).then((payret) => {
             if (payret.code != 0) {
               this.showAlert(payret.result);
               return;
@@ -166,7 +166,7 @@ export class OrderPage extends AppBase {
 
     api.createorder({beizhu:this.beizhu}).then((res) => {
 
-      wechatapi.prepay({ id: res.return, h5: "Y" }).then((payret) => {
+      wechatapi.prepay({ id: res.return,openid:this.openid }).then((payret) => {
         if (payret.code != 0) {
           this.showAlert(payret.result);
           return;

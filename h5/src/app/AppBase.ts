@@ -46,6 +46,7 @@ export class AppBase implements OnInit {
         h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "",
         memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: ""
     };
+    public openid="";
     public MemberInfo = { avatarUrl: "", nickName: "", h5openid: "", unionid: "", name: '' };
     public static MYBABY = [];
     public mybaby = [];
@@ -78,20 +79,7 @@ export class AppBase implements OnInit {
             this.params = params;
         });
         this.res = [];
-        var stat = window.sessionStorage.getItem(this.stat);
-        if (stat == null) {
-            stat = parseInt((Math.random() * 99999.9).toString()).toString();
-            window.sessionStorage.setItem(this.stat, stat);
-        }
-        AppBase.STATICRAND = stat;
-
-        var memberinfo = window.localStorage.getItem(this.keyt);
-
-        if (memberinfo != null) {
-            AppBase.MemberInfo = JSON.parse(memberinfo);
-        }
-        console.log("啊哈哈哈哈哈");
-        console.log("rdw", AppBase.MemberInfo);
+        this.openid=window.localStorage.getItem("openid");
     }
     setStatusBar() {
         //  this.statusBar.styleLightContent();
@@ -121,24 +109,20 @@ export class AppBase implements OnInit {
     getInstInfo() {
         console.log(454444);
         if (AppBase.InstInfo == null) {
-            console.log(123113131);
             AppBase.instapi.info({}, false).then((InstInfo) => {
-                alert(0);
                 AppBase.InstInfo = InstInfo;
                 this.InstInfo = InstInfo;
-                console.log(InstInfo);
-                console.log("aaabbbccc", AppBase.STATICRAND);
-                if (this.params.code != undefined && this.params.state == AppBase.STATICRAND) {
-                    alert(1);
+                if (this.params.code != undefined ) {
+                    
                 } else {
-                    alert(2);
-                    if (AppBase.MemberInfo == null||1==1) {
+                    var isred=window.sessionStorage.getItem("isred");
+                    if(isred=="Y"){
+
+                    }else{
+                        window.sessionStorage.setItem("isred","Y");
                         var url = window.location.href;
-                        //url="http://yuyue.helpfooter.com/tabs/tab1";
                         var redirecturl = encodeURIComponent(url);
-                        var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri=" + redirecturl + "&response_type=code&scope=snsapi_userinfo&state=" + AppBase.STATICRAND + "#wechat_redirect";
-                        console.log({ redurl });
-                        
+                        var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri=" + redirecturl + "&response_type=code&scope=snsapi_userinfo&state=" + AppBase.STATICRAND + "#wechat_redirect";    
                         window.location.href=redurl;
                     }
                 }
@@ -147,12 +131,21 @@ export class AppBase implements OnInit {
             this.InstInfo = AppBase.InstInfo;
             //this.setWechatShare();
         }
+
+        if (this.params.code != undefined ) {
+            AppBase.memberapi.getuserinfo({  code: this.params.code, grant_type: "authorization_code" }).then((MemberInfo) => {
+                if(MemberInfo.errcode==undefined){
+                    this.openid=MemberInfo.openid;
+                    console.log("userinfo",MemberInfo);
+                    window.localStorage.setItem("openid",this.openid);
+                }
+            });
+        }
     }
     getMemberInfo() {
 
         AppBase.memberapi.info({}).then((memberinfo) => {
             if (memberinfo == null || memberinfo.mobile == undefined || memberinfo.mobile == "") {
-                //alert("?");
                 memberinfo = null;
             }
             this.MemberInfo = memberinfo;
@@ -160,14 +153,7 @@ export class AppBase implements OnInit {
         });
     }
     shouye() {
-
-
-
-
         this.navigate("/tabs/tab1");
-
-
-
     }
     getResources() {
         if (AppBase.Resources == null) {
@@ -181,8 +167,6 @@ export class AppBase implements OnInit {
         }
     }
     ionViewDidEnter() {
-
-
         //AppBase.devicename=AppComponent.Instance.devicename;
         //AppBase.devicename="AppComponent.Instance.devicename";
 

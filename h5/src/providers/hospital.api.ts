@@ -42,11 +42,6 @@ export class HospitalApi {
                 return ApiConfig.ErrorHandle('hospital/bannerlist', data, err);
             });
     }
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 5988f966106f0f2e744dad1a7a40b20cbbe3bae5
     public department(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'hospital/department';
         var headers = ApiConfig.GetHeader(url, data);

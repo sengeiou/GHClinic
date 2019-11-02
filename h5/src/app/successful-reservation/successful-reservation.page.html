@@ -29,7 +29,7 @@
               <img src="{{uploadpath}}resource/{{res.jiuzhen}}" class="icon-10" />
           </div>
           <div class="f12 txt-gw margin-left-30">就诊人：</div>
-          <div class="f12 txt-black margin-left-30">杨超雨 19120821423</div>
+          <div class="f12 txt-black margin-left-30">{{order.patientname}} {{order.patientmobile}}</div>
       </div>
       <div class="border-2 margin-top"></div>
       <div class="flex-row margin-top-40 margin-left-40">
@@ -37,7 +37,7 @@
               <img src="{{uploadpath}}resource/{{res.time}}" class="icon-10" />
           </div>
           <div class="f12 txt-gw margin-left-30">时间：</div>
-          <div class="f12 txt-black margin-left-30">2019年10月11日 周四 8:30-9:00</div>
+          <div class="f12 txt-black margin-left-30">{{order.ordertime_formatting}}</div>
       </div>
       <div class="border-2 margin-top"></div>
       <div class="flex-row margin-top-40 margin-left-40">
@@ -45,16 +45,16 @@
               <img src="{{uploadpath}}resource/{{res.zhensuo}}" class="icon-10" />
           </div>
           <div class="f12 txt-gw margin-left-30">诊所：</div>
-          <div class="f12 txt-black margin-left-30">港和医疗广州白云分部</div>
+          <div class="f12 txt-black margin-left-30">{{order.hospital_name}}</div>
       </div>
-      <div class="border-2 margin-top"></div>
+      <!-- <div class="border-2 margin-top"></div>
       <div class="flex-row margin-top-40 margin-left-40">
           <div class="marginTop1">
               <img src="{{uploadpath}}resource/{{res.keshi}}" class="icon-10" />
           </div>
           <div class="f12 txt-gw margin-left-30">科室：</div>
           <div class="f12 txt-black margin-left-30">儿科</div>
-      </div>
+      </div> -->
       <div class="border-2 margin-top"></div>
 
 

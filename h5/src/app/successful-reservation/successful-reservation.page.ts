@@ -8,12 +8,13 @@ import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { DindanApi } from 'src/providers/dindan.api';
+import { OrderApi } from 'src/providers/order.api';
 
 @Component({
   selector: 'app-successful-reservation',
   templateUrl: './successful-reservation.page.html',
   styleUrls: ['./successful-reservation.page.scss'],
-  providers:[DindanApi]
+  providers:[OrderApi]
 })
 export class SuccessfulReservationPage extends AppBase {
 
@@ -24,26 +25,23 @@ export class SuccessfulReservationPage extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public dindanApi:DindanApi,
+    public orderApi:OrderApi,
     public memberApi: MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-
+      this.order={};
   }
-  hospital=null;
   order=null;
   onMyLoad() {
     //参数
     this.params;
-    this.hospital=JSON.parse(this.params.hospital);
-    console.log(this.hospital);
   }
   getorder(){
-    var api=this.dindanApi;
-     api.myorder({id:this.params.id}).then((order)=>{
+    var api=this.orderApi;
+     api.info({id:this.params.id}).then((order)=>{
 
-   this.order=order;
-  console.log(order);
+      this.order=order;
+      console.log(order);
          
      })
   
@@ -59,7 +57,7 @@ export class SuccessfulReservationPage extends AppBase {
  
 
   appointmentComplete(){
-    this.navigate("appointment-complete")
+    this.navigate("appointment-complete",{id:this.params.id})
   }
   
  tab1(){
