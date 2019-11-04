@@ -22,34 +22,34 @@
     <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
     <div class="card">
       <ion-card class="ion-card">
-      <img src='{{uploadpath}}activity/{{activityinfo.activty_activityCover}}' />
+      <img src='{{uploadpath}}activity/{{activityinfo.activity_activitycover}}' />
       </ion-card>
-      <div class="p1">{{activityinfo.activty_activityName}}</div>
+      <div class="p1">{{activityinfo.activity_activityname}}</div>
       <div class="p2">
           活动时间
       </div>
       <div class="p3"></div>
-      <div class="p4">{{activityinfo.activty_activityTime}}</div>
+      <div class="p4">{{activityinfo.activity_activitytime}}</div>
       <hr/>
       <div class="p2">
           活动地点
       </div>
       <div class="p3"></div>
-      <div class="p4">{{activityinfo.activty_activitySite}}</div>
+      <div class="p4">{{activityinfo.activity_activitysite}}</div>
       <hr/>
       <div class="p2">
           活动简介
       </div>
       <div class="p3"></div>
       <div class="p4 p5">   
-        {{activityinfo.activty_activityBrief}}</div>
+        {{activityinfo.activity_activitybrief}}</div>
       <hr/>
       <div class="p2">
           报名须知
       </div>
       <div class="p3"></div>
-      <div class="p4">本次报名人数限制：{{activityinfo.activty_xianzhi}}人</div>
-      <div class="p4">{{activityinfo.activty_show}}</div>
+      <div class="p4">本次报名人数限制：{{activityinfo.activity_xianzhi}}人</div>
+      <div class="p4">{{activityinfo.activity_show}}</div>
       <div class="height-100"></div>
 
 
@@ -57,9 +57,9 @@
   
 </ion-content>
 <div class="div1 flex-row flex-center">
-    <div class="p6">{{activityinfo.activty_price==0?"免费":"费用：￥"+activityinfo.activty_price}}</div>
-    <div class="p7" *ngIf='activityinfo.status=="A"'>已报名</div>
-    <div class="p7" *ngIf='activityinfo.status=="S"' (click)="application(activityinfo.activty_id)">继续报名</div>
+    <div class="p6">{{activityinfo.activity_price==0?"免费":"费用：￥"+activityinfo.activity_price}}</div>
+    <div class="p7" *ngIf='activityinfo.zhuangtai=="A"'>已报名</div>
+    <div class="p7" *ngIf='activityinfo.zhuangtai=="S"' (click)="application()">继续报名</div>
 </div>
 
 

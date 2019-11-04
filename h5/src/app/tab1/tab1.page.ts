@@ -27,7 +27,7 @@ export class Tab1Page extends AppBase {
     this.headerscroptshow = 480;
 
   }
-  xz=3;
+  xz=0;
   
 
 
@@ -55,8 +55,11 @@ export class Tab1Page extends AppBase {
   getkeshi() {
     var api = this.memberApi;
     api.getdepartment({}).then((department) => {
-      console.log(department);
+      
       this.department = department;
+
+      console.log(department);
+    
     })
   }
   hostlist = [];

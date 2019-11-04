@@ -50,7 +50,7 @@ export class ActivityInformationPage extends AppBase {
       (activityinfo)=>{
         this.activityinfo=activityinfo;
         console.log(activityinfo)
-        this.i=activityinfo.id;
+        this.i=activityinfo.activty_id;
       
       }
     )
@@ -58,9 +58,9 @@ export class ActivityInformationPage extends AppBase {
 
 
 
-  application(id){
+  application(){
     var i=this.i;
-    this.navigate("application",{id:id,i:i});
+    this.navigate("application",{id:i});
   }
  
   

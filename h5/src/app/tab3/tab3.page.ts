@@ -52,6 +52,8 @@ export class Tab3Page extends AppBase {
     
   }
 
+  aa(){}
+
 
   getlunbo(){
     var api=this.marketApi;
