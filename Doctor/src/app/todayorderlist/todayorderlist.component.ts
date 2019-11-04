@@ -5,11 +5,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { InstApi } from 'src/providers/inst.api';
 import { DoctorApi } from 'src/providers/doctor.api';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { EventEmitter } from '@angular/core';
-import { ApiConfig } from '../api.config';
 import { OperatorApi } from 'src/providers/operator.api';
 import { AppUtil } from '../app.util';
-import { isNgTemplate } from '@angular/compiler';
 
 @Component({
   selector: 'app-todayorderlist',

@@ -40,11 +40,16 @@ export class WenZhanDetailPage extends AppBase {
     
     this.wenzhangApi.wenzhangdetail({id:this.params.id}).then((wenzhangdetail)=>{
       console.log(wenzhangdetail)
-      // wenzhangdetail.content = wenzhangdetail.content.replace(/&lt;/g,'')
-      // wenzhangdetail.content = htmlspecialchars_decode()
+      wenzhangdetail.time = this.getmonthday( wenzhangdetail.time)
       this.wenzhangdetail = wenzhangdetail
       
       
     })
+  }
+
+  getmonthday(date){
+    date = date.slice(5,10) + "日"
+    console.log(date)
+    return date.replace(/-/g,'月')
   }
 }
