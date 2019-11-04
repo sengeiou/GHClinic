@@ -1,0 +1,98 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+
+  .bg{
+    width:100%;
+    height:rpx(100);
+    background-size: cover;
+  }
+
+  .card{
+    background-color:white;    
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(30);
+    margin-top:rpx(-40)
+    
+  }
+.height-110{
+    height: rpx(110);
+  }
+  .height-40{
+    height: rpx(40);
+    margin-top:rpx(110);
+  }
+
+.icon-32{
+    width:rpx(28);
+    height: rpx(28);
+}
+.height-30 {
+  height: rpx(30);
+}
+
+  
+.liuyan {
+  width: rpx(700);
+  min-height: rpx(520);
+  background: rgba(255, 255, 255, 1);
+  border-radius: rpx(20);
+  border: 1px solid rgba(214, 215, 217, 1);
+  margin: 0 auto;
+  margin-top: rpx(100);
+}
+
+.textarea {
+  margin: 0;
+  padding-top: rpx(20);
+  padding-bottom: rpx(20);
+  padding-left: rpx(40);
+  padding-right: rpx(40);
+  min-height: rpx(400);
+  width: 100%;
+  outline: none;
+  border: none;
+  // border-bottom: 1px solid #D6D7D9;
+  border-top: 1px solid #D6D7D9;
+  
+}
+
+.top {
+  padding-top: rpx(24);
+  padding-bottom: rpx(24);
+  padding-left: rpx(40);
+  padding-right: rpx(40);
+  background: #ECECEC;
+  border-radius: 0 0 rpx(20) rpx(20);
+}
+
+.tops {
+  margin: 0;
+  padding-top: rpx(24);
+  padding-bottom: rpx(24);
+  padding-left: rpx(40);
+  padding-right: rpx(40);
+  background: #ECECEC;
+}
+
+.save {
+  padding-top: rpx(24);
+  padding-bottom: rpx(24);
+  padding-left: rpx(40);
+  padding-right: rpx(40);
+  background: #143779;
+
+  color: #fff;
+  border-radius: 0 0 rpx(20) rpx(20);
+}
+
+.erweima {
+  width: rpx(280);
+  height: rpx(280);
+}
+
+.ziti {
+  line-height: 24px;
+  letter-spacing: 1px;
+}
