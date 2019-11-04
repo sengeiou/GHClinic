@@ -10,6 +10,40 @@ export class MarketApi {
     }
 
 
+    public clearkeyword(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'market/clearkeyword';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('market/clearkeyword', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('market/clearkeyword', data, err);
+            });
+    }
+
+
     public drugsinfo(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'market/drugsinfo';
         var headers = ApiConfig.GetHeader(url, data);
@@ -214,8 +248,8 @@ export class MarketApi {
     }
 
 
-    public clearkeyword(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'market/clearkeyword';
+    public setsearch(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'market/setsearch';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -227,7 +261,7 @@ export class MarketApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('market/clearkeyword', data, res)) {
+                if (ApiConfig.DataLoadedHandle('market/setsearch', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -243,7 +277,7 @@ export class MarketApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('market/clearkeyword', data, err);
+                return ApiConfig.ErrorHandle('market/setsearch', data, err);
             });
     }
 

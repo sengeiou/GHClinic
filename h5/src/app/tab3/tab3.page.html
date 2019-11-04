@@ -26,7 +26,7 @@
             <ion-slides loop="true" autoplay="3000" #hhh auto-play="true" class="div-340">
               <ion-slide  *ngFor="let lb of lunbo;let i=index;">
                 <div class="flex-wrap">
-                  <img src="{{uploadpath}}marketlunbo/{{lb.photo}}" class="img-340" (click)="aa()" />    
+                  <img src="{{uploadpath}}marketlunbo/{{lb.photo}}" (click)='openGallary([uploadpath+"marketlunbo/"+lb.photo])' class="img-340" />    
                 </div>
               </ion-slide>
             </ion-slides>

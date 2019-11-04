@@ -81,5 +81,10 @@ export class WenZhanTuiSonPage extends AppBase {
     
   }
 
- 
+  tiaozhuan(wz){
+    console.log(wz)
+    this.navigate('/wen-zhan-detail',{
+      id:wz.id
+    })
+  }
 }

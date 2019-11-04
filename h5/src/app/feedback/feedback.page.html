@@ -1,0 +1,50 @@
+<ion-header>
+    <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
+</ion-header>
+
+<ion-content>
+
+
+    <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
+        <div class="flex-row flex-center margin-left-30">
+            <div  (click)="back()">
+                <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+            </div>
+            <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
+            <div class="f16 txt-white margin-left-200">意见反馈</div>
+        </div>
+      </div>
+      <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
+
+      <div class="card ">
+          <div class="height-80"></div>
+          <div class="flex-row flex-center ">
+            <div class="flex-1"></div>
+            <img src="{{uploadpath}}resource/{{res.logo}}" class="erweima" />
+            
+            <div class="flex-1"></div>
+          </div>
+          <div class="height-30"></div>
+          <div class="h4-6 text-center txt-bold">
+            港和医疗
+          </div>
+          <!-- <div class="height-40"></div> -->
+          <div class="h5 ziti text padding-left-30 padding-right-30">
+            请在此处写下您的意见和建议，我们客服人员会立即与您联系沟通
+          </div>
+      
+          <div class="liuyan margin-left-40">
+            <div class="tops h5">
+              留言
+            </div>
+            <div class="">
+              <ion-textarea  [(ngModel)]="content"  class="textarea h5" placeholder='请输入留言内容…'></ion-textarea>
+            </div>
+            <div (click)="send()" class="top h4-5 text-center txt-bold" style="color:#735FFF">
+             发送
+            </div>
+          </div>
+      </div>
+    
+
+</ion-content>
