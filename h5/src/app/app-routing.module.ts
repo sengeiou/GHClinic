@@ -52,6 +52,7 @@ const routes: Routes = [
   { path: 'application-details', loadChildren: './application-details/application-details.module#ApplicationDetailsPageModule' },
   { path: 'activity-information', loadChildren: './activity-information/activity-information.module#ActivityInformationPageModule' },
   { path: 'wen-zhan-tui-son', loadChildren: './wen-zhan-tui-son/wen-zhan-tui-son.module#WenZhanTuiSonPageModule' },
+  { path: 'gallary', loadChildren: './gallary/gallary.module#GallaryPageModule' },
   
  
 

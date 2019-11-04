@@ -1,0 +1,13 @@
+<ion-content>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let img of list">
+      <div style="height:100vh;background: black;;" class="flex-row flex-center">
+        <div>
+            <img [src]="img" style="width:100vw;" />
+        </div>
+      </div>
+      
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+<img class="f" src="{{uploadpath}}resource/{{res.leftarrow}}" (click)='back()' />
