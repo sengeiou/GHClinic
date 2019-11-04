@@ -48,10 +48,10 @@ export class ActivityDetailsPage extends AppBase {
     var api=this.activityApi;
     api.activityinfo({id: this.params.id}).then(
       (activity)=>{
-        console.log(activity);
+        console.log(activity+'aaaaa');
         this.activity=activity;
         var nT=new Date().getTime();
-        var aT=new Date(activity.activityTime).getTime();
+        var aT=new Date(activity.activitytime).getTime();
         console.log(aT)
         if(nT-aT<=0){
           this.show=true;

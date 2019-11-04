@@ -55,8 +55,11 @@ export class Tab1Page extends AppBase {
   getkeshi() {
     var api = this.memberApi;
     api.getdepartment({}).then((department) => {
-      console.log(department);
+      
       this.department = department;
+
+      console.log(department);
+    
       this.xz=department[0].id;
       this.hospital(department[0]);
 

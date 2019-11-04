@@ -45,6 +45,7 @@ export class ApplicationPage extends AppBase {
     this.params;
   }
   onMyShow(){
+    console.log('aaaaaaaaa'+this.params.id)
     this.getactivityinfo();
     this.getage();
   }
@@ -60,6 +61,7 @@ export class ApplicationPage extends AppBase {
       (activity)=>{
         this.activity=activity;
         this.id=activity.id;
+        console.log('aaaaaaaaa'+this.params.id)
       }
     )
   }
@@ -104,10 +106,10 @@ export class ApplicationPage extends AppBase {
 
     var api=this.activityApi;
 
-    var canshu={activty_id: id, name: xingming, age_id: this.age,phone: shoujihao, status: 'A'}
-    var canshu1={primary_id:this.params.i,activty_id: id, name: xingming, age_id: this.age,phone: shoujihao, status: 'A'}
+    var canshu={activty_id: id, name: xingming, age_id: this.age,phone: shoujihao,zhuangtai:'A', status: 'A'}
+    var canshu1={primary_id:this.params.id,activty_id: id, name: xingming, age_id: this.age,phone: shoujihao,zhuangtai:'A', status: 'A'}
 
-    api.signactivity(this.params.i==undefined?canshu:canshu1).then(
+    api.signactivity(this.params.id==undefined?canshu:canshu1).then(
       (res)=>{
         console.log(res)
         if (res.code == 0) {

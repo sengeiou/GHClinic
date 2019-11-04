@@ -46,6 +46,7 @@ export class ApplicationDetailsPage extends AppBase {
   }
   onMyShow(){
     this.activitysigninfo();
+    // console.log(this.activityinfo)
     console.log(this.MemberInfo); 
    
   }

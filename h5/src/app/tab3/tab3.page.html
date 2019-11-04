@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content>
-  <div style="background: radial-gradient(#268B73,#0F848D) ;position:fixed;z-index: 1;" class="padding-top-40 height-240">
+  <div style="background: radial-gradient(#268B73,#0F848D) ;position:fixed;z-index: 2;" class="padding-top-40 height-240">
     <div (click)="search()">
       <input placeholder="搜索科室/药品名称"/>
       <img src="{{uploadpath}}resource/{{res.sousuo}}" class="ion-icon1"/>
@@ -34,7 +34,7 @@
 
             <div class="  margin-top-30 margin-left-40 slidelist scroll-x" >
        
-              <div class="flex-row flex-center"  [ngStyle]="{'width.px': drugstype.length*95*rad }">
+              <div class="flex-row flex-center"  [ngStyle]="{'width.px': drugstype.length*120*rad }">
               <div *ngFor="let ds of drugstype;let i=index;" (click)="qiehuan=(i+1);getdrugs(ds.id)" class="marginRight">
                  <div [class.p1]="qiehuan==(i+1)">{{ds.name}}</div>
                 <div class="marginTop" [class.p2]="qiehuan==(i+1)"></div> 
