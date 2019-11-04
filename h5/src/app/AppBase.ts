@@ -44,10 +44,10 @@ export class AppBase implements OnInit {
     public InstInfo = {
         orderlimit: 2, h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "",
         h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "",
-        memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: ""
+        memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "",version:"",copyright: ""
     };
     public openid="";
-    public MemberInfo = { avatarUrl: "", nickName: "", h5openid: "", unionid: "", name: '' };
+    public MemberInfo = { avatarUrl: "", nickName: "", h5openid: "", unionid: "", name: '',mobile:"",id:"" };
     public static MYBABY = [];
     public mybaby = [];
     public options = null;

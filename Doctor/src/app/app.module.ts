@@ -19,13 +19,14 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { TodayorderlistComponent } from './todayorderlist/todayorderlist.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SidemenuComponent
+    SidemenuComponent,
   ],
   imports: [
     BrowserModule,

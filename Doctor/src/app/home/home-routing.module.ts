@@ -8,6 +8,7 @@ import { ConferenceComponent } from '../conference/conference.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { SettingComponent } from '../setting/setting.component';
 import { ActivitylogComponent } from '../activitylog/activitylog.component';
+import { TodayorderlistComponent } from '../todayorderlist/todayorderlist.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
       { path: "conference", component: ConferenceComponent },
       { path: "profile", component: ProfileComponent },
       { path: "setting", component: SettingComponent },
-      { path: "activitylog", component: ActivitylogComponent }
+      { path: "activitylog", component: ActivitylogComponent },
+      { path: "todayorderlist", component: TodayorderlistComponent },
     ]
   }
 ];
