@@ -8,6 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { MarketApi } from 'src/providers/market.api';
 import { DindanApi } from 'src/providers/dindan.api';
+import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants';
 
 @Component({
   selector: 'app-commodity-details',
@@ -34,14 +35,35 @@ export class CommodityDetailsPage extends AppBase {
 
   drugsinfo = null;
   pinlun=[];
+  count=111;
   onMyLoad() {
     //参数
     this.params;
   }
   onMyShow() {
     this.getdrugsinfo();
+   
+   
+    this.getgouwuche();
+    
   }
+ getgouwuche(){
+  var api=this.dindanApi;
+  api.getgouwuche({}).then((gouwuche)=>{
+      
+    var count=0;
 
+    gouwuche.map((item)=>{
+      count+= parseInt(item.num);
+
+    })
+      
+  console.log(count);
+
+    this.count=count;
+   })
+    
+ }
   getdrugsinfo() {
     var api = this.marketApi;
     api.drugsinfo({ id: this.params.id }).then((drugsinfo) => {
@@ -63,7 +85,7 @@ export class CommodityDetailsPage extends AppBase {
     api.addgouwuche({ drugs_id: this.params.id, num: 1, selected: 'N', status: 'A' }).then((res) => {
           
       console.log(res);
-        
+        this.getgouwuche();
     })
         
   }

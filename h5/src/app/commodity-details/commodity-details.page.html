@@ -9,7 +9,7 @@
   <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg"></div>
 </ion-header>
 
-<ion-content>
+<ion-content >
   <div style="background: #0F848D ;position:fixed;width:100%;z-index: 1;" class="padding-top-40 height-110">
     <div class="flex-row flex-center margin-left-30">
       <div class="marginTop" (click)="back()">
@@ -70,12 +70,15 @@
 
   <div class="d1"></div>
 </ion-content>
-<div class="flex-row" style="position: fixed;bottom:0">
-  <div class="d1" style="background-color: #F0F2F5">
+<div   class="flex-row" style="position: fixed;bottom:0">
+  <div (click)="cart()" class="d1" style="background-color: #F0F2F5">
+    <div   *ngIf="count!=0" class="red">{{count}}</div>
     <div class="icon-30 margin-left-30 margin-top-10">
       <img src='{{uploadpath}}resource/{{res.gouwuche}}' />
     </div>
-    <div class="f12 txt-black margin-left-20" (click)="cart()">购物车</div>
+  
+    <div    class="f12 txt-black margin-left-20" >购物车</div>
+   
   </div>
   <div class="d2 txt-black text-center" (click)="addcart()" style="background-color: #8a8a8a">加入购物车</div>
   <div class="d2 txt-white text-center" (click)="order()" style="background-color:#0E858D">立即购买</div>

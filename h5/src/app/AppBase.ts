@@ -348,7 +348,7 @@ export class AppBase implements OnInit {
                     confirmcallback(false);
                 }
             }, {
-                text: "好的",
+                text: "确认",
                 handler: () => {
                     confirmcallback(true);
                 }

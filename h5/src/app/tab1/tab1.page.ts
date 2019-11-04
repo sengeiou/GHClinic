@@ -57,6 +57,9 @@ export class Tab1Page extends AppBase {
     api.getdepartment({}).then((department) => {
       console.log(department);
       this.department = department;
+     
+      this.hospital(department[0]);
+
     })
   }
   hostlist = [];

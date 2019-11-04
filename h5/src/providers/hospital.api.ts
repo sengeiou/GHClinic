@@ -42,6 +42,8 @@ export class HospitalApi {
                 return ApiConfig.ErrorHandle('hospital/bannerlist', data, err);
             });
     }
+
+
     public department(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'hospital/department';
         var headers = ApiConfig.GetHeader(url, data);
