@@ -34,7 +34,7 @@
 
         
         <div class="margin-top-40 margin-left-40" *ngIf="qiehuan==0">
-          <div *ngFor="let wz of wenzhang;let i=index;" class="flex-row flex-center margin-top-40">
+          <div *ngFor="let wz of wenzhang;let i=index;" (click)='tiaozhuan(wz)' class="flex-row flex-center margin-top-40">
             <div>
               <img src="{{uploadpath}}wenzhang/{{wz.photo}}" class="icon-113"/>
             </div>
@@ -46,7 +46,7 @@
         </div>
 
 
-        <div class="margin-top-40 margin-left-40"  *ngFor="let wz of wzhang;let i=index;">
+        <div class="margin-top-40 margin-left-40" (click)='tiaozhuan(wz)'  *ngFor="let wz of wzhang;let i=index;">
             <div class="flex-row flex-center margin-top-40" *ngIf="show==true">
               <div>
                 <img src="{{uploadpath}}wenzhang/{{wz.photo}}" class="icon-113"/>
