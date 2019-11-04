@@ -402,4 +402,8 @@ export class AppBase implements OnInit {
             return data._body.toString().split("|~~|")[1];
         });
     }
+
+    openGallary(imagearr){
+        this.navigate("gallary",{list:imagearr});
+    }
 }
