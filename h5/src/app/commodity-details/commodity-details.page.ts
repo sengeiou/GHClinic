@@ -8,7 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { MarketApi } from 'src/providers/market.api';
 import { DindanApi } from 'src/providers/dindan.api';
-import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants';
+
 
 @Component({
   selector: 'app-commodity-details',
