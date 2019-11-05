@@ -23,7 +23,7 @@
               <span class="h6 txt-gray-8a margin-right-30">{{wenzhangdetail.time}}</span>
               <span class="h6 txt-gray-8a">来源网：<span>{{wenzhangdetail.from}}</span></span>
             </div>
-            <div style="white-space: pre-wrap;">{{wenzhangdetail.content}}</div> 
+            <div [innerHtml]='wenzhangdetail.content'></div> 
        </div>
         
 

@@ -1,0 +1,86 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+
+  .card{
+    background-color:white;    
+    border-top-left-radius: rpx(37);
+    border-top-right-radius: rpx(37);
+    padding-top: rpx(30);
+    margin-top:rpx(-40)
+    
+  }
+
+.bg{
+    width:100%;
+    height:rpx(100);
+    background-size: cover;
+  }
+
+  .icon-32{
+    width:rpx(28);
+    height: rpx(28);
+}
+
+.height-40{
+    height: rpx(40);
+    margin-top:rpx(110);
+  }
+
+  .height-110{
+    height: rpx(110);
+  }
+
+.mt{
+    margin-top:rpx(-39);
+  }
+
+  .mtt{
+    margin-top:rpx(-4);
+  }
+
+  .youicon {
+    height: rpx(36);
+    width: rpx(36);
+  }
+    
+  .touxiang {
+    width: rpx(100);
+    height: rpx(100);
+    border-radius: rpx(10);
+  }
+  
+  .txt92 {
+    color: #929292;
+  }
+  
+  .height-35 {
+    height: rpx(35);
+  }
+
+  .height-70 {
+    height: rpx(70);
+  }
+  
+  .padding-bottom-12 {
+    padding-bottom: rpx(24);
+  }
+
+  .qianming {
+    max-width: rpx(500);
+  }
+  
+  .bg-blue-14 {
+    background: #0B7982;
+  }
+  .btns{
+    height: rpx(96);
+    width: 100%;
+    line-height: rpx(96);
+    text-align: center;
+    color: #fff;
+    margin: auto;
+  }
+  .height-1{
+    height: rpx(2);
+}

@@ -41,6 +41,9 @@ export class WenZhanDetailPage extends AppBase {
     this.wenzhangApi.wenzhangdetail({id:this.params.id}).then((wenzhangdetail)=>{
       console.log(wenzhangdetail)
       wenzhangdetail.time = this.getmonthday( wenzhangdetail.time)
+      
+      wenzhangdetail.content = AppUtil.HtmlDecode( wenzhangdetail.content)
+      
       this.wenzhangdetail = wenzhangdetail
       
       

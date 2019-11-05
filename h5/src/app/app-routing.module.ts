@@ -54,6 +54,7 @@ const routes: Routes = [
   { path: 'wen-zhan-tui-son', loadChildren: './wen-zhan-tui-son/wen-zhan-tui-son.module#WenZhanTuiSonPageModule' },  { path: 'aboutus', loadChildren: './aboutus/aboutus.module#AboutusPageModule' },
   { path: 'feedback', loadChildren: './feedback/feedback.module#FeedbackPageModule' },
   { path: 'wen-zhan-detail', loadChildren: './wen-zhan-detail/wen-zhan-detail.module#WenZhanDetailPageModule' },
+  { path: 'memberinfo', loadChildren: './memberinfo/memberinfo.module#MemberinfoPageModule' },
 
 ];
 @NgModule({
