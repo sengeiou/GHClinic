@@ -7,6 +7,7 @@ import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { AddressApi } from 'src/providers/address.api';
+import { OrderPage } from '../order/order.page';
 
 @Component({
   selector: 'app-address',
@@ -31,7 +32,6 @@ export class AddressPage extends AppBase {
   }
 
   address=[];
-  show=false;
 
   onMyLoad(){
     //参数
@@ -43,21 +43,15 @@ export class AddressPage extends AppBase {
 
   getaddress(){
     var api=this.addressApi;
-    api.getaddress({primary_id:this.params.primary_id,people:this.params.people,phone:this.params.phone,dizhi:this.params.dizhi,menpaihao:this.params.menpaihao}).then((address)=>{
-      console.log(address)
-      if(address==''||address==undefined){
-        this.show=false
-      }
-      else{
-        this.address=address;
-        this.show=true;
-      }
+    api.getaddress({}).then((address)=>{
+      this.address=address;
     })
   }
 
-
-
-
+  returntolast(id){
+    OrderPage.SADDRESSID=id;
+    this.back();
+  }
 
   myAdress(i){
         
@@ -65,10 +59,10 @@ export class AddressPage extends AppBase {
     {
       this.navigate("my-address")
     }
-  else{
+    else{
 
-    this.navigate("my-address",{id: i})
-  }
+      this.navigate("my-address",{id: i})
+    }
   }
 
 }
