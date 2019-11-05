@@ -9,24 +9,23 @@
                 <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
             </div>
             <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
-            <div class="f16 txt-white margin-left-200">意见反馈</div>
+            <div class="f16 txt-white margin-left-200">文章详情</div>
         </div>
       </div>
       <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
 
       <div class="card">
-
-        <div class="h4">
-          {{wenzhangdetail.name}}
-        </div>
-        <div>
-          <span class="h6">{{wenzhangdetail.time}}</span>
-          <span class="h6">来源网：<span>{{wenzhangdetail.from}}</span></span>
-        </div>
-     
-          <div>{{wenzhangdetail.content}}</div> 
+       <div class="margin-20">
+          <div class="h4 txt-bold">
+              {{wenzhangdetail.name}}
+            </div>
+            <div class="margin-bottom-20">
+              <span class="h6 txt-gray-8a margin-right-30">{{wenzhangdetail.time}}</span>
+              <span class="h6 txt-gray-8a">来源网：<span>{{wenzhangdetail.from}}</span></span>
+            </div>
+            <div [innerHtml]='wenzhangdetail.content'></div> 
+       </div>
         
-
 
       </div>
 

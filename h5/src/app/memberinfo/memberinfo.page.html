@@ -1,0 +1,60 @@
+<ion-header>
+  <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
+</ion-header>
+
+<ion-content>
+  <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
+    <div class="flex-row flex-center margin-left-30">
+        <div  (click)="back()">
+            <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+        </div>
+        <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
+        <div class="f16 txt-white margin-left-200">个人资料</div>
+    </div>
+  </div>
+  <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
+    <div class="card padding-40">
+
+        <div class="padding white-block border-bottom padding-bottom-40" >
+            <div class="flex-row flex-center " (click)="selectPhoto()">
+             
+              <div class="txt92 h5 flex-4" >头像</div>
+              <div class="flex-1">
+                  <img src='{{uploadpath}}resource/{{res.photo}}'  *ngIf='photo==""' class="touxiang"/>
+                  <img src="{{uploadpath}}member/{{photo}}" *ngIf='photo!=""' class="touxiang"/>
+              </div>
+              <img src="{{uploadpath}}resource/{{res.arrow}}" class="youicon margin-left-20" />
+            </div>
+            <!-- <div style="width:90vw;background:#D6D7D9;" class="margin-top-12 height-1"></div> -->
+          </div>
+      
+      
+          <div class="padding white-block border-bottom padding-bottom-12">
+            <div class="height-35" ></div>
+            <div class="flex-row flex-center"  >
+              <div class="txt92 h5">用户名</div>
+              <ion-input class="flex-1 text-right txt-black h5" [(ngModel)]='name'>
+              </ion-input>
+              <!-- <img src="{{uploadpath}}resource/{{res.arrow}}" class="youicon margin-left-20" /> -->
+            </div>
+            <!-- <div style="width:90vw;background:#D6D7D9;" class="margin-top-12 height-1"></div> -->
+          </div>
+      
+      
+          <div class="padding white-block border-bottom padding-bottom-12">
+              <div class="height-35" ></div>
+              <div class="flex-row flex-center"  >
+                <div class="txt92 h5">手机</div>
+                <ion-input class="flex-1 text-right txt-black h5" disabled [(ngModel)]='mobile' maxlength=11>
+                </ion-input>
+                <!-- <img src="{{uploadpath}}resource/{{res.arrow}}" class="youicon margin-left-20" /> -->
+              </div>
+              <!-- <div style="width:90vw;background:#D6D7D9;" class="margin-top-12 height-1"></div> -->
+            </div>
+
+            <div class="height-70" ></div>
+           <button (click)="savename()"  class="h4-5 bg-blue-14 btns" >完成</button>
+      </div>
+
+      
+</ion-content>
