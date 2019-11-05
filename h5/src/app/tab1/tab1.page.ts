@@ -27,7 +27,7 @@ export class Tab1Page extends AppBase {
     this.headerscroptshow = 480;
 
   }
-  xz=3;
+  xz=0;
   
 
 
@@ -55,8 +55,14 @@ export class Tab1Page extends AppBase {
   getkeshi() {
     var api = this.memberApi;
     api.getdepartment({}).then((department) => {
-      console.log(department);
+      
       this.department = department;
+
+      console.log(department);
+    
+      this.xz=department[0].id;
+      this.hospital(department[0]);
+
     })
   }
   hostlist = [];
@@ -64,6 +70,7 @@ export class Tab1Page extends AppBase {
   item=null;
   hospital(item) {
     this.item=item;
+    this.xz=item.id;
     nextTick(()=>{
       //.scrollIntoView();
       var ele=document.querySelector("#hostlist");
@@ -87,6 +94,7 @@ export class Tab1Page extends AppBase {
       console.log(hostlist);
       this.hostlist = hostlist;
       this.fuwuleibie=name;
+
     })
 
 

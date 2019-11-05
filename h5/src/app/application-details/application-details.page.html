@@ -21,10 +21,10 @@
     </div>
     <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
     <div class="card  height-81">
-      <div class="f16 txt-bold txt-black margin-left-30" *ngIf='activityinfo.status=="A"'>已报名</div>
-      <div class="f16 txt-bold txt-black margin-left-30" *ngIf='activityinfo.status=="S"'>已取消</div>
-      <div class="f12 txt-bold txt-black margin-left-30 margin-top-30" *ngIf='activityinfo.status=="A"'>{{activityinfo.activty_price==0?'免费':'付款成功，报名已完成'}}</div>
-      <div class="f12 txt-bold txt-black margin-left-30 margin-top-30" *ngIf='activityinfo.status=="S"'>报名取消成功</div>
+      <div class="f16 txt-bold txt-black margin-left-30" *ngIf='activityinfo.zhuangtai=="A"'>已报名</div>
+      <div class="f16 txt-bold txt-black margin-left-30" *ngIf='activityinfo.zhuangtai=="S"'>已取消</div>
+      <div class="f12 txt-bold txt-black margin-left-30 margin-top-30" *ngIf='activityinfo.zhuangtai=="A"'>{{activityinfo.activity_price==0?'免费':'付款成功，报名已完成'}}</div>
+      <div class="f12 txt-bold txt-black margin-left-30 margin-top-30" *ngIf='activityinfo.zhuangtai=="S"'>报名取消成功</div>
     </div>
   
 
@@ -38,26 +38,26 @@
       <div class="f16 txt-black">活动信息</div>
   </div>
 
-  <div class="margin-left-30 margin-top-40 flex-row" (click)="activityInformation(activityinfo.id)">
+  <div class="margin-left-30 margin-top-40 flex-row flex-center" (click)="activityInformation(activityinfo.id)">
     <div>
-      <img alt="" class="img-124" src="{{uploadpath}}activity/{{activityinfo.activty_activityCover}}" />
+      <img alt="" class="img-124" src="{{uploadpath}}activity/{{activityinfo.activity_activitycover}}" />
     </div>
     <div class="margin-left-20">
-      <div class="f16 txt-black txt-bold">{{activityinfo.activty_activityName}}</div>
-      <div class="h5 txt-red ">{{activityinfo.activty_price==0?'免费':'费用：￥'+activityinfo.activty_price}}</div>
+      <div class="f16 txt-black txt-bold oneline">{{activityinfo.activity_activityname}}</div>
+      <div class="h5 txt-red ">{{activityinfo.activity_price==0?'免费':'费用：￥'+activityinfo.activity_price}}</div>
     </div>
   </div>
   <hr/>
 
   <div class="margin-left-30 margin-top-30 flex-row flex-center">
     <div class="f16 txt-black">地址</div>
-    <div class="f16 txt-black margin-left-40">{{activityinfo.activty_activitySite}}</div>
+    <div class="f16 txt-black margin-left-40">{{activityinfo.activity_activitysite}}</div>
   </div>
   <hr/>
 
   <div class="margin-left-30 margin-top-30 flex-row flex-center margin-bottom-30">
       <div class="f16 txt-black">时间</div>
-      <div class="f16 txt-black margin-left-40">{{activityinfo.activty_activityTime}}</div>
+      <div class="f16 txt-black margin-left-40">{{activityinfo.activity_activitytime}}</div>
   </div>
 
   <div class="flex-row d1 flex-center">
@@ -87,22 +87,22 @@
   </div>
   
 
-  <div class="margin-top-30 padding-top-30" style="background-color: #F0F2F5;height: 25%;">
+  <div class="margin-top-30 padding-top-30" style="background-color: #F0F2F5;height: 100%;">
       <div class="f12 txt-gw margin-left-30">重要提示：</div>
-      <div class="f12 txt-gw margin-left-30">{{activityinfo.activty_show}}</div>
+      <div class="f12 txt-gw margin-left-30">{{activityinfo.activity_show}}</div>
       <!-- <div 
       class="f16 txt-white line-height-45 margin-top-30 height-90 text-center" 
       style="position: fixed;bottom:0;width:100%;background-color: #BFBFBF"
       >取消</div> -->
   </div>
-  <div class="height-90" *ngIf='activityinfo.status=="A"'></div>
+  <div class="height-90" *ngIf='activityinfo.zhuangtai=="A"'></div>
 
 <!-- Button trigger modal -->
   <button type="button" 
   class="f16 txt-white line-height-45 margin-top-30 height-90 text-center" 
   style="position: fixed;bottom:0;width:100%;background-color: #0F848D" 
   data-toggle="modal" 
-  data-target="#myModal"  *ngIf='activityinfo.status=="A"'>
+  data-target="#myModal"  *ngIf='activityinfo.zhuangtai=="A"'>
   取消
   </button>
   <div class="modal fade" tabindex="-1" role="dialog" id="myModal" aria-labelledby="myModalLabel">

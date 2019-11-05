@@ -27,17 +27,18 @@
     <div class="margin-left-40">
 
 
-      <div  (click)="hospital(item)"  *ngFor='let item of department;let idx=index' style="display:inline-block;" class="margin-left-70 margin-top-150">
+      <div   *ngFor='let item of department;let idx=index' style="display:inline-block;" class="margin-left-70 margin-top-150" (click)="hospital(item);">
         <div>
-          <img src='{{uploadpath}}department/{{item.img}}' class="icon-60" />
+          <img src='{{uploadpath}}department/{{item.img}}' class="icon-60" (click)='xz=item.id;'/>
         </div>
-        <div class="margin-top-10 f16 margin-left-10">{{item.name}}</div>
+        <div class="margin-top-10 f16 ml" (click)='xz=item.id;'>{{item.name}}</div>
+        
         <div *ngIf="xz==item.id" class="xuanzhong">
           <img   src='{{uploadpath}}resource/{{res.queren}}' class="icon-18"  />
 
         </div>
 
-        <div  *ngIf="xz!=item.id" class="xuanzhong">
+        <div  *ngIf="xz!==item.id" class="xuanzhong">
           <img  src='' class="icon-18"  />
           
         </div>

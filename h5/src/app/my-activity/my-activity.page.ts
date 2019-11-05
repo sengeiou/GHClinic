@@ -70,27 +70,29 @@ export class MyActivityPage extends AppBase {
     var api=this.activityApi;
     api.huoquactivityinfo({}).then((activityinfo)=>{
       for(let ai of activityinfo){
-        var aT=new Date(ai.activty_activityTime).getTime();
+        var aT=new Date(ai.activity_activitytime).getTime();
         console.log(ai.activty_activityTime)
         var nT=new Date().getTime();
         if(nT-aT<=0){
           activityinfo1.push(ai)
           console.log(ai)
-          if(ai.status=='A'){
+          if(ai.zhuangtai=='A'){
             activityinfo2.push(ai)
             console.log(ai)
           }
-          if(ai.status=='S'){
+          if(ai.zhuangtai=='S'){
             activityinfo3.push(ai)
             console.log(ai)
           }
         }
       }
-      
+      console.log(activityinfo1);
+      console.log(123132)
+      this.activityinfo1=activityinfo1;
+      this.activityinfo2=activityinfo2;
+      this.activityinfo3=activityinfo3;
     })
-    this.activityinfo1=activityinfo1;
-    this.activityinfo2=activityinfo2;
-    this.activityinfo3=activityinfo3;
+  
   }
 
 

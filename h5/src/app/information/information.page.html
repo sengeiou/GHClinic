@@ -45,7 +45,7 @@
                 <img src="{{uploadpath}}resource/{{res.riqi}}" class="icon-10" />
             </div>
             <div class="f12 txt-gw margin-left-30">日期：</div>
-            <div class="f12 txt-black margin-left-30">{{myear}}年{{mmonth}}月</div>
+            <div class="f12 txt-black margin-left-30">{{myear}}年{{mmonth}}月{{myday}}日</div>
             <div class="f12 txt-gw margin-left-200" (click)="zhankai=true" *ngIf="zhankai==false">展开修改</div>
             <div class="f12 txt-gw margin-left-260" (click)="zhankai=false" *ngIf="zhankai==true">收起</div>
 
@@ -64,13 +64,12 @@
                     <div class="tabbody padding-20 ">
                         <div>
                             <div class="flex-row flex-center ">
-                                <div class="h3 padding-20" (click)="addMonth(-1)">
-                                    <i class="fa fa-angle-left"></i>
-                                </div>
+                                <img src="{{uploadpath}}resource/{{res.left}}"  class="h3 padding-20 icon-20" (click)="addMonth(-1)">
+                                 
                                 <div class="flex-1 text-center" style="color: #0F848D;">{{myear}}年{{mmonth}}月</div>
-                                <div class="h3 padding-20" (click)="addMonth(1)">
-                                    <i class="fa fa-angle-right "></i>
-                                </div>
+                                <img src="{{uploadpath}}resource/{{res.rightArrow}}"  class="h3 padding-20  icon-20" (click)="addMonth(1)">
+                                  
+                               
                             </div>
                         </div>
                         <div class="border-1"></div>

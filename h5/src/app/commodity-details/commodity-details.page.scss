@@ -13,6 +13,19 @@
     margin-top:rpx(-40)
     
   }
+  .red{
+  position: fixed;
+  width: rpx(40);
+  height: rpx(40);
+  line-height: rpx(40);
+  left:rpx(70);
+  border-radius: 50%;
+  background: red;
+  text-align: center;
+  color:white;
+z-index: 999;
+
+  }
 .height-110{
     height: rpx(110);
   }

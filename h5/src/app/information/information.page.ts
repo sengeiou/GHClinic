@@ -214,6 +214,7 @@ export class InformationPage extends AppBase {
       this.xzrq = d.d;
       this.xzy = d.f;
       this.riqi = d.dt;
+       this.myday=d.d;
       this.getdoctor();
     }
     console.log(d);
@@ -291,14 +292,19 @@ export class InformationPage extends AppBase {
     }
     return timeline;
   }
-
+  myday='';
   loadMonthCalendar() {
     var now = new Date();
     var nowtime = now.getTime();
 
     var mfirst = new Date(this.mdate.getFullYear(), this.mdate.getMonth(), 1);
+    console.log("niubiadas");
+    console.log(this.ddate.getDate());
+    this.myday=this.ddate.getDate().toString();
     this.myear = mfirst.getFullYear().toString();
+  
     this.mmonth = (mfirst.getMonth() + 1).toString();
+
     var mfirsttime = mfirst.getTime();
     var kd = 0;
     if (mfirst.getDay()) {
