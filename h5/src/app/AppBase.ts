@@ -21,7 +21,7 @@ import { RequestOptions } from '@angular/http';
 declare let wx: any;
 
 export class AppBase implements OnInit {
-    public needlogin = true;
+    public needlogin = false;
 
     public static TABName = "";
     public static LASTTAB = null;
@@ -191,7 +191,9 @@ export class AppBase implements OnInit {
 
         if (token == null) {
             if (this.needlogin == true) {
+                 
                 this.navigate("login");
+
             } else {
                 this.onMyShow();
             }
@@ -201,6 +203,9 @@ export class AppBase implements OnInit {
             AppBase.memberapi.info({}).then((memberinfo) => {
                 console.log("进来了熬哈哈");
                 AppBase.MemberInfo = memberinfo;
+                console.log(memberinfo);
+                console.log(memberinfo.mobile);
+                
                 if (memberinfo == null || memberinfo.mobile == undefined || memberinfo.mobile == "") {
 
                     memberinfo = null;
