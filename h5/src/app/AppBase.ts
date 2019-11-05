@@ -21,7 +21,7 @@ import { RequestOptions } from '@angular/http';
 declare let wx: any;
 
 export class AppBase implements OnInit {
-    public needlogin = false;
+    public needlogin = true;
 
     public static TABName = "";
     public static LASTTAB = null;
@@ -199,12 +199,12 @@ export class AppBase implements OnInit {
             }
         } else {
             console.log(11111);
+            console.log(token);
             ApiConfig.SetToken(token);
             AppBase.memberapi.info({}).then((memberinfo) => {
                 console.log("进来了熬哈哈");
                 AppBase.MemberInfo = memberinfo;
-                console.log(memberinfo);
-                console.log(memberinfo.mobile);
+             
                 
                 if (memberinfo == null || memberinfo.mobile == undefined || memberinfo.mobile == "") {
 
