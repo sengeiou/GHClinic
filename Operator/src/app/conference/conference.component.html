@@ -48,7 +48,7 @@
           
           <div class="flex-row margin-bottom-10 xinxi"> 
               <div class="">手机号码：</div>
-              <div class=" flex-1">{{orderinfo.photo}}</div>
+              <div class=" flex-1">{{orderinfo.patientmobile}}</div>
             </div>
           <!-- <div class="flex-row"> 
             <div class="txt-gray f14">预约状态：</div>
@@ -129,13 +129,14 @@
             </div>
             <div class="flex-row margin-bottom-20 "> 
               <div class="">手机号码：</div>
-              <div class=" flex-1">{{orderinfo.photo}}</div>
+              <div class=" flex-1">{{orderinfo.patientmobile}}</div>
             </div>
             <div class=" "> 
               <div class="txt-bold margin-bottom-10">图片资料</div>
-              <div class="">
-                <img *ngIf='orderinfo.patientphoto!=""' src="{{uploadpath}}order/{{orderinfo.patientphoto}}" class="images"/>
+              <div  style="float: left;" class="" *ngFor='let img of orderinfo.photolist'>
+                  <img *ngIf='img.photo!=""'  data-toggle="modal" data-target="#myModal2" src="{{uploadpath}}appointment/{{img.photo}}" class="images margin-bottom-10" (click)='changbig(img)'/>
               </div>
+              <div style="clear: both;"></div>
             </div>
         </div>
         <div class="flex-row" style="width: 80%; margin-left: 10%;">
@@ -217,3 +218,53 @@
 
   </div>
 </div>
+</div>
+
+<div  class="modal fade " id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div  class="modal-dialog photoimg " role="img" *ngFor='let item of imgs;let i=index'>
+        <div class="modal-content" style="background: transparent; border: none;width: 800px; height: 600px">
+
+            <div id="demo" class="carousel slide" style="width: 900px; height: 700px" >
+                <!-- 指示符 -->
+                <ul class="carousel-indicators" >
+                <!-- <li data-target="#demo" data-slide-to="i" class="active"></li> -->
+                <!-- <li data-target="#demo"  *ngIf='1<item.length' data-slide-to="1"></li>
+                <li data-target="#demo"  *ngIf='2<item.length' data-slide-to="2"></li>
+                <li data-target="#demo"  *ngIf='3<item.length' data-slide-to="3"></li>
+                <li data-target="#demo"  *ngIf='4<item.length' data-slide-to="4"></li> -->
+            </ul>
+            
+                <!-- 轮播图片 -->
+                <div class="carousel-inner " style="height: 100%;">
+                    <div class="carousel-item active" style="height: 100%;" >
+                        <img src="{{uploadpath}}appointment/{{item.photo}}">
+                    </div>
+                    <!-- <div class="carousel-item" style="height: 100%;" *ngIf='item.photo2!=""&&item.photo2!="undefined"'>
+                        <img src="{{uploadpath}}fittings/{{item.photo2}}">
+                    </div>
+                    <div class="carousel-item" style="height: 100%;" *ngIf='item.photo3!=""&&item.photo3!="undefined"'>
+                        <img src="{{uploadpath}}fittings/{{item.photo3}}">
+                    </div>
+                    <div class="carousel-item" style="height: 100%;" *ngIf='item.photo4!=""&&item.photo4!="undefined"'>
+                        <img src="{{uploadpath}}fittings/{{item.photo4}}">
+                    </div>
+                    <div class="carousel-item" style="height: 100%;" *ngIf='item.photo5!=""&&item.photo5!="undefined"'>
+                        <img  src="{{uploadpath}}fittings/{{item.photo5}}">
+                    </div> -->
+                </div>
+            
+                <!-- 左右切换按钮 -->
+                <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a> -->
+            
+            </div>
+    
+    
+        </div>
+    </div> 
+</div>
+

@@ -303,4 +303,12 @@ export class ConferenceComponent extends AppBase {
       this.micopen = true;
     }
   }
+
+  imgs = []
+  changbig(item){
+    this.imgs = []
+    console.log(item)
+    this.imgs.push(item)
+    console.log(this.imgs)
+  }
 }

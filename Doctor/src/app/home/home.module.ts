@@ -15,6 +15,7 @@ import { SettingComponent } from '../setting/setting.component';
 import { ActivitylogComponent } from '../activitylog/activitylog.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { TodayorderlistComponent } from '../todayorderlist/todayorderlist.component';
+import { PatientManagementComponent } from '../patient-management/patient-management.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TodayorderlistComponent } from '../todayorderlist/todayorderlist.compon
     SettingComponent,
     ActivitylogComponent,
     TodayorderlistComponent,
+    PatientManagementComponent,
     DashboardComponent],
   imports: [
     CommonModule,

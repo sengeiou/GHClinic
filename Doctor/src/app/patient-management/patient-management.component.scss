@@ -27,27 +27,36 @@
     box-shadow: 2px 2px 5px #333333;
   }
   
-  .btns{
-    width: 117px;
+.border-gray-dc {
+    border: 1px solid #DCDFE6;
+    width: 320px;
     height: 40px;
-    background: #F0F2F5;
-    border: 1px solid #F5F5F5;
-    text-align: center;
-    line-height: 40px;
-    color: #8A8A8A;
-    cursor: pointer;
-  }
-  
-  .btn-active{
-    background: #446AD8;
-    color: #fff !important;
-  
-  }
+    padding-left: 10px;
+}
 
-  .images {
-    width: 5%;
-    overflow: hidden;
-    text-overflow:ellipsis;
-    white-space: nowrap;
+.btns {
+    border: none;
+    width: 93px;
+    height: 39px;
+    color: #fff;
+    border: 1px solid #ccc;
+    background: #4C71DE;
+    border-radius: 5px;
+}
+
+.imgs {
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 95% 10px;
+}
+
+
+.lheight {
+  tr {
+      td {
+        vertical-align: middle;
+      }
   }
+}
+
   

@@ -82,6 +82,7 @@ export class TodayorderlistComponent extends AppBase {
       var orderE=[];
       var orderF=[];
       for(var item of list){
+      this.orders.push(item)
         item.ordertime_timespan=parseInt(item.ordertime_timespan)*1000;
         if(that.isA(item)){
           orderA.push(item);

@@ -3,7 +3,7 @@
     <!-- Page Heading -->
     <div class="flex-row flex-bottom">
       <div class="flex-1">
-        <h1 class="h3 mb-4 mt-5 text-gray-800">今日会诊记录</h1>
+        <h1 class="h3 mb-4 mt-5 text-gray-800">今日会诊</h1>
       </div>
       <div>
         {{clock}}
@@ -39,7 +39,11 @@
                    <td>{{item.patientname}}</td>
                    <td>{{item.patientmobile}}</td>
                    <td>{{item.department_id_name}}</td>
-                   <td>{{item.photolist}}</td>
+                   <td class="images" >
+                     <span *ngFor='let img of item.photolist' class="margin-left ">
+                        <img *ngIf='img.photo!=""' src="{{uploadpath}}appointment/{{img.photo}}" class="icon-50"/>
+                     </span>
+                    </td>
                    <td (click)="gotoConference(item)" style="cursor: pointer;">
                      <div *ngIf='item.orderstatus=="A"' style="color:#2850C3">{{item.orderstatus_name}}</div>
                      <div *ngIf='item.orderstatus=="B"' style="color:#FF9800">{{item.orderstatus_name}}...</div>
