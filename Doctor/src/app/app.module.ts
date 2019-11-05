@@ -20,6 +20,7 @@ import { PopoverModule } from 'ngx-bootstrap/popover';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { TodayorderlistComponent } from './todayorderlist/todayorderlist.component';
+import { PatientManagementComponent } from './patient-management/patient-management.component';
 
 
 @NgModule({

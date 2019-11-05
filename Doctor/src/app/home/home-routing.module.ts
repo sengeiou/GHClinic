@@ -9,6 +9,7 @@ import { ProfileComponent } from '../profile/profile.component';
 import { SettingComponent } from '../setting/setting.component';
 import { ActivitylogComponent } from '../activitylog/activitylog.component';
 import { TodayorderlistComponent } from '../todayorderlist/todayorderlist.component';
+import { PatientManagementComponent } from '../patient-management/patient-management.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: "setting", component: SettingComponent },
       { path: "activitylog", component: ActivitylogComponent },
       { path: "todayorderlist", component: TodayorderlistComponent },
+      { path: "patient-management", component: PatientManagementComponent },
     ]
   }
 ];
