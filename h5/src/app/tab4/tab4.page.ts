@@ -36,6 +36,9 @@ export class Tab4Page extends AppBase {
   }
 
 
+  xianshi(){
+    this.toast('暂不开放此模块')
+  }
   
   address(){
     this.navigate("address");

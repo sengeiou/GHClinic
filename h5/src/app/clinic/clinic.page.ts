@@ -8,7 +8,7 @@ import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { HospitalApi } from 'src/providers/hospital.api';
-
+declare let AMap: any;
 @Component({
   selector: 'app-clinic',
   templateUrl: './clinic.page.html',
@@ -31,7 +31,7 @@ export class ClinicPage extends AppBase {
     this.headerscroptshow = 480;
       this.info={};
   }
-  
+  marker;
   onMyLoad() {
     //参数
     this.params;
@@ -40,6 +40,21 @@ export class ClinicPage extends AppBase {
   departmentlist=[];
   info=null;
   onMyShow() {
+
+  
+    
+      
+  var map = new AMap.Map('container');
+     
+    
+      
+   
+  
+   
+
+
+
+
    this.hospitalApi.bannerlist({hospital_id:this.params.hospital_id}).then((bannerlist)=>{
      this.bannerlist=bannerlist;
    });
@@ -48,7 +63,14 @@ export class ClinicPage extends AppBase {
    });
    this.memberApi.hospitalinfo({id:this.params.hospital_id}).then((info)=>{
      this.info=info;
+     console.log('asdgfdhgf'+info.lat);
+     this.marker = new AMap.Marker({
+      icon: "https://webapi.amap.com/theme/v1.3/markers/n/mark_b.png",
+      position: [info.lat,info.lng]
+    });
+    map.add(this.marker);
    })
+   
   }
 
 

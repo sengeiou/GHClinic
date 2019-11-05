@@ -10,13 +10,15 @@
 </ion-header>
 
 <ion-content>
-  <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
+  <div style="background: #0F848D ;position:fixed;width:100%;z-index: 1111;" class="padding-top-40 height-110">
     <div class="flex-row flex-center margin-left-30">
-      <div (click)="back()">
+      <div (click)="back()" >
         <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
       </div>
       <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
-      <div class="f16 txt-white flex-1 text-center">诊所主页</div>
+      
+      <div class="f16 txt-white text-center margin-left-200">诊所主页</div>
+      <div class="flex-1"></div>
     </div>
   </div>
   <div style="background: #0F848D;width: 100%;" class="height-40"></div>
@@ -37,20 +39,20 @@
 
 
     <div class="flex-row flex-center margin-top-30" style="justify-content: center">
-      <img alt="" class="img1" />
+      <img alt="" class="img1" src="{{uploadpath}}resource/{{res.biaoti1}}" />
       <div class="span1">{{info.name}}</div>
-      <img alt="" class="img1" />
+      <img alt="" class="img1" src="{{uploadpath}}resource/{{res.biaoti}}"/>
     </div>
     <p class="p1">
       医疗服务
     </p>
-    <p class="p2"></p>
-    <div>
+    <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
+    <div class="margin-top-30" style="width:100%">
       <div class="div0" *ngFor="let item of departmentlist">
         <img alt="" class="img2" src="{{uploadpath}}department/{{item.img}}" />
         <p class="p3">{{item.name}}</p>
       </div>
-      <div style="clear:both"></div>
+      
     </div>
     <hr />
   </div>
@@ -82,8 +84,8 @@
     <p class="p1">
       诊所信息
     </p>
-    <p class="p2"></p>
-    <p class="p6">营业时间：{{info.openning}}</p>
+    <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
+    <p class="p6 margin-top-30">营业时间：{{info.openning}}</p>
     <hr />
     <p class="p6">诊所电话：{{info.phone}}</p>
     <hr />
@@ -100,10 +102,10 @@
     <p class="p1">
       诊所地址
     </p>
-    <p class="p2"></p>
-    <img alt="" class="img4" />
+    <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
+    <div id="container"></div> 
     <div class="flex-row flex-center margin-top">
-      <img alt="" class="compass" />
+      <img alt="" class="compass" src='{{uploadpath}}resource/{{res.navigationLogo}}'/>
       <div class="address">{{info.address}}</div>
     </div>
   </div>

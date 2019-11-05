@@ -41,8 +41,16 @@
     height: rpx(30);
     background-color:#0F848D;
 }
+.horizontalbar{
+    display: block;
+    margin-top:rpx(5);
+    width:rpx(50*2);
+    height:rpx(6);
+    margin-left:rpx(40);
+    // margin-bottom: rpx(-30);
+  }
 .ion-icon-r{
-    margin-left:rpx(210*2)
+    margin-right:rpx(15)
 }
 .w-h{
     height: rpx(120);
@@ -72,4 +80,21 @@ hr{
     width:100%;
     height:rpx(100);
     background-size: cover;
+  }
+  textarea{
+      width:rpx(335*2);
+      height: rpx(200);
+      outline: none;
+      border:rpx(0.5) solid #aaaaaa;
+  }
+  .d7{
+    width: rpx(53*2);
+    height: rpx(40);
+    line-height: rpx(40);
+    text-align: center;
+    border-radius: rpx(40);
+    background-color:#0F848D;
+  }
+  .width-270{
+    width:rpx(270*2)
   }

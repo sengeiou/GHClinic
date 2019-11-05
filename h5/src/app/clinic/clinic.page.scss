@@ -16,6 +16,16 @@
 .height-110{
   height: rpx(110);
 }
+.horizontalbar{
+  display: block;
+  // margin-top:rpx(5);
+  width:rpx(50*2);
+  height:rpx(6);
+  // margin-left:rpx(30);
+  margin-left:rpx(40);
+  margin-top: rpx(-20);
+  // margin-bottom: rpx(-30);
+}
 .height-40{
   height: rpx(40);
   margin-top:rpx(110);
@@ -38,6 +48,7 @@
   .img1{
       height:rpx(48) ;
       width:rpx(48);
+      margin-top:rpx(3)
     //   margin-left: rpx(170)
   }
   .span1{
@@ -67,11 +78,13 @@
   .p3{
       font-size: rpx(24);
       margin-top:rpx(5);
-      margin-left: rpx(-5)
+      margin-left: rpx(8)
   }
   .div0{
-      float: left;
-      margin-left: rpx(70)
+      // float: left;
+      width:rpx(80);
+      display: inline-block;
+      margin-left: rpx(60);
   }
   .div1{
     float: left;
@@ -126,8 +139,8 @@
       margin-left:rpx(30)
   }
   .compass{
-    height: rpx(60);
-    width:rpx(60);
+    height: rpx(40);
+    width:rpx(40);
     margin-left: rpx(30)
   }
   .address{
@@ -160,3 +173,10 @@
     width:0;
     height: 0;
   }
+
+  #container {
+    height: rpx(174*2);
+    width:rpx(342*2);
+    margin-left:rpx(30);
+    margin-top:rpx(30) 
+}

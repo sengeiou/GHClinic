@@ -11,7 +11,7 @@
 
 <!-- <ion-content *ngIf="doctorinfo!=null"> -->
 <ion-content>
-  <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
+  <div style="background: #0F848D ;position:fixed;width:100%;z-index: 1;" class="padding-top-40 height-110">
     <div class="flex-row flex-center">
       <div class="marginTop" (click)="back()">
         <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
@@ -24,8 +24,8 @@
   <div style="background: #0F848D;width: 100%;" class="height-40"></div>
   <div class="card">
     <div [style.background-image]="'url('+uploadpath+'resource/'+res.beijing+')'" class="height-180">
-      <div [style.background-image]="'url('+uploadpath+'doctor/'+doctorinfo.photo+')'" class="height-180">
-        <div class="margin-left-360 margin-top-50 padding-top-50">
+      <div [style.background-image]="'url('+uploadpath+'doctor/'+doctorinfo.zhaopian+')'" class="height-180 ">
+        <div class="margin-left-360 padding-top-50 margin-top-50">
           <div style="color: #11838D;" class="f18">{{doctorinfo.name}}</div>
           <div class="f18 txt-black margin-top">{{doctorinfo.hospital}}</div>
           <div class="f16 txt-white biaoqian margin-top">{{doctorinfo.title}}</div>
@@ -90,11 +90,11 @@
 
     <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">选择时间段</div>
     <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
-    <!-- <div class="flex-row margin-top-30" style="justify-content: center;">
-      <div class="dibu bc txt-white">上午</div>
-      <div class="dibu1 c">下午</div>
-    </div> -->
-    <div *ngIf="paiban.length==0">
+    <div class="flex-row margin-top-30 db">
+      <div class="dibu" [class.txt-white]='show==true' [class.bc]='show==true' [class.c]='show==false' (click)='show=true'>上午</div>
+      <div class="dibu1" [class.txt-white]='show==false' [class.bc]='show==false' [class.c]='show==true' (click)='show=false'>下午</div>
+    </div>
+    <div *ngIf="paiban.length==0" class="margin-left-40 margin-top-30">
       当日无排班
     </div>
     <div class="flex-row flex-wrap margin-top-40" style="justify-content: center;">

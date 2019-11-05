@@ -29,10 +29,13 @@ export class MyNewsPage extends AppBase {
     this.headerscroptshow = 480;
       
   }
+  show=0;
 
-  day=new Date().getDate();
-  month=new Date().getMonth()+1;
-  year=new Date().getFullYear();
+  
+  
+  day;
+  month;
+  year;
   
   ai=0;
   huodong=[];
@@ -43,7 +46,7 @@ export class MyNewsPage extends AppBase {
 
   onMyShow(){
 
-    console.log(this.day);
+    console.log(this.show);
     this.huoquactivityinfo();
 
   }
@@ -57,13 +60,21 @@ export class MyNewsPage extends AppBase {
         for(let aa of activityinfo){
           if(aa.zhuangtai=='A'){
             
-              huodong.push('您添加了报名活动信息');
+              huodong.push('您已成功报名'+aa.activity_activityname+'的活动，请准时参加，点击查看详情。');
+              
+              this.day=new Date(aa.activity_activitytime).getDate();
+              this.month=new Date(aa.activity_activitytime).getMonth()+1;
+              this.year=new Date(aa.activity_activitytime).getFullYear();
              
             
           }
           else{
             
-              huodong.push('您取消了报名活动信息')
+              huodong.push('您取消了报名'+aa.activity_activityname+'的活动，点击查看详情。')
+              console.log(aa);
+              this.day=new Date(aa.activity_activitytime).getDate();
+              this.month=new Date(aa.activity_activitytime).getMonth()+1;
+              this.year=new Date(aa.activity_activitytime).getFullYear();
               
             }
             this.ai=aa.activty_id;

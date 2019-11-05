@@ -26,6 +26,9 @@
 z-index: 999;
 
   }
+  .bc{
+    background: rgba($color: #8A8A8A, $alpha: 0.5);
+  }
 .height-110{
     height: rpx(110);
   }
@@ -97,4 +100,12 @@ z-index: 999;
     width:rpx(160*2);
     height: rpx(100);
     line-height: rpx(100)
+}
+.horizontalbar{
+  display: block;
+  margin-top:rpx(-18);
+  width:rpx(50*2);
+  height:rpx(6);
+  margin-left:rpx(30);
+  // margin-bottom: rpx(-30);
 }

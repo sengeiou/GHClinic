@@ -22,7 +22,14 @@
   height: rpx(40);
   margin-top:rpx(110);
 }
-
+.horizontalbar{
+  display: block;
+  margin-top:rpx(5);
+  width:rpx(50*2);
+  height:rpx(6);
+  margin-left:rpx(30);
+  // margin-bottom: rpx(-30);
+}
 .icon-32{
   width:rpx(28);
   height: rpx(28);
