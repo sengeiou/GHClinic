@@ -85,3 +85,13 @@ border:none
   bottom:0;
 
 }
+input::-webkit-input-placeholder {
+  font-size: rpx(24);
+}
+
+.fileupload {
+  position: absolute;
+  background: red;
+  margin-top: rpx(-100);
+  opacity: 0;
+}

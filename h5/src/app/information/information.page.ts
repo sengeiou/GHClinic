@@ -7,19 +7,21 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { SetmealApi } from 'src/providers/setmeal.api';
 
 @Component({
   selector: 'app-information',
   templateUrl: './information.page.html',
   styleUrls: ['./information.page.scss'],
+  providers:[SetmealApi]
 })
 export class InformationPage extends AppBase {
-
   constructor(public router: Router,
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
+    public setmealApi:SetmealApi,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
     public memberApi: MemberApi) {
@@ -74,13 +76,30 @@ export class InformationPage extends AppBase {
 
 
   }
+  taocan=[];
+  getsetmeal(id) {
+    var api = this.setmealApi;
+    api.getsetmeal({ hospital: id }).then((setmeal) => {
+      console.log("套餐");
+      console.log(setmeal);
+      this.taocan = setmeal;
 
+    })
+
+  }
   onMyShow() {
     this.loadMonthCalendar();
     this.loadWeekCalendar();
-    this.getdoctor();
+   
     this.hospitalinfo();
     this.fuwuleibie = this.params.fuwuleibie;
+    if(this.fuwuleibie=='体检')
+    {
+ this.getsetmeal(this.params.yiyuanid)
+    }
+    else{
+      this.getdoctor();
+    }
 
     var d = new Date(this.params.riqi);
 
@@ -341,7 +360,25 @@ export class InformationPage extends AppBase {
     }
     this.mcal = mcal;
   }
+  screen = () => {
 
+    var divThree = document.getElementById('divThree')
+    var divTwo = document.getElementById('divTwo')
+    if (divThree.style.height === '418px') {
+      divThree.style.height = 0 + 'px';
+      divThree.style.display = "none";
+      divTwo.style.display = "none";
+      divTwo.style.opacity = '0';
+    } else {
+      divThree.style.height = 418 + 'px';
+      divThree.style.display = "block";
+      divTwo.style.display = "block";
+      divTwo.style.opacity = '0.6';
+    }
 
+  }
 
+  detail(id) {
+    this.navigate("detail", { riqi: this.riqi, id: id, yiyuanid: this.params.yiyuanid })
+  }
 }

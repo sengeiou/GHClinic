@@ -1,106 +1,106 @@
 <ion-header>
-    <ion-toolbar color="primary">
-        <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
-        <ion-title>
-         
-        </ion-title>
-        <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
-      </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
+    <ion-title>
+
+    </ion-title>
+    <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content  *ngIf="setmealinfo.name!=undefined">
+<ion-content *ngIf="setmealinfo.name!=undefined">
   <div style="background-color: #11838D" class="padding-top-15">
-      <div class="card">
-        <div class="p1 flex-row ">
-          <div class="span1">{{setmealinfo.name}}</div>
-          <div class="span2">男性</div>
-        </div>
-        <div class="flex-row  margin-left-20 margin-top-20  flex-wrap" style="width:100%">
-          <div *ngFor="let item of setmealinfo.tijianxian" class="span99">{{item.name}}</div>
-        </div>
-        <hr/>
-      </div>
-  </div>
-  <div style="" *ngIf="qiansantian.length!=0&&housantian.length!=0">
     <div class="card">
-      <div class="flex-row flex-center">
-      <div class="flex-1"></div>
-        <div>2019年9月</div>
-        <div class="flex-1"></div>
+      <div class="p1 flex-row ">
+        <div class="span1">{{setmealinfo.name}}</div>
+        <div class="span2">{{setmealinfo.biaoqian}}</div>
       </div>
-
-
-
-      <div class="flex-row flex-center margin-top-40">
-        <div class="flex-1"></div>
-        <div class="rq  bb1">{{qiansantian[2].d4}}</div>
-        <div class="flex-1"></div>
-        <div class="rq  bb1 ">{{qiansantian[1].d4}}</div>
-        <div class="flex-1"></div>
-        <div class="rq  bb1 ">{{qiansantian[0].d4}}</div>
-        <div class="flex-1"></div>
-        <div class="rq   bb1 ">{{jintian.d4}}</div>
-        <div class="flex-1"></div>
-        <div class="rq  bb1 ">{{housantian[0].d4}}</div>
-        <div class="flex-1"></div>
-        <div class="rq  bb1 ">{{housantian[1].d4}}</div>
-        <div class="flex-1"></div>
-        <div class="rq  bb1 ">{{housantian[2].d4}}</div>
-        <div class="flex-1"></div>
+      <div class="flex-row  margin-left-20 margin-top-20  flex-wrap" style="width:100%">
+        <div *ngFor="let item of setmealinfo.tijianxian" class="span99">{{item.name}}</div>
       </div>
-
-
-
-
-
-      <div class="flex-row flex-center margin-top">
-        <div class="flex-1"></div>
-        <div (click)="clickdate(qiansantian[2]);jt=0" [class.jt]="jt==0" class="rq bb ">{{qiansantian[2].d3}}
-        </div>
-        <div class="flex-1"></div>
-        <div (click)="clickdate(qiansantian[1]);jt=1" [class.jt]="jt==1" class="rq bb ">{{qiansantian[1].d3}}
-        </div>
-        <div class="flex-1"></div>
-        <div (click)="clickdate(qiansantian[0]);jt=2" [class.jt]="jt==2" class="rq bb ">{{qiansantian[0].d3}}
-        </div>
-        <div class="flex-1"></div>
-        <div (click)="clickdate(jintian);jt=3" [class.jt]="jt==3" class="rq bb  jt">{{jintian.d3}}</div>
-        <div class="flex-1"></div>
-        <div (click)="clickdate(housantian[0]);jt=4" [class.jt]="jt==4" class="rq bb ">{{housantian[0].d3}}
-        </div>
-        <div class="flex-1"></div>
-        <div (click)="clickdate(housantian[1]);jt=5" [class.jt]="jt==5" class="rq bb ">{{housantian[1].d3}}
-        </div>
-        <div class="flex-1"></div>
-        <div (click)="clickdate(housantian[2]);jt=6" [class.jt]="jt==6" class="rq bb ">{{housantian[2].d3}}
-        </div>
-        <div class="flex-1"></div>
-      </div>
-      <hr />
+      
     </div>
   </div>
+ 
+  <div class="xian margin-top-20"></div>
+  <p class="margin-20" *ngIf="hospital!=null">
+    预约诊所
+    <span class="project">{{hospital.name}}</span>
+  </p>
+ <div class="xian"></div>
+
+
+  <div>
+    <div class="">
+      <div>
+
+        <div class="tabbody padding-20 ">
+          <div>
+            <div class="flex-row flex-center ">
+              <div class="h3 padding-20" (click)="addMonth(-1)">
+                <i class="fa fa-angle-left"></i>
+              </div>
+              <div class="flex-1 text-center" style="color: #0F848D;">{{myear}}年{{mmonth}}月</div>
+              <div class="h3 padding-20" (click)="addMonth(1)">
+                <i class="fa fa-angle-right "></i>
+              </div>
+            </div>
+          </div>
+          <div class="border-1"></div>
+          <div class="flex-row  txt-gw">
+            <div class="flex-1 h6 txt-bold padding-20 text-center">日</div>
+            <div class="flex-1 h6 txt-bold padding-20 text-center">一</div>
+            <div class="flex-1 h6 txt-bold padding-20 text-center">二</div>
+            <div class="flex-1 h6 txt-bold padding-20 text-center">三</div>
+            <div class="flex-1 h6 txt-bold  padding-20 text-center">四</div>
+            <div class="flex-1 h6 txt-bold padding-20 text-center">五</div>
+            <div class="flex-1 h6 txt-bold padding-20 text-center">六</div>
+          </div>
+          <div class="border-1"></div>
+
+          <div class="flex-row " *ngFor="let w of mcal">
+            <div class="flex-1" *ngFor="let d of w;let i=index;">
+              <div class="mdate padding-20 text-center margin-left-10 yuanquan margin-top-30" (click)='asd(d,i)'
+                [class.issat]="i==6" [class.xzrq]='d.dt==riqi' [class.pass]='d.pass==true'
+                [class.today]='d.today==true'>
+                <div class="">{{d.d}}</div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <div class="div1">
     <p class="p4"></p>
     <p class="p5">
-      预约日期
-      <span class="project">共3项检查项</span>
+      包含项目
+      <span class="project">共{{setmealinfo.tijianxian.length}}项检查项</span>
     </p>
     <div *ngFor="let item of setmealinfo.tijianxian">
-    <p class="p6">{{item.name}}</p>
-    <p class="p7">{{item.jianjie}}</p>
-    <p class="p8">{{item.xianxi}}</p>
-  </div>
-  
+      <p class="p6">{{item.name}}</p>
+      <p class="p7">{{item.jianjie}}</p>
+      <p class="p8">{{item.xianxi}}</p>
+    </div>
+
   </div>
   <div class="div1">
     <p class="p4"></p>
     <p class="p5">
-        体检须知
+      体检须知
     </p>
     <p class="p9">{{setmealinfo.xuzhi}}</p>
-    <div class="div1 flex-row flex-center" style="position: fixed;bottom:0">
-      <div class="p10">合计：<span class="p2" style="color: red">￥{{setmealinfo.price}}</span></div>
-      <div class="p11" (click)="physicalExaminationAppointment()">立即预约</div>
-    </div>
+  
   </div>
+  <div style="height:50px"></div>
 </ion-content>
+
+
+<div class="div1 flex-row flex-center" style="position: fixed;bottom:0">
+  <div class="p10">合计：<span class="p2" style="color: red">￥{{setmealinfo.price}}</span></div>
+  <div class="p11" (click)="physicalExaminationAppointment()">立即预约</div>
+</div>
