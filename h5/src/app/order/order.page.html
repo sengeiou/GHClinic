@@ -25,7 +25,8 @@
         <div class="f16 txt-bold txt-black margin-left-10">收货信息</div>
       </div>
     <div  (click)="address()"  class="flex-row flex-center margin-top-30">
-      <div style="color:#BFBFBF" class="f16 margin-left-40 txt-bold">请添加收货地址</div>
+      <div *ngIf="address_id>0" style="color:#BFBFBF" class="f16 margin-left-40 txt-bold">{{addressinfo.people}} {{addressinfo.dizhi}}</div>
+      <div *ngIf="address_id==0" style="color:#BFBFBF" class="f16 margin-left-40 txt-bold">请添加收货地址</div>
       <ion-icon class="icon-24 ion-icon-r" name="arrow-dropright"></ion-icon>
     </div>
 

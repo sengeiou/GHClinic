@@ -30,123 +30,48 @@ export class MyAddressPage extends AppBase {
     this.headerscroptshow = 480;
 
   }
-  isToggled=false
-  people = "";
-  phone = "";
-  member = [];
-  dizhi = "";
 
-  id = '';
-  
-  menpaihao = '';
-  addressinfo = [];
+  address = {
+    primary_id: 0,
+    people: "",
+    phone: "",
+    dizhi: "",
+    menpaihao: "",
+    isdefault: "N"
+  };
   onMyLoad() {
     //参数
     this.params;
   }
   onMyShow() {
-
-
-
-
     this.getaddressinfo();
-
-
-
-
-
-
   }
 
-
-  toggleFun(e) {
-  
-    console.log(e.detail.checked);
-    this.isToggled = e.detail.checked
-    console.log(this.isToggled);
+  toggleFun(e){
+    console.log(e);
+    this.address.isdefault=e.detail.checked?"Y":"N";
   }
-
-  // close() {
-  //   this.modalCtrl.dismiss({});
-  // }
-
-  id1 = 0;
-
-  // shanchu() {
-
-
-  //   console.log("12313");
-  //   this.showConfirm("是否删除此地址", (ret) => {
-  //     if (ret == true) {
-  //       this.addressApi.shanchuaddress({ id: this.id1 }).then((res) => {
-  //         if (res.code == 0) {
-  //           this.toast("删除成功");
-  //           this.close();
-  //         }
-
-
-  //       })
-  //     }
-  //   });
-  // }
-
 
   getaddressinfo() {
     var api = this.addressApi;
     if (this.params.id == undefined) {
       return
     }
-
     api.addressinfo({ id: this.params.id }).then((addressinfo) => {
-      var ai = addressinfo;
-
-      this.id1 = ai.id;
-      this.addressinfo = addressinfo;
-      this.people = ai.people;
-      this.phone = ai.phone;
-      this.dizhi = ai.dizhi;
-      this.id = ai.member_id;
-      this.isToggled = ai.isdefault_value == 'Y' ? true : false;
-      this.menpaihao = ai.menpaihao;
-
+      this.address = addressinfo;
+      this.address.primary_id = this.params.id;
     })
   }
 
-  delete() {
+  saveaddress() {
 
-    var id = this.id1;
-    if (id == 0) {
-      return
-    }
-    var api = this.addressApi;
-
-    api.shanchuaddress({ idlist: id }).then((res) => {
-
-      if (res.code == 0) {
-        this.back();
-
-      }
-
-
-    })
-
-
-
-
-  }
-
-
-
-  address() {
-    var id1 = this.id1;
-
-    var people = this.people;
+    var people = this.address.people;
     if (people == '') {
       this.toast("请输入收货人");
       console.log(1);
       return;
     }
-    var phone = this.phone;
+    var phone = this.address.phone;
     if (phone == '') {
       this.toast("请输入手机号");
       console.log(2);
@@ -158,56 +83,43 @@ export class MyAddressPage extends AppBase {
       return
     }
 
-    var dizhi = this.dizhi;
+    var dizhi = this.address.dizhi;
     if (dizhi == '') {
       this.toast("请输入地址");
       console.log(3);
       return;
     }
-    var menpaihao = this.menpaihao;
+    var menpaihao = this.address.menpaihao;
     if (menpaihao == '') {
       this.toast("请输入门牌号");
       console.log(4);
       return;
     }
 
-    var canshu = { status: 'A', people: people, phone: phone, dizhi: dizhi, menpaihao: menpaihao,isdefault: this.isToggled ? 'Y' : 'N', }
-    var canshu1 = { primary_id: id1, status: 'A', people: people, phone: phone, dizhi: dizhi, menpaihao: menpaihao,isdefault: this.isToggled ? 'Y' : 'N', }
-
-
-
-
-
-
     var api = this.addressApi;
-    // api.tianjiaaddress({status:'M',people:people,phone:phone,dizhi:dizhi,menpaihao:menpaihao,member_id:id}).then((res)=>{
-    //   console.log(res)
-    //   if(res.code == 0){
-    //     this.navigate("address",{
-    //       people:people,phone:phone,dizhi:dizhi,menpaihao:menpaihao
 
-    //     })
-    //   }
-
-    // })
-
-    api.tianjiaaddress(id1 == 0 ? canshu : canshu1).then((res) => {
+    api.tianjiaaddress(this.address).then((res) => {
       console.log(res)
       if (res.code == 0) {
 
         this.back();
 
+      } else {
+        this.toast(res.result);
       }
 
     })
 
+  }
+  shanchu(){
+    this.showConfirm("确定删除该地址？",(ret)=>{
+      if(ret){
 
-
-
-
-
-
-
+        this.addressApi.shanchuaddress({idlist:this.address.primary_id}).then(()=>{
+          this.back();
+        });
+      }
+    });
   }
 
 }

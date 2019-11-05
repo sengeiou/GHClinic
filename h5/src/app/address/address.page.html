@@ -22,7 +22,7 @@
     <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
     <div class="card">
       
-          <div class="flex-row flex-column" style="margin-top:40%"  *ngIf="show==false">
+          <div class="flex-row flex-column" style="margin-top:40%"  *ngIf="address.length==0">
               <div>
                 <img alt="" class="icon-247" src="{{uploadpath}}resource/{{res.noaddress}}" />
               </div>
@@ -30,10 +30,10 @@
           </div>
 
 
-          <div *ngIf="show==true">
+          <div *ngIf="address.length>0">
             <div *ngFor="let ad of address" class="margin-top-30">
               <div class="flex-row flex-center margin-left-30">
-                <div>
+                <div (click)="returntolast(ad.id)">
                   <div class="flex-row flex-center">
                     <div class="f16">{{ad.people}}</div>
                     <div class="f16 margin-left-20">{{ad.phone}}</div>
