@@ -83,9 +83,16 @@ hr{
   }
   textarea{
       width:rpx(335*2);
-      height: rpx(200);
+      height: rpx(380);
       outline: none;
       border:rpx(0.5) solid #aaaaaa;
+  }
+  .zj{
+    color:rgba($color: #aaa, $alpha: 1);
+    font-size: rpx(14);
+    position:absolute;
+    top:rpx(1275);
+    right:rpx(55)
   }
   .d7{
     width: rpx(53*2);

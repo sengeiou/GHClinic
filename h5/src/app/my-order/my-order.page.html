@@ -43,8 +43,8 @@
     </div>
     <div *ngIf="qiehuan==0">
       <div *ngFor="let item of order">
-        <ion-card *ngIf="item.status=='E'" class="height-320" (click)="orderCancelled(item.id)">
-          <div class="margin-left-30 margin-top-30">
+        <ion-card *ngIf="item.status=='E'" class="padding-20" (click)="orderCancelled(item.id)">
+          <div class="margin-left-10 margin-top-30">
             <div class="flex-row flex-center">
               <div class="h5 txt-black">{{item.submit_time_formatting}}</div>
               <div class="h5 txt-gw margin-left-360">已取消</div>
@@ -61,8 +61,8 @@
         </ion-card>
 
 
-        <ion-card *ngIf="item.status=='B'" class="height-247" (click)="orderPayment(item.id)">
-          <div class="margin-left-30 margin-top-30">
+        <ion-card *ngIf="item.status=='B'" class="padding-20" (click)="orderPayment(item.id)">
+          <div class="margin-left-10 margin-top-30">
             <div class="flex-row flex-center">
               <div class="h5 txt-black">{{item.submit_time_formatting}}</div>
               <div class="h5 txt-gw margin-left-360" style="color: #F7555A">待付款</div>
@@ -83,8 +83,8 @@
         </ion-card>
 
 
-        <ion-card *ngIf="item.status=='C'" class="height-320" (click)="orderSign(item.id)">
-          <div class="margin-left-30 margin-top-30">
+        <ion-card *ngIf="item.status=='C'" class="padding-20" (click)="orderSign(item.id)">
+          <div class="margin-left-10 margin-top-30">
             <div class="flex-row flex-center">
               <div class="h5 txt-black">{{item.submit_time_formatting}}</div>
               <div class="h5 txt-gw margin-left-360">待收货</div>
@@ -106,8 +106,8 @@
 
 
 
-        <ion-card *ngIf="item.status=='F'||item.status=='G'" class="height-320" (click)="orderComplete(item.id)">
-          <div class="margin-left-30 margin-top-30">
+        <ion-card *ngIf="item.status=='F'||item.status=='G'" class="padding-20" (click)="orderComplete(item.id)">
+          <div class="margin-left-10 margin-top-30">
             <div class="flex-row flex-center">
               <div class="h5 txt-black">{{item.submit_time_formatting}}</div>
               <div class="h5 margin-left-360" style="color: #11838D">已完成</div>
@@ -133,8 +133,8 @@
   
 
 
-      <ion-card *ngIf="item.status=='B'" class="height-247" (click)="orderPayment(item.id)">
-        <div class="margin-left-30 margin-top-30">
+      <ion-card *ngIf="item.status=='B'" class="padding-20" (click)="orderPayment(item.id)">
+        <div class="margin-left-10 margin-top-30">
           <div class="flex-row flex-center">
             <div class="h5 txt-black">{{item.submit_time_formatting}}</div>
             <div class="h5 txt-gw margin-left-360" style="color: #F7555A">待付款</div>
@@ -168,8 +168,8 @@
 
 
 
-      <ion-card *ngIf="item.status=='C'" class="height-320" (click)="orderSign(item.id)">
-        <div class="margin-left-30 margin-top-30">
+      <ion-card *ngIf="item.status=='C'" class="padding-20" (click)="orderSign(item.id)">
+        <div class="margin-left-10 margin-top-30">
           <div class="flex-row flex-center">
             <div class="h5 txt-black">2019/8/27 11：30</div>
             <div class="h5 txt-gw margin-left-360">待收货</div>
@@ -201,8 +201,8 @@
    
 
 
-      <ion-card *ngIf="item.status=='F'" class="height-320" (click)="orderComplete(item.id)">
-        <div class="margin-left-30 margin-top-30">
+      <ion-card *ngIf="item.status=='F'" class="padding-20" (click)="orderComplete(item.id)">
+        <div class="margin-left-10 margin-top-30">
           <div class="flex-row flex-center">
             <div class="h5 txt-black">{{item.submit_time_formatting}}</div>
             <div class="h5 margin-left-360" style="color: #11838D">已完成</div>

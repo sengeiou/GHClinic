@@ -416,6 +416,23 @@ export class InformationPage extends AppBase {
 
   }
 
+
+  comprehensive=()=>{
+    var divOne = document.getElementById('divOne')
+    var divFour = document.getElementById('divFour')
+    if (divOne.style.height === '285px') {
+      divOne.style.height = 0 + 'px';
+      divOne.style.display = "none";
+      divFour.style.display = "none";
+      divFour.style.opacity = '0';
+    } else {
+      divOne.style.height = 285 + 'px';
+      divOne.style.display = "block";
+      divFour.style.display = "block";
+      divFour.style.opacity = '0.6';
+    }
+  }
+
   detail(id) {
     this.navigate("detail", { riqi: this.riqi, id: id, yiyuanid: this.params.yiyuanid })
   }
