@@ -7,8 +7,8 @@ import WebRTCAPI from 'trtc-sdk/WebRTCAPI.min.js';
 import { TestApi } from 'src/providers/test.api';
 import { NullTemplateVisitor } from '@angular/compiler';
 import { OrderApi } from 'src/providers/order.api';
-import { TabHeadingDirective } from 'ngx-bootstrap/tabs/public_api';
-import { AppUtil } from '../app.util';
+import { DoctorApi } from 'src/providers/doctor.api';
+import { OperatorApi } from 'src/providers/operator.api';
 
 //var RTC = require("trtc-sdk")
 //4543a2e4772190ba03d4786ba16a3e2fa4dace9ee514c7d348280ec8de1e1705
@@ -18,7 +18,7 @@ import { AppUtil } from '../app.util';
   selector: 'app-conference',
   templateUrl: './conference.component.html',
   styleUrls: ['./conference.component.scss'],
-  providers: [InstApi, TestApi, OrderApi]
+  providers: [InstApi, TestApi, OrderApi, DoctorApi,OperatorApi]
 })
 export class ConferenceComponent extends AppBase {
 
@@ -27,12 +27,17 @@ export class ConferenceComponent extends AppBase {
     public activeRoute: ActivatedRoute,
     public instApi: InstApi,
     public testApi: TestApi,
-    public orderApi: OrderApi
+    public orderApi: OrderApi,
+    public doctorApi: DoctorApi,
+    public operatorApi:OperatorApi
   ) {
     super(router, activeRoute, instApi);
+    this.doctorinfo = {};
+    this.orderinfo = {};
   }
 
-  showtype = 1;//1聊天记录，2病人信息，3.设置
+
+  showtype = 1;//1病人信息，2聊天记录，3.设置
 
   setting = 1;
 
@@ -50,25 +55,64 @@ export class ConferenceComponent extends AppBase {
   cameraopen = true;
   micopen = true;
 
+  inmeeting = false;
 
   onMyLoad() {
+
   }
 
+  startmeeting() {
+    this.inmeeting = true;
+    this.startlive();
+  }
+
+  orderinfo = null;
+  doctorinfo = null;
+
   onMyShow() {
-    this.refreshDevices();
-    // for(var i=67;i<=73;i++){
-    //   var data={userId:i};
-    //   this.LoadOrder(data);
-    // }
+    this.orderApi.info({ id: this.params.order_id }).then((orderinfo: any) => {
+      console.log(orderinfo,'ppp')
+      this.orderinfo = orderinfo;
+      this.doctorApi.info({ id: orderinfo.doctor_id }).then((doctorinfo: any) => {
+        this.doctorinfo = doctorinfo;
+        this.refreshDevices();
+      });
+    });
   }
 
   play = false;
 
+  timeinterval=null;
   startlive() {
     var that = this;
     that.rtc.startRTC({ role: "user", stream: that.mystream }, () => {
       that.play = true;
     });
+    if(this.timeinterval!=null){
+      clearInterval(this.timeinterval);
+      this.timeinterval=null;
+    }
+    this.timeinterval=setInterval(()=>{
+      this.operatorApi.doctorcurrent({doctor_id:this.orderinfo.doctor_id}).then((ret:any)=>{
+        console.log("ccj",ret);
+        var remotevideo: HTMLVideoElement = document.querySelector("#remotevideo");
+        if(ret.currentorder!=this.orderinfo.id){
+          remotevideo.srcObject=null;
+        }else{
+          if(remotevideo.srcObject==null||remotevideo.srcObject!=that.remotestream){
+            remotevideo.srcObject=that.remotestream;
+          }
+        }
+      });
+    },5000);
+    this.orderApi.start({order_id: this.params.order_id}).then(()=>{
+    })
+  }
+  onUnload(){
+    if(this.timeinterval!=null){
+      clearInterval(this.timeinterval);
+      this.timeinterval=null;
+    }
   }
 
   stoplive() {
@@ -99,10 +143,10 @@ export class ConferenceComponent extends AppBase {
     }
 
 
-    this.testApi.generatertc({}).then((sig: any) => {
-      //alert(that.InstInfo.rtcappid);
+    this.testApi.generatertc({userid:that.orderinfo.id}).then((sig: any) => {
+      //userId要和generatertc接口中的值一样才不会报错
       var rtc = new WebRTCAPI({
-        userId: this.doctorinfo.loginname,
+        userId: that.orderinfo.id,
         userSig: sig,
         sdkAppId: that.InstInfo.rtcappid,
         accountType: "1",
@@ -110,11 +154,6 @@ export class ConferenceComponent extends AppBase {
           "log": true, //是否在控制台打印调试日志 ,默认为false
           "vconsole": true, //是否展示 vconsole （方便在移动端查看日志）
           "uploadLog": true //是否上报日志
-        },
-        attributes:{
-            width:640,
-            height:480,
-            frameRate:50
         }
       });
 
@@ -131,12 +170,12 @@ export class ConferenceComponent extends AppBase {
         }
       }, (info) => {
         // info { stream }
-        var stream = info.stream;
-        // localvideo.srcObject = stream;
-        // localvideo.onloadedmetadata = function (e) {
-        //   localvideo.play();
-        // };
-        that.mystream=stream;
+        // var stream = info.stream;
+        //  localvideo.srcObject = stream;
+        //  localvideo.onloadedmetadata = function (e) {
+        //    localvideo.play();
+        //  };
+        that.mystream=info.stream;
 
         var meter = WebRTCAPI.SoundMeter({
           stream: info.stream,
@@ -144,11 +183,14 @@ export class ConferenceComponent extends AppBase {
             that.volume = data.volume;
           }
         })
-
-        rtc.enterRoom({ roomid: that.doctorinfo.id,appScene:"VideoCall",role:"anchor" }, () => {
+        //roomid: that.doctorinfo.id
+        //alert(that.orderinfo.id);
+        rtc.enterRoom({ roomid: this.doctorinfo.id,appScene:"VideoCall",role:"anchor" }, () => {
           this.initedrtc = true;
 
+
           rtc.on('onLocalStreamAdd', function (data) {
+            //alert(data);
             if (data && data.stream) {
               var stream = data.stream;
               localvideo.srcObject = stream;
@@ -158,47 +200,34 @@ export class ConferenceComponent extends AppBase {
               };
             }
           })
+
           rtc.on('onRemoteStreamUpdate', function (data) {
             console.log("kk5", data);
-            if (data && data.stream) {
-              var stream = data.stream;
-              //that.remotestream = stream;
-              console.debug(data.userId + 'enter this room with unique videoId ' + data.videoId, data);
-              //alert(data.userId);
-              console.log("ccbcc0",that.currentorder);
-              if(that.currentorder==null){
-                console.log("ccbcc1",that.currentorder);
-                that.LoadOrder(data);
-              }else{
-                console.log("ccbcc2",that.currentorder);
-                if(that.currentorder.id!=data.userId){
-                  console.log("ccbcc3",that.currentorder);
-                  that.LoadOrder(data);
-                }else{
-                  console.log("ccbcc4",that.currentorder);
-                  that.currentorder.streamdata=data;
-                  remotevideo.srcObject = that.currentorder.streamdata.stream;
+            //alert(data.userId );
+            //alert(that.doctorinfo.loginname );
+            if (data && data.stream && data.userId == that.doctorinfo.loginname) {
+              
+                var stream = data.stream;
+                that.remotestream = stream;
+                console.debug(data.userId + 'enter this room with unique videoId ' + data.videoId, data)
+                remotevideo.srcObject = that.remotestream;
+                try {
+                  remotevideo.onloadedmetadata = function (e) {
+                    remotevideo.play();
+                  };
+                } catch (e) {
+                  //alert(e);
                 }
-              }
-              // remotevideo.srcObject = that.remotestream;
-              // try {
-              //   remotevideo.onloadedmetadata = function (e) {
-              //     remotevideo.play();
-              //   };
-              // } catch (e) {
-              //   alert(e);
-              // }
+              
             } else {
               //alert("kk7");
-              //console.debug('somebody enter this room without stream')
+              console.debug('somebody enter this room without stream')
             }
           })
 
 
           rtc.on('onRemoteStreamRemove', function (data) {
-            if(that.currentorder!=null&&that.currentorder.id==data.userId){
-              alert("对方断开链接，等待重新接入，请勿刷新页面");
-            }
+            //alert("对方断开链接");
           })
 
 
@@ -218,89 +247,13 @@ export class ConferenceComponent extends AppBase {
     })
   }
 
-  orderlist = [];
-  currentorder = null;
-  currentinterval=null;
-
-  endmeeting(order){
-
-    if(confirm("确定结束会诊？")){
-
-      this.stoplive();
-      order.orderstatus="C";
-      order.orderstatus_name="完成会诊";
-      this.orderApi.end({order_id:order.id}).then((ret:any)=>{
-        order.meetingend_formatting=ret.return;
-      });;
-      if(this.currentinterval!=null){
-        clearInterval(this.currentinterval);
-        this.currentinterval=null;
+  determine(){
+    console.log(this.params.order_id,'ppp')  
+    this.orderApi.end({order_id: this.params.order_id}).then((ret)=>{
+      if(ret){
+        this.navigate("/todayorderlist");
       }
-      this.currentorder=null;
-    }
-
-    
-
-  }
-
-  startmeeting(order) {
-    this.startlive();
-    var remotevideo: HTMLVideoElement = document.querySelector("#remotevideo");
-    this.currentorder = order;
-    if(this.currentorder.orderstatus=="A"){
-      this.currentorder.meetingduration=0;
-      this.currentorder.orderstatus="B";
-      this.currentorder.orderstatus_name="会诊中";
-      this.orderApi.start({order_id:this.currentorder.id}).then((ret:any)=>{
-        this.currentorder.meetingstart_formatting=ret.return;
-      });
-    }
-    if(this.currentinterval!=null){
-      clearInterval(this.currentinterval);
-      this.currentinterval=null;
-    }
-    
-    this.currentinterval=setInterval(()=>{
-      this.currentorder.meetingduration++;
-      //alert(this.currentorder.meetingduration);
-      this.orderApi.timeupdate({order_id:this.currentorder.id,time:this.currentorder.meetingduration});
-      this.currentorder.timestr=AppUtil.TimeFormatting(this.currentorder.meetingduration);
-      console.log("time update"+this.currentorder.timestr);
-    },1000);
-    console.log("vvk",order);
-    remotevideo.srcObject = order.streamdata.stream;
-    try {
-      remotevideo.onloadedmetadata = function (e) {
-        remotevideo.play();
-      };
-    } catch (e) {
-      alert(e);
-    }
-  }
-
-  LoadOrder(streamdata) {
-    var order_id = streamdata.userId;
-    //alert(order_id);
-    this.orderApi.info({ id: order_id }).then((orderinfo: any) => {
-      if (orderinfo == null) {
-        //var order={unknow:"Y",streamdata:streamdata};
-        //this.orderlist.push(order);
-      } else {
-        for (let order of this.orderlist) {
-          if (order.id == order_id) {
-            return;
-          }
-        }
-        orderinfo.streamdata = streamdata;
-        this.orderlist.push(orderinfo);
-
-        this.orderlist.sort((a, b) => {
-          var oct=Number(a.ordertime_timespan) -Number(b.ordertime_timespan) ;
-          console.log("kkt",oct,a,b);
-          return oct;
-        })
-      }
-    });
+    })
   }
 
   loadDevice() {
@@ -323,6 +276,8 @@ export class ConferenceComponent extends AppBase {
 
         console.log(err.name + ": " + err.message);
       });
+
+
 
   }
 
@@ -348,13 +303,11 @@ export class ConferenceComponent extends AppBase {
       this.micopen = true;
     }
   }
-  onUnload(){
-    if(this.currentinterval!=null){
-      clearInterval(this.currentinterval);
-    }
-    if(this.rtc!=null){
-      this.stoplive();
-      this.rtc.quit();
-    }
+imgs = []
+  changbig(item){
+    this.imgs = []
+    console.log(item)
+    this.imgs.push(item)
+    console.log(this.imgs)
   }
 }

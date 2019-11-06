@@ -191,16 +191,21 @@ export class AppBase implements OnInit {
 
         if (token == null) {
             if (this.needlogin == true) {
+                 
                 this.navigate("login");
+
             } else {
                 this.onMyShow();
             }
         } else {
             console.log(11111);
+            console.log(token);
             ApiConfig.SetToken(token);
             AppBase.memberapi.info({}).then((memberinfo) => {
                 console.log("进来了熬哈哈");
                 AppBase.MemberInfo = memberinfo;
+             
+                
                 if (memberinfo == null || memberinfo.mobile == undefined || memberinfo.mobile == "") {
 
                     memberinfo = null;

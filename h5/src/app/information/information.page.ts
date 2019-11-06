@@ -7,19 +7,23 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { SetmealApi } from 'src/providers/setmeal.api';
+import { TijianApi } from 'src/providers/tijian.api';
 
 @Component({
   selector: 'app-information',
   templateUrl: './information.page.html',
   styleUrls: ['./information.page.scss'],
+  providers: [SetmealApi, TijianApi]
 })
 export class InformationPage extends AppBase {
-
   constructor(public router: Router,
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
+    public tijianApi: TijianApi,
+    public setmealApi: SetmealApi,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
     public memberApi: MemberApi) {
@@ -39,6 +43,7 @@ export class InformationPage extends AppBase {
   wcal = [];
   wtimeline = [];
 
+  taocanshuxin = null;
 
   ddate: Date = new Date();
 
@@ -74,13 +79,65 @@ export class InformationPage extends AppBase {
 
 
   }
+  taocan = [];
+  getsetmeal(id) {
+    var api = this.setmealApi;
+    api.getsetmeal({ hospital: id }).then((setmeal) => {
+      console.log("套餐");
+      console.log(setmeal);
+      this.taocan = setmeal;
 
+    })
+
+  }
+  gettaocanshuxin() {
+    var api = this.tijianApi;
+    api.taocanshuxin({}).then((shuxin) => {
+      console.log(shuxin);
+      shuxin.nianlin.map((item, idx) => {
+        if (idx == 0) {
+          item.xz = true;
+        }
+        else {
+          item.xz = false;
+        }
+      })
+      shuxin.renqun.map((item, idx) => {
+        if (idx == 0) {
+          item.xz = true;
+        }
+        else {
+          item.xz = false;
+        }
+      })
+      shuxin.xianmu.map((item, idx) => {
+        if (idx == 0) {
+          item.xz = true;
+        }
+        else {
+          item.xz = false;
+        }
+      })
+      this.taocanshuxin = shuxin;
+
+
+
+    })
+
+
+  }
   onMyShow() {
     this.loadMonthCalendar();
     this.loadWeekCalendar();
-    this.getdoctor();
+    this.gettaocanshuxin();
     this.hospitalinfo();
     this.fuwuleibie = this.params.fuwuleibie;
+    if (this.fuwuleibie == '体检') {
+      this.getsetmeal(this.params.yiyuanid)
+    }
+    else {
+      this.getdoctor();
+    }
 
     var d = new Date(this.params.riqi);
 
@@ -125,7 +182,7 @@ export class InformationPage extends AppBase {
   }
   getdoctor() {
     var api = this.memberApi;
-    api.getdoctor({departmentname:this.params.fuwuleibie,hospital_id:this.params.yiyuanid,riqi:this.riqi}).then((doctorlist) => {
+    api.getdoctor({ departmentname: this.params.fuwuleibie, hospital_id: this.params.yiyuanid, riqi: this.riqi }).then((doctorlist) => {
       console.log(doctorlist);
       this.doctorlist = doctorlist;
     })
@@ -135,11 +192,11 @@ export class InformationPage extends AppBase {
   // }
 
   doctor(id) {
-    this.navigate("doctor",{id:id,departmentname:this.params.fuwuleibie,hospital_id:this.params.yiyuanid,riqi:this.riqi});
+    this.navigate("doctor", { id: id, departmentname: this.params.fuwuleibie, hospital_id: this.params.yiyuanid, riqi: this.riqi });
   }
 
   clinic() {
-    this.navigate("clinic",{hospital_id:this.params.yiyuanid})
+    this.navigate("clinic", { hospital_id: this.params.yiyuanid })
   }
   getNextDay(d) {
     var qiansantian = [];
@@ -214,7 +271,7 @@ export class InformationPage extends AppBase {
       this.xzrq = d.d;
       this.xzy = d.f;
       this.riqi = d.dt;
-       this.myday=d.d;
+      this.myday = d.d;
       this.getdoctor();
     }
     console.log(d);
@@ -256,7 +313,7 @@ export class InformationPage extends AppBase {
         today: sdate.getFullYear() == now.getFullYear() && sdate.getMonth() == now.getMonth() && sdate.getDate() == now.getDate(),
         d: sdate.getDate(),
         q: sdate.getMonth(),
-        dt:AppUtil.FormatDate(AppUtil.FormatDateTime( sdate)),
+        dt: AppUtil.FormatDate(AppUtil.FormatDateTime(sdate)),
         timeline: this.timeline(sdate)
       };
       if (d.today) {
@@ -292,7 +349,7 @@ export class InformationPage extends AppBase {
     }
     return timeline;
   }
-  myday='';
+  myday = '';
   loadMonthCalendar() {
     var now = new Date();
     var nowtime = now.getTime();
@@ -300,9 +357,9 @@ export class InformationPage extends AppBase {
     var mfirst = new Date(this.mdate.getFullYear(), this.mdate.getMonth(), 1);
     console.log("niubiadas");
     console.log(this.ddate.getDate());
-    this.myday=this.ddate.getDate().toString();
+    this.myday = this.ddate.getDate().toString();
     this.myear = mfirst.getFullYear().toString();
-  
+
     this.mmonth = (mfirst.getMonth() + 1).toString();
 
     var mfirsttime = mfirst.getTime();
@@ -327,7 +384,7 @@ export class InformationPage extends AppBase {
           pass: sdatetime < nowtime,
           today: sdate.getFullYear() == now.getFullYear() && sdate.getMonth() == now.getMonth() && sdate.getDate() == now.getDate(),
           d: sdate.getDate(),
-          dt:AppUtil.FormatDate(AppUtil.FormatDateTime( sdate)),
+          dt: AppUtil.FormatDate(AppUtil.FormatDateTime(sdate)),
           f: sdate.getMonth() + 1
         };
         if (d.today) {
@@ -341,7 +398,126 @@ export class InformationPage extends AppBase {
     }
     this.mcal = mcal;
   }
+  screen = () => {
+
+    var divThree = document.getElementById('divThree')
+    var divTwo = document.getElementById('divTwo')
+    if (divThree.style.height === '418px') {
+      divThree.style.height = 0 + 'px';
+      divThree.style.display = "none";
+      divTwo.style.display = "none";
+      divTwo.style.opacity = '0';
+    } else {
+      divThree.style.height = 418 + 'px';
+      divThree.style.display = "block";
+      divTwo.style.display = "block";
+      divTwo.style.opacity = '0.6';
+    }
+
+  }
+
+  detail(id) {
+    this.navigate("detail", { riqi: this.riqi, id: id, yiyuanid: this.params.yiyuanid })
+  }
+  qiehuan1(item) {
+    var taocanshuxin = this.taocanshuxin;
+
+    if (item.xz != true) {
+
+      taocanshuxin.nianlin.map((item) => {
+        item.xz = false;
+      })
+
+      item.xz = true;
 
 
 
+
+
+    }
+    else {
+
+    }
+
+  }
+  qiehuan2(item) {
+    var taocanshuxin = this.taocanshuxin;
+    if (item.xz != true) {
+
+      taocanshuxin.renqun.map((item) => {
+        item.xz = false;
+      })
+      item.xz = true;
+
+    }
+    else {
+
+    }
+
+  }
+  qiehuan3(item) {
+    var taocanshuxin = this.taocanshuxin;
+    if (item.xz != true) {
+
+      taocanshuxin.xianmu.map((item) => {
+        item.xz = false;
+      })
+      item.xz = true;
+
+    }
+    else {
+
+    }
+
+  }
+  chonzhi() {
+    this.gettaocanshuxin();
+
+  }
+
+  shuaixuan(){
+    var xinbie=0;
+    var renqun=0;
+    var taocan=0;
+    var taocanshuxin=this.taocanshuxin;
+       
+      taocanshuxin.nianlin.map((item)=>{
+        
+        if(item.xz==true)
+        {
+           xinbie=item.id;
+       
+        }
+
+      })
+      taocanshuxin.renqun.map((item)=>{
+        if(item.xz==true)
+        {
+          renqun=item.id;
+       
+        }
+
+      })
+      taocanshuxin.xianmu.map((item)=>{
+
+        if(item.xz==true)
+        {
+          taocan=item.id;
+       
+        }
+      })
+    
+      var  api=this.tijianApi;
+         
+       api.taocanshaixuan({xinbie:xinbie,renqun:renqun,taocan:taocan}).then((taocan)=>{
+           
+          this.taocan=taocan;
+         this.screen();
+       })
+      
+       
+
+
+
+  }
 }

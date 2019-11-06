@@ -5,11 +5,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { InstApi } from 'src/providers/inst.api';
 import { DoctorApi } from 'src/providers/doctor.api';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { EventEmitter } from '@angular/core';
-import { ApiConfig } from '../api.config';
 import { OperatorApi } from 'src/providers/operator.api';
 import { AppUtil } from '../app.util';
-import { isNgTemplate } from '@angular/compiler';
 
 @Component({
   selector: 'app-todayorderlist',
@@ -85,6 +82,7 @@ export class TodayorderlistComponent extends AppBase {
       var orderE=[];
       var orderF=[];
       for(var item of list){
+     
         item.ordertime_timespan=parseInt(item.ordertime_timespan)*1000;
         if(that.isA(item)){
           orderA.push(item);

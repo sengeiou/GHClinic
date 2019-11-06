@@ -31,7 +31,8 @@ export class ClinicPage extends AppBase {
     this.headerscroptshow = 480;
       this.info={};
   }
-  marker;
+ 
+  map;
   onMyLoad() {
     //参数
     this.params;
@@ -44,7 +45,7 @@ export class ClinicPage extends AppBase {
   
     
       
-  var map = new AMap.Map('container');
+
      
     
       
@@ -64,11 +65,16 @@ export class ClinicPage extends AppBase {
    this.memberApi.hospitalinfo({id:this.params.hospital_id}).then((info)=>{
      this.info=info;
      console.log('asdgfdhgf'+info.lat);
-     this.marker = new AMap.Marker({
+     this.map = new AMap.Map("container", {
+      resizeEnable: true,
+      center: [info.lat, info.lng],
+      zoom: 16
+    });
+      var marker = new AMap.Marker({
       icon: "https://webapi.amap.com/theme/v1.3/markers/n/mark_b.png",
       position: [info.lat,info.lng]
     });
-    map.add(this.marker);
+    this.map.add(marker);
    })
    
   }

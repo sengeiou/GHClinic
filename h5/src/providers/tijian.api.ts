@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { RequestOptions } from '@angular/http';
 import { ApiConfig } from '../app/api.config'
 @Injectable()
-export class OrderApi {
+export class TijianApi {
 
     constructor(public http: Http) {
 
@@ -11,7 +11,7 @@ export class OrderApi {
 
 
     public create(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'order/create';
+        var url = ApiConfig.getApiUrl() + 'tijian/create';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -23,7 +23,7 @@ export class OrderApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('order/create', data, res)) {
+                if (ApiConfig.DataLoadedHandle('tijian/create', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -39,13 +39,13 @@ export class OrderApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('order/create', data, err);
+                return ApiConfig.ErrorHandle('tijian/create', data, err);
             });
     }
 
 
-    public end(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'order/end';
+    public taocanshuxin(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'tijian/taocanshuxin';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -57,7 +57,7 @@ export class OrderApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('order/end', data, res)) {
+                if (ApiConfig.DataLoadedHandle('tijian/taocanshuxin', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -73,13 +73,13 @@ export class OrderApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('order/end', data, err);
+                return ApiConfig.ErrorHandle('tijian/taocanshuxin', data, err);
             });
     }
 
 
-    public info(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'order/info';
+    public wodetijian(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'tijian/wodetijian';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -91,7 +91,7 @@ export class OrderApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('order/info', data, res)) {
+                if (ApiConfig.DataLoadedHandle('tijian/wodetijian', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -107,13 +107,13 @@ export class OrderApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('order/info', data, err);
+                return ApiConfig.ErrorHandle('tijian/wodetijian', data, err);
             });
     }
 
 
-    public orderlist(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'order/orderlist';
+    public taocanshaixuan(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'tijian/taocanshaixuan';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -125,7 +125,7 @@ export class OrderApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('order/orderlist', data, res)) {
+                if (ApiConfig.DataLoadedHandle('tijian/taocanshaixuan', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -141,75 +141,7 @@ export class OrderApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('order/orderlist', data, err);
-            });
-    }
-
-
-    public start(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'order/start';
-        var headers = ApiConfig.GetHeader(url, data);
-        let options = new RequestOptions({ headers: headers });
-        let body = ApiConfig.ParamUrlencoded(data);
-        let loading = null;
-
-        if (showLoadingModal) {
-            loading = ApiConfig.GetLoadingModal();
-        }
-
-        return this.http.post(url, body, options).toPromise()
-            .then((res) => {
-                if (ApiConfig.DataLoadedHandle('order/start', data, res)) {
-                    if (showLoadingModal) {
-                        ApiConfig.DimissLoadingModal();
-                    }
-                    if (res==null) {
-                        return null;
-                    }
-                    return res.json();
-                } else {
-                    return Promise.reject(res);
-                }
-            })
-            .catch(err => {
-                if (showLoadingModal) {
-                    ApiConfig.DimissLoadingModal();
-                }
-                return ApiConfig.ErrorHandle('order/start', data, err);
-            });
-    }
-
-
-    public timeupdate(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'order/timeupdate';
-        var headers = ApiConfig.GetHeader(url, data);
-        let options = new RequestOptions({ headers: headers });
-        let body = ApiConfig.ParamUrlencoded(data);
-        let loading = null;
-
-        if (showLoadingModal) {
-            loading = ApiConfig.GetLoadingModal();
-        }
-
-        return this.http.post(url, body, options).toPromise()
-            .then((res) => {
-                if (ApiConfig.DataLoadedHandle('order/timeupdate', data, res)) {
-                    if (showLoadingModal) {
-                        ApiConfig.DimissLoadingModal();
-                    }
-                    if (res==null) {
-                        return null;
-                    }
-                    return res.json();
-                } else {
-                    return Promise.reject(res);
-                }
-            })
-            .catch(err => {
-                if (showLoadingModal) {
-                    ApiConfig.DimissLoadingModal();
-                }
-                return ApiConfig.ErrorHandle('order/timeupdate', data, err);
+                return ApiConfig.ErrorHandle('tijian/taocanshaixuan', data, err);
             });
     }
 

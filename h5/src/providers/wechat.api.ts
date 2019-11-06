@@ -112,6 +112,40 @@ export class WechatApi {
     }
 
 
+    public notify3(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'wechat/notify3';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('wechat/notify3', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('wechat/notify3', data, err);
+            });
+    }
+
+
     public prepay(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'wechat/prepay';
         var headers = ApiConfig.GetHeader(url, data);

@@ -95,6 +95,7 @@
   font-size: rpx(24);
   color: #8a8a8a;
   border-radius: rpx(100);
+  margin-left:rpx(10);
   padding:rpx(6) rpx(16)
 }
 .span9{
@@ -187,4 +188,66 @@
   font-size: rpx(32);
   line-height: rpx(90);
 
+}
+td{
+  border:#d2d2d2 solid rpx(4);
+  width: rpx(220);
+  height: rpx(120);
+}
+
+
+.border-1{
+border:#dee2e6 solid rpx(1);
+}
+.tabbody{
+background: white;
+// border:#dee2e6 solid 1px;
+border-radius: 0.25rem;
+border-top: 0px;
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+}
+.mdate{
+height:rpx(80);
+// border-left: #dee2e6 solid 1px;
+// border-bottom: #dee2e6 solid 1px;
+}
+// .issat{
+//   border-right: #dee2e6 solid 1px;
+// }
+.xzrq{
+width: rpx(80);
+height: rpx(80);
+color:white;
+// line-height: rpx(80);
+// border-radius: 50%;
+background: #0F848D;
+}
+.pass{
+width: rpx(80);
+height: rpx(80);
+// line-height: rpx(80);
+// border-radius: 50%;
+color:#8a8a8a;
+background: #dee2e6;
+}
+.today{
+width: rpx(80);
+height: rpx(80);
+color:black;
+// line-height: rpx(80);
+// border-radius: 50%;
+background: red;
+}
+.yuanquan{
+width: rpx(80);
+height: rpx(80);
+// line-height: rpx(80);
+border:#dee2e6 solid rpx(1);
+border-radius: 50%;
+}
+.xian{
+  width:100vw;
+  height: rpx(8);
+  background: #f0f2f5;
 }
