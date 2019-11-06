@@ -35,10 +35,12 @@ export class MyPhysicalExaminationPage extends AppBase {
     this.params;
   }
   tijianlist=[];
+  qiehuan=0;
   onMyShow(){
      var api=this.tijianApi;
 
       api.wodetijian({}).then((tijianlist)=>{
+        console.log(tijianlist);
      this.tijianlist=tijianlist;
 
 

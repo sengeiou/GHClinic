@@ -195,36 +195,28 @@
           <div  (click)="screen()" id='divTwo' style="display: none"></div>
         
         
-          <div id='divThree' style='height:0;display: none'>
+          <div id='divThree' *ngIf="taocanshuxin!=null" style='height:0;display: none'>
         
             <div class="f16 txt-black txt-bold margin-top-80 margin-left-40">性别</div>
-            <div class="flex-row flex-center margin-top-30 margin-left-40">
-              <div class="d1 bg-p txt-white f12">男性</div>
-              <div class="d1 txt-black f12 margin-left-40" style="background-color: #F0F2F5">女性</div>
+            <div class="flex-row flex-center margin-top-30 ">
+              <div  (click)="qiehuan1(item)" *ngFor='let item of taocanshuxin.nianlin' class="d1 bg-p txt-white  f12 margin-left-40" [class.baise]='!item.xz' [class.txt-black]='!item.xz'  >{{item.name}}</div>
+              <!-- <div class="d1 txt-black f12 margin-left-40" style="background-color: #F0F2F5">女性</div> -->
             </div>
         
             <div class="f16 txt-black txt-bold margin-top-80 margin-left-40">人群</div>
-            <div class="flex-row flex-center margin-top-30 margin-left-40">
-              <div class="d1 f12" style="background-color: #F0F2F5">青年男性</div>
-              <div class="d1 f12 margin-left-40" style="background-color: #F0F2F5">青年女性</div>
-              <div class="d1 bg-p f12 txt-white margin-left-40">退休人士</div>
+            <div class="flex-row flex-center margin-top-30 ">
+                    <div  (click)="qiehuan2(item)" *ngFor='let item of taocanshuxin.renqun' [class.baise]='!item.xz' [class.txt-black]='!item.xz'  class="d1 bg-p txt-white  f12 margin-left-40">{{item.name}}</div>
             </div>
         
-            <div class="f16 txt-black txt-bold margin-top-80 margin-left-40">人群</div>
-            <div class="flex-row flex-center margin-top-30 margin-left-40">
-              <div class="d1 bg-p f12 txt-white">公司入职</div>
-              <div class="d1 f12 margin-left-40" style="background-color: #F0F2F5">儿童入学</div>
-              <div class="d1 f12 margin-left-40" style="background-color: #F0F2F5">驾照考试</div>
+            <div class="f16 txt-black txt-bold margin-top-80 margin-left-40">项目</div>
+            <div class="flex-row flex-center margin-top-30 ">
+                    <div (click)="qiehuan3(item)"  *ngFor='let item of taocanshuxin.xianmu' [class.baise]='!item.xz' [class.txt-black]='!item.xz'  class="d1 bg-p txt-white  f12 margin-left-40">{{item.name}}</div>
             </div>
-            <div class="flex-row flex-center margin-top-30 margin-left-40">
-              <div class="d1 f12" style="background-color: #F0F2F5">婚检</div>
-              <div class="d1 f12 margin-left-40" style="background-color: #F0F2F5">孕检</div>
-            </div>
-        
+      
         
             <div class="flex-row" style="bottom: 0;position:absolute">
-              <div class="d2 f16" style="background-color: #F9F8F8">重置</div>
-              <div class="d2 f16 txt-white bg-p">确定</div>
+              <div (click)='chonzhi()' class="d2 f16" style="background-color: #F9F8F8">重置</div>
+              <div  (click)="shuaixuan()" class="d2 f16 txt-white bg-p">确定</div>
             </div>
         
           </div>
