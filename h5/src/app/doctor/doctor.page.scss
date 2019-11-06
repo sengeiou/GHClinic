@@ -47,6 +47,11 @@
   margin-top:rpx(-200);
   margin-left: rpx(360);
 }
+.icon-20{
+  width:rpx(60);
+  height: rpx(60);
+  margin-top:rpx(-3)
+}
 
 .padding-top-50{
   padding-top:rpx(50*2)
@@ -294,7 +299,7 @@ td{
   border-top-right-radius: 0px;
 }
 .mdate{
-  height:rpx(80);
+  height:rpx(60);
   // border-left: #dee2e6 solid 1px;
   // border-bottom: #dee2e6 solid 1px;
 }
@@ -302,32 +307,32 @@ td{
 //   border-right: #dee2e6 solid 1px;
 // }
 .xzrq{
-  width: rpx(80);
-  height: rpx(80);
+  width: rpx(60);
+  height: rpx(60);
   color:white;
   // line-height: rpx(80);
   // border-radius: 50%;
   background: #0F848D;
 }
 .pass{
-  width: rpx(80);
-  height: rpx(80);
+  width: rpx(60);
+  height: rpx(60);
   // line-height: rpx(80);
   // border-radius: 50%;
   color:#8a8a8a;
   background: #dee2e6;
 }
 .today{
-  width: rpx(80);
-  height: rpx(80);
-  color:black;
+  width: rpx(60);
+  height: rpx(60);
+  color:white;
   // line-height: rpx(80);
   // border-radius: 50%;
   background: #E9967A;
 }
 .yuanquan{
-  width: rpx(80);
-  height: rpx(80);
+  width: rpx(60);
+  height: rpx(60);
   // line-height: rpx(80);
   border:#dee2e6 solid rpx(1);
   border-radius: 50%;

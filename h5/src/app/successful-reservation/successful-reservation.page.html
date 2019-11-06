@@ -22,39 +22,44 @@
   <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
     <div class="card">
       <ion-card [style.background-image]="'url('+uploadpath+'resource/'+res.success+')'" class="bg1" ></ion-card>
-      <div class="f16 txt-black margin-left-40 margin-top-50">您已预约成功，请准时前往就诊，请提前</div>
+      
+      <div class="flex-row flex-center margin-left-40 margin-top-50 flex-wrap" style="width: 100%;">
+        <div class="f16 txt-black ">您已预约成功，请准时前往就诊，请提前</div>
+        <div class="f16" style="color: #DF4747;">30分钟 </div>
+        <div class="16">到达会诊现场</div>
+      </div>
       <div class="border-1 margin-top-60"></div>
-      <div class="flex-row margin-top-60 margin-left-40">
+      <div class="flex-row margin-top-60 margin-left-40 flex-center">
           <div class="marginTop1">
               <img src="{{uploadpath}}resource/{{res.jiuzhen}}" class="icon-10" />
           </div>
-          <div class="f12 txt-gw margin-left-30">就诊人：</div>
-          <div class="f12 txt-black margin-left-30">{{order.patientname}} {{order.patientmobile}}</div>
+          <div class="f14 txt-gw margin-left-30">就诊人：</div>
+          <div class="f14 txt-black margin-left-30">{{order.patientname}} {{order.patientmobile}}</div>
       </div>
       <div class="border-2 margin-top"></div>
-      <div class="flex-row margin-top-40 margin-left-40">
+      <div class="flex-row margin-top-40 margin-left-40 flex-center">
           <div class="marginTop1">
               <img src="{{uploadpath}}resource/{{res.time}}" class="icon-10" />
           </div>
-          <div class="f12 txt-gw margin-left-30">时间：</div>
-          <div class="f12 txt-black margin-left-30">{{order.ordertime_formatting}}</div>
+          <div class="f14 txt-gw margin-left-30">时间：</div>
+          <div class="f14 txt-black margin-left-30">{{order.ordertime_formatting}}</div>
       </div>
       <div class="border-2 margin-top"></div>
-      <div class="flex-row margin-top-40 margin-left-40">
+      <div class="flex-row margin-top-40 margin-left-40 flex-center">
           <div class="marginTop1">
               <img src="{{uploadpath}}resource/{{res.zhensuo}}" class="icon-10" />
           </div>
-          <div class="f12 txt-gw margin-left-30">诊所：</div>
-          <div class="f12 txt-black margin-left-30">{{order.hospital_name}}</div>
+          <div class="f14 txt-gw margin-left-30">诊所：</div>
+          <div class="f14 txt-black margin-left-30">{{order.hospital_name}}</div>
       </div>
-      <!-- <div class="border-2 margin-top"></div>
-      <div class="flex-row margin-top-40 margin-left-40">
+      <div class="border-2 margin-top"></div>
+      <div class="flex-row margin-top-40 margin-left-40 flex-center">
           <div class="marginTop1">
               <img src="{{uploadpath}}resource/{{res.keshi}}" class="icon-10" />
           </div>
-          <div class="f12 txt-gw margin-left-30">科室：</div>
-          <div class="f12 txt-black margin-left-30">儿科</div>
-      </div> -->
+          <div class="f14 txt-gw margin-left-30">科室：</div>
+          <div class="f14 txt-black margin-left-30">儿科</div>
+      </div>
       <div class="border-2 margin-top"></div>
 
 

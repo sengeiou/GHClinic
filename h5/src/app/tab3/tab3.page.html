@@ -34,7 +34,7 @@
 
             <div class="  margin-top-30 margin-left-40 slidelist scroll-x" >
        
-              <div class="flex-row flex-center"  [ngStyle]="{'width.px': drugstype.length*120*rad }">
+              <div class="flex-row flex-center"  [ngStyle]="{'width.px': drugstype.length*100*rad }">
               <div *ngFor="let ds of drugstype;let i=index;" (click)="qiehuan=(i+1);getdrugs(ds.id)" class="marginRight">
                  <div [class.p1]="qiehuan==(i+1)">{{ds.name}}</div>
                 <div class="marginTop" [class.p2]="qiehuan==(i+1)"></div> 
@@ -55,7 +55,7 @@
               <img alt="" src="{{uploadpath}}drugs/{{i.photo}}"/>
               <p class="p4 oneline">{{i.name}}</p>
               <p class="p5">￥ {{i.price}}</p>
-              <p class="f12 margin-tl">原价 ￥ {{i.onprice}}</p>
+              <p class="f10 margin-tl">原价 ￥ {{i.onprice}}</p>
             </ion-card>
           </div>
           <div *ngIf='drugs.length==0' class="margin-left-40 mt">暂无此类别的药品。</div>
@@ -77,7 +77,7 @@
                     <p class="f12 txt-gw  line">{{i.introduce}}</p>
                     <p>
                       <span style="color:#F7555A" class="h5 txt-bold">￥ {{i.price}}</span>
-                      <span style="text-decoration:line-through;color: #BFBFBF;" class="margin-left-30 f12">原价 ￥ {{i.onprice}}</span>
+                      <span style="text-decoration:line-through;color: #BFBFBF;" class="margin-left-30 f10">原价 ￥ {{i.onprice}}</span>
                     </p>
                   </div>
                 

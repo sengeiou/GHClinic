@@ -185,7 +185,10 @@ export class DetailPage extends AppBase {
     console.log(d);
 
   }
-
+  addMonth(m) {
+    this.mdate = new Date(this.mdate.getFullYear(), this.mdate.getMonth() + m, 1);
+    this.loadMonthCalendar();
+  }
 
   loadMonthCalendar() {
     var now = new Date();

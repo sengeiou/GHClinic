@@ -1,18 +1,28 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <!-- <ion-toolbar color="primary">
     <ion-icon name="arrow-back" class="ion-icon" (click)="back()"></ion-icon>
     <ion-title>
 
     </ion-title>
     <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
-  </ion-toolbar>
+  </ion-toolbar> -->
+  <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
 </ion-header>
 
 <ion-content *ngIf="setmealinfo.name!=undefined">
-  <div style="background-color: #11838D" class="padding-top-15">
+  <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
+    <div class="flex-row flex-center margin-left-30">
+        <div  (click)="back()">
+            <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+        </div>
+        <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
+        
+    </div>
+  </div>
+  <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
     <div class="card">
-      <div class="p1 flex-row ">
-        <div class="span1">{{setmealinfo.name}}</div>
+      <div class="p1 flex-row flex-center">
+        <div class="span1 ">{{setmealinfo.name}}</div>
         <div class="span2">{{setmealinfo.biaoqian}}</div>
       </div>
       <div class="flex-row  margin-left-20 margin-top-20  flex-wrap" style="width:100%">
@@ -20,13 +30,13 @@
       </div>
       
     </div>
-  </div>
+  
  
   <div class="xian margin-top-20"></div>
-  <p class="margin-20" *ngIf="hospital!=null">
-    预约诊所
-    <span class="project">{{hospital.name}}</span>
-  </p>
+  <div class="margin-20 margin-left-30 flex-row" *ngIf="hospital!=null">
+    <div class="flex-1">预约诊所</div>
+    <div class="project">{{hospital.name}}</div>
+  </div>
  <div class="xian"></div>
 
 
@@ -37,30 +47,28 @@
         <div class="tabbody padding-20 ">
           <div>
             <div class="flex-row flex-center ">
-              <div class="h3 padding-20" (click)="addMonth(-1)">
-                <i class="fa fa-angle-left"></i>
-              </div>
+              <img src="{{uploadpath}}resource/{{res.left}}" class=" padding-20 icon-20"
+                                    (click)="addMonth(-1)">
               <div class="flex-1 text-center" style="color: #0F848D;">{{myear}}年{{mmonth}}月</div>
-              <div class="h3 padding-20" (click)="addMonth(1)">
-                <i class="fa fa-angle-right "></i>
-              </div>
+              <img src="{{uploadpath}}resource/{{res.rightArrow}}" class=" padding-20  icon-20"
+                                    (click)="addMonth(1)">
             </div>
           </div>
           <div class="border-1"></div>
           <div class="flex-row  txt-gw">
-            <div class="flex-1 h6 txt-bold padding-20 text-center">日</div>
-            <div class="flex-1 h6 txt-bold padding-20 text-center">一</div>
-            <div class="flex-1 h6 txt-bold padding-20 text-center">二</div>
-            <div class="flex-1 h6 txt-bold padding-20 text-center">三</div>
-            <div class="flex-1 h6 txt-bold  padding-20 text-center">四</div>
-            <div class="flex-1 h6 txt-bold padding-20 text-center">五</div>
-            <div class="flex-1 h6 txt-bold padding-20 text-center">六</div>
+            <div class="flex-1 h6 txt-bold padding-10 text-center">日</div>
+            <div class="flex-1 h6 txt-bold padding-10 text-center">一</div>
+            <div class="flex-1 h6 txt-bold padding-10 text-center">二</div>
+            <div class="flex-1 h6 txt-bold padding-10 text-center">三</div>
+            <div class="flex-1 h6 txt-bold  padding-10 text-center">四</div>
+            <div class="flex-1 h6 txt-bold padding-10 text-center">五</div>
+            <div class="flex-1 h6 txt-bold padding-10 text-center">六</div>
           </div>
           <div class="border-1"></div>
 
           <div class="flex-row " *ngFor="let w of mcal">
             <div class="flex-1" *ngFor="let d of w;let i=index;">
-              <div class="mdate padding-20 text-center margin-left-10 yuanquan margin-top-30" (click)='asd(d,i)'
+              <div class="mdate padding-top-10 text-center margin-left-20 yuanquan margin-top-30" (click)='asd(d,i)'
                 [class.issat]="i==6" [class.xzrq]='d.dt==riqi' [class.pass]='d.pass==true'
                 [class.today]='d.today==true'>
                 <div class="">{{d.d}}</div>
@@ -76,11 +84,14 @@
 
 
   <div class="div1">
-    <p class="p4"></p>
-    <p class="p5">
-      包含项目
-      <span class="project">共{{setmealinfo.tijianxian.length}}项检查项</span>
-    </p>
+    
+    <div class="flex-row flex-center">
+      <div class="flex-1">
+        <div class="p5">包含项目</div>
+        <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
+      </div>
+      <div class="project margin-right-30">共{{setmealinfo.tijianxian.length}}项检查项</div>
+    </div>
     <div *ngFor="let item of setmealinfo.tijianxian">
       <p class="p6">{{item.name}}</p>
       <p class="p7">{{item.jianjie}}</p>
@@ -89,10 +100,11 @@
 
   </div>
   <div class="div1">
-    <p class="p4"></p>
-    <p class="p5">
+    
+    <div class="p5">
       体检须知
-    </p>
+    </div>
+    <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
     <p class="p9">{{setmealinfo.xuzhi}}</p>
   
   </div>
@@ -101,6 +113,6 @@
 
 
 <div class="div1 flex-row flex-center" style="position: fixed;bottom:0">
-  <div class="p10">合计：<span class="p2" style="color: red">￥{{setmealinfo.price}}</span></div>
+  <div class="p10">合计：<span class="p2" style="color: #0F848D">￥{{setmealinfo.price}}</span></div>
   <div class="p11" (click)="physicalExaminationAppointment()">立即预约</div>
 </div>

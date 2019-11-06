@@ -52,9 +52,13 @@
                        <td>{{item.patientmobile}}</td>
                        <td>{{item.department_id_name}}</td>
                        <td>
-                         <span *ngFor='let img of item.photolist' class="margin-left">
-                           <img *ngIf='img.photo!=""' src="{{uploadpath}}appointment/{{img.photo}}" class="icon-50"/>
-                         </span>
+                         <div *ngFor='let img of item.photolist;let i=index'>
+                            <span *ngIf="i==0" class="margin-left">
+                                <img *ngIf='img.photo!="" ' src="{{uploadpath}}appointment/{{img.photo}}" class="icon-50"/>
+                                <div *ngIf='item.photolist.length>1' class="box">{{item.photolist.length}}</div>
+                              </span>
+                         </div>
+                         
                         </td>
                        <td  style="cursor: pointer;">
                         <div style="color: #2850C3;">详情</div>

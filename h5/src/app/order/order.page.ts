@@ -42,6 +42,7 @@ export class OrderPage extends AppBase {
   zonjia = 0;
   jian = 0;
   beizhu = "";
+  zongji=this.beizhu.length;
   isf = 0;
   qwe = "请填写买家留言";
   address_id=0;
@@ -52,6 +53,7 @@ export class OrderPage extends AppBase {
     OrderPage.SADDRESSID = 0;
   }
 
+  
   getgouwuche() {
     var api = this.dindanApi;
 
@@ -111,6 +113,9 @@ export class OrderPage extends AppBase {
       this.getaddressinfo();
     }
 
+  
+
+
   }
   address() {
 
@@ -123,6 +128,7 @@ export class OrderPage extends AppBase {
     this.addressApi.addressinfo({id:this.address_id,getdefault:"Y"}).then((addressinfo)=>{
       if(addressinfo!=null){
         this.addressinfo=addressinfo;
+        console.log(addressinfo);
         this.address_id=addressinfo.id;
       }
     });

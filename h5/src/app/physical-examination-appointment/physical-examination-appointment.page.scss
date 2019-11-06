@@ -6,11 +6,25 @@
     width:rpx(24*2)
 }
 .card{
-    background-color:white;    
-    border-top-left-radius: rpx(37);
-    border-top-right-radius: rpx(37);
-    padding-top: rpx(20)
-  }
+  background-color:white;    
+  border-top-left-radius: rpx(37);
+  border-top-right-radius: rpx(37);
+  padding-top: rpx(30);
+  margin-top:rpx(-40)
+  
+}
+.height-110{
+  height: rpx(110);
+}
+.height-40{
+  height: rpx(40);
+  margin-top:rpx(110);
+}
+
+.icon-32{
+  width:rpx(28);
+  height: rpx(28);
+}
   hr{
     border: #aaaaaa solid rpx(0.01*2);
     background-color: #aaaaaa;
@@ -19,7 +33,13 @@
   .p1{
     font-size: rpx(32);
     color:black;
-    margin-left: rpx(30)
+    margin-left: rpx(30);
+    margin-top:rpx(10)
+}
+.bg{
+  width:100%;
+  height:rpx(100);
+  background-size: cover;
 }
 .span0{
     margin-left: rpx(350)
@@ -42,13 +62,12 @@
 .span2{
 font-size: rpx(32);
 color: #b9b9b9;
-border:none
+border:none;
+outline: none;
+text-align: right;
+margin-right: rpx(30);
 }
-.span3{
-  font-size: rpx(32);
-  color: #b9b9b9;
-  border:none 
-}
+
 .div2{
   height: rpx(120);
   background-color:rgba($color: #aaaaaa, $alpha: 0.2); 
@@ -77,7 +96,7 @@ border:none
 .p4{
   width: 100%;
   height: rpx(90);
-  background-color: #6b3689;
+  background-color: #0F848D;
   color:white;
   text-align: center;
   line-height: rpx(90);
@@ -89,9 +108,28 @@ input::-webkit-input-placeholder {
   font-size: rpx(24);
 }
 
+textarea::-webkit-input-placeholder {
+  font-size: rpx(24);
+}
+
 .fileupload {
   position: absolute;
   background: red;
   margin-top: rpx(-100);
   opacity: 0;
+}
+textarea{
+  margin-top:rpx(20);
+  width:rpx(335*2);
+  height: rpx(380);
+  outline: none;
+  margin-left: rpx(40);
+  border:rpx(0.5) solid #aaaaaa;
+}
+.zj{
+  color:rgba($color: #aaa, $alpha: 1);
+  font-size: rpx(14);
+  position:absolute;
+  top:rpx(1265);
+  right:rpx(65)
 }

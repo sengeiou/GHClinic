@@ -60,14 +60,14 @@
           <ion-card class="card1"  [style.background-image]="'url('+uploadpath+'hospital/'+item.fmtupian+')'" (click)="information(item.id)"></ion-card>
         </div>
         <div style="z-index: 1111;" class="marginTop">
-          <ion-card class="card2 flex-row flex-center bg1">
-            <div class="flex-column margin-left-30">
-              <div class="oneline f18 txt-bold txt-black">{{item.name}}</div>
-              <div class="flex-row flex-center margin-top ">
+          <ion-card class="card2 flex-row flex-center bg1 padding-20">
+            <div class="flex-column margin-left-10">
+              <div class="oneline f18 txt-bold txt-black ">{{item.name}}</div>
+              <div class="flex-row flex-center margin-top-10 ">
                 <div class="txt-gw f12 flex-1">{{item.phone}}</div>
                 <img   src="{{uploadpath}}resource/{{res.phone}}" class="icon-25 " (click)="call(item.phone)"/>
               </div>
-              <div class="oneline txt-gw f12 margin-top card3">{{item.address}}</div>
+              <div class="oneline txt-gw f12 card3">{{item.address}}</div>
             </div>
           
           </ion-card> 
