@@ -31,7 +31,7 @@
         <div>
           <img src='{{uploadpath}}department/{{item.img}}' class="icon-60" (click)='xz=item.id;'/>
         </div>
-        <div class="margin-top-10 f16 ml" (click)='xz=item.id;'>{{item.name}}</div>
+        <div class="margin-top-10 f16 " (click)='xz=item.id;' [class.ml]='item.name.length==3'>{{item.name}}</div>
         
         <div *ngIf="xz==item.id" class="xuanzhong">
           <img   src='{{uploadpath}}resource/{{res.queren}}' class="icon-18"  />
@@ -55,20 +55,21 @@
         <div class="txt-black f16 txt-bold margin-left-30">预约诊所</div>
         <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar"/>
       </div>
-      <div  *ngFor="let item of hostlist;let i=index;"  (click)="information(item.id)" >
+      <div  *ngFor="let item of hostlist;let i=index;"   >
         <div class="margin-top-30">
-          <ion-card class="card1"  [style.background-image]="'url('+uploadpath+'hospital/'+item.fmtupian+')'"></ion-card>
+          <ion-card class="card1"  [style.background-image]="'url('+uploadpath+'hospital/'+item.fmtupian+')'" (click)="information(item.id)"></ion-card>
         </div>
         <div style="z-index: 1111;" class="marginTop">
           <ion-card class="card2 flex-row flex-center bg1">
             <div class="flex-column margin-left-30">
               <div class="oneline f18 txt-bold txt-black">{{item.name}}</div>
-              <div class="txt-gw f12 margin-top ">{{item.phone}}</div>
-              <div class="oneline txt-gw f12 margin-top">{{item.summary}}</div>
+              <div class="flex-row flex-center margin-top ">
+                <div class="txt-gw f12 flex-1">{{item.phone}}</div>
+                <img   src="{{uploadpath}}resource/{{res.phone}}" class="icon-25 " (click)="call(item.phone)"/>
+              </div>
+              <div class="oneline txt-gw f12 margin-top card3">{{item.address}}</div>
             </div>
-            <div>
-              <img   src="{{uploadpath}}resource/{{res.phone}}" class="icon-25 margin-left-40"/>
-            </div>
+          
           </ion-card> 
         </div>
       </div>

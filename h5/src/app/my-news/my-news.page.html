@@ -22,56 +22,85 @@
   <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
     <div class="card">
       <div class="flex-row flex-center margin-left-30">
-        <div>
-          <div class="f18 c txt-bold">全部</div>
-          <div class="icon-26 bc margin-top-10"></div>
+        <div  (click)='show=0'>
+          <div class=" txt-bold" [class.f18]='show==0' [class.c]='show==0' [class.h5]='show!=0' >全部</div>
+          <div class="icon-26 bc margin-top-10" *ngIf='show==0'></div>
         </div>
-        <div class="h5 txt-bold margin-left-80">系统</div>
-        <div class="h5 txt-bold margin-left-80">预约</div>
-        <div class="h5 txt-bold margin-left-80">活动</div>
+        <div class="margin-left-80"  (click)='show=1'>
+          <div class=" txt-bold " [class.f18]='show==1' [class.c]='show==1' [class.h5]='show!=1'>系统</div>
+          <div class="icon-26 bc margin-top-10" *ngIf='show==1'></div>
+        </div>
+        <div class="margin-left-80"  (click)='show=2'>
+          <div class=" txt-bold " [class.f18]='show==2' [class.c]='show==2' [class.h5]='show!=2'>预约</div>
+          <div class="icon-26 bc margin-top-10" *ngIf='show==2'></div>
+        </div>
+        <div class=" margin-left-80"  (click)='show=3'>
+          <div class=" txt-bold "[class.f18]='show==3' [class.c]='show==3' [class.h5]='show!=3'>活动</div>
+          <div class="icon-26 bc margin-top-10" *ngIf='show==3'></div>
+        </div>
       </div>
 
 
-      <div class="margin-left-30 margin-top-40">
-        <div  *ngIf='huodong!=null'>   
-            <div *ngFor='let hd of huodong' (click)='ad()'>
-              <div class="flex-row flex-center">
-                <img alt="" class="icon-24"  />
-                <div class="h5 txt-black margin-left-30">{{hd}}</div>
+      <div *ngIf='show==0'>
+          <div class="margin-left-30" >
+              <div  *ngIf='huodong!=null'>   
+                  <div *ngFor='let hd of huodong' (click)='ad()' class="margin-top-40">
+                    <div class="flex-row flex-center">
+                      <img alt="" class="icon-24"  />
+                      <div class="h5 txt-black margin-left-30">{{hd}}</div>
+                    </div>
+                    <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{year}}/{{month}}/{{day}}</div>
+                    <div class="border-bw margin-top-30 mll" style="opacity: 0.4"></div>
+                  </div>
+              
               </div>
-              <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{year}}/{{month}}/{{day}}</div>
+              
             </div>
-        
-        </div>
-        
+           
+
+            <div class="margin-left-30 margin-top-40">
+                <div class="flex-row flex-center">
+                  <img alt="" class="icon-24" />
+                  <div class="h5 txt-black icon-312 margin-left-30">XXXXXXXXXX</div>
+                </div>
+                <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">2019/09/03</div>
+                <div class="border-bw margin-top-30 mll" style="opacity: 0.4"></div>
+              </div>
+            
+              
       </div>
-      <div class="border-bw margin-top-30" style="opacity: 0.4"></div>
 
 
 
-      <div class="margin-left-30 margin-top-40">
+      <div class="margin-left-30 margin-top-40" *ngIf='show==1'>
         <div class="flex-row flex-center">
           <img alt="" class="icon-24" />
-          <div class="h5 txt-black icon-312 margin-left-30">您已成功预约港和医疗白云分部，儿科，张XX，2019/8/27（周四）11：30 - 12：00，
-              就诊人：李四，请提前30分钟到诊所就诊，点击查看详情。</div>
+          <div class="h5 txt-black icon-312 margin-left-30">XXXXXXXXXX</div>
         </div>
         <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">2019/09/03</div>
+        <div class="border-bw margin-top-30 mll" style="opacity: 0.4"></div>
       </div>
-      <div class="border-bw margin-top-30" style="opacity: 0.4"></div>
+      
 
 
-
-      <div class="margin-left-30 margin-top-40">
-        <div class="flex-row flex-center">
-          <img alt="" class="icon-24" />
-          <div class="h5 txt-black icon-312 margin-left-30 flex-row">您已成功报名第二届医疗健康知识讲座肿瘤篇，请准时参加，点击查看详情。</div>
-        </div>
-        <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">2019/09/03</div>
-      </div>
-      <div class="border-bw margin-top-30" style="opacity: 0.4"></div>
+ 
+     
     
   
-
+      <div class="margin-left-30"  *ngIf='show==3'>
+          <div  *ngIf='huodong!=null'>   
+              <div *ngFor='let hd of huodong' (click)='ad()' class="margin-top-40">
+                <div class="flex-row flex-center">
+                  <img alt="" class="icon-24"  />
+                  <div class="h5 txt-black margin-left-30">{{hd}}</div>
+                </div>
+                <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{year}}/{{month}}/{{day}}</div>
+                <div class="border-bw margin-top-30 mll" style="opacity: 0.4"></div>
+              </div>
+             
+          </div>
+          
+        </div>
 
 
 

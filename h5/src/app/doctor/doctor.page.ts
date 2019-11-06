@@ -34,6 +34,8 @@ export class DoctorPage extends AppBase {
   }
 
 
+  show=true;
+
   mdate: Date = new Date();
   myear = "";
   mmonth = "";

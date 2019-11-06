@@ -30,7 +30,7 @@
       <p class="p4">
         商品详情
       </p>
-      <p class="p5"></p>
+      <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
       <div class="flex-row">
         <div class="h6 txt-gray margin-left-30">【药品名称】</div>
         <div class="h6 flex-1 txt-black">{{drugsinfo.name}}</div>
@@ -48,7 +48,7 @@
       <p class="p4">
         用户评价
       </p>
-      <p class="p5"></p>
+      <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
 
       <div *ngFor="let item of pinlun">
       <div class="flex-row margin-top-60 flex-center">
@@ -70,7 +70,7 @@
 
   <div class="d1"></div>
 </ion-content>
-<div   class="flex-row" style="position: fixed;bottom:0">
+<div   class="flex-row" style="position: fixed;bottom:0;z-index: 11;">
   <div (click)="cart()" class="d1" style="background-color: #F0F2F5">
     <div   *ngIf="count!=0" class="red">{{count}}</div>
     <div class="icon-30 margin-left-30 margin-top-10">
@@ -80,7 +80,7 @@
     <div    class="f12 txt-black margin-left-20" >购物车</div>
    
   </div>
-  <div class="d2 txt-black text-center" (click)="addcart()" style="background-color: #8a8a8a">加入购物车</div>
+  <div class="d2 txt-black text-center bc" (click)="addcart()" >加入购物车</div>
   <div class="d2 txt-white text-center" (click)="order()" style="background-color:#0E858D">立即购买</div>
 
 </div>

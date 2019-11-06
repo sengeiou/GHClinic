@@ -64,6 +64,15 @@
     border-radius: rpx(10);
     background-color: #0F848D;
 }
+.horizontalbar{
+  display: block;
+  margin-top:rpx(5);
+  width:rpx(50*2);
+  height:rpx(6);
+  margin-left:rpx(30);
+  // margin-bottom: rpx(-30);
+}
+
 .p4{
     font-size: rpx(28);
     color: black;
@@ -78,8 +87,8 @@
 .p6{
     width: rpx(150*2);
 
-    background-color: #6b3689;
-    color:white;
+    background-color: #F4F3F3;
+    color:black;
     text-align: center;
     font-size: rpx(32);
     line-height: rpx(90);

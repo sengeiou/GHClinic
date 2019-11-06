@@ -38,6 +38,7 @@ input{
   margin-top: rpx(-120);
 }
 
+
 .margin-top-10{
   margin-top:rpx(10);
 }
@@ -198,7 +199,7 @@ ion-card{
 }
 
 .ml{
-  margin-left:rpx(-3)
+  margin-left:rpx(-10)
 }
 .div2{
   clear: both;
@@ -264,6 +265,11 @@ ion-card{
   width:rpx(307*2);
   height: rpx(86*2);
   margin-left:rpx(375-307);
+}
+
+.card3{
+  width:rpx(280*2);
+
 }
 .icon-25{
   width:rpx(50);

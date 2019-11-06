@@ -21,10 +21,34 @@
     width:rpx(28);
     height: rpx(28);
 }
+  .bg{
+    width:100%;
+    height:rpx(100);
+    background-size: cover;
+  }
+  
+.height-110{
+    height: rpx(110);
+  }
+  .height-40{
+    height: rpx(40);
+    margin-top:rpx(110);
+  }
+  
+.icon-32{
+    width:rpx(28);
+    height: rpx(28);
+}
+.cg{
+  color:#11838D;
+}
 .bg{
     width:100%;
     height:rpx(100);
     background-size: cover;
+  }
+.bg-pp{
+    background-color:#11838D;
   }
 .icon-26{
     width: rpx(26*2);

@@ -7,6 +7,7 @@ import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { nextTick } from 'q';
+import { areAllEquivalent } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-tab1',
@@ -104,7 +105,11 @@ export class Tab1Page extends AppBase {
   riqi=null;
   
   
-
+  call(tel){
+    console.log(tel)
+    let tel_str = "tel:"+tel;
+    document.location.href=tel_str; 
+  }
 
   search() {
     this.navigate("search")
