@@ -47,7 +47,7 @@
  <div *ngIf="qiehuan==0">
     <div *ngFor="let item of tijianlist">
 
-      <ion-card *ngIf="item.orderstatus=='C'" class="height-280" (click)="physicalExaminationCancelled()">
+      <ion-card *ngIf="item.orderstatus=='C'" class="height-280" (click)="physicalExaminationCancelled(item.id)">
         <div class="margin-left-30 margin-top-40">
           <div class="flex-row flex-center">
             <div class="h5 txt-bold txt-black">{{item.hospital_id_name}}</div>
@@ -60,7 +60,7 @@
       </ion-card>
 
 
-      <ion-card class="height-280" *ngIf="item.orderstatus=='A'" (click)="physicalExaminationPayment()">
+      <ion-card class="height-280" *ngIf="item.orderstatus=='A'" (click)="physicalExaminationPayment(item.id)">
         <div class="margin-left-30 margin-top-40">
           <div class="flex-row flex-center">
             <div class="h5 txt-bold txt-black">{{item.hospital_id_name}}</div>
@@ -72,7 +72,7 @@
         </div>
       </ion-card>
 
-      <ion-card class="height-280" *ngIf="item.orderstatus=='B'" (click)="physicalExaminationPayment()">
+      <ion-card class="height-280" *ngIf="item.orderstatus=='B'" (click)="physicalExaminationPayment(item.id)">
         <div class="margin-left-30 margin-top-40">
           <div class="flex-row flex-center">
             <div class="h5 txt-bold txt-black">{{item.hospital_id_name}}</div>
@@ -92,7 +92,7 @@
   
       
   
-        <ion-card class="height-280" *ngIf="item.orderstatus=='A'" (click)="physicalExaminationPayment()">
+        <ion-card class="height-280" *ngIf="item.orderstatus=='A'" (click)="physicalExaminationPayment(item.id)">
           <div class="margin-left-30 margin-top-40">
             <div class="flex-row flex-center">
               <div class="h5 txt-bold txt-black">{{item.hospital_id_name}}</div>
@@ -113,7 +113,7 @@
         <div *ngFor="let item of tijianlist">
     
     
-          <ion-card class="height-280" *ngIf="item.orderstatus=='B'" (click)="physicalExaminationPayment()">
+          <ion-card class="height-280" *ngIf="item.orderstatus=='B'" (click)="physicalExaminationPayment(item.id)">
             <div class="margin-left-30 margin-top-40">
               <div class="flex-row flex-center">
                 <div class="h5 txt-bold txt-black">{{item.hospital_id_name}}</div>
@@ -132,7 +132,7 @@
       <div *ngIf="qiehuan==3">
           <div *ngFor="let item of tijianlist">
       
-            <ion-card *ngIf="item.orderstatus=='C'" class="height-280" (click)="physicalExaminationCancelled()">
+            <ion-card *ngIf="item.orderstatus=='C'" class="height-280" (click)="physicalExaminationCancelled(item.id)">
               <div class="margin-left-30 margin-top-40">
                 <div class="flex-row flex-center">
                   <div class="h5 txt-bold txt-black">{{item.hospital_id_name}}</div>
@@ -156,7 +156,6 @@
   </div>
 
 
-<<<<<<< HEAD
 </ion-content>
 <!-- <div class="flex-row flex-column margin-top-200">
   <div>
@@ -168,6 +167,5 @@
 
 
 <div class="icon-349 txt-white bg-p text-center">去体检</div> -->
-=======
-</ion-content>
->>>>>>> 2ec74ce52464ba081a4c0162eba2c79486a73df2
+
+

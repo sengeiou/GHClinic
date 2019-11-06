@@ -44,6 +44,74 @@ export class TijianApi {
     }
 
 
+    public info(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'tijian/info';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('tijian/info', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('tijian/info', data, err);
+            });
+    }
+
+
+    public taocanshaixuan(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'tijian/taocanshaixuan';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('tijian/taocanshaixuan', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('tijian/taocanshaixuan', data, err);
+            });
+    }
+
+
     public taocanshuxin(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'tijian/taocanshuxin';
         var headers = ApiConfig.GetHeader(url, data);
@@ -112,8 +180,8 @@ export class TijianApi {
     }
 
 
-    public taocanshaixuan(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'tijian/taocanshaixuan';
+    public quxiaoyuyue(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'tijian/quxiaoyuyue';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -125,7 +193,7 @@ export class TijianApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('tijian/taocanshaixuan', data, res)) {
+                if (ApiConfig.DataLoadedHandle('tijian/quxiaoyuyue', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -141,7 +209,7 @@ export class TijianApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('tijian/taocanshaixuan', data, err);
+                return ApiConfig.ErrorHandle('tijian/quxiaoyuyue', data, err);
             });
     }
 

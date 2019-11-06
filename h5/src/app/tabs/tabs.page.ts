@@ -21,4 +21,11 @@ export class TabsPage {
 
 
   }
+  flag = 'tab1';
+  change(event)
+
+  { 
+    this.flag=event.detail.tab;
+ 
+  }
 }

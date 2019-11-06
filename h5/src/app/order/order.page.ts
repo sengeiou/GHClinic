@@ -130,7 +130,11 @@ export class OrderPage extends AppBase {
   successfulTrade() {
 
 
-
+  if(this.address_id==0)
+  {
+    this.toast("请选择地址");
+    return
+  }
 
     var wechatapi = this.wechatApi;
     var api = this.dindanApi;
@@ -141,10 +145,13 @@ export class OrderPage extends AppBase {
 
         console.log(res);
         if (res.code == 0) {
-          api.createorder({ lingshi: 1, beizhu: this.beizhu }).then((res) => {
+          api.createorder({ lingshi: 1, beizhu: this.beizhu ,address_id:this.address_id}).then((res) => {
 
             wechatapi.prepay({ id: res.return, openid: this.openid }).then((payret) => {
               if (payret.code != 0) {
+                    
+                this.showAlert(this.openid);
+
                 this.showAlert(payret.result);
                 return;
               }
@@ -183,7 +190,7 @@ export class OrderPage extends AppBase {
 
 
 
-      api.createorder({ beizhu: this.beizhu }).then((res) => {
+      api.createorder({ beizhu: this.beizhu,address_id:this.address_id }).then((res) => {
 
         wechatapi.prepay({ id: res.return, openid: this.openid }).then((payret) => {
           if (payret.code != 0) {

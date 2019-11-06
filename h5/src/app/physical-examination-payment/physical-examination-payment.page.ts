@@ -6,11 +6,13 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { TijianApi } from 'src/providers/tijian.api';
 
 @Component({
   selector: 'app-physical-examination-payment',
   templateUrl: 'physical-examination-payment.page.html',
-  styleUrls: ['physical-examination-payment.page.scss']
+  styleUrls: ['physical-examination-payment.page.scss'],
+  providers:[TijianApi]
 })
 export class PhysicalExaminationPaymentPage extends AppBase {
 
@@ -18,6 +20,7 @@ export class PhysicalExaminationPaymentPage extends AppBase {
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
+    public tijianApi:TijianApi,
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
@@ -31,11 +34,30 @@ export class PhysicalExaminationPaymentPage extends AppBase {
     //参数
     this.params;
   }
+  xianqin=null;
   onMyShow(){
+    
+     var api=this.tijianApi;
+      api.info({id:this.params.id}).then((xianqin)=>{
+        console.log(xianqin);
+        this.xianqin=xianqin
+
+      })
+  
 
   }
 
-  
+  quxiao()
+  {
+    var api=this.tijianApi;
+      
+     api.quxiaoyuyue({id:this.params.id}).then((res)=>{
+
+         this.back();
+
+     })
+
+  }
 
  
 }

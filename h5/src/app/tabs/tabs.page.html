@@ -1,31 +1,31 @@
 <ion-tabs>
 
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="tab1">
+  <ion-tab-bar  (ionTabBarChanged)='change($event)' slot="bottom">
+    <ion-tab-button  tab="tab1">
       <!-- <ion-icon name="flash"></ion-icon> -->
-      <img *ngIf="currentpage !='tab1'" src="/assets/icon/yuyuefuwu.png" class="icon-24" />
-      <img  *ngIf="currentpage =='tab1'" src="/assets/icon/yuyuefuwu1.png" class="icon-24" />
+      <img *ngIf="flag !='tab1'" src="/assets/icon/yuyuefuwu.png" class="icon-24" />
+      <img  *ngIf="flag =='tab1'" src="/assets/icon/yuyuefuwu1.png" class="icon-24" />
       <ion-label class="f12">预约服务</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="tab2">
       <!-- <ion-icon name="apps"></ion-icon> -->
-      <img *ngIf="currentpage !='tab2'" src="/assets/icon/jiankangguanli.png" class="icon-24" />
-      <img *ngIf="currentpage =='tab2'" src="/assets/icon/jiankangguanli1.png" class="icon-24" />
+      <img *ngIf="flag !='tab2'" src="/assets/icon/jiankangguanli.png" class="icon-24" />
+      <img *ngIf="flag =='tab2'" src="/assets/icon/jiankangguanli1.png" class="icon-24" />
       <ion-label class="f12">健康管理</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="tab3">
       <!-- <ion-icon name="send"></ion-icon> -->
-      <img *ngIf="currentpage !='tab3'" src="/assets/icon/jiankangshangcheng.png" class="icon-24" />
-      <img *ngIf="currentpage =='tab3'" src="/assets/icon/jiankangshangcheng1.png" class="icon-24" />
+      <img *ngIf="flag !='tab3'" src="/assets/icon/jiankangshangcheng.png" class="icon-24" />
+      <img *ngIf="flag =='tab3'" src="/assets/icon/jiankangshangcheng1.png" class="icon-24" />
       <ion-label class="f12">健康商城</ion-label>
     </ion-tab-button>
     
     <ion-tab-button tab="tab4">
         <!-- <ion-icon name="walk"></ion-icon> -->
-        <img *ngIf="currentpage !='tab4'" src="/assets/icon/wode.png" class="icon-24" />
-        <img *ngIf="currentpage =='tab4'" src="/assets/icon/wode1.png" class="icon-24" />
+        <img *ngIf="flag !='tab4'" src="/assets/icon/wode.png" class="icon-24" />
+        <img *ngIf="flag =='tab4'" src="/assets/icon/wode1.png" class="icon-24" />
         <ion-label class="f12">我的</ion-label>
       </ion-tab-button>
   </ion-tab-bar>

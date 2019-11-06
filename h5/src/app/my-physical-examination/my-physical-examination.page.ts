@@ -49,12 +49,12 @@ export class MyPhysicalExaminationPage extends AppBase {
      
   }
 
-  physicalExaminationCancelled(){
-    this.navigate("physical-examination-cancelled")
+  physicalExaminationCancelled(id){
+    this.navigate("physical-examination-payment",{id:id})
   }
 
-  physicalExaminationPayment(){
-    this.navigate("physical-examination-payment")
+  physicalExaminationPayment(id){
+    this.navigate("physical-examination-payment",{id:id})
   }
   
   

@@ -12,20 +12,26 @@ import { MemberApi } from 'src/providers/member.api';
   templateUrl: 'app.component.html',
   providers:[InstApi,MemberApi,WechatApi]
 })
+
 export class AppComponent {
+  static Instance: AppComponent = null;
+    currentpage: string;
   constructor(
     private platform: Platform,
     private statusBar: StatusBar,
     public instApi:InstApi,
     public memberApi:MemberApi,
     public wechatApi:WechatApi
-  ) {
+  )
+  
+  {
+    
     this.initializeApp();
     AppBase.instapi = this.instApi;
     AppBase.memberapi=this.memberApi;
     AppBase.wechatApi=this.wechatApi
   }
-
+ 
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
