@@ -31,10 +31,11 @@ export class ApplicationDetailsPage extends AppBase {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
     this.activity='';
+    this.activityinfo={};
   }
   activity=null;
   // memberinfo=[]
-  activityinfo=[];
+  activityinfo=null;
   status='';
 
 

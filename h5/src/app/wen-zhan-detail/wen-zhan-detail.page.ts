@@ -27,14 +27,14 @@ export class WenZhanDetailPage extends AppBase {
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
-      
+      this.wenzhangdetail={};
   }
 
   onMyLoad(){
     //参数
     this.params;
   }
-  wenzhangdetail = {};
+  wenzhangdetail = null;
   content=""
   onMyShow(){
     
