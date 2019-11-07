@@ -17,7 +17,7 @@
   background-size: cover;
 }
 .yc{
-  width:rpx(210*2);
+  width:rpx(235 *2);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -221,26 +221,42 @@ hr{
     margin-top:rpx(-42)
   }
   .marginTopLeft{
-    margin-top:rpx(-38);
-    margin-left:rpx(-16)
+    margin-top:rpx(-36);
+    // margin-left:rpx(-116)
+    margin-right: rpx(45);
+  }
+  .ml{
+    margin-left:rpx(0)
+  }
+  .marginright{
+    margin-right: rpx(45);
+  }
+  .marginright1{
+    margin-right: rpx(-25);
   }
   .icon-128{
-    width:rpx(250);
+    width:rpx(96*2);
     height: rpx(120*2);
     border-radius: rpx(10);
   }
+
   .beijin{
     position: relative;
     margin-left:rpx(35);
     margin-top:rpx(-60);
     width:rpx(60);
     z-index: 1111;
+    text-align: center;
     background-color:#DF4747;
+  }
+  .mt{
+    margin-top:rpx(-30)
   }
   .biaoqian{
     background: #11838D;
     border-radius:20px;
-    padding:rpx(4) rpx(8) rpx(4) rpx(8)
+    font-size: rpx(18);
+    padding:rpx(5) rpx(16) rpx(5) rpx(16)
   }
 
   .border-1{
@@ -459,6 +475,7 @@ hr{
 
 .ccc{
   width:rpx(349*2);
+  margin-top:rpx(-20);
   margin-left:rpx(375-349);
   box-shadow: 0 rpx(4) rpx(32) rpx(-8) rgba(0, 0, 0, 0.2);
   padding:rpx(20) 

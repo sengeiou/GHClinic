@@ -44,9 +44,9 @@
       <div *ngIf='show==0'>
           <div class="margin-left-30" >
               <div  *ngIf='huodong!=null'>   
-                  <div *ngFor='let hd of huodong' (click)='ad()' class="margin-top-40">
+                  <div *ngFor='let hd of huodong'  class="margin-top-40">
                     <div class="flex-row flex-center">
-                      <img alt="" class="icon-24"  />
+                      <img alt="" class="icon-24"  src="{{uploadpath}}resource/{{res.huodong}}"/>
                       <div class="h5 txt-black margin-left-30">{{hd}}</div>
                     </div>
                     <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{year}}/{{month}}/{{day}}</div>
@@ -60,7 +60,7 @@
 
             <div class="margin-left-30 margin-top-40">
                 <div class="flex-row flex-center">
-                  <img alt="" class="icon-24" />
+                  <img alt="" class="icon-24" src="{{uploadpath}}resource/{{res.gonggao}}" />
                   <div class="h5 txt-black icon-312 margin-left-30">XXXXXXXXXX</div>
                 </div>
                 <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">2019/09/03</div>
@@ -74,7 +74,7 @@
 
       <div class="margin-left-30 margin-top-40" *ngIf='show==1'>
         <div class="flex-row flex-center">
-          <img alt="" class="icon-24" />
+          <img alt="" class="icon-24" src="{{uploadpath}}resource/{{res.gonggao}}" />
           <div class="h5 txt-black icon-312 margin-left-30">XXXXXXXXXX</div>
         </div>
         <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">2019/09/03</div>
@@ -89,9 +89,9 @@
   
       <div class="margin-left-30"  *ngIf='show==3'>
           <div  *ngIf='huodong!=null'>   
-              <div *ngFor='let hd of huodong' (click)='ad()' class="margin-top-40">
+              <div *ngFor='let hd of huodong.name'  class="margin-top-40">
                 <div class="flex-row flex-center">
-                  <img alt="" class="icon-24"  />
+                  <img alt="" class="icon-24"  src="{{uploadpath}}resource/{{res.huodong}}" />
                   <div class="h5 txt-black margin-left-30">{{hd}}</div>
                 </div>
                 <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{year}}/{{month}}/{{day}}</div>

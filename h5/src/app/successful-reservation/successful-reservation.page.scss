@@ -48,8 +48,13 @@
   }
   .bg1{
     height:rpx(300);
-    background-size: cover;
-    margin-top:rpx(0)
+    width:rpx(343*2);
+    // background-size: cover;
+    margin-top:rpx(0);
+    padding: 0;
+  }
+  .mr{
+    margin-right: rpx(45);
   }
   .icon-10{
     width:rpx(40);

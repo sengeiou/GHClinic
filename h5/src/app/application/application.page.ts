@@ -83,6 +83,7 @@ export class ApplicationPage extends AppBase {
  
 
   successfulRegistration(){
+    var time=new Date();
     var id=this.id;
     var xingming=this.xingming;
     if (xingming == '') {

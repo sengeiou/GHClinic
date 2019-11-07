@@ -15,13 +15,15 @@
         <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
       </div>
       <div class="f12 txt-white margin-left-10" (click)="tab1()">回到首页</div>
-      <div class="f16 txt-white margin-left-160">预约成功</div>
-      <div class="f12 txt-white margin-left-160" (click)="appointmentComplete()">查看预约详情</div>
+      <div class="f16 txt-white flex-1 text-center">预约成功</div>
+      <div class="f12 txt-white mr" (click)="appointmentComplete()">查看预约详情</div>
     </div>
   </div>
   <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
     <div class="card">
-      <ion-card [style.background-image]="'url('+uploadpath+'resource/'+res.success+')'" class="bg1" ></ion-card>
+      <ion-card  class="bg1" style="overflow: hidden;">
+        <img src="{{uploadpath}}resource/{{res.success}}"  class="bg1"/> 
+      </ion-card>
       
       <div class="flex-row flex-center margin-left-40 margin-top-50 flex-wrap" style="width: 100%;">
         <div class="f16 txt-black ">您已预约成功，请准时前往就诊，请提前</div>
