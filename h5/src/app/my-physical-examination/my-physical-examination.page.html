@@ -47,40 +47,40 @@
  <div *ngIf="qiehuan==0">
     <div *ngFor="let item of tijianlist">
 
-      <ion-card *ngIf="item.orderstatus=='C'" class="height-280" (click)="physicalExaminationCancelled()">
-        <div class="margin-left-30 margin-top-40">
-          <div class="flex-row flex-center">
-            <div class="h5 txt-bold txt-black">{{item.hospital_id_name}}</div>
-            <div class="h5 txt-gw margin-left-360">{{item.orderstatus_name}}</div>
+      <ion-card *ngIf="item.orderstatus=='C'" class="padding-30" (click)="physicalExaminationCancelled()">
+        <div class="">
+          <div class="flex-row flex-center ">
+            <div class="h5 txt-bold txt-black flex-1">{{item.hospital_id_name}}</div>
+            <div class="h5 txt-gw ">{{item.orderstatus_name}}</div>
           </div>
-          <div class="h5 txt-black margin-top-30">体检，{{item.setmeal_id_name}}，男性</div>
-          <div class="h5 txt-black margin-top-30">体检时间：{{item.ordertime_dateformat}}</div>
-          <div class="h5 txt-black margin-top-30">体检人：{{item.patientname}}</div>
+          <div class="h5 txt-black margin-top-20">体检，{{item.setmeal_id_name}}，男性</div>
+          <div class="h5 txt-black margin-top-20">体检时间：{{item.ordertime_dateformat}}</div>
+          <div class="h5 txt-black margin-top-20">体检人：{{item.patientname}}</div>
         </div>
       </ion-card>
 
 
-      <ion-card class="height-280" *ngIf="item.orderstatus=='A'" (click)="physicalExaminationPayment()">
-        <div class="margin-left-30 margin-top-40">
+      <ion-card class="padding-30" *ngIf="item.orderstatus=='A'" (click)="physicalExaminationPayment()">
+        <div class="">
           <div class="flex-row flex-center">
-            <div class="h5 txt-bold txt-black">{{item.hospital_id_name}}</div>
-            <div class="h5 txt-gw margin-left-360">{{item.orderstatus_name}}</div>
+            <div class="h5 txt-bold txt-black flex-1">{{item.hospital_id_name}}</div>
+            <div class="h5 txt-gw ">{{item.orderstatus_name}}</div>
           </div>
-          <div class="h5 txt-black margin-top-30">体检，{{item.setmeal_id_name}}，男性</div>
-          <div class="h5 txt-black margin-top-30">体检时间：{{item.ordertime_dateformat}}</div>
-          <div class="h5 txt-black margin-top-30">体检人：{{item.patientname}}</div>
+          <div class="h5 txt-black margin-top-20">体检，{{item.setmeal_id_name}}，男性</div>
+          <div class="h5 txt-black margin-top-20">体检时间：{{item.ordertime_dateformat}}</div>
+          <div class="h5 txt-black margin-top-20">体检人：{{item.patientname}}</div>
         </div>
       </ion-card>
 
-      <ion-card class="height-280" *ngIf="item.orderstatus=='B'" (click)="physicalExaminationPayment()">
-        <div class="margin-left-30 margin-top-40">
+      <ion-card class="padding-30" *ngIf="item.orderstatus=='B'" (click)="physicalExaminationPayment()">
+        <div class="">
           <div class="flex-row flex-center">
-            <div class="h5 txt-bold txt-black">{{item.hospital_id_name}}</div>
-            <div class="h5 txt-gw margin-left-360">{{item.orderstatus_name}}</div>
+            <div class="h5 txt-bold txt-black flex-1">{{item.hospital_id_name}}</div>
+            <div class="h5 txt-gw ">{{item.orderstatus_name}}</div>
           </div>
-          <div class="h5 txt-black margin-top-30">体检，{{item.setmeal_id_name}}，男性</div>
-          <div class="h5 txt-black margin-top-30">体检时间：{{item.ordertime_dateformat}}</div>
-          <div class="h5 txt-black margin-top-30">体检人：{{item.patientname}}</div>
+          <div class="h5 txt-black margin-top-20">体检，{{item.setmeal_id_name}}，男性</div>
+          <div class="h5 txt-black margin-top-20">体检时间：{{item.ordertime_dateformat}}</div>
+          <div class="h5 txt-black margin-top-20">体检人：{{item.patientname}}</div>
         </div>
       </ion-card>
     </div>
@@ -92,15 +92,15 @@
   
       
   
-        <ion-card class="height-280" *ngIf="item.orderstatus=='A'" (click)="physicalExaminationPayment()">
-          <div class="margin-left-30 margin-top-40">
+        <ion-card class="padding-30" *ngIf="item.orderstatus=='A'" (click)="physicalExaminationPayment()">
+          <div class="">
             <div class="flex-row flex-center">
-              <div class="h5 txt-bold txt-black">{{item.hospital_id_name}}</div>
-              <div class="h5 txt-gw margin-left-360">{{item.orderstatus_name}}</div>
+              <div class="h5 txt-bold txt-black flex-1">{{item.hospital_id_name}}</div>
+              <div class="h5 txt-gw ">{{item.orderstatus_name}}</div>
             </div>
-            <div class="h5 txt-black margin-top-30">体检，{{item.setmeal_id_name}}，男性</div>
-            <div class="h5 txt-black margin-top-30">体检时间：{{item.ordertime_dateformat}}</div>
-            <div class="h5 txt-black margin-top-30">体检人：{{item.patientname}}</div>
+            <div class="h5 txt-black margin-top-20">体检，{{item.setmeal_id_name}}，男性</div>
+            <div class="h5 txt-black margin-top-20">体检时间：{{item.ordertime_dateformat}}</div>
+            <div class="h5 txt-black margin-top-20">体检人：{{item.patientname}}</div>
           </div>
         </ion-card>
   
@@ -113,15 +113,15 @@
         <div *ngFor="let item of tijianlist">
     
     
-          <ion-card class="height-280" *ngIf="item.orderstatus=='B'" (click)="physicalExaminationPayment()">
-            <div class="margin-left-30 margin-top-40">
+          <ion-card class="padding-30" *ngIf="item.orderstatus=='B'" (click)="physicalExaminationPayment()">
+            <div class="">
               <div class="flex-row flex-center">
-                <div class="h5 txt-bold txt-black">{{item.hospital_id_name}}</div>
-                <div class="h5 txt-gw margin-left-360">{{item.orderstatus_name}}</div>
+                <div class="h5 txt-bold txt-black flex-1">{{item.hospital_id_name}}</div>
+                <div class="h5 txt-gw ">{{item.orderstatus_name}}</div>
               </div>
-              <div class="h5 txt-black margin-top-30">体检，{{item.setmeal_id_name}}，男性</div>
-              <div class="h5 txt-black margin-top-30">体检时间：{{item.ordertime_dateformat}}</div>
-              <div class="h5 txt-black margin-top-30">体检人：{{item.patientname}}</div>
+              <div class="h5 txt-black margin-top-20">体检，{{item.setmeal_id_name}}，男性</div>
+              <div class="h5 txt-black margin-top-20">体检时间：{{item.ordertime_dateformat}}</div>
+              <div class="h5 txt-black margin-top-20">体检人：{{item.patientname}}</div>
             </div>
           </ion-card>
         </div>
@@ -132,15 +132,15 @@
       <div *ngIf="qiehuan==3">
           <div *ngFor="let item of tijianlist">
       
-            <ion-card *ngIf="item.orderstatus=='C'" class="height-280" (click)="physicalExaminationCancelled()">
-              <div class="margin-left-30 margin-top-40">
+            <ion-card *ngIf="item.orderstatus=='C'" class="padding-30" (click)="physicalExaminationCancelled()">
+              <div class="">
                 <div class="flex-row flex-center">
-                  <div class="h5 txt-bold txt-black">{{item.hospital_id_name}}</div>
-                  <div class="h5 txt-gw margin-left-360">{{item.orderstatus_name}}</div>
+                  <div class="h5 txt-bold txt-black flex-1">{{item.hospital_id_name}}</div>
+                  <div class="h5 txt-gw ">{{item.orderstatus_name}}</div>
                 </div>
-                <div class="h5 txt-black margin-top-30">体检，{{item.setmeal_id_name}}，男性</div>
-                <div class="h5 txt-black margin-top-30">体检时间：{{item.ordertime_dateformat}}</div>
-                <div class="h5 txt-black margin-top-30">体检人：{{item.patientname}}</div>
+                <div class="h5 txt-black margin-top-20">体检，{{item.setmeal_id_name}}，男性</div>
+                <div class="h5 txt-black margin-top-20">体检时间：{{item.ordertime_dateformat}}</div>
+                <div class="h5 txt-black margin-top-20">体检人：{{item.patientname}}</div>
               </div>
             </ion-card>
       
@@ -156,18 +156,4 @@
   </div>
 
 
-<<<<<<< HEAD
 </ion-content>
-<!-- <div class="flex-row flex-column margin-top-200">
-  <div>
-    <img alt="" class="icon-200"/>
-  </div>
-  <div class="h5 txt-gw margin-top-30">暂无体检记录</div>
-  <div class="h5 txt-gw margin-top-20">您可以点击下方进行体检</div>
-</div>
-
-
-<div class="icon-349 txt-white bg-p text-center">去体检</div> -->
-=======
-</ion-content>
->>>>>>> 2ec74ce52464ba081a4c0162eba2c79486a73df2

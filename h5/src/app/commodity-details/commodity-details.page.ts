@@ -35,7 +35,7 @@ export class CommodityDetailsPage extends AppBase {
 
   drugsinfo = null;
   pinlun=[];
-  count=111;
+  count=0;
   onMyLoad() {
     //参数
     this.params;

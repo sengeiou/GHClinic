@@ -19,35 +19,35 @@
             </div>
             <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
             <div class="f16 txt-white  flex-1 text-center">{{hospital.name}}</div>
-            <div class="f12 txt-white  margin-right-15" (click)="clinic()">诊所介绍</div>
+            <div class="f12 txt-white  marginright" (click)="clinic()" >诊所介绍</div>
         </div>
     </div>
     <div style="background: #0F848D;width: 100%;" class="height-40"></div>
     <div class="card">
         <div class="txt-black f16 txt-bold margin-left-30">预约信息</div>
         <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
-        <div class="flex-row margin-top-40">
+        <div class="flex-row margin-top-40 flex-center">
             <div class="marginTop1">
                 <img src="{{uploadpath}}resource/{{res.zhensuo}}" class="icon-10" />
             </div>
             <div class="f12 txt-gw margin-left-30">诊所：</div>
             <div class="f12 txt-black margin-left-30">{{hospital.name}}</div>
         </div>
-        <div class="flex-row margin-top-40">
+        <div class="flex-row margin-top-40 flex-center">
             <div class="marginTop1">
                 <img src="{{uploadpath}}resource/{{res.keshi}}" class="icon-10" />
             </div>
             <div class="f12 txt-gw margin-left-30">科室：</div>
             <div class="f12 txt-black margin-left-30">{{params.fuwuleibie}}</div>
         </div>
-        <div class="flex-row margin-top-40">
+        <div class="flex-row margin-top-40 flex-center">
             <div class="marginTop1">
                 <img src="{{uploadpath}}resource/{{res.riqi}}" class="icon-10" />
             </div>
             <div class="f12 txt-gw margin-left-30">日期：</div>
-            <div class="f12 txt-black margin-left-30">{{myear}}年{{mmonth}}月{{myday}}日</div>
-            <div class="f12 txt-gw margin-left-200" (click)="zhankai=true" *ngIf="zhankai==false">展开修改</div>
-            <div class="f12 txt-gw margin-left-260" (click)="zhankai=false" *ngIf="zhankai==true">收起</div>
+            <div class="f12 txt-black margin-left-30 flex-1">{{myear}}年{{mmonth}}月{{myday}}日</div>
+            <div class="f12 txt-gw marginright1" (click)="zhankai=true" *ngIf="zhankai==false">展开修改</div>
+            <div class="f12 txt-gw marginright1" (click)="zhankai=false" *ngIf="zhankai==true">收起</div>
 
             <div class="marginTopLeft" (click)="zhankai=true" *ngIf="zhankai==false">
                 <img src="{{uploadpath}}resource/{{res.bottomarrow}}" class="icon-10" />
@@ -64,7 +64,7 @@
                     <div class="tabbody padding-20 ">
                         <div>
                             <div class="flex-row flex-center ">
-                                <img src="{{uploadpath}}resource/{{res.left}}" class=" padding-20 icon-20"
+                                <img src="{{uploadpath}}resource/{{res.left}}" class=" padding-20 icon-20 ml"
                                     (click)="addMonth(-1)">
 
                                 <div class="flex-1 text-center " style="color: #0F848D;">{{myear}}年{{mmonth}}月</div>
@@ -111,17 +111,17 @@
         <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">预约医生</div>
         <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
 
-        <div *ngFor="let item of doctorlist;let i=index">
+        <div  class="mt">
 
-            <div class="flex-row flex-center" (click)='doctor(item.id)'>
+            <div class="flex-row flex-center" (click)='doctor(item.id)' *ngFor="let item of doctorlist;let i=index">
                 <div>
                     <img src="{{uploadpath}}doctor/{{item.photo}}" class="icon-128" />
                     <div class="f12 txt-white beijin">有号</div>
                 </div>
                 <div class="flex-column margin-left-30">
                     <div class="flex-row flex-center margin-top">
-                        <div style="color: #11838D;" class="f18 margin-top-40">{{item.name}}</div>
-                        <div class="f12 txt-white margin-left-40 biaoqian margin-top-40">{{item.title}}</div>
+                        <div style="color: #11838D;" class="f18 margin-top-40 txt-bold">{{item.name}}</div>
+                        <div class="txt-white margin-left-40 biaoqian margin-top-40">{{item.title}}</div>
                     </div>
                     <div class="f12 txt-black margin-top">{{item.hospital}}</div>
                     <div class="f12 txt-gw margin-top yc">{{item.summary}}</div>
@@ -149,7 +149,7 @@
             <span class="title">筛选</span>
             <img src='{{uploadpath}}resource/{{res.bottom_b}}' class="img1" (click)="screen()" />
           </div>
-          <hr />
+       
           <div *ngFor='let item of taocan'  class="ccc">
             <div class="flex-row flex-center">
               <div class="">
@@ -159,7 +159,7 @@
               <div class="div2">
                 <div>
                   <span class="span77">{{item.name}}</span>
-                  <span class="span88">{{item.biaoqian}}</span>
+                  <span class="span88 margin-left-10">{{item.biaoqian}}</span>
                 </div>
                 <div class="flex-row  flex-wrap margin-top-10 w-205">
                 <div *ngFor="let item1 of item.tijianxian" class="span9 f12">{{item1.name}}</div>

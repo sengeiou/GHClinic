@@ -58,6 +58,16 @@
 .icon-60 {
     width: rpx(120);
     height: rpx(120);
+    border-radius: rpx(20);
+  }
+
+  .w-212{
+    width:rpx(212*2);
+    overflow: hidden;
+	  text-overflow: ellipsis;
+	  display: -webkit-box;
+	  -webkit-line-clamp: 2;
+	  -webkit-box-orient: vertical;
   }
 
 .height-247{
