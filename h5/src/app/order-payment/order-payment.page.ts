@@ -7,12 +7,13 @@ import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { DindanApi } from 'src/providers/dindan.api';
-
+import { WechatApi } from 'src/providers/wechat.api';
+declare let WeixinJSBridge: any;
 @Component({
   selector: 'app-order-payment',
   templateUrl: 'order-payment.page.html',
   styleUrls: ['order-payment.page.scss'],
-  providers:[DindanApi]
+  providers:[DindanApi,WechatApi]
 })
 export class OrderPaymentPage extends AppBase {
 
@@ -24,11 +25,13 @@ export class OrderPaymentPage extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
+    public wechatApi:WechatApi,
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
       
   }
+  
    orderinfo=null;
   onMyLoad(){
     //参数
@@ -62,6 +65,46 @@ export class OrderPaymentPage extends AppBase {
   onMyShow(){
    this.getdindaninfo();
   }
+  prepay(){
+   
+    this.showConfirm("确定支付吗", (ret) => {
+      if (ret) {
+        var api = this.wechatApi;
+        api.prepay({
+          id: this.params.id, openid: this.openid
+        }).then((res) => {
 
+          if (res.code == "233") {
+            var order_id = res.return["order_id"];
+            WeixinJSBridge.invoke(
+              'getBrandWCPayRequest', res.return,
+              (res) => {
+                if (res.err_msg == "get_brand_wcpay_request:ok") {
+                  this.onMyShow();
+                } else {
+
+                  this.toast(res.errMsg);
+                }
+              });
+          } else {
+            this.toast(res.result);
+          }
+
+
+
+        })
+
+      }
+      else {
+
+
+      }
+
+
+    })
+
+
+
+  }
  
 }
