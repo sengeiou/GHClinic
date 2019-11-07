@@ -126,6 +126,7 @@ export class PhysicalExaminationAppointmentPage extends AppBase {
                   if(res.err_msg == "get_brand_wcpay_request:ok" ){
                     this.navigate("physical-examination-payment",{id:order_id, hospital_id:  this.params.hospital_id});
                   } else {
+                    this.navigate("my-physical-examination");
                     this.toast(res.errMsg);
                   }
                 });

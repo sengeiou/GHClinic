@@ -7,7 +7,7 @@ import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { OrderApi } from 'src/providers/order.api';
-
+declare let WeixinJSBridge: any;
 @Component({
   selector: 'app-appointment-payment',
   templateUrl: 'appointment-payment.page.html',
@@ -46,7 +46,55 @@ export class AppointmentPaymentPage extends AppBase {
   
 
   }
- 
+  quxiao() {
+    var api = this.orderApi;
+
+    api.quxiao({ id: this.params.id }).then((res) => {
+
+      this.back();
+
+    })
+
+  }
+  prepay1() {
+    this.showConfirm("确定支付吗", (ret) => {
+      if (ret) {
+        var api = this.orderApi;
+        api.prepay({
+          id: this.params.id, openid: this.openid
+        }).then((res) => {
+
+          if (res.code == "233") {
+            var order_id = res.return["order_id"];
+            WeixinJSBridge.invoke(
+              'getBrandWCPayRequest', res.return,
+              (res) => {
+                if (res.err_msg == "get_brand_wcpay_request:ok") {
+                  this.onMyShow();
+                } else {
+
+                  this.toast(res.errMsg);
+                }
+              });
+          } else {
+            this.toast(res.result);
+          }
+
+
+
+        })
+
+      }
+      else {
+
+
+      }
+
+
+    })
+
+  }
+
 
  
 }
