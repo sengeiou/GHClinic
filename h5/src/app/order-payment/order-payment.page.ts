@@ -70,29 +70,34 @@ export class OrderPaymentPage extends AppBase {
     this.showConfirm("确定支付吗", (ret) => {
       if (ret) {
         var api = this.wechatApi;
-        api.prepay({
-          id: this.params.id, openid: this.openid
-        }).then((res) => {
+        api.prepay({ id: this.params.id, openid: this.openid }).then((payret) => {
+          if (payret.code != 0) {
+                
+            this.showAlert(this.openid);
 
-          if (res.code == "233") {
-            var order_id = res.return["order_id"];
-            WeixinJSBridge.invoke(
-              'getBrandWCPayRequest', res.return,
-              (res) => {
-                if (res.err_msg == "get_brand_wcpay_request:ok") {
-                  this.onMyShow();
-                } else {
-
-                  this.toast(res.errMsg);
-                }
-              });
-          } else {
-            this.toast(res.result);
+            this.showAlert(payret.result);
+            return;
           }
 
+          console.log(payret);
+          //wx.requestPayment(payret)
+
+          WeixinJSBridge.invoke(
+            'getBrandWCPayRequest', payret,
+            (res) => {
+              if (res.err_msg == "get_brand_wcpay_request:ok") {
 
 
-        })
+
+                this.onMyShow();
+
+
+
+              } else {
+                this.showAlert(res.errMsg);
+              }
+            });
+        });
 
       }
       else {
