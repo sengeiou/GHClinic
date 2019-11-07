@@ -83,7 +83,7 @@ export class LoginPage extends AppBase {
   onMyShow() {
 
   }
-  zhuce(id) {
+  zhuce(id=undefined) {
     console.log(123);
     this.navigate("/register",{id:id});
 
