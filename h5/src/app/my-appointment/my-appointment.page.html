@@ -40,17 +40,6 @@
       </div>
     </div>
 
-<<<<<<< HEAD
-        <ion-card class="padding-30" (click)="appointmentCancelled()">
-          <div class="">
-            <div class="flex-row flex-center"> 
-              <div class="h5 txt-bold txt-black flex-1">港和医疗白云分部</div>
-              <div class="h5 txt-gw ">已取消</div>
-            </div>
-            <div class="h5 txt-black margin-top-20">儿科，张XX，主任医师</div>
-            <div class="h5 txt-black margin-top-20">就诊时间：2019/8/27（周四）11：30 - 12：00</div>
-            <div class="h5 txt-black margin-top-20">就诊人：张三</div>
-=======
     <div *ngIf="qiehuan==0">
       <div *ngFor="let item of yuyue">
 
@@ -63,29 +52,16 @@
             <div class="h5 txt-black margin-top-30">{{item.doctor_name}}{{item.doctor_title}}</div>
             <div class="h5 txt-black margin-top-30">就诊时间：{{item.ordertime_formatting}}</div>
             <div class="h5 txt-black margin-top-30">就诊人：{{item.patientname}}</div>
->>>>>>> 65f837cd3d6643f0879451ed5833c796866f2002
           </div>
         </ion-card>
 
 
 
-<<<<<<< HEAD
-        <ion-card class="padding-30" (click)="appointmentPayment()">
-            <div class="">
-              <div class="flex-row flex-center"> 
-                <div class="h5 txt-bold txt-black flex-1">港和医疗白云分部</div>
-                <div class="h5" style="color: #FF9800">待付款</div>
-              </div>
-              <div class="h5 txt-black margin-top-20">儿科，张XX，主任医师</div>
-              <div class="h5 txt-black margin-top-20">就诊时间：2019/8/27（周四）11：30 - 12：00</div>
-              <div class="h5 txt-black margin-top-20">就诊人：张三</div>
-=======
         <ion-card *ngIf="item.orderstatus=='P'" class="height-280" (click)="appointmentPayment(item.id)">
           <div class="margin-left-30 margin-top-30">
             <div class="flex-row flex-center">
               <div class="h5 txt-bold txt-black">{{item.hospital_name}}</div>
               <div class="h5 margin-left-360" style="color: #FF9800">待付款</div>
->>>>>>> 65f837cd3d6643f0879451ed5833c796866f2002
             </div>
             <div class="h5 txt-black margin-top-30">{{item.doctor_name}}{{item.doctor_title}}</div>
             <div class="h5 txt-black margin-top-30">就诊时间：{{item.ordertime_formatting}}</div>
