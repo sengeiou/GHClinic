@@ -84,7 +84,7 @@
 
 
         <ion-card *ngIf="item.status=='C'" class="padding-20" (click)="orderSign(item.id)">
-          <div class="margin-left-10 margin-top-30">
+          <div class="margin-left-10 ">
             <div class="flex-row flex-center">
               <div class="h5 txt-black flex-1">{{item.submit_time_formatting}}</div>
               <div class="h5 txt-gw ">待收货</div>
@@ -107,7 +107,7 @@
 
 
         <ion-card *ngIf="item.status=='F'||item.status=='G'" class="padding-20" (click)="orderComplete(item.id)">
-          <div class="margin-left-10 margin-top-30">
+          <div class="margin-left-10">
             <div class="flex-row flex-center">
               <div class="h5 txt-black flex-1">{{item.submit_time_formatting}}</div>
               <div class="h5 " style="color: #11838D">已完成</div>
@@ -134,7 +134,7 @@
 
 
       <ion-card *ngIf="item.status=='B'" class="padding-20" (click)="orderPayment(item.id)">
-        <div class="margin-left-10 margin-top-30">
+        <div class="margin-left-10 ">
           <div class="flex-row flex-center">
             <div class="h5 txt-black flex-1">{{item.submit_time_formatting}}</div>
             <div class="h5 txt-gw " style="color: #F7555A">待付款</div>
@@ -169,7 +169,7 @@
 
 
       <ion-card *ngIf="item.status=='C'" class="padding-20" (click)="orderSign(item.id)">
-        <div class="margin-left-10 margin-top-30">
+        <div class="margin-left-10 ">
           <div class="flex-row flex-center">
             <div class="h5 txt-black flex-1">{{item.submit_time_formatting}}</div>
             <div class="h5 txt-gw ">待收货</div>
@@ -202,7 +202,7 @@
 
 
       <ion-card *ngIf="item.status=='F'" class="padding-20" (click)="orderComplete(item.id)">
-        <div class="margin-left-10 margin-top-30">
+        <div class="margin-left-10 ">
           <div class="flex-row flex-center">
             <div class="h5 txt-black flex-1">{{item.submit_time_formatting}}</div>
             <div class="h5 " style="color: #11838D">已完成</div>
