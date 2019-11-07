@@ -27,7 +27,7 @@ export class MyNewsPage extends AppBase {
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
-      this.huodong={};
+      
   }
   show=0;
 
@@ -39,7 +39,7 @@ export class MyNewsPage extends AppBase {
 
   
 
-  huodong=null;
+  huodong=[];
   onMyLoad(){
     //参数
     this.params;

@@ -9,7 +9,7 @@
   <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
 </ion-header>
 
-<ion-content *ngIf="hospital!=null&&setmealinfo!=null">
+<ion-content >
   <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
     <div class="flex-row flex-center margin-left-30">
         <div  (click)="back()">
@@ -21,7 +21,7 @@
     </div>
   </div>
   <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
-    <div class="card ">
+    <div class="card " *ngIf="hospital!=null&&setmealinfo!=null">
       <div class="p1">{{d}}</div>
       <div class="p1">{{hospital.name}}</div>
       <div class="flex-row flex-center padding-bottom-20">
@@ -32,7 +32,7 @@
         
         <div class="span0 margin-right">￥{{setmealinfo.price}}</div>
       </div>
-    </div>
+    
   
   <div class="div2">
     <span class="span1">体检人信息</span>
@@ -61,6 +61,8 @@
     <textarea [(ngModel)]='canshu.beizhu'  placeholder="请填写需要特别注意的事项,最多200个字哦" maxlength="200" ></textarea>
     <div class="zj">{{canshu.beizhu.length}}/200</div>
   </div>
+
+</div>
   <!-- <div class="div2">
     <span class="span1">图片资料</span>
     <span class="span4">（非必填）</span>
@@ -78,9 +80,14 @@
       <input type="file" (change)='upload($event)' class="fileupload icon-50" />
     </div>
   </div> -->
+<<<<<<< HEAD
+  <!-- <div class="div3">
+    <div class="p4" (click)="yuyue()" style="position: absolute;bottom:0">确认预约</div>
+=======
   <!-- <div class="height-100"></div>
   <div class="div3">
     <div class="p4" (click)="yuyue()" style="position: fixed;bottom:0">确认预约</div>
+>>>>>>> 75889fd1ddb4eb7a5e6742dbbae33289194f7cf1
   </div> -->
 
 </ion-content>

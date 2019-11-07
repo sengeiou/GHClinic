@@ -9,7 +9,14 @@
 
 .ion-icon {
   height: rpx(24*2);
-  width: rpx(24*2)
+  width: rpx(24*2);
+
+}
+
+.margin-left-26 {
+  margin-left: px(13);
+  position:fixed;
+  bottom:rpx(20)
 }
 
 .card {
@@ -23,6 +30,7 @@
 .height-110 {
   height: rpx(110);
 }
+
 
 .height-40 {
   height: rpx(40);
