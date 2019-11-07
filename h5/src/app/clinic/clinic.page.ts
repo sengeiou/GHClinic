@@ -60,6 +60,7 @@ export class ClinicPage extends AppBase {
      this.bannerlist=bannerlist;
    });
    this.hospitalApi.department({hospital_id:this.params.hospital_id}).then((departmentlist)=>{
+     
      this.departmentlist=departmentlist;
    });
    this.memberApi.hospitalinfo({id:this.params.hospital_id}).then((info)=>{
@@ -76,9 +77,12 @@ export class ClinicPage extends AppBase {
     });
     this.map.add(marker);
    })
-   
   }
 
+  keshi(item){
+   this.navigate("information",{fuwuleibie:item.name,yiyuanid:this.params.hospital_id});
+
+  }
 
   doctor(){
     this.navigate("doctor")

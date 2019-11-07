@@ -169,9 +169,11 @@ export class AppBase implements OnInit {
     ionViewDidEnter() {
         //AppBase.devicename=AppComponent.Instance.devicename;
         //AppBase.devicename="AppComponent.Instance.devicename";
-
+         
         if (TabsPage.Instance != null) {
             TabsPage.Instance.currentpage = this.currentpage;
+            console.log("哈哈哈哈");
+            console.log(TabsPage.Instance.currentpage);
         }
 
         AppBase.CurrentRoute = this.router;

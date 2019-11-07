@@ -1,16 +1,18 @@
 import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
-import {  ActivatedRoute, Params } from '@angular/router';
-import { NavController, ModalController, ToastController, AlertController, NavParams,IonSlides } from '@ionic/angular';
+import { ActivatedRoute, Params } from '@angular/router';
+import { NavController, ModalController, ToastController, AlertController, NavParams, IonSlides } from '@ionic/angular';
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
-
+import { TijianApi } from 'src/providers/tijian.api';
+declare let WeixinJSBridge: any;
 @Component({
   selector: 'app-physical-examination-payment',
   templateUrl: 'physical-examination-payment.page.html',
-  styleUrls: ['physical-examination-payment.page.scss']
+  styleUrls: ['physical-examination-payment.page.scss'],
+  providers: [TijianApi]
 })
 export class PhysicalExaminationPaymentPage extends AppBase {
 
@@ -18,24 +20,83 @@ export class PhysicalExaminationPaymentPage extends AppBase {
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
+    public tijianApi: TijianApi,
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi:MemberApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    public memberApi: MemberApi) {
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-      
+
   }
 
-  onMyLoad(){
+  onMyLoad() {
     //参数
     this.params;
   }
-  onMyShow(){
+  xianqin = null;
+  onMyShow() {
+
+    var api = this.tijianApi;
+    api.info({ id: this.params.id }).then((xianqin) => {
+      console.log(xianqin);
+      this.xianqin = xianqin
+
+    })
+
 
   }
 
+  quxiao() {
+    var api = this.tijianApi;
+
+    api.quxiaoyuyue({ id: this.params.id }).then((res) => {
+
+      this.back();
+
+    })
+
+  }
+  prepay1() {
+
   
 
- 
+    this.showConfirm("确定支付吗", (ret) => {
+      if (ret) {
+        var api = this.tijianApi;
+        api.prepay({
+          id: this.params.id, openid: this.openid
+        }).then((res) => {
+
+          if (res.code == "233") {
+            var order_id = res.return["order_id"];
+            WeixinJSBridge.invoke(
+              'getBrandWCPayRequest', res.return,
+              (res) => {
+                if (res.err_msg == "get_brand_wcpay_request:ok") {
+                  this.onMyShow();
+                } else {
+
+                  this.toast(res.errMsg);
+                }
+              });
+          } else {
+            this.toast(res.result);
+          }
+
+
+
+        })
+
+      }
+      else {
+
+
+      }
+
+
+    })
+
+  }
+
 }

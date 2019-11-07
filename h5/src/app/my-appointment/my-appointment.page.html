@@ -1,37 +1,46 @@
 <ion-header>
-    <!-- <ion-toolbar color="primary">
+  <!-- <ion-toolbar color="primary">
         <ion-icon name="arrow-back" class="icon-24" (click)="back()"></ion-icon>
         <ion-title>
           我的预约
         </ion-title>
         <ion-icon name="close" slot="end" class="icon-24"></ion-icon>
       </ion-toolbar> -->
-      <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
+  <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg"></div>
 </ion-header>
 
 <ion-content>
-    <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
-        <div class="flex-row flex-center margin-left-30">
-            <div class="marginTop" (click)="back()">
-                <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
-            </div>
-            <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
-            <div class="f16 txt-white margin-left-200">我的预约</div>
-        </div>
+  <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
+    <div class="flex-row flex-center margin-left-30">
+      <div class="marginTop" (click)="back()">
+        <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+      </div>
+      <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
+      <div class="f16 txt-white margin-left-200">我的预约</div>
     </div>
-    <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
-    <div class="card">
-        <div class="flex-row flex-center margin-left-30">
-          <div>
-            <div class="f18 txt-g txt-bold">全部</div>
-            <div class="icon-26 bg-p margin-top-10"></div>
-          </div>
-          <div class="h5 txt-bold margin-left-80">待付款</div>
-          <div class="h5 txt-bold margin-left-80">已完成</div>
-          <div class="h5 txt-bold margin-left-80">已取消</div>
-        </div>
-        
+  </div>
+  <div style="background: #0F848D;width: 100%;" class="height-40"></div>
+  <div class="card">
+    <div class="flex-row flex-center margin-left-30">
+      <div (click)='qiehuan=0'>
+        <div class="txt-bold" [class.f18]='qiehuan==0' [class.txt-g]='qiehuan==0'>全部</div>
+        <div class="icon-26 bg-p margin-top-10" *ngIf='qiehuan==0'></div>
+      </div>
+      <div class="flex-row flex-column margin-left-80" (click)='qiehuan=1'>
+        <div class="txt-bold" [class.f18]='qiehuan==1' [class.txt-g]='qiehuan==1'>待付款</div>
+        <div class="icon-26 bg-p margin-top-10" *ngIf='qiehuan==1'></div>
+      </div>
+      <div class="flex-row flex-column margin-left-80" (click)='qiehuan=2'>
+        <div class="txt-bold" [class.f18]='qiehuan==2' [class.txt-g]='qiehuan==2'>已完成</div>
+        <div class="icon-26 bg-p margin-top-10" *ngIf='qiehuan==2'></div>
+      </div>
+      <div class="flex-row flex-column margin-left-80" (click)='qiehuan=3'>
+        <div class="txt-bold" [class.f18]='qiehuan==3' [class.txt-g]='qiehuan==3'>已取消</div>
+        <div class="icon-26 bg-p margin-top-10" *ngIf='qiehuan==3'></div>
+      </div>
+    </div>
 
+<<<<<<< HEAD
         <ion-card class="padding-30" (click)="appointmentCancelled()">
           <div class="">
             <div class="flex-row flex-center"> 
@@ -41,11 +50,26 @@
             <div class="h5 txt-black margin-top-20">儿科，张XX，主任医师</div>
             <div class="h5 txt-black margin-top-20">就诊时间：2019/8/27（周四）11：30 - 12：00</div>
             <div class="h5 txt-black margin-top-20">就诊人：张三</div>
+=======
+    <div *ngIf="qiehuan==0">
+      <div *ngFor="let item of yuyue">
+
+        <ion-card *ngIf="item.orderstatus=='E'" class="height-280" (click)="appointmentPayment(item.id)">
+          <div class="margin-left-30 margin-top-30">
+            <div class="flex-row flex-center">
+              <div class="h5 txt-bold txt-black">{{item.hospital_name}}</div>
+              <div class="h5 txt-gw margin-left-360">已取消</div>
+            </div>
+            <div class="h5 txt-black margin-top-30">{{item.doctor_name}}{{item.doctor_title}}</div>
+            <div class="h5 txt-black margin-top-30">就诊时间：{{item.ordertime_formatting}}</div>
+            <div class="h5 txt-black margin-top-30">就诊人：{{item.patientname}}</div>
+>>>>>>> 65f837cd3d6643f0879451ed5833c796866f2002
           </div>
         </ion-card>
 
 
 
+<<<<<<< HEAD
         <ion-card class="padding-30" (click)="appointmentPayment()">
             <div class="">
               <div class="flex-row flex-center"> 
@@ -55,20 +79,107 @@
               <div class="h5 txt-black margin-top-20">儿科，张XX，主任医师</div>
               <div class="h5 txt-black margin-top-20">就诊时间：2019/8/27（周四）11：30 - 12：00</div>
               <div class="h5 txt-black margin-top-20">就诊人：张三</div>
+=======
+        <ion-card *ngIf="item.orderstatus=='P'" class="height-280" (click)="appointmentPayment(item.id)">
+          <div class="margin-left-30 margin-top-30">
+            <div class="flex-row flex-center">
+              <div class="h5 txt-bold txt-black">{{item.hospital_name}}</div>
+              <div class="h5 margin-left-360" style="color: #FF9800">待付款</div>
+>>>>>>> 65f837cd3d6643f0879451ed5833c796866f2002
             </div>
+            <div class="h5 txt-black margin-top-30">{{item.doctor_name}}{{item.doctor_title}}</div>
+            <div class="h5 txt-black margin-top-30">就诊时间：{{item.ordertime_formatting}}</div>
+            <div class="h5 txt-black margin-top-30">就诊人：{{item.patientname}}</div>
+          </div>
+        </ion-card>
+
+        <ion-card *ngIf="item.orderstatus=='A'" class="height-280" (click)="appointmentPayment(item.id)">
+          <div class="margin-left-30 margin-top-30">
+            <div class="flex-row flex-center">
+              <div class="h5 txt-bold txt-black">{{item.hospital_name}}</div>
+              <div class="h5 margin-left-360" style="color: #FF9800">已完成</div>
+            </div>
+            <div class="h5 txt-black margin-top-30">{{item.doctor_name}}{{item.doctor_title}}</div>
+            <div class="h5 txt-black margin-top-30">就诊时间：{{item.ordertime_formatting}}</div>
+            <div class="h5 txt-black margin-top-30">就诊人：{{item.patientname}}</div>
+          </div>
+        </ion-card>
+      </div>
+
+    </div>
+    <div *ngIf="qiehuan==1">
+      <div *ngFor="let item of yuyue">
+
+
+
+
+        <ion-card *ngIf="item.orderstatus=='P'" class="height-280" (click)="appointmentPayment(item.id)">
+          <div class="margin-left-30 margin-top-30">
+            <div class="flex-row flex-center">
+              <div class="h5 txt-bold txt-black">{{item.hospital_name}}</div>
+              <div class="h5 margin-left-360" style="color: #FF9800">待付款</div>
+            </div>
+            <div class="h5 txt-black margin-top-30">{{item.doctor_name}}{{item.doctor_title}}</div>
+            <div class="h5 txt-black margin-top-30">就诊时间：{{item.ordertime_formatting}}</div>
+            <div class="h5 txt-black margin-top-30">就诊人：{{item.patientname}}</div>
+          </div>
+        </ion-card>
+
+
+      </div>
+
+    </div>
+    <div *ngIf="qiehuan==2">
+      <div *ngFor="let item of yuyue">
+
+
+
+
+
+        <ion-card *ngIf="item.orderstatus=='A'" class="height-280" (click)="appointmentPayment(item.id)">
+          <div class="margin-left-30 margin-top-30">
+            <div class="flex-row flex-center">
+              <div class="h5 txt-bold txt-black">{{item.hospital_name}}</div>
+              <div class="h5 margin-left-360" style="color: #FF9800">已完成</div>
+            </div>
+            <div class="h5 txt-black margin-top-30">{{item.doctor_name}}{{item.doctor_title}}</div>
+            <div class="h5 txt-black margin-top-30">就诊时间：{{item.ordertime_formatting}}</div>
+            <div class="h5 txt-black margin-top-30">就诊人：{{item.patientname}}</div>
+          </div>
+        </ion-card>
+      </div>
+
+    </div>
+    <div *ngIf="qiehuan==3">
+      <div *ngFor="let item of yuyue">
+
+        <ion-card *ngIf="item.orderstatus=='E'" class="height-280" (click)="appointmentPayment(item.id)">
+          <div class="margin-left-30 margin-top-30">
+            <div class="flex-row flex-center">
+              <div class="h5 txt-bold txt-black">{{item.hospital_name}}</div>
+              <div class="h5 txt-gw margin-left-360">已取消</div>
+            </div>
+            <div class="h5 txt-black margin-top-30">{{item.doctor_name}}{{item.doctor_title}}</div>
+            <div class="h5 txt-black margin-top-30">就诊时间：{{item.ordertime_formatting}}</div>
+            <div class="h5 txt-black margin-top-30">就诊人：{{item.patientname}}</div>
+          </div>
         </ion-card>
 
 
 
-        
 
-
-                  
-
-
+      </div>
 
     </div>
-  
+
+
+
+
+
+
+
+  </div>
+
 
 </ion-content>
 <!-- <div class="flex-row flex-column margin-top-200">

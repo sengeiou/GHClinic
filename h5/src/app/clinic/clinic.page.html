@@ -48,7 +48,7 @@
     </p>
     <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
     <div class="margin-top-30" style="width:100%">
-      <div class="div0" *ngFor="let item of departmentlist">
+      <div  (click)="keshi(item)" class="div0" *ngFor="let item of departmentlist">
         <img alt="" class="img2" src="{{uploadpath}}department/{{item.img}}" />
         <p class="p3">{{item.name}}</p>
       </div>

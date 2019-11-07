@@ -72,11 +72,11 @@ export class Tab1Page extends AppBase {
   hospital(item) {
     this.item=item;
     this.xz=item.id;
-    nextTick(()=>{
-      //.scrollIntoView();
-      var ele=document.querySelector("#hostlist");
-      ele.scrollIntoView();
-    });
+    // nextTick(()=>{
+    //   //.scrollIntoView();
+    //   var ele=document.querySelector("#hostlist");
+    //   ele.scrollIntoView();
+    // });
     var name =item.name;
     var api = this.memberApi;
    if(name=="体检")
