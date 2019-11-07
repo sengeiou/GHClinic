@@ -43,8 +43,8 @@ export class AppointmentCompletePage extends AppBase {
   getorder(){
     var api=this.orderApi;
      api.info({id:this.params.id}).then((order)=>{
-
       this.order=order;
+      
       console.log(order);
          
      })

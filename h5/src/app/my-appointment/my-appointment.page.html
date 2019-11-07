@@ -43,7 +43,7 @@
     <div *ngIf="qiehuan==0">
       <div *ngFor="let item of yuyue">
 
-        <ion-card *ngIf="item.orderstatus=='E'" class="height-280" (click)="appointmentPayment()">
+        <ion-card *ngIf="item.orderstatus=='E'" class="height-280" (click)="appointmentPayment(item.id)">
           <div class="margin-left-30 margin-top-30">
             <div class="flex-row flex-center">
               <div class="h5 txt-bold txt-black">{{item.hospital_name}}</div>

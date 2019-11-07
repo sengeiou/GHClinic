@@ -35,7 +35,14 @@ export class MyOrderPage extends AppBase {
     //参数
     this.params;
   }
-  onMyShow(){
+  onMyShow(){  
+     
+    var id=this.params.id;
+      if(id!=undefined){
+        this.qiehuan=id;
+      }
+
+
   this.getmyorder();
   }
   getmyorder(){

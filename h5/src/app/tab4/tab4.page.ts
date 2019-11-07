@@ -76,5 +76,17 @@ export class Tab4Page extends AppBase {
   wenzhantuison(){
     this.navigate("wen-zhan-tui-son")
   }
- 
+  daifukuan(){
+
+    this.navigate("my-order",{id:1});
+
+  }
+  daishouhuo(){
+    this.navigate("my-order",{id:2});
+
+  }
+ yiwanchen(){
+  this.navigate("my-order",{id:3});
+
+ }
 }
