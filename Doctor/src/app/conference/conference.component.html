@@ -1,6 +1,6 @@
 
 
-<div   [class.hide]="inmeeting==true" class="flex-row margin-top-60" style="width: 90%"> 
+<div   [class.hide]="inmeeting==false" class="flex-row margin-top-60" style="width: 90%"> 
     <div class="flex-3 text-right">
       <img src="{{uploadpath}}resource/{{res.huizhen}}" />
       <div class="fixhui">患者正在进入中，请耐心等候...</div>
@@ -73,7 +73,7 @@
   <!---------------------------------->
   <!---------------------------------->
   
-  <div [class.hide]="inmeeting==false" class="flex-row fullscreen">
+  <div [class.hide]="inmeeting==true" class="flex-row fullscreen">
     <div class="flex-3 fullheightpercent margin-top-20">
       <div class="menu">
         <div class="menuopt firstmenuopt">
@@ -93,6 +93,10 @@
           <i class="fas fa-fw fa-users"></i>
           <div class="h6">病历</div>
         </div>
+        <div class="menuopt" tooltip="诊断结果" placement="right" (click)="showtype=4">
+            <i class="fas fa-fw fa-users"></i>
+            <div class="h6">诊断结果</div>
+          </div>
         <!-- <div class="menuopt" tooltip="聊天记录" placement="right" (click)="showtype=2">
           <i class="fas fa-fw fa-comments"></i>
           <div class="h6">聊天记录</div>
@@ -150,6 +154,34 @@
             </div>
           </div>
         </div>
+
+
+        <div *ngIf="showtype==4">
+  
+            <div class="houzhen">
+             <div class="f20">诊断结果</div>
+           </div>
+           <div class="jiuzhenxinxi">
+               <div class="txt-bold margin-bottom-20 ">诊断内容</div>
+               
+               <div >
+                 <textarea placeholder="请在此处填写诊断结果" class="edit" [(ngModel)]="zhenresult"></textarea>
+               </div>
+               <div class=" "> 
+                 <div class="txt-bold margin-bottom-10">图片资料</div>
+                 <div  style="float: left;" class="" *ngFor='let img of orderinfo.photolist'>
+                     <img *ngIf='img.photo!=""'  data-toggle="modal" data-target="#myModal2" src="{{uploadpath}}appointment/{{img.photo}}" class="images margin-bottom-10" (click)='changbig(img)'/>
+                 </div>
+                 <div style="clear: both;"></div>
+               </div>
+           </div>
+           <div class="flex-row" style="width: 80%; margin-left: 10%;cursor: pointer;" (click)='saveresult()'>
+            
+             <div class="padding-24 flex-5 text-center  txt-white txt-bold "  style="background: #4C71DE;">
+               保存
+             </div>
+           </div>
+         </div>
   
         <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
             <div class="modal-dialog">

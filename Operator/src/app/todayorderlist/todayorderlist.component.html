@@ -32,10 +32,10 @@
                 <th>科室</th>
                 <th>医生信息</th>
                 <th>状态</th>
-                <!-- <th>操作</th> -->
+                <th>操作</th>
               </tr>
           </thead>
-          <tbody class="h5 text-center">
+          <tbody class="h5 text-center vt">
               <tr *ngFor='let item of orders'>
                  <td>{{item.ispay_name}}</td>
                  <td>{{item.schedule_id_name}}</td>
@@ -43,11 +43,43 @@
                  <td>{{item.patientmobile}}</td>
                  <td>{{item.department_id_name}}</td>
                  <td>{{item.doctor_id_name}}</td>
-                 <td (click)="gotoConference(item)" style="cursor: pointer;">
+                 <td>
                    <div *ngIf='item.orderstatus=="A"' style="color:#2850C3">{{item.orderstatus_name}}</div>
                    <div *ngIf='item.orderstatus=="B"' style="color:#FF9800">{{item.orderstatus_name}}...</div>
                    <div *ngIf='item.orderstatus=="C"'>{{item.orderstatus_name}}</div>
                    <div *ngIf='item.orderstatus=="D"' style="color:#8A8A8A">{{item.orderstatus_name}}</div>
+                   <div *ngIf='item.orderstatus=="E"' style="color:#8A8A8A">{{item.orderstatus_name}}</div>
+                  </td>
+                  <td>
+                      <button class="btn btn-primary" (click)="gotoConference(item)"  *ngIf='item.orderstatus=="A"'>进入会诊</button>
+                      <div *ngIf='item.orderstatus=="B"'>一</div>
+                      <div *ngIf='item.orderstatus=="C"'>一</div>
+                      <div *ngIf='item.orderstatus=="E"'>一</div>
+                      <div  *ngIf='item.orderstatus=="D"'>
+                        <button (click)="changconference(item)" class="btn btn-primary">重新会诊</button><br>
+                        <button   data-toggle="modal" data-target="#myModal" class="btn btn-primary margin-top">取消会诊</button>
+
+
+                            <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+                              <div class="modal-dialog">
+                                  <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h4 class="modal-title">取消会诊提示</h4>
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                  </div>
+                                  <div class="modal-body">
+                                    确定要取消会诊吗？
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-default" (click)='cancelconference(item)' data-dismiss="modal">确定</button>
+                                  </div>
+                                  </div>
+                                </div>
+                            </div>
+
+                      </div>
+                    
                   </td>
               </tr>
               
@@ -56,6 +88,10 @@
     </div>
                    
   </div>
+
+
+ 
+
 
   <!-- <div class="padding-20 bg-white">
     <div class="flex-row">

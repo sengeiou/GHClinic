@@ -40,7 +40,8 @@
                       <th>预约时间</th>
                       <th>患者姓名</th>
                       <th>电话</th>
-                      <th>患者备注信息</th>
+                      <th>开始会诊时间</th>
+                      <th>结束会诊时间</th>
                       <th>图片</th>
                       <th>诊断结果</th>
                     </tr>
@@ -50,7 +51,8 @@
                        <td>{{item.schedule_id_name}}</td>
                        <td>{{item.patientname}}</td>
                        <td>{{item.patientmobile}}</td>
-                       <td>{{item.department_id_name}}</td>
+                       <td>{{item.meetingstart}}</td>
+                       <td>{{item.meetingend}}</td>
                        <td>
                          <div *ngFor='let img of item.photolist;let i=index'>
                             <span *ngIf="i==0" class="margin-left">
@@ -60,8 +62,10 @@
                          </div>
                          
                         </td>
-                       <td  style="cursor: pointer;">
-                        <div style="color: #2850C3;">详情</div>
+                       <td   style="cursor: pointer;" routerLink='/patientdetail' [queryParams]='{member_id:item.member_id}'>
+
+                          <div *ngIf='item.result==""'>未录</div>
+                          <div *ngIf='item.result!=""'>已录</div>
                         </td>
                     </tr>
                     

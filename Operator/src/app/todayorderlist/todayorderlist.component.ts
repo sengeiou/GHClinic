@@ -11,11 +11,12 @@ import { ApiConfig } from '../api.config';
 import { OperatorApi } from 'src/providers/operator.api';
 import { AppUtil } from '../app.util';
 import { isNgTemplate } from '@angular/compiler';
+import { OrderApi } from 'src/providers/order.api';
 @Component({
   selector: 'app-todayorderlist',
   templateUrl: './todayorderlist.component.html',
   styleUrls: ['./todayorderlist.component.scss'],
-  providers: [InstApi, DoctorApi, BsModalService,OperatorApi]
+  providers: [InstApi, DoctorApi, BsModalService,OperatorApi,OrderApi]
 })
 export class TodayorderlistComponent extends AppBase {
 
@@ -25,7 +26,8 @@ export class TodayorderlistComponent extends AppBase {
     public instApi: InstApi,
     public doctorApi: DoctorApi,
     public modalService: BsModalService,
-    public operatorApi:OperatorApi
+    public operatorApi:OperatorApi,
+    public orderApi:OrderApi,
   ) {
     super(router, activeRoute, instApi);
   }
@@ -77,7 +79,7 @@ export class TodayorderlistComponent extends AppBase {
     var that=this;
     
     that.operatorApi.todayorderlist({}).then((list:[any])=>{
-      console.log(list,'list')
+  
       var orderA=[];
       var orderB=[];
       var orderC=[];
@@ -85,7 +87,7 @@ export class TodayorderlistComponent extends AppBase {
       var orderE=[];
       var orderF=[];
       for(var item of list){
-    
+        
         item.ordertime_timespan=parseInt(item.ordertime_timespan)*1000;
         if(that.isA(item)){
           orderA.push(item);
@@ -169,6 +171,32 @@ export class TodayorderlistComponent extends AppBase {
       this.navigate("/conference",{order_id:order.id});
     }
   }
+
+  changconference(item){
+    if(item.orderstatus=="B"){
+      this.orderApi.end({order_id: item.id}).then((ret)=>{
+        if(ret){
+         this.onMyLoad()
+        }
+      })
+    }else if(item.orderstatus=="D"){
+        this.orderApi.guohao({order_id: item.id}).then((ret)=>{
+          if(ret){
+            this.onMyLoad()
+          }
+        })
+    }
+    
+  }
+
+  cancelconference(item){
+    this.orderApi.quxiao({order_id: item.id}).then((ret)=>{
+      if(ret){
+        this.onMyLoad()
+      }
+    })
+  }
+
   orders=[]
   waiting(e){
     console.log(e,'e')

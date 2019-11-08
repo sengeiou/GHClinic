@@ -60,9 +60,10 @@ export class ConferenceComponent extends AppBase {
   onMyLoad() {
 
   }
-
+  playcon = true
   startmeeting() {
     this.inmeeting = true;
+    this.playcon = true
     this.startlive();
   }
 

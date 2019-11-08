@@ -1,0 +1,56 @@
+<div class="container-fluid">
+
+   
+
+        <!-- Page Heading -->
+        <div class="flex-row flex-bottom">
+                <div class="flex-1">
+                <h1 class="h3 mb-4 mt-5 txt-bold">患者管理</h1>
+                </div>
+                <div>
+                {{clock}}
+                </div>
+            </div>
+            
+                <div class="margin-bottom-80 flex-row" >
+                    <button class="btns margin-right-20" (click)='change(i)' *ngFor='let item of orderlist;let i=index'>第{{i+1}}次会诊</button>
+                </div>
+                <div  *ngFor='let item of orderlist;let i=index'>
+                <div class="margin-bottom-80 margin-left-40 f18" *ngIf='memId==i'>
+                    <div>
+                        <span>科</span><span  style="margin-left: 36px;">室：</span>
+                        <span></span>
+                    </div>
+                    <div class="flex-row margin-top-80">
+                        <div class="flex-2">
+                            <span>患者姓名：</span>
+                            <span>{{item.patientname}}</span>
+                        </div>
+                        <div  class="flex-3">
+                            <span>患者电话：</span>
+                            <span>{{item.patientmobile}}</span>
+                        </div>
+                    </div>
+                    <div class="flex-row margin-top-80">
+                        <div class="flex-2">
+                            <span>开始时间：</span>
+                            <span>{{item.meetingstart}}</span>
+                        </div>
+                        <div  class="flex-3">
+                            <span>结束时间：</span>
+                            <span>{{item.meetingend}}</span>
+                        </div>
+                    </div>
+
+                    <div class="flex-row margin-top-80">
+                        <span>会诊结果：</span>
+                        <textarea class="texta">{{item.result}}</textarea>
+                    </div>
+            </div>
+            
+    </div>
+                
+      
+       
+</div>
+      

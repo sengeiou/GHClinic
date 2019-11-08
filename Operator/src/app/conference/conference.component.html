@@ -140,11 +140,14 @@
             </div>
         </div>
         <div class="flex-row" style="width: 80%; margin-left: 10%;">
-          <div class="padding-24 flex-5 text-center txt-white txt-bold " (click)='startmeeting()' style="background: #009688;">
-            继续会诊
+          <div class="padding-24 flex-5 text-center txt-white txt-bold " *ngIf='playcon' (click)='startmeeting()' style="background: #009688;cursor: pointer;">
+            暂停会诊
           </div>
+          <div class="padding-24 flex-5 text-center txt-white txt-bold " *ngIf='playcon==false' (click)='startmeeting()' style="background: #009688;cursor: pointer;">
+              继续会诊
+            </div>
           <div class="flex-1"></div>
-          <div class="padding-24 flex-5 text-center  txt-white txt-bold " data-toggle="modal" data-target="#myModal" style="background: #FF9800;">
+          <div class="padding-24 flex-5 text-center  txt-white txt-bold " data-toggle="modal" data-target="#myModal" style="background: #FF9800;cursor: pointer;">
             结束会诊
           </div>
         </div>

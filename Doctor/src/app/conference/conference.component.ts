@@ -310,4 +310,12 @@ imgs = []
     this.imgs.push(item)
     console.log(this.imgs)
   }
+
+  zhenresult=""
+  saveresult(){
+    console.log(this.zhenresult)
+    this.orderApi.addresult({order_id: this.params.order_id,result:this.zhenresult}).then((ret)=>{
+      console.log(ret)
+    })
+  }
 }
