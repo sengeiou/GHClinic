@@ -50,7 +50,7 @@
       
         
         <div class="div0" *ngIf="tab3==true">
-          <div class="div2" *ngIf='drugs.length!=0'>
+          <div class="div2" >
             <ion-card class="ion-card1" *ngFor="let i of drugs" (click)="CommodityDetails(i.id)">
               <img alt="" src="{{uploadpath}}drugs/{{i.photo}}"/>
               <p class="p4 oneline">{{i.name}}</p>
@@ -66,7 +66,7 @@
 
 
         <div *ngIf="list==true" class="margin-top-30">
-            <div *ngIf='drugs.length!=0'>
+            <div >
               <ion-card class="ion-card2" *ngFor="let i of drugs;let a=index" (click)="CommodityDetails(i.id)">
                 <div class="flex-row flex-center">
                   <div>
