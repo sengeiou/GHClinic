@@ -9,7 +9,7 @@
       <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
 </ion-header>
 
-<ion-content *ngIf="orderinfo!=null">
+<ion-content >
   <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
     <div class="flex-row flex-center margin-left-30">
         <div  (click)="back()">
@@ -20,10 +20,10 @@
     </div>
   </div>
   <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
-    <div class="card  height-81">
+    <div class="card  height-81" *ngIf="orderinfo!=null" >
       <div class="f16 txt-bold txt-black margin-left-30">待付款</div>
       <div class="f12 txt-bold txt-black margin-left-30 margin-top-30">等待买家付款，超过24小时将自动取消</div>
-    </div>
+   
 
   <div>
     <div class=" margin-top">
@@ -91,6 +91,6 @@
       <div  (click)="quxiao()" style="background-color: #B9B9B9" class="txt-white d4 text-center">取消</div>
       <div  (click)="prepay()" class="txt-white bc d4 text-center">去付款</div>
     </div>
-    
+    </div>
 
 </ion-content>
