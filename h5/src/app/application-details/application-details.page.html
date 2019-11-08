@@ -44,7 +44,7 @@
     </div>
     <div class="margin-left-20">
       <div class="f16 txt-black txt-bold oneline">{{activityinfo.activity_activityname}}</div>
-      <div class="h5 txt-red ">{{activityinfo.activity_price==0?'免费':'费用：￥'+activityinfo.activity_price}}</div>
+      <div class="h5 txt-red " *ngIf='activityinfo.activity_price>=0'>{{activityinfo.activity_price==0?'免费':'费用：￥'+activityinfo.activity_price}}</div>
     </div>
   </div>
   <hr/>
@@ -65,7 +65,7 @@
     <div class="h5 txt-gw margin-left-20">（必填）</div>
   </div>
 
-  <div class="margin-left-30 margin-top-30 flex-row flex-center margin-bottom-30">
+  <div class="margin-left-30 margin-top-40 flex-row flex-center margin-bottom-30">
       <div class="f16 txt-black flex-1">姓名</div>
       <div class="f16 txt-black margin-right">{{activityinfo.name}}</div>
   </div>
@@ -112,12 +112,14 @@
           <div class="text-center">
             <h4 class="txt-bold f16">取消报名</h4>
           </div>
-          <div class="text-center">
+          <div class="flex-row ">
+            <div class="flex-1"></div>
             <img alt="" class="icon-100" src="{{uploadpath}}resource/{{res.cancelbaoming}}" />
+            <div class="flex-1"></div>
           </div>
-          <div class="flex-row margin-top-30">
-            <button type="button" class="f16 txt-gw flex-1" (click)="confirmCancellation()" aria-hidden="true" data-dismiss="modal">确定取消</button>
-            <button type="button" class="f16 txt-red flex-1" data-dismiss="modal" aria-hidden="true">我点错了</button>
+          <div class="flex-row  margin-top-40" style="justify-content: center;">
+            <button type="button" class="f16 txt-gw " (click)="confirmCancellation()" aria-hidden="true" data-dismiss="modal">确定取消</button>
+            <button type="button" class="f16 txt-red margin-left-40" data-dismiss="modal" aria-hidden="true">我点错了</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->

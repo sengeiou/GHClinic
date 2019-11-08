@@ -30,7 +30,7 @@ export class ActivityInformationPage extends AppBase {
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
-    this.activityinfo=null
+    this.activityinfo={}
   }
   i=0;
   activityinfo=null;
