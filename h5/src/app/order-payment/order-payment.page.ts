@@ -94,7 +94,7 @@ export class OrderPaymentPage extends AppBase {
 
 
               } else {
-                this.showAlert(res.errMsg);
+             //   this.showAlert(res.errMsg);
               }
             });
         });

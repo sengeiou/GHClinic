@@ -177,7 +177,7 @@ export class OrderPage extends AppBase {
 
 
                   } else {
-                    this.showAlert(res.errMsg);
+                  //  this.showAlert(res.errMsg);
                   }
                 });
             });
@@ -219,7 +219,9 @@ export class OrderPage extends AppBase {
 
 
               } else {
-                this.showAlert(res.errMsg);
+                
+                  this.navigate("order-payment",{id:res.return})
+                
               }
             });
         });
