@@ -28,8 +28,8 @@
         <img alt="" src='{{uploadpath}}activity/{{activity.activitycover}}'/>
       </div>
       <div class="div1">
-        <p class="p1">{{activity.activityname}}</p>
-        <p class="p2">费用：{{activity.price==0?'免费':'￥'+activity.price+'.00'}}</p>
+        <div class="p1">{{activity.activityname}}</div>
+        <div class="p2" *ngIf='activity.price>=0'>费用：{{activity.price==0?'免费':'￥'+activity.price+'.00'}}</div>
       </div>
       <div style="clear: both"></div>
     </div>
