@@ -89,7 +89,7 @@ export class OrderPaymentPage extends AppBase {
 
 
 
-                this.onMyShow();
+                this.back();
 
 
 

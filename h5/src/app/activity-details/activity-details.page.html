@@ -64,6 +64,7 @@
     </div>
   
 </ion-content>
+<div  *ngIf="activity.price>=0">
 <div class="div1 flex-row flex-center" *ngIf="show==true">
     <div class="p6">{{activity.price==0?'免费':'￥'+activity.price+'.00'}}</div>
     <div class="p7" (click)="application(activity.id)">我要报名</div>
@@ -71,6 +72,7 @@
 <div class="div1 flex-row flex-center" *ngIf="show==false">
     <div class="p6">{{activity.price==0?'免费':'￥'+activity.price+'.00'}}</div>
     <div class="p7">报名已过期</div>
+</div>
 </div>
 
 
