@@ -8,7 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { ActivityApi } from 'src/providers/activity.api';
 // import { ConsoleReporter } from 'jasmine';
-
+declare let WeixinJSBridge: any; 
 @Component({
   selector: 'app-application',
   templateUrl: 'application.page.html',
@@ -107,8 +107,8 @@ export class ApplicationPage extends AppBase {
 
     var api=this.activityApi;
 
-    var canshu={activty_id: id, name: xingming, age_id: this.age,phone: shoujihao,zhuangtai:'A', status: 'A'}
-    var canshu1={primary_id:this.params.id,activty_id: id, name: xingming, age_id: this.age,phone: shoujihao,zhuangtai:'A', status: 'A'}
+    var canshu={activty_id: id, name: xingming, age_id: this.age,phone: shoujihao,zhuangtai:'A', status: 'A',openid:this.openid}
+    var canshu1={activty_id: id, name: xingming, age_id: this.age,phone: shoujihao,zhuangtai:'A', status: 'A',openid:this.openid}
 
     api.signactivity(this.params.id==undefined?canshu:canshu1).then(
       (res)=>{
@@ -117,6 +117,21 @@ export class ApplicationPage extends AppBase {
           
           this.navigate("successful-registration",{id:res.return, activity: JSON.stringify(this.activity)});
           
+        }
+        if(res.code=="233")
+        {
+
+          WeixinJSBridge.invoke(
+            'getBrandWCPayRequest', res.return,
+              (res) => {
+              if(res.err_msg == "get_brand_wcpay_request:ok" ){
+                this.navigate("successful-registration",{id:res.return['order_id'],activity: JSON.stringify(this.activity)});
+              } else {
+                this.toast(res.errMsg);
+              }
+            });
+
+
         }
          if(res.code == -2){
 

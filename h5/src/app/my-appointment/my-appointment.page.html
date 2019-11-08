@@ -26,10 +26,10 @@
         <div class="txt-bold" [class.f18]='qiehuan==0' [class.txt-g]='qiehuan==0'>全部</div>
         <div class="icon-26 bg-p margin-top-10" *ngIf='qiehuan==0'></div>
       </div>
-      <!-- <div class="flex-row flex-column margin-left-80" (click)='qiehuan=1'>
-        <div class="txt-bold" [class.f18]='qiehuan==1' [class.txt-g]='qiehuan==1'>待付款</div>
+      <div class="flex-row flex-column margin-left-80" (click)='qiehuan=1'>
+        <div class="txt-bold" [class.f18]='qiehuan==1' [class.txt-g]='qiehuan==1'>待会诊</div>
         <div class="icon-26 bg-p margin-top-10" *ngIf='qiehuan==1'></div>
-      </div> -->
+      </div>
       <div class="flex-row flex-column margin-left-80" (click)='qiehuan=2'>
         <div class="txt-bold" [class.f18]='qiehuan==2' [class.txt-g]='qiehuan==2'>已完成</div>
         <div class="icon-26 bg-p margin-top-10" *ngIf='qiehuan==2'></div>
@@ -57,11 +57,11 @@
 
 
 
-        <ion-card *ngIf="item.orderstatus=='P'" class="padding-30" (click)="appointmentPayment(item.id)">
+        <ion-card *ngIf="item.orderstatus=='A'" class="padding-30" (click)="appointmentPayment(item.id)">
           <div class="">
             <div class="flex-row flex-center">
               <div class="h5 txt-bold txt-black flex-1">{{item.hospital_name}}</div>
-              <div class="h5 " style="color: #FF9800">待付款</div>
+              <div class="h5 " style="color: #FF9800">待会诊</div>
             </div>
             <div class="h5 txt-black margin-top-20">{{item.doctor_name}}{{item.doctor_title}}</div>
             <div class="h5 txt-black margin-top-20">就诊时间：{{item.ordertime_formatting}}</div>
@@ -69,7 +69,7 @@
           </div>
         </ion-card>
 
-        <ion-card *ngIf="item.orderstatus=='A'" class="padding-30" (click)="appointmentPayment(item.id)">
+        <ion-card *ngIf="item.orderstatus=='C'" class="padding-30" (click)="appointmentPayment(item.id)">
           <div class="">
             <div class="flex-row flex-center">
               <div class="h5 txt-bold txt-black flex-1">{{item.hospital_name}}</div>
@@ -89,11 +89,11 @@
 
 
 
-        <ion-card *ngIf="item.orderstatus=='P'" class="padding-30" (click)="appointmentPayment(item.id)">
+        <ion-card *ngIf="item.orderstatus=='A'" class="padding-30" (click)="appointmentPayment(item.id)">
           <div class="">
             <div class="flex-row flex-center">
               <div class="h5 txt-bold txt-black flex-1">{{item.hospital_name}}</div>
-              <div class="h5 " style="color: #FF9800">待付款</div>
+              <div class="h5 " style="color: #FF9800">待会诊</div>
             </div>
             <div class="h5 txt-black margin-top-20">{{item.doctor_name}}{{item.doctor_title}}</div>
             <div class="h5 txt-black margin-top-20">就诊时间：{{item.ordertime_formatting}}</div>
@@ -112,7 +112,7 @@
 
 
 
-        <ion-card *ngIf="item.orderstatus=='A'" class="padding-30" (click)="appointmentPayment(item.id)">
+        <ion-card *ngIf="item.orderstatus=='C'" class="padding-30" (click)="appointmentPayment(item.id)">
           <div class="">
             <div class="flex-row flex-center">
               <div class="h5 txt-bold txt-black flex-1">{{item.hospital_name}}</div>
