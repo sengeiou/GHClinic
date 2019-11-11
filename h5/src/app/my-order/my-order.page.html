@@ -176,7 +176,7 @@
           </div>
           <div *ngFor="let orders of item.orders" class="flex-row flex-center margin-top-20">
             <div>
-              <img alt="" class="icon-60" />
+              <img alt="" src="{{uploadpath}}drugs/{{orders.drugsphoto}}" class="icon-60" />
             </div>
             <div class="f16 txt-black margin-left-30 flex-1 flex-wrap w-212">{{orders.drugsname}}</div>
             <div class="f16 txt-black">x{{orders.num}}</div>
