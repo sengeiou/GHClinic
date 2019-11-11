@@ -62,7 +62,7 @@
                          </div>
                          
                         </td>
-                       <td   style="cursor: pointer;" routerLink='/patientdetail' [queryParams]='{member_id:item.member_id}'>
+                       <td   style="cursor: pointer;" routerLink='/patientdetail' [queryParams]='{patientmobile:item.patientmobile}'>
 
                           <div *ngIf='item.result==""'>未录</div>
                           <div *ngIf='item.result!=""'>已录</div>

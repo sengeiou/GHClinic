@@ -75,7 +75,6 @@ export class TodayorderlistComponent extends AppBase {
     
     that.operatorApi.todayorderlist({}).then((list:[any])=>{
       console.log(list,'list')
-      that.orders = list
       var orderA=[];
       var orderB=[];
       var orderC=[];
@@ -105,7 +104,7 @@ export class TodayorderlistComponent extends AppBase {
         that.orderD=orderD;
         that.orderE=orderE;
         that.orderF=orderF;
-        // that.orders = that.orderA
+        that.orders = that.orderA
        console.log(that.orderA,'oooooo')
        console.log(this.isA(item),'ppp')
       }

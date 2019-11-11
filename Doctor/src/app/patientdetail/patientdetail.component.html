@@ -13,44 +13,100 @@
             </div>
             
                 <div class="margin-bottom-80 flex-row" >
-                    <button class="btns margin-right-20" (click)='change(i)' *ngFor='let item of orderlist;let i=index'>第{{i+1}}次会诊</button>
+                    <button class="btns margin-right-20" (click)='change(item,i)' *ngFor='let item of orderlist;let i=index'>第{{i+1}}次会诊</button>
                 </div>
                 <div  *ngFor='let item of orderlist;let i=index'>
-                <div class="margin-bottom-80 margin-left-40 f18" *ngIf='memId==i'>
-                    <div>
-                        <span>科</span><span  style="margin-left: 36px;">室：</span>
-                        <span></span>
-                    </div>
-                    <div class="flex-row margin-top-80">
-                        <div class="flex-2">
-                            <span>患者姓名：</span>
-                            <span>{{item.patientname}}</span>
+                    <div class="margin-bottom-80 margin-left-40 f18" *ngIf='memId==i'>
+                        <div>
+                            <span>医</span><span  style="margin-left: 36px;">院：</span>
+                            <span>{{item.hospital_id_name}}</span>
                         </div>
-                        <div  class="flex-3">
-                            <span>患者电话：</span>
-                            <span>{{item.patientmobile}}</span>
+                        <div  class="margin-top-80">
+                            <span>科</span><span  style="margin-left: 36px;">室：</span>
+                            <span></span>
                         </div>
-                    </div>
-                    <div class="flex-row margin-top-80">
-                        <div class="flex-2">
-                            <span>开始时间：</span>
-                            <span>{{item.meetingstart}}</span>
+                        <div class="flex-row margin-top-80">
+                            <div class="flex-2">
+                                <span>患者姓名：</span>
+                                <span>{{item.patientname}}</span>
+                            </div>
+                            <div  class="flex-3">
+                                <span>患者电话：</span>
+                                <span>{{item.patientmobile}}</span>
+                            </div>
                         </div>
-                        <div  class="flex-3">
-                            <span>结束时间：</span>
-                            <span>{{item.meetingend}}</span>
+                        <div class="flex-row margin-top-80">
+                            <div class="flex-2">
+                                <span>开始时间：</span>
+                                <span>{{item.meetingstart}}</span>
+                            </div>
+                            <div  class="flex-2">
+                                <span>结束时间：</span>
+                                <span>{{item.meetingend}}</span>
+                            </div>
+                            <div  class="flex-2">
+                                <span>会诊时长：</span>
+                                <span>{{item.meetingduration}}</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="flex-row margin-top-80">
-                        <span>会诊结果：</span>
-                        <textarea class="texta">{{item.result}}</textarea>
-                    </div>
-            </div>
+                        <div  class="margin-top-80">
+                            <span>图片资料：</span>
+                            <span *ngFor='let img of item.photolist;let j=index'><img  data-toggle="modal" data-target="#myModal2" (click)='changbig(item,j)' src="{{uploadpath}}appointment/{{img.photo}}" class="icon-50 margin-left"/></span>
+                        </div>
+
+                        <div class="flex-row margin-top-80">
+                            <span>会诊结果：</span>
+                            <textarea class="texta" [(ngModel)]="zhenresult">{{zhenresult}}</textarea>
+                        </div>
+                </div>
             
-    </div>
+            
+                </div>
                 
-      
+        <div style="margin-left: 30%">
+            <button class="btns margin-right-20"  routerLink="/patient-management" [queryParams]='{doctor_id:doctorinfo.id}'>返回</button>
+            <button class="btns"  (click)='saveresult()'>保存</button>
+        </div>
        
 </div>
       
+
+
+<div  class="modal fade " *ngIf='show' id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div  class="modal-dialog photoimg " role="img" >
+            <div class="modal-content" style="background: transparent; border: none;width: 800px; height: 600px">
+                <div id="demo" class="carousel slide" style="width: 900px; height: 700px" >
+                    <!-- 指示符 -->
+                    <ul class="carousel-indicators" >
+                        <li data-target="#demo" *ngFor='let item of imgs;let i=index' data-slide-to="i" class="active"></li>
+                    </ul>
+                
+                    <!-- 轮播图片 -->
+                    <div class="carousel-inner " style="height: 100%;">
+                           
+                        <div class="carousel-item active"  *ngFor='let item of imgs;let i=index' style="height: 100%;">
+                                <div *ngIf='big==i' style="opacity: 0;" >{{i}}~~{{item.photo}}</div>
+                            <img *ngIf='big==i'  src="{{uploadpath}}appointment/{{item.photo}}">
+                        </div>
+                    </div>
+                
+                    <!-- 左右切换按钮 -->
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev" (click)='prev("a")'>
+                        <span class="bg-gray">
+                            <img src="{{uploadpath}}resource/{{res.arrow}}"  style="width: 30px !important;height: 30px !important;">
+                        </span>
+                    </a>
+                    
+                    <a class="carousel-control-next " href="#demo" data-slide="next" (click)='prev("b")'>
+                        <span class="bg-gray">
+                                <img src="{{uploadpath}}resource/{{res.arrow}}" style="width: 30px !important;height: 30px !important;">
+                        </span>
+                    </a>
+                
+                </div>
+        
+        
+            </div>
+        </div> 
+  </div>
