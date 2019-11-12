@@ -74,12 +74,13 @@ export class TodayorderlistComponent extends AppBase {
     // console.log("reloading t1",(new Date()));
     this.clock=AppUtil.FormatDateTime(new Date());
   }
+  allorders=[]
   loadOrder(){
     // console.log("reloading t2",(new Date()));
     var that=this;
     
     that.operatorApi.todayorderlist({}).then((list:[any])=>{
-  
+      this.allorders = list
       var orderA=[];
       var orderB=[];
       var orderC=[];
@@ -120,40 +121,42 @@ export class TodayorderlistComponent extends AppBase {
 
   isA(item){
     var nowtime=(new Date()).getTime();
-    if(item.status=="A"
+    if(item.orderstatus=="A"
       &&item.ordertime_timespan-nowtime>15*60*1000){
       return true;
+    }else if(item.orderstatus=="A"
+    &&item.ordertime_timespan-nowtime<15*60*1000){
+      this.orderApi.guohao({order_id:item.id}).then((guohao)=>{
+        console.log(guohao)
+      })
     }
     return false;
   }
 
   isB(item){
     var nowtime=(new Date()).getTime();
-    if(item.status=="A"
-      &&item.ordertime_timespan-nowtime<15*60*1000
-      &&item.ordertime_timespan-nowtime>0
-      ){
+    if(item.orderstatus=="B"){
       return true;
     }
     return false;
   }
   isC(item){
     var nowtime=(new Date()).getTime();
-    if(item.status=="B"){
+    if(item.orderstatus=="C"){
       return true;
     }
     return false;
   }
   isD(item){
     var nowtime=(new Date()).getTime();
-    if(item.status=="C"){
+    if(item.orderstatus=="D"){
       return true;
     }
     return false;
   }
   isE(item){
     var nowtime=(new Date()).getTime();
-    if(item.status=="A"
+    if(item.orderstatus=="E"
       &&item.ordertime_timespan-nowtime<0
       ){
       return true;
@@ -168,6 +171,10 @@ export class TodayorderlistComponent extends AppBase {
   gotoConference(order){
     console.log(order)
     if(order.orderstatus=='A'){
+      this.navigate("/conference",{order_id:order.id});
+    }else if(order.orderstatus=='B'){
+      this.navigate("/conference",{order_id:order.id,orderstatus:'B'});
+    }else if(order.orderstatus=='D'){
       this.navigate("/conference",{order_id:order.id});
     }
   }
@@ -257,6 +264,8 @@ export class TodayorderlistComponent extends AppBase {
         others[i].classList.remove('btn-active')
       }
     }
+    this.orders = this.allorders
+    console.log(this.orders,'orders')
   }
 
 }

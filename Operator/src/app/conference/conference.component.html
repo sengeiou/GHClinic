@@ -55,8 +55,11 @@
             <div class="f14 flex-1">{{orderinfo.orderstatus_name}}</div>
           </div> -->
         </div>
-        <div class="padding-29 text-center bg-blue-28 txt-white txt-bold " (click)='startmeeting()'>
+        <div *ngIf="continue=='N'" class="padding-29 text-center bg-blue-28 txt-white txt-bold " (click)='startmeeting()'>
           开始会诊
+        </div>
+        <div  *ngIf="continue=='Y'" class="padding-29 text-center bg-blue-28 txt-white txt-bold " (click)='startmeeting()'>
+          继续会诊
         </div>
         
       </div>
@@ -140,13 +143,13 @@
             </div>
         </div>
         <div class="flex-row" style="width: 80%; margin-left: 10%;">
-          <div class="padding-24 flex-5 text-center txt-white txt-bold " *ngIf='playcon' (click)='startmeeting()' style="background: #009688;cursor: pointer;">
+          <!-- <div class="padding-24 flex-5 text-center txt-white txt-bold " *ngIf='playcon' (click)='startmeeting()' style="background: #009688;cursor: pointer;">
             暂停会诊
           </div>
           <div class="padding-24 flex-5 text-center txt-white txt-bold " *ngIf='playcon==false' (click)='startmeeting()' style="background: #009688;cursor: pointer;">
               继续会诊
-            </div>
-          <div class="flex-1"></div>
+            </div> -->
+          <!-- <div class="flex-1"></div> -->
           <div class="padding-24 flex-5 text-center  txt-white txt-bold " data-toggle="modal" data-target="#myModal" style="background: #FF9800;cursor: pointer;">
             结束会诊
           </div>
@@ -154,7 +157,7 @@
       </div>
 
       <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
-          <div class="modal-dialog">
+          <div class="modal-dialog position">
               <div class="modal-content">
                <div class="modal-header">
                 <h4 class="modal-title">结束会诊提示</h4>
