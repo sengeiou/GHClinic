@@ -40,7 +40,7 @@ export class TodayorderlistComponent extends AppBase {
 
    timer1=null;
    timer2;
-
+  allorders=[]
   onUnload(){
     if(this.timer1!=null){
       clearInterval(this.timer1);
@@ -75,6 +75,7 @@ export class TodayorderlistComponent extends AppBase {
     
     that.operatorApi.todayorderlist({}).then((list:[any])=>{
       console.log(list,'list')
+      this.allorders=list
       var orderA=[];
       var orderB=[];
       var orderC=[];
@@ -82,7 +83,7 @@ export class TodayorderlistComponent extends AppBase {
       var orderE=[];
       var orderF=[];
       for(var item of list){
-     
+        
         item.ordertime_timespan=parseInt(item.ordertime_timespan)*1000;
         if(that.isA(item)){
           orderA.push(item);
@@ -104,9 +105,14 @@ export class TodayorderlistComponent extends AppBase {
         that.orderD=orderD;
         that.orderE=orderE;
         that.orderF=orderF;
-        that.orders = that.orderA
-       console.log(that.orderA,'oooooo')
+       console.log(that.orderA,'orderA')
+       console.log(that.orderB,'orderB')
+       console.log(that.orderC,'orderC')
+       console.log(that.orderD,'orderD')
+       console.log(that.orderE,'orderE')
+       console.log(that.orderF,'orderF')
        console.log(this.isA(item),'ppp')
+       that.orders =orderA;
       }
     
     });
@@ -115,7 +121,7 @@ export class TodayorderlistComponent extends AppBase {
 
   isA(item){
     var nowtime=(new Date()).getTime();
-    if(item.status=="A"
+    if(item.orderstatus=="A"
       &&item.ordertime_timespan-nowtime>15*60*1000){
       return true;
     }
@@ -124,7 +130,7 @@ export class TodayorderlistComponent extends AppBase {
 
   isB(item){
     var nowtime=(new Date()).getTime();
-    if(item.status=="A"
+    if(item.orderstatus=="B"
       &&item.ordertime_timespan-nowtime<15*60*1000
       &&item.ordertime_timespan-nowtime>0
       ){
@@ -134,21 +140,21 @@ export class TodayorderlistComponent extends AppBase {
   }
   isC(item){
     var nowtime=(new Date()).getTime();
-    if(item.status=="B"){
+    if(item.orderstatus=="C"){
       return true;
     }
     return false;
   }
   isD(item){
     var nowtime=(new Date()).getTime();
-    if(item.status=="C"){
+    if(item.orderstatus=="D"){
       return true;
     }
     return false;
   }
   isE(item){
     var nowtime=(new Date()).getTime();
-    if(item.status=="A"
+    if(item.orderstatus=="E"
       &&item.ordertime_timespan-nowtime<0
       ){
       return true;
@@ -164,6 +170,8 @@ export class TodayorderlistComponent extends AppBase {
     console.log(order)
     if(order.orderstatus=='A'){
       this.navigate("/conference",{order_id:order.id});
+    }else if(order.orderstatus=="B"){
+      this.navigate("/conference",{order_id:order.id,orderstatus:"B"});
     }
   }
   orders=[]
@@ -226,6 +234,7 @@ export class TodayorderlistComponent extends AppBase {
         others[i].classList.remove('btn-active')
       }
     }
+    this.orders = this.allorders
   }
 
 }

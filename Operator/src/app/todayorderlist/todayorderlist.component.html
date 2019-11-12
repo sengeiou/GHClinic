@@ -38,7 +38,7 @@
           <tbody class="h5 text-center vt">
               <tr *ngFor='let item of orders'>
                  <td>{{item.ispay_name}}</td>
-                 <td>{{item.schedule_id_name}}</td>
+                 <td>{{item.ordertime_formatting}}</td>
                  <td>{{item.patientname}}</td>
                  <td>{{item.patientmobile}}</td>
                  <td>{{item.department_id_name}}</td>
@@ -52,11 +52,13 @@
                   </td>
                   <td>
                       <button class="btn btn-primary" (click)="gotoConference(item)"  *ngIf='item.orderstatus=="A"'>进入会诊</button>
-                      <div *ngIf='item.orderstatus=="B"'>一</div>
+                      <div *ngIf='item.orderstatus=="B"'  (click)="gotoConference(item)">
+                        <button  class="btn btn-primary">进入会诊</button>
+                      </div>
                       <div *ngIf='item.orderstatus=="C"'>一</div>
                       <div *ngIf='item.orderstatus=="E"'>一</div>
                       <div  *ngIf='item.orderstatus=="D"'>
-                        <button (click)="changconference(item)" class="btn btn-primary">重新会诊</button><br>
+                        <button (click)="gotoConference(item)" class="btn btn-primary">进入会诊</button><br>
                         <button   data-toggle="modal" data-target="#myModal" class="btn btn-primary margin-top">取消会诊</button>
 
 

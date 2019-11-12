@@ -69,8 +69,11 @@ export class ConferenceComponent extends AppBase {
 
   orderinfo = null;
   doctorinfo = null;
-
+  continue="N"
   onMyShow() {
+    if(this.params.orderstatus=="B"){
+      this.continue="Y"
+    }
     this.orderApi.info({ id: this.params.order_id }).then((orderinfo: any) => {
       console.log(orderinfo,'ppp')
       this.orderinfo = orderinfo;

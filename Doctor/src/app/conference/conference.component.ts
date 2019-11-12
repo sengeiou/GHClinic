@@ -68,8 +68,12 @@ export class ConferenceComponent extends AppBase {
 
   orderinfo = null;
   doctorinfo = null;
-
+  continue='N'
   onMyShow() {
+    if(this.params.orderstatus=="B"){
+      this.continue = 'Y'
+    }
+
     this.orderApi.info({ id: this.params.order_id }).then((orderinfo: any) => {
       console.log(orderinfo,'ppp')
       this.orderinfo = orderinfo;
@@ -78,6 +82,7 @@ export class ConferenceComponent extends AppBase {
         this.refreshDevices();
       });
     });
+
   }
 
   play = false;
@@ -248,9 +253,14 @@ export class ConferenceComponent extends AppBase {
   }
 
   determine(){
+    console.log(this.timeinterval,'timeinterval')
     console.log(this.params.order_id,'ppp')  
     this.orderApi.end({order_id: this.params.order_id}).then((ret)=>{
       if(ret){
+        this.stoplive();
+        // this.orderApi.timeupdate({order_id:this.params.order_id}).then(()=>{
+
+        // })
         this.navigate("/todayorderlist");
       }
     })
@@ -317,5 +327,11 @@ imgs = []
     this.orderApi.addresult({order_id: this.params.order_id,result:this.zhenresult}).then((ret)=>{
       console.log(ret)
     })
+  }
+
+  zhanting(){
+    this.stoplive();
+    this.inmeeting = false;
+    this.continue = "Y";
   }
 }
