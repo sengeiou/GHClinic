@@ -112,6 +112,40 @@ export class OrderApi {
     }
 
 
+    public getorderlunbo(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'order/getorderlunbo';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('order/getorderlunbo', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('order/getorderlunbo', data, err);
+            });
+    }
+
+
     public guohao(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'order/guohao';
         var headers = ApiConfig.GetHeader(url, data);
@@ -210,6 +244,40 @@ export class OrderApi {
                     ApiConfig.DimissLoadingModal();
                 }
                 return ApiConfig.ErrorHandle('order/orderlist', data, err);
+            });
+    }
+
+
+    public prepay(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'order/prepay';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('order/prepay', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('order/prepay', data, err);
             });
     }
 
@@ -380,40 +448,6 @@ export class OrderApi {
                     ApiConfig.DimissLoadingModal();
                 }
                 return ApiConfig.ErrorHandle('order/yuyuexianqin', data, err);
-            });
-    }
-
-
-    public getorderlunbo(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'order/getorderlunbo';
-        var headers = ApiConfig.GetHeader(url, data);
-        let options = new RequestOptions({ headers: headers });
-        let body = ApiConfig.ParamUrlencoded(data);
-        let loading = null;
-
-        if (showLoadingModal) {
-            loading = ApiConfig.GetLoadingModal();
-        }
-
-        return this.http.post(url, body, options).toPromise()
-            .then((res) => {
-                if (ApiConfig.DataLoadedHandle('order/getorderlunbo', data, res)) {
-                    if (showLoadingModal) {
-                        ApiConfig.DimissLoadingModal();
-                    }
-                    if (res==null) {
-                        return null;
-                    }
-                    return res.json();
-                } else {
-                    return Promise.reject(res);
-                }
-            })
-            .catch(err => {
-                if (showLoadingModal) {
-                    ApiConfig.DimissLoadingModal();
-                }
-                return ApiConfig.ErrorHandle('order/getorderlunbo', data, err);
             });
     }
 
