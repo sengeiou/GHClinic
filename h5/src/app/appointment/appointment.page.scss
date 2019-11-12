@@ -166,7 +166,10 @@ hr {
   line-height: rpx(90);
   border-radius: rpx(10);
   width: rpx(350*2);
- margin-top:rpx(200);
+//  margin-top:rpx(200);
+  position:fixed;
+  bottom:rpx(20)
+
 }
 
 .icon-80 {
@@ -175,7 +178,7 @@ hr {
 }
 
 input::-webkit-input-placeholder {
-  font-size: rpx(24);
+  font-size: rpx(28);
 }
 
 .fileupload {
