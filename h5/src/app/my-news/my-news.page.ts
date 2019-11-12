@@ -61,7 +61,7 @@ export class MyNewsPage extends AppBase {
         for(let aa of activityinfo){
           if(aa.zhuangtai=='A'){
             
-              huodong.push('您已成功报名'+aa.activity_activityname+'的活动，请准时参加，点击查看详情。');
+              huodong.push('您已成功报名'+aa.activity_activityname+'的活动，请准时参加。');
               console.log(aa);
               this.day=new Date(aa.time).getDate();
               this.month=new Date(aa.time).getMonth()+1;
@@ -74,7 +74,7 @@ export class MyNewsPage extends AppBase {
           }
           else{
             
-              huodong.push('您取消了报名'+aa.activity_activityname+'的活动，点击查看详情。')
+              huodong.push('您取消了报名'+aa.activity_activityname+'的活动。')
               console.log(aa);
               this.day=new Date(aa.time).getDate();
               this.month=new Date(aa.time).getMonth()+1;
