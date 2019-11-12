@@ -9,7 +9,7 @@
       <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
 </ion-header>
 
-<ion-content *ngIf="orderinfo!=null">
+<ion-content >
   <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
     <div class="flex-row flex-center margin-left-30">
         <div  (click)="back()">
@@ -20,10 +20,10 @@
     </div>
   </div>
   <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
-    <div class="card  height-81">
+    <div class="card  height-81" *ngIf="orderinfo!=null">
       <div class="f16 txt-bold txt-black margin-left-30">已完成</div>
       <div class="f12 txt-bold txt-black margin-left-30 margin-top-30">交易成功，订单已完成</div>
-    </div>
+    
 
   <div>
     <div class="flex-row flex-center margin-top">
@@ -84,6 +84,6 @@
     <div class="height-100"></div>
 
     <div  *ngIf="orderinfo.status=='F'" class="txt-white bc text-center height-90 margin-top-30 line-height-45" (click)="evaluate()" style="position: fixed;bottom:0;width:100%">去评价</div>
-    
+    </div>
 
 </ion-content>

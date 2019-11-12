@@ -363,6 +363,29 @@ export class AppBase implements OnInit {
         });
         alert.present();
     }
+
+
+    async show( confirmcallback) {
+
+        const alert = await this.alertCtrl.create({
+            header: "取消报名",
+            buttons: [{
+                text: "我点错了",
+                handler: () => {
+                    console.log('Disagree clicked');
+
+                    confirmcallback(false);
+                }
+            }, {
+                text: "确定取消",
+                handler: () => {
+                    confirmcallback(true);
+                }
+            }]
+        });
+        alert.present();
+    }
+
     async checkLogin(callback) {
 
     }
