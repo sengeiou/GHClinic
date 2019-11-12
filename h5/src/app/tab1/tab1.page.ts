@@ -8,11 +8,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { nextTick } from 'q';
 import { areAllEquivalent } from '@angular/compiler/src/output/output_ast';
+import { OrderApi } from 'src/providers/order.api';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
+  providers:[OrderApi]
 })
 export class Tab1Page extends AppBase {
 
@@ -23,6 +25,7 @@ export class Tab1Page extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
+    public orderApi:OrderApi,
     public memberApi: MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
@@ -45,6 +48,9 @@ export class Tab1Page extends AppBase {
   }
 
   onMyShow() {
+    var slides = document.querySelector('ion-slides');
+    slides.startAutoplay();
+    this.getorderlunbo();
    
      console.log("jinlaile");
 
@@ -52,6 +58,14 @@ export class Tab1Page extends AppBase {
     
     
   }
+  lunbo=[];
+  getorderlunbo(){
+    var api=this.orderApi;
+    api.getorderlunbo({}).then((lunbo)=>{
+      this.lunbo=lunbo;
+    })
+  }
+
   department = [];
   getkeshi() {
     var api = this.memberApi;

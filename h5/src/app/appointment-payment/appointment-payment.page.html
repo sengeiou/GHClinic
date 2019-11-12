@@ -21,7 +21,8 @@
   </div>
   <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
         <div class="card  height-81" *ngIf="xianqin!=null">
-          <div class="f16 txt-bold txt-black margin-left-30">{{xianqin.orderstatus_name}}</div>
+          <div class="f16 txt-bold txt-black margin-left-40">{{xianqin.orderstatus_name}}</div>
+          <div class="f16 txt-bold txt-black margin-left-40" *ngIf='xianqin.orderstatus=="A"'>您已预约成功，请准时前往诊所进行会诊。</div>
         
     
 
