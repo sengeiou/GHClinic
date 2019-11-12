@@ -262,7 +262,9 @@ export class InformationPage extends AppBase {
   riqi = "";
   asd(d, i) {
     console.log("123123123");
-    if (d.pass == true) {
+    if (d.pass == true&&d.today==false) {
+      console.log(d);
+      console.log("当天");
       return
     }
     else {

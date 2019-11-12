@@ -76,11 +76,11 @@
 
     <div class="flex-row flex-wrap margin-top-40">
       <div  class="margin-left-30" *ngFor="let item of photolist">
-        <img src="{{uploadpath}}appointment/{{item}}" class="icon-50" />
+        <img   (click)="shanchu(item)" src="{{uploadpath}}appointment/{{item}}" class="icon-50" />
         
       </div>
       <div class="margin-left-30" *ngIf="photolist.length<9">
-        <img src="{{uploadpath}}resource/{{res.upload}}" class="icon-50" />
+        <img    src="{{uploadpath}}resource/{{res.upload}}" class="icon-50" />
         <input type="file" (change)='upload($event)' class="fileupload icon-50" />
       </div>
     </div>

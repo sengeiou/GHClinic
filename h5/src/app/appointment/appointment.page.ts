@@ -149,5 +149,31 @@ export class AppointmentPage extends AppBase {
 
   }
 
+  shanchu(item){
+    var id=item.id;
+ this.showConfirm(("确认删除图片吗"),(res)=>{
+    
+     if(res)
+     {
+     var photolist=this.photolist;
+   
+     photolist= photolist.filter((item)=>{
+        
+          return   item.id!=id; 
+          
+       })
+        
+   this.photolist=photolist;
+
+     }
+
+ }
+
+
+
+
+
+ )}
+
 }
 

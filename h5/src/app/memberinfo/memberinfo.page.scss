@@ -16,7 +16,12 @@
     height:rpx(100);
     background-size: cover;
   }
-
+  .fileupload {
+    position: absolute;
+    background: red;
+    margin-top: rpx(-50);
+    opacity: 0;
+  }
   .icon-32{
     width:rpx(28);
     height: rpx(28);
