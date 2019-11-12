@@ -98,10 +98,18 @@
   </div>
   <div class="height-90" *ngIf='activityinfo.zhuangtai=="A"'></div>
 
-<!-- Button trigger modal -->
   <button type="button" 
-  class="f16 txt-white line-height-45 margin-top-30 height-90 text-center" 
-  style="position: fixed;bottom:0;width:100%;background-color: #0F848D" 
+  class="f16 txt-white line-height-50 margin-top-30 height-100 text-center" 
+  style="position: fixed;bottom:0;width:100%;background-color: #8a8a8a" 
+ 
+   *ngIf='activityinfo.zhuangtai=="A"' (click)="confirmCancellation()">
+  取消
+  </button>
+
+<!-- Button trigger modal -->
+  <!-- <button type="button" 
+  class="f16 txt-white line-height-50 margin-top-30 height-100 text-center" 
+  style="position: fixed;bottom:0;width:100%;background-color: #8a8a8a" 
   data-toggle="modal" 
   data-target="#myModal"  *ngIf='activityinfo.zhuangtai=="A"'>
   取消
@@ -121,9 +129,9 @@
             <button type="button" class="f16 txt-gw " (click)="confirmCancellation()" aria-hidden="true" data-dismiss="modal">确定取消</button>
             <button type="button" class="f16 txt-red margin-left-40" data-dismiss="modal" aria-hidden="true">我点错了</button>
           </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+        </div>
+      </div>
+    </div> -->
 
 
 
