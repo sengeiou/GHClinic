@@ -365,7 +365,7 @@ export class AppBase implements OnInit {
     }
 
 
-    async show( confirmcallback) {
+    async show(confirmcallback) {
 
         const alert = await this.alertCtrl.create({
             header: "取消报名",
