@@ -36,14 +36,14 @@
             </thead>
             <tbody class="h5 text-center vt">
                 <tr *ngFor='let item of orders'>
-                   <td>{{item.schedule_id_name}}</td>
+                   <td>{{item.ordertime_formatting}}</td>
                    <td>{{item.patientname}}</td>
                    <td>{{item.patientmobile}}</td>
                    <td>
                       <div *ngFor='let img of item.photolist;let i=index'>
                           <span *ngIf="i==0" class="margin-left">
                               <img *ngIf='img.photo!="" ' src="{{uploadpath}}appointment/{{img.photo}}" class="icon-50"/>
-                              <div *ngIf='item.photolist.length>1' class="box">{{item.photolist.length}}</div>
+                              <div *ngIf='item.photolist.length>1 && img.photo!=""' class="box">{{item.photolist.length}}</div>
                             </span>
                        </div>
                     </td>
@@ -62,7 +62,9 @@
                     </td>
                     <td>
                         <button class="btn btn-primary" (click)="gotoConference(item)"  *ngIf='item.orderstatus=="A"'>进入会诊</button>
-                        <div *ngIf='item.orderstatus=="B"'>一</div>
+                        <div *ngIf='item.orderstatus=="B"'  (click)="gotoConference(item)">
+                          <button class="btn btn-primary">进入会诊</button>
+                        </div>
                         <div *ngIf='item.orderstatus=="C"'>一</div>
                         <div *ngIf='item.orderstatus=="E"'>一</div>
                         <div  *ngIf='item.orderstatus=="D"'>一</div>
