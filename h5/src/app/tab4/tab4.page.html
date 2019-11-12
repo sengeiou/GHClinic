@@ -23,7 +23,11 @@
           <div class="flex-row flex-center margin-left-40">
             <div class="flex-row flex-center flex-1">
               <div>
-                <img src='{{uploadpath}}resource/{{res.photo}}'   class="icon-64 r"/>
+               
+                <img *ngIf='MemberInfo!=undefined&&MemberInfo.photo!=""' src='{{uploadpath}}member/{{MemberInfo.photo}}'   class="icon-64 r"/>
+       
+                <img *ngIf='!(MemberInfo!=undefined&&MemberInfo.photo!="")' src='{{uploadpath}}resource/{{res.photo}}'   class="icon-64 r"/>
+
               </div>
               <div *ngIf='MemberInfo!=null' class="f16 txt-black txt-bold margin-left-50">
                 <div class="flex-row flex-center" >

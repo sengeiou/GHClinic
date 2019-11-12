@@ -26,6 +26,11 @@ const routes: Routes = [
   { path: 'evaluate', loadChildren: './evaluate/evaluate.module#EvaluatePageModule' },
   { path: 'my-order', loadChildren: './my-order/my-order.module#MyOrderPageModule' },
   { path: 'order-payment', loadChildren: './order-payment/order-payment.module#OrderPaymentPageModule' },
+
+  { path: 'order-cancelled', loadChildren: './order-cancelled/order-cancelled.module#OrderCancelledPageModule' },
+  { path: 'order-complete', loadChildren: './order-complete/order-complete.module#OrderCompletePageModule' },
+  { path: 'order-sign', loadChildren: './order-sign/order-sign.module#OrderSignPageModule' },
+
   { path: 'my-appointment', loadChildren: './my-appointment/my-appointment.module#MyAppointmentPageModule' },
   { path: 'appointment-payment', loadChildren: './appointment-payment/appointment-payment.module#AppointmentPaymentPageModule' },
   { path: 'appointment-complete', loadChildren: './appointment-complete/appointment-complete.module#AppointmentCompletePageModule' },

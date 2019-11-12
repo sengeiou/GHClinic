@@ -228,7 +228,7 @@ export class DetailPage extends AppBase {
   }
 
   asd(d, i) {
-    if (d.pass == true) {
+    if (d.pass == true&&d.today==false) {
       return
     }
     else {

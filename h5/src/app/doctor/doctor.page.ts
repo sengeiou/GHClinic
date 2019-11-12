@@ -149,7 +149,7 @@ export class DoctorPage extends AppBase {
 
   riqi = "";
   asd(d, i) {
-    if (d.pass == true) {
+    if (d.pass == true&&d.today==false) {
       return
     }
     else {
