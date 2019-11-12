@@ -75,8 +75,8 @@
     <div class="margin-left-30 txt-gw f16 margin-top-30">上传能提现病情的病历照片\患处照片\检查结果等</div>
 
     <div class="flex-row flex-wrap margin-top-40">
-      <div  class="margin-left-30" *ngFor="let item of photolist">
-        <img   (click)="shanchu(item)" src="{{uploadpath}}appointment/{{item}}" class="icon-50" />
+      <div  class="margin-left-30" *ngFor="let item of photolist;let idx=index">
+        <img   (click)="shanchu(idx)" src="{{uploadpath}}appointment/{{item}}" class="icon-50" />
         
       </div>
       <div class="margin-left-30" *ngIf="photolist.length<9">
