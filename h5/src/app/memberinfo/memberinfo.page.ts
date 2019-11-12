@@ -152,5 +152,19 @@ oldname=""
     });
     await actionSheet.present();
   }
+  tuichudenglu(){
+  
+   
+      this.showConfirm("确定登出账号么？", (ret) => {
+          if (ret) {
+              AppBase.IsLogin = false;
+              window.localStorage.removeItem("UserToken");
+              this.MemberInfo = null;
+              this.back();
+          }
+      })
+  
 
+
+  }
 }
