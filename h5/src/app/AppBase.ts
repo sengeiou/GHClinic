@@ -47,7 +47,7 @@ export class AppBase implements OnInit {
         memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "",version:"",copyright: ""
     };
     public openid="";
-    public MemberInfo = { avatarUrl: "", nickName: "", h5openid: "", unionid: "", name: '',mobile:"",id:"" };
+    public MemberInfo = { avatarUrl: "", nickName: "", h5openid: "", unionid: "", name: '',mobile:"",id:"",photo:'' };
     public static MYBABY = [];
     public mybaby = [];
     public options = null;
@@ -363,6 +363,29 @@ export class AppBase implements OnInit {
         });
         alert.present();
     }
+
+
+    async showdialage(confirmcallback) {
+
+        const alert = await this.alertCtrl.create({
+            header: "取消报名",
+            buttons: [{
+                text: "我点错了",
+                handler: () => {
+                    console.log('Disagree clicked');
+
+                    confirmcallback(false);
+                }
+            }, {
+                text: "确定取消",
+                handler: () => {
+                    confirmcallback(true);
+                }
+            }]
+        });
+        alert.present();
+    }
+
     async checkLogin(callback) {
 
     }

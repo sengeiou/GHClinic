@@ -16,12 +16,14 @@
     <div class="card padding-40">
 
         <div class="padding white-block border-bottom padding-bottom-40" >
-            <div class="flex-row flex-center " (click)="selectPhoto()">
+            <div class="flex-row flex-center " >
              
               <div class="txt92 h5 flex-4" >头像</div>
               <div class="flex-1">
                   <img src='{{uploadpath}}resource/{{res.photo}}'  *ngIf='photo==""' class="touxiang"/>
                   <img src="{{uploadpath}}member/{{photo}}" *ngIf='photo!=""' class="touxiang"/>
+
+                   <input type="file" (change)='upload($event)' class=" fileupload icon-50" />
               </div>
               <img src="{{uploadpath}}resource/{{res.arrow}}" class="youicon margin-left-20" />
             </div>
@@ -54,7 +56,11 @@
 
             <div class="height-70" ></div>
            <button (click)="savename()"  class="h4-5 bg-blue-14 btns" >完成</button>
-      </div>
+           
 
+      </div>
+    <div class="padding-40">
+      <button (click)="tuichudenglu()"  class="h4-5 bg-blue-14 btns" >退出登陆</button>
+    </div>
       
 </ion-content>

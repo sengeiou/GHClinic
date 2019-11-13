@@ -28,8 +28,8 @@
         <img alt="" src='{{uploadpath}}activity/{{activity.activitycover}}'/>
       </div>
       <div class="div1">
-        <p class="p1">{{activity.activityname}}</p>
-        <p class="p2">费用：{{activity.price==0?'免费':'￥'+activity.price+'.00'}}</p>
+        <div class="p1">{{activity.activityname}}</div>
+        <div class="p2" *ngIf='activity.price>=0'>费用：{{activity.price==0?'免费':'￥'+activity.price+'.00'}}</div>
       </div>
       <div style="clear: both"></div>
     </div>
@@ -55,7 +55,8 @@
       <span class="span1 flex-1">联系方式</span>
       <input class="span5" placeholder="请输入手机号码" [value]='shoujihao' (change)='shoujihao=$event.target.value;' maxlength="11" />
   </div>
-  <div class="div4" style="height: 80%;">
+  <hr/>
+  <div class="div4">
       <div class="p3 margin-top">注意事项：</div>
       <div class="p3 p9">{{activity.show}}</div>
       
@@ -66,7 +67,7 @@
 
 
 
-  <div class="flex-row flex-center" style="position: fixed;bottom:0">
+  <div  *ngIf="activity.price>=0" class="flex-row flex-center " style="margin-top:100px" >
       <div class="p4">{{activity.price==0?'免费':'￥'+activity.price+'.00'}}</div>
       <div class="p5" (click)="successfulRegistration()">确认报名</div>
   </div>

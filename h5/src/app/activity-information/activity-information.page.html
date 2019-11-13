@@ -57,7 +57,7 @@
   
 </ion-content>
 <div class="div1 flex-row flex-center">
-    <div class="p6">{{activityinfo.activity_price==0?"免费":"费用：￥"+activityinfo.activity_price}}</div>
+    <div class="p6" *ngIf='activityinfo.activity_price>=0'>{{activityinfo.activity_price==0?"免费":"费用：￥"+activityinfo.activity_price}}</div>
     <div class="p7" *ngIf='activityinfo.zhuangtai=="A"'>已报名</div>
     <div class="p7" *ngIf='activityinfo.zhuangtai=="S"' (click)="application()">继续报名</div>
 </div>

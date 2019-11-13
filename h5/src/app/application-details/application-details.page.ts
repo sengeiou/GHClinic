@@ -68,12 +68,21 @@ export class ApplicationDetailsPage extends AppBase {
 
   confirmCancellation(){
     console.log("已取消");
-
     var api=this.activityApi;
-    api.cancelactivity({id:this.params.id}).then((res)=>{
-      this.back();
+    this.showdialage((res)=>{
+      if(res){
+        api.cancelactivity({id:this.params.id}).then((res)=>{
+          this.back();
+        })
+      }
     })
+    
+   
   }
+
+  
+
+  
 
   activityInformation(id){
     this.navigate("activity-information",{id:id})

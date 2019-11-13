@@ -292,7 +292,7 @@ hr{
     // border-radius: 50%;
     // border:none;
     color:white;
-    background: #0F848D;
+    background: #0F848D !important;
   }
   .pass{
     width: rpx(60);
@@ -386,6 +386,9 @@ hr{
     line-height: rpx(60);
     
   }
+  .bg-p{
+    background:#0F848D;
+  }
   .jt{
  background: #6B3689;
  color:white;
@@ -437,7 +440,7 @@ hr{
    color:white;
    margin-top:rpx(15);
    margin-right:rpx(15);
-   background-color: #6B3689;
+   background-color: #0F848D;
    border-radius: rpx(10);
    padding:rpx(6) rpx(40);
 }

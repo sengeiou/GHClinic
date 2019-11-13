@@ -32,6 +32,9 @@
 .bg1{
   background-color: rgba(#8a8a8a, 0.6);
 }
+.bg{
+  background-color: rgba($color: #000000, $alpha: 0.6);
+}
 .bg2{
   width:100%;
   height:rpx(100);
@@ -58,7 +61,8 @@
 
 .img-124{
   width: rpx(124*2);
-  height: rpx(140)
+  height: rpx(140);
+  border-radius: rpx(10);
 }
 
 .height-148{
@@ -71,4 +75,8 @@
 
 .width-200{
   width:rpx(400);
+}
+
+.op-50 {
+  opacity: 0.9;
 }

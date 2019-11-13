@@ -121,13 +121,13 @@ img{
 }
 .img1{
   z-index: 1;
-  width: rpx(120);
-  height: rpx(120);
+  width: rpx(100);
+  height: rpx(100);
   position: fixed;
-  top:rpx(1330);
+  bottom:rpx(100);
   right: rpx(50);
   border-radius: 50%;
-  background: linear-gradient(to bottom, #6b3689 0%,#11838D 100%);
+  // background: #11838D ;
   opacity: 0.7;
 
 }
@@ -138,7 +138,7 @@ img{
   margin-left: rpx(10)
 }
 .ion-card2{
-  height: rpx(130*2);
+  padding:rpx(0);
   margin-top: rpx(0)
 }
 .img2{
@@ -163,13 +163,13 @@ img{
 
 .img3{
   z-index: 1;
-  width: rpx(120);
-  height: rpx(120);
+  width: rpx(100);
+  height: rpx(100);
   position:fixed;
-  top:rpx(1330);
+  bottom:rpx(100);
   right: rpx(50);
   border-radius: 50%;
-  background: linear-gradient(to bottom, #6b3689 0%,#11838D 100%);
+  // background: #11838D ;
   opacity: 0.7;
 }
 .div-340{

@@ -9,7 +9,14 @@
 
 .ion-icon {
   height: rpx(24*2);
-  width: rpx(24*2)
+  width: rpx(24*2);
+
+}
+
+.margin-left-26 {
+  margin-left: px(13);
+  margin-top:rpx(100);
+ 
 }
 
 .card {
@@ -23,6 +30,7 @@
 .height-110 {
   height: rpx(110);
 }
+
 
 .height-40 {
   height: rpx(40);
@@ -158,8 +166,10 @@ hr {
   line-height: rpx(90);
   border-radius: rpx(10);
   width: rpx(350*2);
-  position: fixed;
-  bottom: rpx(20)
+//  margin-top:rpx(200);
+  // position:fixed;
+  // bottom:rpx(20)
+
 }
 
 .icon-80 {
@@ -168,7 +178,7 @@ hr {
 }
 
 input::-webkit-input-placeholder {
-  font-size: rpx(24);
+  font-size: rpx(28);
 }
 
 .fileupload {

@@ -16,6 +16,7 @@ import { ActivitylogComponent } from '../activitylog/activitylog.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { TodayorderlistComponent } from '../todayorderlist/todayorderlist.component';
 import { PatientManagementComponent } from '../patient-management/patient-management.component';
+import { PatientdetailComponent } from '../patientdetail/patientdetail.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { PatientManagementComponent } from '../patient-management/patient-manage
     ActivitylogComponent,
     TodayorderlistComponent,
     PatientManagementComponent,
+    PatientdetailComponent,
     DashboardComponent],
   imports: [
     CommonModule,

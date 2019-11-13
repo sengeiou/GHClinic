@@ -44,7 +44,7 @@
     </div>
     <div class="margin-left-20">
       <div class="f16 txt-black txt-bold oneline">{{activityinfo.activity_activityname}}</div>
-      <div class="h5 txt-red ">{{activityinfo.activity_price==0?'免费':'费用：￥'+activityinfo.activity_price}}</div>
+      <div class="h5 txt-red " *ngIf='activityinfo.activity_price>=0'>{{activityinfo.activity_price==0?'免费':'费用：￥'+activityinfo.activity_price}}</div>
     </div>
   </div>
   <hr/>
@@ -65,7 +65,7 @@
     <div class="h5 txt-gw margin-left-20">（必填）</div>
   </div>
 
-  <div class="margin-left-30 margin-top-30 flex-row flex-center margin-bottom-30">
+  <div class="margin-left-30 margin-top-40 flex-row flex-center margin-bottom-30">
       <div class="f16 txt-black flex-1">姓名</div>
       <div class="f16 txt-black margin-right">{{activityinfo.name}}</div>
   </div>
@@ -85,9 +85,10 @@
       <div class="f16 txt-black flex-1">联系方式</div>
       <div class="f16 txt-black margin-right">{{activityinfo.phone}}</div>
   </div>
+  <hr/>
   
 
-  <div class="margin-top-30 padding-top-30" style="background-color: #F0F2F5;height: 100%;">
+  <div class="" >
       <div class="f12 txt-gw margin-left-30">重要提示：</div>
       <div class="f12 txt-gw margin-left-30">{{activityinfo.activity_show}}</div>
       <!-- <div 
@@ -97,10 +98,18 @@
   </div>
   <div class="height-90" *ngIf='activityinfo.zhuangtai=="A"'></div>
 
-<!-- Button trigger modal -->
   <button type="button" 
-  class="f16 txt-white line-height-45 margin-top-30 height-90 text-center" 
-  style="position: fixed;bottom:0;width:100%;background-color: #0F848D" 
+  class="f16 txt-white line-height-50 margin-top-30 height-100 text-center" 
+  style="position: fixed;bottom:0;width:100%;background-color: #8a8a8a" 
+ 
+   *ngIf='activityinfo.zhuangtai=="A"' (click)="confirmCancellation()">
+  取消
+  </button>
+
+<!-- Button trigger modal -->
+  <!-- <button type="button" 
+  class="f16 txt-white line-height-50 margin-top-30 height-100 text-center" 
+  style="position: fixed;bottom:0;width:100%;background-color: #8a8a8a" 
   data-toggle="modal" 
   data-target="#myModal"  *ngIf='activityinfo.zhuangtai=="A"'>
   取消
@@ -111,16 +120,18 @@
           <div class="text-center">
             <h4 class="txt-bold f16">取消报名</h4>
           </div>
-          <div class="text-center">
+          <div class="flex-row ">
+            <div class="flex-1"></div>
             <img alt="" class="icon-100" src="{{uploadpath}}resource/{{res.cancelbaoming}}" />
+            <div class="flex-1"></div>
           </div>
-          <div class="flex-row margin-top-30">
-            <button type="button" class="f16 txt-gw flex-1" (click)="confirmCancellation()" aria-hidden="true" data-dismiss="modal">确定取消</button>
-            <button type="button" class="f16 txt-red flex-1" data-dismiss="modal" aria-hidden="true">我点错了</button>
+          <div class="flex-row  margin-top-40" style="justify-content: center;">
+            <button type="button" class="f16 txt-gw " (click)="confirmCancellation()" aria-hidden="true" data-dismiss="modal">确定取消</button>
+            <button type="button" class="f16 txt-red margin-left-40" data-dismiss="modal" aria-hidden="true">我点错了</button>
           </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+        </div>
+      </div>
+    </div> -->
 
 
 
