@@ -9,7 +9,7 @@
   <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg"></div>
 </ion-header>
 
-<ion-content *ngIf="orderinfo!=null">
+<ion-content >
   <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
     <div class="flex-row flex-center margin-left-30">
       <div (click)="back()">
@@ -20,11 +20,11 @@
     </div>
   </div>
   <div style="background: #0F848D;width: 100%;" class="height-40"></div>
-  <div class="card">
+  <div class="card" *ngIf="orderinfo!=null">
 
     <div *ngFor="let  item of  orderinfo.orders">
 
-      <div class="flex-row flex-center border-bottom padding-bottom-15">
+      <div class="flex-row flex-center  padding-bottom-15">
         <div>
           <img src="{{uploadpath}}drugs/{{item.photo}}" class="icon-40 margin-left-40" />
         </div>
@@ -32,7 +32,7 @@
       </div>
 
 
-      <div class="flex-row flex-center margin-top-30">
+      <div class="flex-row flex-center margin-top-30 border-bottom">
         <div>
           <img src="{{uploadpath}}resource/{{res.bj}}" class="icon-20 margin-left-40" />
         </div>
@@ -41,11 +41,9 @@
 
     </div>
 
+ 
 
-
-
-    <div  (click)="tijiao()" class="f16 txt-white line-height-48 bc height-96 text-center" style="position: absolute;bottom:0;width:100%">
-      提交发布</div>
+    
 
 
 
@@ -53,3 +51,5 @@
 
 
 </ion-content>
+<div  (click)="tijiao()" class="f16 txt-white line-height-48 bc height-96 text-center" style="width:100%">
+  提交发布</div>
