@@ -50,11 +50,13 @@ export class CommodityDetailsPage extends AppBase {
  getgouwuche(){
   var api=this.dindanApi;
   api.getgouwuche({}).then((gouwuche)=>{
+  
       
     var count=0;
 
     gouwuche.map((item)=>{
       count+= parseInt(item.num);
+
 
     })
       

@@ -15,7 +15,8 @@ import { HTTP } from '@ionic-native/http/ngx';
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot({
     mode: 'ios',
-    rippleEffect: true,
+    rippleEffect:true,
+    swipeBackEnabled:false,
     scrollAssist: false
   }), AppRoutingModule, HttpModule],
   providers: [
