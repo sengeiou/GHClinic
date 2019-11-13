@@ -111,11 +111,12 @@
  
       
     </div>
+
+    <div class="flex-row"  style="margin-top:100px">
+        <div *ngIf="isf==1"  class="text-center txt-black f16 icon-255" style="background-color: #F4F3F3">合计：￥{{zonjia}}</div>
+      
+        <div *ngIf="isf==2"  class="text-center txt-black f16 icon-255" style="background-color: #F4F3F3">合计：￥{{gouwuche[0].price}}</div>
+        <div class="text-center txt-white f16 icon-120" (click)="successfulTrade()" style="background-color: #0E858D">确认支付</div>
+    </div>
   
 </ion-content>
-<div class="flex-row" >
-  <div *ngIf="isf==1"  class="text-center txt-black f16 icon-255" style="background-color: #F4F3F3">合计：￥{{zonjia}}</div>
-
-  <div *ngIf="isf==2"  class="text-center txt-black f16 icon-255" style="background-color: #F4F3F3">合计：￥{{gouwuche[0].price}}</div>
-  <div class="text-center txt-white f16 icon-120" (click)="successfulTrade()" style="background-color: #0E858D">确认支付</div>
-</div>

@@ -20,10 +20,10 @@
     </div>
   </div>
   <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
-    <div class="card  height-81">
+    <div class="card  height-81" *ngIf="orderinfo!=null">
       <div class="f16 txt-bold txt-black margin-left-30">待收货</div>
       <div class="f12 txt-bold txt-black margin-left-30 margin-top-30">商家已发货，快递小哥正在路上，请注意签收...</div>
-    </div>
+  
  
   <div>
     <div class=" margin-top">
@@ -32,26 +32,26 @@
       <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
     </div>
     <div class="flex-row flex-center margin-left-30 margin-top-30">
-      <div class="f16">刘大大</div>
-      <div class="f16 margin-left-20">13838384388</div>
+      <div class="f16">{{orderinfo.address_people}}</div>
+      <div class="f16 margin-left-20">{{orderinfo.address_phone}}</div>
       <div class="bc txt-white d2 margin-left-20">默认</div>
     </div>
-    <div class="h5 txt-gw margin-left-30 margin-top-20 margin-bottom-20">广东省深圳市罗湖区八卦一路13号XX汽修厂</div>
+    <div class="h5 txt-gw margin-left-30 margin-top-20 margin-bottom-20">{{orderinfo.address_menpaihao}}</div>
   </div>
 
   <div class="f16 txt-black d3">商品清单</div>
 
-  <div class="flex-row flex-center margin-top-30">
+  <div class="flex-row flex-center margin-top-30" *ngFor="let item of orderinfo.orders">
       <div>
-        <img alt="" class="icon-90 bg-p margin-left-40" />
+        <img alt="" class="icon-90  margin-left-40" src="{{uploadpath}}drugs/{{item.photo}}"/>
       </div>
       <div class="margin-left-20">
-        <div class="f16 txt-black txt-bold">999感冒灵颗粒</div>
-        <div class="h5 txt-gg margin-top-30">规格：0.5g*12片</div>
+        <div class="f16 txt-black txt-bold">{{item.name}}</div>
+        <div class="h5 txt-gg margin-top-30">规格：{{item.guige}}</div>
         <div class="margin-top-40 margin-right-20">
-          <div class="f16 txt-bold flex-1 " style="color: #F7555A">￥ 88.0</div>
+          <div class="f16 txt-bold flex-1 " style="color: #F7555A">￥ {{item.price}}</div>
           <div class="f16 txt-black flex-row flex-center ">
-                x1
+                x{{item.num}}
           </div>
         </div>
       </div>  
@@ -59,27 +59,12 @@
   <hr/>
 
 
-  <div class="flex-row flex-center margin-top-30">
-      <div>
-        <img alt="" class="icon-90 bg-p margin-left-40" />
-      </div>
-      <div class="margin-left-20">
-        <div class="f16 txt-black txt-bold">艾附暖宫丸</div>
-        <div class="h5 txt-gg margin-top-30">规格：0.5g*12片</div>
-        <div class="flex-row flex-center margin-top-40">
-          <div class="f16 txt-bold " style="color: #F7555A">￥ 188.0</div>
-          <div class="f16 txt-black flex-row flex-center margin-left-400">
-                x1
-          </div>
-        </div>
-      </div>  
-  </div>
-  <hr/>
+
 
 
   <div class="flex-row margin-top-30 margin-bottom-30">
-    <div class="f16 txt-black margin-left-40">共2件，应付金额：</div>
-    <div class="f16 margin-left-360" style="color:#F7555A">￥276.0</div>
+    <div class="f16 txt-black margin-left-40">共{{orderinfo.orders.length}}件，应付金额：</div>
+    <div class="f16 margin-left-360" style="color:#F7555A">￥{{orderinfo.amount}}</div>
   </div>
   <hr/>
 
@@ -90,19 +75,19 @@
     </div>
     <div class="flex-row margin-top-30 margin-bottom-30">
       <div class="f16 txt-gw margin-left-40">订单编号:</div>
-      <div class="f16 margin-left-20">1909091231547</div>
+      <div class="f16 margin-left-20">{{orderinfo.orderno}}</div>
     </div>
     <div class="flex-row margin-bottom-30">
       <div class="f16 txt-gw margin-left-40">订单日期:</div>
-      <div class="f16 margin-left-20">2019/09/09 14：18</div>
+      <div class="f16 margin-left-20">{{orderinfo.submit_time}}</div>
     </div>
     <div class="f16 txt-black d3">备注:</div>
-    <div class="f16 margin-left-30 margin-top-30" style="color: #BFBFBF">请填写买家留言</div>
+    <div class="f16 margin-left-30 margin-top-30" style="color: #BFBFBF">{{orderinfo.beizhu}}</div>
     <div class="height-100"></div>
     <div class=" margin-top-30" style="position: fixed;bottom:0">
      
       <div class="txt-white bc d4 text-center">确认签收</div>
     </div>
-    
+    </div>
 
 </ion-content>
