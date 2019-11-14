@@ -54,11 +54,7 @@ export class CommodityDetailsPage extends AppBase {
       
     var count=0;
 
-    gouwuche.map((item)=>{
-      count+= parseInt(item.num);
-
-
-    })
+   count=gouwuche.length;
       
   console.log(count);
 
