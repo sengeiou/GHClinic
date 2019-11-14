@@ -70,16 +70,36 @@ export class CartsPage extends AppBase {
     this.gouwuchelist.map((item) => {
       item.selected_value = 'Y';
     })
-    this.zz = true;
-    this.jisuan();
+    var api = this.dindanApi;
+    api.quanxuan({ check: 'Y' }).then((res) => {
+
+      this.zz = true;
+      this.jisuan();
+
+    })
+
+
+
   }
   quxiaoquanxuan() {
     this.gouwuchelist.map((item) => {
+
       item.selected_value = 'N';
     })
-    this.zz = false;
-    this.jisuan();
+
+    var api = this.dindanApi;
+    api.quanxuan({ check: 'N' }).then((res) => {
+
+      this.zz = false;
+      this.jisuan();
+
+
+    })
+
+
+
   }
+
   onMyShow() {
     this.getgouwuche();
   }
@@ -101,7 +121,7 @@ export class CartsPage extends AppBase {
       if (res.code == 0) {
 
         this.jisuan();
-        this.zz=false;
+        this.zz = false;
       }
 
     })
@@ -141,19 +161,18 @@ export class CartsPage extends AppBase {
     if (item.num == 0) {
 
       this.showConfirm("是否删除", (res) => {
-       
-       
-        if(res)
-        {
-          api.deletegouwuche({id:item.id}).then((ret)=>{
+
+
+        if (res) {
+          api.deletegouwuche({ id: item.id }).then((ret) => {
 
             console.log(ret);
-             this.onMyShow();
+            this.onMyShow();
 
           })
         }
-         
-     
+
+
 
 
       })
