@@ -57,7 +57,7 @@
                          <div *ngFor='let img of item.photolist;let i=index'>
                             <span *ngIf="i==0" class="margin-left">
                                 <img *ngIf='img.photo!="" ' src="{{uploadpath}}appointment/{{img.photo}}" class="icon-50"/>
-                                <div *ngIf='item.photolist.length>1' class="box">{{item.photolist.length}}</div>
+                                <div *ngIf='item.photolist.length>1 && img.photo!=""' class="box">{{item.photolist.length}}</div>
                               </span>
                          </div>
                          
