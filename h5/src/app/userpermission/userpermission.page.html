@@ -1,0 +1,22 @@
+<ion-header>
+  <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
+</ion-header>
+
+<ion-content>
+  <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
+    <div class="flex-row flex-center margin-left-30">
+      <div  (click)="back()">
+          <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+      </div>
+      <div class="f12 txt-white margin-left-20" (click)="back()">用户协议</div>
+    </div>
+  </div>
+  <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
+  <div class="card">
+      <div class="margin-left-30 f18 txt-bold">用户协议</div>
+      <div *ngFor='let up of userpermission;let i=index;' class="padding-30">
+        <div [innerHtml]='up.content' *ngIf='i==0'></div>
+      </div>
+  </div>
+
+</ion-content>

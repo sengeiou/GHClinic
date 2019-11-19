@@ -22,11 +22,18 @@
   margin-top:rpx(110);
 }
 .height-180 {
-  margin-top:rpx(-70);
   height: rpx(180*2);
-  // overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
+  text-align: center;
+}
+.height-88{
+  height: rpx(88*2);
+  width: rpx(88*2);
+  background-size: cover;
+  margin-top: rpx(19*2);
+  margin: auto;
+  border-radius: rpx(16);
 }
 
 
@@ -138,8 +145,9 @@
   }
   .biaoqian{
     background: #11838D;
-    width:rpx(70*2);
+    width:rpx(260);
     border-radius:20px;
+    margin:rpx(20) auto;
     padding:rpx(4) rpx(8) rpx(4) rpx(12)
   }
   .jt{

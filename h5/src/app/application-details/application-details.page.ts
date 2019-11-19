@@ -37,6 +37,9 @@ export class ApplicationDetailsPage extends AppBase {
   // memberinfo=[]
   activityinfo=null;
   status='';
+  aT;
+  nT;
+  
 
 
   
@@ -59,7 +62,9 @@ export class ApplicationDetailsPage extends AppBase {
     api.activitysigninfo({id: this.params.id}).then(
       (activityinfo)=>{
         this.activityinfo=activityinfo;
-        console.log(activityinfo);
+        console.log(activityinfo.activity_activitytime);
+        this.aT=new Date(activityinfo.activity_activitytime).getTime();
+        this.nT=new Date().getTime();
         
       
       }
@@ -69,13 +74,19 @@ export class ApplicationDetailsPage extends AppBase {
   confirmCancellation(){
     console.log("已取消");
     var api=this.activityApi;
-    this.showdialage((res)=>{
-      if(res){
-        api.cancelactivity({id:this.params.id}).then((res)=>{
-          this.back();
-        })
-      }
-    })
+    if(this.aT-this.nT>=24*60*60*1000){
+      this.showdialage((res)=>{
+        if(res){
+          api.cancelactivity({id:this.params.id}).then((res)=>{
+            console.log(res);
+            this.back();
+          })
+        }
+      })
+    }else{
+      this.toast('无法取消报名，取消报名需在活动开始一天前');
+    }
+    
     
    
   }

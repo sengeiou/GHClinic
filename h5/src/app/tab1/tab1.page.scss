@@ -50,7 +50,7 @@ input{
 }
 
 .marginTop{
-  margin-top: rpx(-120);
+  margin-top: rpx(-20);
 }
 
 
@@ -272,15 +272,7 @@ ion-card{
 .wtime{
   border-bottom: #dee2e6 1px dotted; 
 }
-.card1{
-  height:rpx(173*2);
-  background-size: cover;
-}
-.card2{
-  width:rpx(307*2);
-  height: rpx(86*2);
-  margin-left:rpx(375-307);
-}
+
 
 .card3{
   width:rpx(280*2);
@@ -294,4 +286,21 @@ ion-card{
   width:20vw;
   margin-left: prx(35);
   margin-top: prx(40);
+}
+.image{
+  width:rpx(96*2);
+  height: rpx(96*2);
+  border-radius: rpx(16);
+  background-size: cover;
+}
+.image1{
+  width:rpx(32*2);
+  height: rpx(32*2);
+  background-size: cover;
+  margin-right: rpx(-25);
+}
+.hg{
+  width:rpx(345*2);
+  height: rpx(2);
+  background: #F0F0F0;
 }

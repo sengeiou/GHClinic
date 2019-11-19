@@ -104,9 +104,11 @@
 
       <div class="margin-left-40 margin-top-30">
         <div class="f16 txt-black margin-bottom-30">备注：</div>
-        <textarea  
-        calss="f16 " style="color: #BFBFBF" [(ngModel)]="beizhu" placeholder="请输入备注,最多200个字哦" maxlength="200" ></textarea>
-        <div class="zj">{{beizhu.length}}/200</div>
+        <div style="position: relative;">
+          <textarea  
+          calss="f16 " style="color: #BFBFBF" [(ngModel)]="beizhu" placeholder="请输入备注,最多200个字哦" maxlength="200" ></textarea>
+          <div class="zj">{{beizhu.length}}/200</div>
+        </div>
       </div>
  
       

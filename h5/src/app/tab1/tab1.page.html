@@ -62,24 +62,46 @@
         <div class="txt-black f16 txt-bold margin-left-30">预约诊所</div>
         <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar"/>
       </div>
-      <div  *ngFor="let item of hostlist;let i=index;"   >
-        <div class="margin-top-30">
-          <ion-card class="card1"  [style.background-image]="'url('+uploadpath+'hospital/'+item.fmtupian+')'" (click)="information(item.id)"></ion-card>
-        </div>
-        <div style="z-index: 1111;" class="marginTop">
-          <ion-card class="card2 flex-row flex-center bg1 padding-20">
-            <div class="flex-column margin-left-10">
+      <div *ngFor="let item of hostlist;let i=index;" (click)="information(item.id)">
+          <div class="flex-row flex-center padding-30" >
+            <div [style.background-image]="'url('+uploadpath+'hospital/'+item.fmtupian+')'" class="image"></div>
+            <div class="margin-left">
               <div class="oneline f18 txt-bold txt-black ">{{item.name}}</div>
-              <div class="flex-row flex-center margin-top-10 ">
-                <div class="txt-gw f12 flex-1">{{item.phone}}</div>
-                <img   src="{{uploadpath}}resource/{{res.phone}}" class="icon-25 " (click)="call(item.phone)"/>
+              <div class="txt-gw h5">电话：{{item.phone}}</div>
+              <div class="oneline txt-gw h5 ">地址：{{item.address}}</div>
+              <div class="flex-row flex-center marginTop">
+                <div class="txt-gw h5">星级：</div>
+                <div [style.background-image]="'url('+uploadpath+'resource/'+res.xingxing+')'" class="image1" *ngIf='item.xinji==1'></div>
+                <div *ngIf='item.xinji==2' class="flex-row flex-center">
+                  <div [style.background-image]="'url('+uploadpath+'resource/'+res.xingxing+')'" class="image1"></div>
+                  <div [style.background-image]="'url('+uploadpath+'resource/'+res.xingxing+')'" class="image1"></div>
+                </div>
+                <div *ngIf='item.xinji==3' class="flex-row flex-center">
+                  <div [style.background-image]="'url('+uploadpath+'resource/'+res.xingxing+')'" class="image1"></div>
+                  <div [style.background-image]="'url('+uploadpath+'resource/'+res.xingxing+')'" class="image1"></div>
+                  <div [style.background-image]="'url('+uploadpath+'resource/'+res.xingxing+')'" class="image1"></div>
+                </div>
+                <div *ngIf='item.xinji==4' class="flex-row flex-center">
+                  <div [style.background-image]="'url('+uploadpath+'resource/'+res.xingxing+')'" class="image1"></div>
+                  <div [style.background-image]="'url('+uploadpath+'resource/'+res.xingxing+')'" class="image1"></div>
+                  <div [style.background-image]="'url('+uploadpath+'resource/'+res.xingxing+')'" class="image1"></div>
+                  <div [style.background-image]="'url('+uploadpath+'resource/'+res.xingxing+')'" class="image1"></div>
+                </div>
+                <div *ngIf='item.xinji==5' class="flex-row flex-center">
+                  <div [style.background-image]="'url('+uploadpath+'resource/'+res.xingxing+')'" class="image1"></div>
+                  <div [style.background-image]="'url('+uploadpath+'resource/'+res.xingxing+')'" class="image1"></div>
+                  <div [style.background-image]="'url('+uploadpath+'resource/'+res.xingxing+')'" class="image1"></div>
+                  <div [style.background-image]="'url('+uploadpath+'resource/'+res.xingxing+')'" class="image1"></div>
+                  <div [style.background-image]="'url('+uploadpath+'resource/'+res.xingxing+')'" class="image1"></div>
+                </div>
               </div>
-              <div class="oneline txt-gw f12 card3">{{item.address}}</div>
             </div>
-          
-          </ion-card> 
+          </div>
+          <div class="hg"></div>
         </div>
-      </div>
+
+
+      
     </div>
 
 

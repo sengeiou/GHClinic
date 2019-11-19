@@ -152,7 +152,7 @@
                     <div class="f12 txt-black margin-top-10">意见反馈</div>
                   </div>
                 </div>
-                <div class="flex-row box margin-top-60">
+                <div class="flex-row box margin-top-60" *ngIf='issales_value=="Y"'>
                     <div (click)="myCustomer()">
                       <div>
                         <img src='{{uploadpath}}resource/{{res.wodekehu}}' class="icon-10"/>
@@ -173,6 +173,21 @@
                     </div>
                     <div class="icon-50"></div>
                   </div>
+                  <div class="flex-row box margin-top-60" *ngIf='issales_value!="Y"'>
+                      <div (click)="xianshi()">
+                        <div>
+                          <img src='{{uploadpath}}resource/{{res.yiliaozenson}}' class="icon-10"/>
+                        </div>
+                        <div class="f12 txt-black margin-top-10">医疗赠送</div>
+                      </div>
+                      <div (click)="wenzhantuison()">
+                        <div>
+                          <img src='{{uploadpath}}resource/{{res.wenzhantuison}}' class="icon-10"/>
+                        </div>
+                        <div class="f12 txt-black margin-top-10">文章推送</div>
+                      </div>
+                      <div class="icon-150"></div>
+                    </div>
                 </div>
         </div>
     
