@@ -32,11 +32,41 @@ export class AppComponent {
     AppBase.wechatApi=this.wechatApi
   }
  
+  backButtonPressedOnceToExit = false;
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
 
-      
+      var _self = this;
+      document.addEventListener("backbutton", () => {
+
+        if (this.currentpage == "tab1"
+        || this.currentpage == "tab2"
+        || this.currentpage == "tab3"
+          || this.currentpage == "tab4"
+          || this.currentpage == "tab5"
+        ) {
+          //当前为Tab状态, 判断是否为首页
+          // if (app.getActiveNav().getActive().name != 'HomePage') { //能用, 但编辑器提示未定义
+          // if (_self.backButtonPressedOnceToExit == true) {
+          //   navigator["app"].exitApp();
+          // }
+          // _self.backButtonPressedOnceToExit = true;
+          // //_self.presentToast("再按一次就退出程序");
+          // //setTimeout(function () {
+          //   _self.backButtonPressedOnceToExit = false;
+          // }, 2000);
+
+        }
+        else {
+          //app.goBack();
+          if (AppBase.Current.isModal) {
+            AppBase.Current.close();
+          } else {
+            AppBase.Current.back();
+          }
+        }
+      });
     });
   }
 }
