@@ -56,6 +56,7 @@ onMyShow() {
  if(this.params.id==1){
    this.condition=false;
  }else{this.condition=true}
+ 
 }
   xianshimima() {
     this.ismima = !this.ismima;

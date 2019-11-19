@@ -118,5 +118,8 @@ export class LoginPage extends AppBase {
 
 
   }
- 
+  wanjimiam(){
+this.navigate("forgetpassword")
+
+  }
 }

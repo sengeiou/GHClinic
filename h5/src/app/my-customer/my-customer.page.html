@@ -1,51 +1,53 @@
 <ion-header>
-    <!-- <ion-toolbar color="primary">
+  <!-- <ion-toolbar color="primary">
         <ion-icon name="arrow-back" class="icon-24" (click)="back()"></ion-icon>
         <ion-title>
           我的客户
         </ion-title>
         <ion-icon name="close" slot="end" class="icon-24"></ion-icon>
       </ion-toolbar> -->
-      <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
+  <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg"></div>
 </ion-header>
 
 <ion-content>
   <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
     <div class="flex-row flex-center margin-left-30">
-        <div  (click)="back()">
-            <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
-        </div>
-        <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
-        <div class="f16 txt-white margin-left-200">我的客户</div>
+      <div (click)="back()">
+        <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+      </div>
+      <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
+      <div class="f16 txt-white margin-left-200">我的客户</div>
     </div>
   </div>
-  <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
-      <div class="card">
-       
-          
-          <div class="f16 txt-bold txt-black margin-left-30">客户列表</div>
-          <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
+  <div style="background: #0F848D;width: 100%;" class="height-40"></div>
+  <div class="card">
+
+
+    <div class="f16 txt-bold txt-black margin-left-30">客户列表</div>
+    <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
 
 
 
-        <div class="flex-row flex-center bc height-96 margin-top-30" style="justify-content: space-around">
-          <div class="h5 txt-white txt-bold">序号</div>
-          <div class="h5 txt-white txt-bold">客户姓名</div>
-          <div class="h5 txt-white txt-bold">手机号码</div>
-          <div class="h5 txt-white txt-bold">是否就诊</div>
-        </div>
-
-
-        <div class="flex-row flex-center border-bottom margin-top-30 padding-bottom-30" style="justify-content: space-around;">
-          <div class="h5 txt-black">1</div>
-          <div class="h5 txt-black">张三</div>
-          <div class="h5 txt-black">13838384388</div>
-          <div class="h5" style="color: #259B24">是</div>
-        </div>
+    <div class="flex-row flex-center bc height-96 margin-top-30" style="justify-content: space-around">
+      <div class="h5 txt-white txt-bold">序号</div>
+      <div class="h5 txt-white txt-bold">客户姓名</div>
+      <div class="h5 txt-white txt-bold">手机号码</div>
+      <div class="h5 txt-white txt-bold">是否就诊</div>
+    </div>
 
 
 
-        <div class="flex-row flex-center border-bottom margin-top-30 padding-bottom-30" style="justify-content: space-around;">
+    <div *ngFor="let item of kehu;let idx=index "
+      class="flex-row flex-center border-bottom margin-top-30 padding-bottom-30" style="justify-content: space-around;">
+      <div class="h5 txt-black">{{idx+1}}</div>
+      <div class="h5 txt-black">{{item.patientname}}</div>
+      <div class="h5 txt-black">{{item.patientmobile}}</div>
+      <div    class="h5" >{{item.orderstatus_name}}</div>
+    </div>
+
+
+
+    <!-- <div class="flex-row flex-center border-bottom margin-top-30 padding-bottom-30" style="justify-content: space-around;">
           <div class="h5 txt-black">2</div>
           <div class="h5 txt-black">李四</div>
           <div class="h5 txt-black">13838384388</div>
@@ -60,7 +62,7 @@
             <div class="h5 txt-black">13838384388</div>
           </div>
           <div class="f12 txt-gw width-100">未到就诊时间</div>
-        </div>
+        </div> -->
 
 
 
@@ -75,7 +77,7 @@
 
 
 
-      </div>
+  </div>
 
 
 </ion-content>
