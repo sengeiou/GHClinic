@@ -59,6 +59,10 @@ export class OrderSignPage extends AppBase {
 
 
     }
+
+    fanhui(){
+      this.navigate('/tabs/tab3');
+    }
  
   
 }
