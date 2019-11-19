@@ -109,7 +109,6 @@ onMyShow() {
     if (verifycode=='1234') {
       this.show = 2;
     } 
-    return
      console.log(verifycode);
     this.aliyunApi.verifycode({
       mobile: this.mobile,

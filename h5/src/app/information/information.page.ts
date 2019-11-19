@@ -136,13 +136,19 @@ export class InformationPage extends AppBase {
       this.getsetmeal(this.params.yiyuanid)
     }
     else {
+      var d = new Date();
+      this.jintian = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d };
+     
+    console.log(this.jintian);
+       this.riqi=d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
       this.getdoctor();
     }
 
-    var d = new Date(this.params.riqi);
 
 
-    this.jintian = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d };
+
+    
+  
     this.xzdate = this.jintian.date;
     this.qiansantian = this.getQianDay(this.params.riqi);
     console.log(this.qiansantian);
@@ -182,6 +188,10 @@ export class InformationPage extends AppBase {
   }
   getdoctor() {
     var api = this.memberApi;
+        
+
+
+
     api.getdoctor({ departmentname: this.params.fuwuleibie, hospital_id: this.params.yiyuanid, riqi: this.riqi }).then((doctorlist) => {
       console.log(doctorlist);
       this.doctorlist = doctorlist;

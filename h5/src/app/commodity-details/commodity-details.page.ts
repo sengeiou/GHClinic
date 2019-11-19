@@ -84,6 +84,7 @@ export class CommodityDetailsPage extends AppBase {
           
       console.log(res);
         this.getgouwuche();
+        this.toast("加入购物车成功");
     })
         
   }

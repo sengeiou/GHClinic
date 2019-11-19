@@ -46,7 +46,19 @@ export class OrderSignPage extends AppBase {
      
   
     }
-  
+    qianshou(){
+      var api=this.dindanApi;
+    
+        api.qianshou({id:this.params.id}).then(( res)=>{
+
+         this.back();
+
+
+        })
+    
+
+
+    }
  
   
 }

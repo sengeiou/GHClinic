@@ -282,6 +282,40 @@ export class DindanApi {
     }
 
 
+    public quanxuan(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'dindan/quanxuan';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('dindan/quanxuan', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('dindan/quanxuan', data, err);
+            });
+    }
+
+
     public querenshouhuo(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'dindan/querenshouhuo';
         var headers = ApiConfig.GetHeader(url, data);
@@ -384,8 +418,8 @@ export class DindanApi {
     }
 
 
-    public quanxuan(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'dindan/quanxuan';
+    public qianshou(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'dindan/qianshou';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -397,7 +431,7 @@ export class DindanApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('dindan/quanxuan', data, res)) {
+                if (ApiConfig.DataLoadedHandle('dindan/qianshou', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -413,7 +447,7 @@ export class DindanApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('dindan/quanxuan', data, err);
+                return ApiConfig.ErrorHandle('dindan/qianshou', data, err);
             });
     }
 
