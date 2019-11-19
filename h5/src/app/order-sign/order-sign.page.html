@@ -48,9 +48,9 @@
       <div class="margin-left-20">
         <div class="f16 txt-black txt-bold">{{item.name}}</div>
         <div class="h5 txt-gg margin-top-30">规格：{{item.guige}}</div>
-        <div class="margin-top-40 margin-right-20">
+        <div class="margin-top-40  flex-row ">
           <div class="f16 txt-bold flex-1 " style="color: #F7555A">￥ {{item.price}}</div>
-          <div class="f16 txt-black flex-row flex-center ">
+          <div class="f16 txt-black ">
                 x{{item.num}}
           </div>
         </div>
@@ -63,8 +63,8 @@
 
 
   <div class="flex-row margin-top-30 margin-bottom-30">
-    <div class="f16 txt-black margin-left-40">共{{orderinfo.orders.length}}件，应付金额：</div>
-    <div class="f16 margin-left-360" style="color:#F7555A">￥{{orderinfo.amount}}</div>
+    <div class="f16 txt-black margin-left-40 flex-1">共{{orderinfo.orders.length}}件，应付金额：</div>
+    <div class="f16 margin-right-40" style="color:#F7555A">￥{{orderinfo.amount}}</div>
   </div>
   <hr/>
 
@@ -84,7 +84,8 @@
     <div class="f16 txt-black d3">备注:</div>
     <div class="f16 margin-left-30 margin-top-30" style="color: #BFBFBF">{{orderinfo.beizhu}}</div>
     <div class="height-100"></div>
-    <div class=" margin-top-30" style="position: fixed;bottom:0">
+    <div class=" margin-top-30 flex-row" style="position: fixed;bottom:0">
+      <div class="txt-white d4 text-center"  style="background-color: #B9B9B9" (click)="fanhui()">返回商城</div>
      
       <div  (click)="qianshou()"  class="txt-white bc d4 text-center">确认签收</div>
     </div>
