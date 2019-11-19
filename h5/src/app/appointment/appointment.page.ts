@@ -91,6 +91,13 @@ export class AppointmentPage extends AppBase {
       this.toast("请输入就诊人联系电话");
       return;
     }
+    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    if (!myreg.test(patientmobile)) {
+      this.toast("手机号格式不正确");
+      return
+    }
+
+
     var tuijianren = this.tuijianren;
 
     this.showConfirm("我已经确保所有信息填写无误",(ret)=>{

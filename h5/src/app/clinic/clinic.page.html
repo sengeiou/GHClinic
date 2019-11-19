@@ -87,7 +87,7 @@
     <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
     <p class="p6 margin-top-30">营业时间：{{info.openning}}</p>
     <hr />
-    <p class="p6">诊所电话：{{info.phone}}</p>
+    <p class="p6" (click)='call(info.phone)'>诊所电话：{{info.phone}}</p>
     <hr />
     <div>
       <p class="p6" style="float: left">服务项目：</p>

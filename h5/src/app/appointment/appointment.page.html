@@ -62,20 +62,20 @@
       </div>
       <div class="f16 txt-gw margin-left-30">电话：</div>
       <input placeholder="请输入电话" [(ngModel)]='patientmobile' class="marginTop2 margin-left-30"
-        style="outline: none;border: none;" />
+        style="outline: none;border: none;" maxlength="11" />
     </div>
     <div class="flex-row margin-top-40 margin-left-30 flex-center">
       <div class="marginTop1">
         <img src="{{uploadpath}}resource/{{res.tuijian}}" class="icon-10" />
       </div>
       <div class="f16 txt-gw margin-left-30">推荐人：</div>
-      <input placeholder="请输入推荐人" [(ngModel)]='tuijianren' class="marginTop2 margin-left-5"
+      <input placeholder="请输入推荐人(非必填)" [(ngModel)]='tuijianren' class="marginTop2 margin-left-5"
         style="outline: none;border: none;" />
 
     </div>
     <!-- <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">专业擅长</div>
     <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" /> -->
-    <div class="margin-left-30 txt-gw f16 margin-top-30">上传能提现病情的病历照片\患处照片\检查结果等</div>
+    <div class="margin-left-30 txt-gw f16 margin-top-30 margin-right-30">上传能提现病情的病历照片\患处照片\检查结果等（非必填）</div>
 
     <div class="flex-row flex-wrap margin-top-40">
       <div class="margin-left-30" *ngFor="let item of photolist;let idx=index">

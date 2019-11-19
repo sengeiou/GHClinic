@@ -88,4 +88,10 @@ export class ClinicPage extends AppBase {
     this.navigate("doctor")
   }
 
+  call(tel){
+    console.log(tel)
+    let tel_str = "tel:"+tel;
+    document.location.href=tel_str; 
+  }
+
 }
