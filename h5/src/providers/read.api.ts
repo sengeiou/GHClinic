@@ -3,15 +3,15 @@ import { Http } from '@angular/http';
 import { RequestOptions } from '@angular/http';
 import { ApiConfig } from '../app/api.config'
 @Injectable()
-export class InstApi {
+export class ReadApi {
 
     constructor(public http: Http) {
 
     }
 
 
-    public aboutus(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'inst/aboutus';
+    public bainweiyidu00(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'read/bainweiyidu00';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -23,7 +23,7 @@ export class InstApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('inst/aboutus', data, res)) {
+                if (ApiConfig.DataLoadedHandle('read/bainweiyidu00', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -39,13 +39,13 @@ export class InstApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('inst/aboutus', data, err);
+                return ApiConfig.ErrorHandle('read/bainweiyidu00', data, err);
             });
     }
 
 
-    public aboutuslist(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'inst/aboutuslist';
+    public bianweiyidu(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'read/bianweiyidu';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -57,7 +57,7 @@ export class InstApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('inst/aboutuslist', data, res)) {
+                if (ApiConfig.DataLoadedHandle('read/bianweiyidu', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -73,13 +73,13 @@ export class InstApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('inst/aboutuslist', data, err);
+                return ApiConfig.ErrorHandle('read/bianweiyidu', data, err);
             });
     }
 
 
-    public doctorinfo(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'inst/doctorinfo';
+    public bianweiyidu1(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'read/bianweiyidu1';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -91,7 +91,7 @@ export class InstApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('inst/doctorinfo', data, res)) {
+                if (ApiConfig.DataLoadedHandle('read/bianweiyidu1', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -107,13 +107,13 @@ export class InstApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('inst/doctorinfo', data, err);
+                return ApiConfig.ErrorHandle('read/bianweiyidu1', data, err);
             });
     }
 
 
-    public gensign(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'inst/gensign';
+    public bianweiyidu2(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'read/bianweiyidu2';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -125,7 +125,7 @@ export class InstApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('inst/gensign', data, res)) {
+                if (ApiConfig.DataLoadedHandle('read/bianweiyidu2', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -141,13 +141,13 @@ export class InstApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('inst/gensign', data, err);
+                return ApiConfig.ErrorHandle('read/bianweiyidu2', data, err);
             });
     }
 
 
-    public indexbanner(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'inst/indexbanner';
+    public bianweiyidu22(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'read/bianweiyidu22';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -159,7 +159,7 @@ export class InstApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('inst/indexbanner', data, res)) {
+                if (ApiConfig.DataLoadedHandle('read/bianweiyidu22', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -175,13 +175,13 @@ export class InstApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('inst/indexbanner', data, err);
+                return ApiConfig.ErrorHandle('read/bianweiyidu22', data, err);
             });
     }
 
 
-    public info(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'inst/info';
+    public bianweiyidu3(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'read/bianweiyidu3';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -193,7 +193,7 @@ export class InstApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('inst/info', data, res)) {
+                if (ApiConfig.DataLoadedHandle('read/bianweiyidu3', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -209,13 +209,13 @@ export class InstApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('inst/info', data, err);
+                return ApiConfig.ErrorHandle('read/bianweiyidu3', data, err);
             });
     }
 
 
-    public operatorinfo(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'inst/operatorinfo';
+    public bianweiyidu4(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'read/bianweiyidu4';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -227,7 +227,7 @@ export class InstApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('inst/operatorinfo', data, res)) {
+                if (ApiConfig.DataLoadedHandle('read/bianweiyidu4', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -243,41 +243,7 @@ export class InstApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('inst/operatorinfo', data, err);
-            });
-    }
-
-
-    public resources(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'inst/resources';
-        var headers = ApiConfig.GetHeader(url, data);
-        let options = new RequestOptions({ headers: headers });
-        let body = ApiConfig.ParamUrlencoded(data);
-        let loading = null;
-
-        if (showLoadingModal) {
-            loading = ApiConfig.GetLoadingModal();
-        }
-
-        return this.http.post(url, body, options).toPromise()
-            .then((res) => {
-                if (ApiConfig.DataLoadedHandle('inst/resources', data, res)) {
-                    if (showLoadingModal) {
-                        ApiConfig.DimissLoadingModal();
-                    }
-                    if (res==null) {
-                        return null;
-                    }
-                    return res.json();
-                } else {
-                    return Promise.reject(res);
-                }
-            })
-            .catch(err => {
-                if (showLoadingModal) {
-                    ApiConfig.DimissLoadingModal();
-                }
-                return ApiConfig.ErrorHandle('inst/resources', data, err);
+                return ApiConfig.ErrorHandle('read/bianweiyidu4', data, err);
             });
     }
 

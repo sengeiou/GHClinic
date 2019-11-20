@@ -10,12 +10,13 @@ import { DindanApi } from 'src/providers/dindan.api';
 import { ActivityApi } from 'src/providers/activity.api';
 import { OrderApi } from 'src/providers/order.api';
 import { XitongApi } from 'src/providers/xitong.api';
+import { ReadApi } from 'src/providers/read.api';
 
 @Component({
   selector: 'app-tab4',
   templateUrl: 'tab4.page.html',
   styleUrls: ['tab4.page.scss'],
-  providers:[DindanApi,ActivityApi,OrderApi,XitongApi]
+  providers:[DindanApi,ActivityApi,OrderApi,XitongApi,ReadApi]
 })
 export class Tab4Page extends AppBase {
 
@@ -29,6 +30,7 @@ export class Tab4Page extends AppBase {
     public dindanApi:DindanApi,
     public orderApi:OrderApi,
     public xitongApi:XitongApi,
+    public readApi:ReadApi,
     public activityApi:ActivityApi,
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
@@ -39,10 +41,13 @@ export class Tab4Page extends AppBase {
   count1=0;
   count2=0;
   count3=0;
+  count33=0;
   count4=0;
+  count44=0;
   count5=0;
   order1=[];
   order2=[];
+  read_status;
 
   onMyLoad(){
     //参数
@@ -59,20 +64,32 @@ export class Tab4Page extends AppBase {
   getwodeyuyue(){
     var api=this.orderApi;
     var yuyue=[];
+    var yuyue1=[];
     var count4=0;
+    var count44=0;
     api.wodeyuyue({}).then((wodeyuyue)=>{
       for(let yy of wodeyuyue){
         if(yy.orderstatus=='A'){
+          if(yy.read_status=='B'){
           yuyue.push(yy);
+          }
+          if(yy.read_status1=='B'){
+            yuyue1.push(yy);
+            }
         }
       }
       count4=yuyue.length;
       this.count4=count4;
+      console.log(this.count4)
+      count44=yuyue1.length;
+      this.count44=count44;
     })
   }
   huoquactivityinfo(){
     var ainfo=[];
+    var ainfo1=[];
     var count3=0;
+    var count33=0;
     var api=this.activityApi;
     api.huoquactivityinfo({}).then((activityinfo)=>{
       for(let ai of activityinfo){
@@ -81,31 +98,48 @@ export class Tab4Page extends AppBase {
         var nT=new Date().getTime();
         if(nT-aT<=0){
           if(ai.zhuangtai=='A'){
+            if(ai.read_status=='B'){
             ainfo.push(ai)
+            }
+            if(ai.read_status1=='B'){
+              ainfo1.push(ai)
+            }
           }
         }
       }
       count3=ainfo.length;
-      this.count3=count3;       
+      this.count3=count3; 
+      count33=ainfo1.length;
+      this.count33=count33;      
     })
   
   }
+
   getxitongnews(){
     var api=this.xitongApi;
-    var cc=0;
+
+    var x=[];
     api.xitongnews({}).then((xitongnews)=>{
-      cc=this.count3+this.count4+xitongnews.length;
-      this.count5=cc;
-      console.log("您好呀！！！"+this.count5)
+      for(let xtn of xitongnews){
+        if(xtn.read_status=='B'){
+          x.push(xtn);
+          
+        }
+      }
+      this.count5=this.count33+this.count44+x.length;
     })
   }
   getgouwuche(){
     var api=this.dindanApi;
     api.getgouwuche({}).then((gouwuche)=>{
-    var count=0;
-    count=gouwuche.length;
-    this.count=count;
-     }) 
+      for(let gwc of gouwuche){
+        if(gwc.read_status=='B'){
+            var count=0;
+            count=count+1;
+            this.count=count;
+        }
+      }
+    }) 
   }
   getmyorder(){
     var api=this.dindanApi;
@@ -114,14 +148,16 @@ export class Tab4Page extends AppBase {
       var count2=0;
       for(let o of orders){
         if(o.status=='B'){
+          if(o.read_status=='B'){
           this.order1.push(o);
         }
+        }
         if(o.status=='C'){
+          if(o.read_status=='B'){
           this.order2.push(o);
         }
+        }
       }
-      console.log('aaaaaaa'+this.order1.length);
-      console.log('bbbbbbb'+this.order2.length);
       count1=this.order1.length;
       count2=this.order2.length;
       this.count1=count1;
@@ -138,31 +174,52 @@ export class Tab4Page extends AppBase {
     this.navigate("address");
   }
   gouwuche(){
-   this.count=0;
-   this.navigate("carts");
+    var api=this.readApi;
+    api.bianweiyidu1({}).then((res)=>{
+      this.navigate("carts");
+    })
+  
 
   }
   myOrder(){
-    this.navigate("my-order");
+   
+    
+      this.navigate("my-order");
+
+    
   }
 
   MyAppointment(){
-    this.navigate("my-appointment");
+    var api=this.readApi;
+    api.bianweiyidu2({}).then(()=>{
+      this.navigate("my-appointment");
+    })
   }
 
   myNews(){
-    this.count5=0;
+    var api=this.readApi;
+    api.bainweiyidu00({}).then((res)=>{
+    })
+    api.bianweiyidu22({}).then((res)=>{
+    })
+    api.bianweiyidu4({}).then((res)=>{
+    })
     this.navigate("my-news");
+    
   }
 
   myPhysicalExamination(){
-    this.count4=0;
-    this.navigate("my-physical-examination");
+    
+      this.navigate("my-physical-examination");
+  
   }
 
   myActivity(){
-    this.count3=0;
-    this.navigate("my-activity");
+    var api=this.readApi;
+    api.bianweiyidu({}).then((res)=>{
+      this.navigate("my-activity");
+    })
+    
   }
 
 
@@ -174,13 +231,19 @@ export class Tab4Page extends AppBase {
     this.navigate("wen-zhan-tui-son")
   }
   daifukuan(){
-    this.count1=0;
-    this.navigate("my-order",{id:1});
+    var api=this.readApi;
+    api.bianweiyidu3({}).then((res)=>{
+      this.navigate("my-order",{id:1});
+    })
+    
 
   }
   daishouhuo(){
-    this.count2=0;
-    this.navigate("my-order",{id:2});
+    var api=this.readApi;
+    api.bianweiyidu3({}).then((res)=>{
+      this.navigate("my-order",{id:2});
+    })
+    
 
   }
  yiwanchen(){
