@@ -68,3 +68,17 @@
   height:rpx(6);
   margin-left:rpx(30);
 }
+.red{
+  width: rpx(40);
+  height: rpx(40);
+  line-height: rpx(40);
+  border-radius: 50%;
+  background: red;
+  text-align: center;
+  color:white;
+  z-index: 999;
+}
+.mglt{
+  margin-left: rpx(50);
+  margin-top:rpx(-105);
+}
