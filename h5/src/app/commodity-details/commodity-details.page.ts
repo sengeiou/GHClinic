@@ -80,7 +80,7 @@ export class CommodityDetailsPage extends AppBase {
     
     var api = this.dindanApi;
 
-    api.addgouwuche({ drugs_id: this.params.id, num: 1, selected: 'N', status: 'A' }).then((res) => {
+    api.addgouwuche({ drugs_id: this.params.id, num: 1, selected: 'N', status: 'A',read_status:'B'}).then((res) => {
           
       console.log(res);
         this.getgouwuche();

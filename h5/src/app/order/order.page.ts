@@ -147,11 +147,11 @@ export class OrderPage extends AppBase {
 
 
     if (this.params.id != undefined) {
-      api.addgouwuche({ drugs_id: this.params.id, num: 1, selected: 'Y', status: 'F' }).then((res) => {
+      api.addgouwuche({ drugs_id: this.params.id, num: 1, selected: 'Y', status: 'F',read_status:'B' }).then((res) => {
 
         console.log(res);
         if (res.code == 0) {
-          api.createorder({ lingshi: 1, beizhu: this.beizhu ,address_id:this.address_id}).then((res) => {
+          api.createorder({ lingshi: 1, beizhu: this.beizhu ,address_id:this.address_id,read_status:'B'}).then((res) => {
 
             wechatapi.prepay({ id: res.return, openid: this.openid }).then((payret) => {
               if (payret.code != 0) {
@@ -196,7 +196,7 @@ export class OrderPage extends AppBase {
 
 
 
-      api.createorder({ beizhu: this.beizhu,address_id:this.address_id }).then((res) => {
+      api.createorder({ beizhu: this.beizhu,address_id:this.address_id,read_status:'B'}).then((res) => {
 
         wechatapi.prepay({ id: res.return, openid: this.openid }).then((payret) => {
           if (payret.code != 0) {
