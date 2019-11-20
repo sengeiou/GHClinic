@@ -79,6 +79,10 @@ export class ClinicPage extends AppBase {
    })
   }
 
+  nav(){
+    this.openLocation(this.info.lat,this.info.lng,this.info.name,this.info.address)
+  }
+
   keshi(item){
    this.navigate("information",{fuwuleibie:item.name,yiyuanid:this.params.hospital_id});
 

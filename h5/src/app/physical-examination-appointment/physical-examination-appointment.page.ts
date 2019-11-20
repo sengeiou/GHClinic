@@ -107,8 +107,18 @@ export class PhysicalExaminationAppointmentPage extends AppBase {
       this.toast("请输入就诊人身份证");
       return
     }
+    var mr = /^\d{17}[\d|X]$|^\d{15}$/;
+    if (!mr.test(canshu.id)) {
+      this.toast("身份证格式不正确");
+      return
+    }
     if (canshu.shouji == '') {
       this.toast("请输入就诊人联系方式");
+      return
+    }
+    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    if (!myreg.test(canshu.shouji)) {
+      this.toast("手机号格式不正确");
       return
     }
     this.showConfirm("我已经确保所有信息填写无误", (ret) => {
