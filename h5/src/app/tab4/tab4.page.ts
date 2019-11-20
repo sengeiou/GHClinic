@@ -47,7 +47,6 @@ export class Tab4Page extends AppBase {
   onMyLoad(){
     //参数
     this.params;
-
   }
   onMyShow(){
      this.huoquactivityinfo();
@@ -139,7 +138,7 @@ export class Tab4Page extends AppBase {
     this.navigate("address");
   }
   gouwuche(){
-
+   this.count=0;
    this.navigate("carts");
 
   }
@@ -152,14 +151,17 @@ export class Tab4Page extends AppBase {
   }
 
   myNews(){
+    this.count5=0;
     this.navigate("my-news");
   }
 
   myPhysicalExamination(){
+    this.count4=0;
     this.navigate("my-physical-examination");
   }
 
   myActivity(){
+    this.count3=0;
     this.navigate("my-activity");
   }
 
@@ -172,11 +174,12 @@ export class Tab4Page extends AppBase {
     this.navigate("wen-zhan-tui-son")
   }
   daifukuan(){
-
+    this.count1=0;
     this.navigate("my-order",{id:1});
 
   }
   daishouhuo(){
+    this.count2=0;
     this.navigate("my-order",{id:2});
 
   }
