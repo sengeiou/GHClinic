@@ -112,6 +112,7 @@ export class AppBase implements OnInit {
             AppBase.instapi.info({}, false).then((InstInfo) => {
                 AppBase.InstInfo = InstInfo;
                 this.InstInfo = InstInfo;
+                this.InitWechat();
                 if (this.params.code != undefined ) {
                     
                 } else {
@@ -130,6 +131,7 @@ export class AppBase implements OnInit {
         } else {
             this.InstInfo = AppBase.InstInfo;
             //this.setWechatShare();
+            this.InitWechat();
         }
 
         if (this.params.code != undefined ) {
@@ -217,10 +219,9 @@ export class AppBase implements OnInit {
                     }
                 }
                 AppBase.IsLogin = memberinfo == null ? false : true;
-
-
-
                 this.MemberInfo = memberinfo;
+
+                
 
 
                 this.onMyShow();
@@ -436,4 +437,73 @@ export class AppBase implements OnInit {
     openGallary(imagearr){
         this.navigate("gallary",{list:imagearr});
     }
+
+    InitWechat(){
+        AppBase.instapi.gensign({ url: window.location.href }).then((config) => {
+            var json = {
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: this.InstInfo.h5appid, // 必填，公众号的唯一标识
+                timestamp: config.timestamp, // 必填，生成签名的时间戳
+                nonceStr: config.nonceStr, // 必填，生成签名的随机串
+                signature: config.signature,// 必填，签名，见附录1
+                jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage","getLocation",'openLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            };
+            console.log("intwechat",json);
+            wx.config(json);
+
+            wx.ready(()=>{
+                wx.onMenuShareAppMessage({
+                    title: this.InstInfo.h5sharetitle,
+                    desc: this.InstInfo.h5sharedesc,
+                    link: window.location.href,
+                    imgUrl: this.uploadpath + "inst/" + this.InstInfo.h5sharelogo,
+                    trigger: function (res) {
+                        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                        //alert('用户点击发送给朋友');
+                    },
+                    success: function (res) {
+                        //alert('已分享');
+                    },
+                    cancel: function (res) {
+                        //alert('已取消');
+                    },
+                    fail: function (res) {
+                        //alert("onMenuShareAppMessage" + JSON.stringify(res));
+                    }
+                });
+
+                wx.onMenuShareTimeline({
+                    title: this.InstInfo.h5sharetitle,
+                    link: window.location.href,
+                    imgUrl: this.uploadpath + "inst/" + this.InstInfo.h5sharelogo,
+                    trigger: function (res) {
+                        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                        //alert('用户点击分享到朋友圈');
+                    },
+                    success: function (res) {
+                        //alert('已分享');
+                    },
+                    cancel: function (res) {
+                        //alert('已取消');
+                    },
+                    fail: function (res) {
+                        // alert("onMenuShareTimeline" + JSON.stringify(res));
+                    }
+                });
+            });
+
+        });
+    }
+
+    openLocation(lat,lng,name,address){
+        wx.openLocation({
+            latitude: lat,//目的地latitude
+            longitude: lng,//目的地longitude
+            name: name,
+            address: address,
+            scale: 15//地图缩放大小，可根据情况具体调整
+        });
+    }
+
+
 }
