@@ -100,9 +100,16 @@
 
   <button type="button" 
   class="f16 txt-white line-height-50 margin-top-30 height-100 text-center" 
+  style="position: fixed;bottom:0;width:100%;background-color: #268B73" 
+ 
+   *ngIf='activityinfo.zhuangtai=="A"&&show==true' (click)="confirmCancellation()">
+   取消
+  </button>
+  <button type="button" 
+  class="f16 txt-white line-height-50 margin-top-30 height-100 text-center" 
   style="position: fixed;bottom:0;width:100%;background-color: #8a8a8a" 
  
-   *ngIf='activityinfo.zhuangtai=="A"' (click)="confirmCancellation()">
+   *ngIf='activityinfo.zhuangtai=="A"&&show==false' (click)="confirmCancellation()">
    取消
   </button>
 

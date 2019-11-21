@@ -45,7 +45,7 @@ export class CartsPage extends AppBase {
     })
 
   }
-  zonjia = 0;
+  zonjia = "";
   jisuan() {
 
     var gouwuche = this.gouwuchelist;
@@ -60,8 +60,8 @@ export class CartsPage extends AppBase {
 
 
     })
-
-    this.zonjia = jiage;
+  
+    this.zonjia = jiage.toFixed(2);
 
 
 
@@ -105,7 +105,7 @@ export class CartsPage extends AppBase {
   }
   order() {
 
-    if (this.zonjia == 0) {
+    if (this.zonjia == '') {
 
       this.toast("必须选择商品");
       return
