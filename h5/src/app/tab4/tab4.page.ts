@@ -177,11 +177,11 @@ export class Tab4Page extends AppBase {
     this.navigate("address");
   }
   gouwuche(){
-    var api=this.readApi;
-    api.bianweiyidu1({}).then((res)=>{
-      this.navigate("carts");
-    })
-  
+    // var api=this.readApi;
+    // api.bianweiyidu1({}).then((res)=>{
+    //   this.navigate("carts");
+    // })
+    this.navigate("carts");
 
   }
   myOrder(){
@@ -193,17 +193,18 @@ export class Tab4Page extends AppBase {
   }
 
   MyAppointment(){
-    var api=this.readApi;
-    api.bianweiyidu2({}).then(()=>{
-      this.navigate("my-appointment");
-    })
+    // var api=this.readApi;
+    // api.bianweiyidu2({}).then(()=>{
+    //   this.navigate("my-appointment");
+    // })
+    this.navigate("my-appointment");
   }
 
   myNews(){
     var api=this.readApi;
-    api.bainweiyidu00({}).then((res)=>{
+    api.bianweiyidu({}).then((res)=>{
     })
-    api.bianweiyidu22({}).then((res)=>{
+    api.bianweiyidu2({}).then((res)=>{
     })
     api.bianweiyidu4({}).then((res)=>{
     })
@@ -218,11 +219,11 @@ export class Tab4Page extends AppBase {
   }
 
   myActivity(){
-    var api=this.readApi;
-    api.bianweiyidu({}).then((res)=>{
-      this.navigate("my-activity");
-    })
-    
+    // var api=this.readApi;
+    // api.bianweiyidu({}).then((res)=>{
+    //   this.navigate("my-activity");
+    // })
+    this.navigate("my-activity");
   }
 
 
@@ -234,19 +235,19 @@ export class Tab4Page extends AppBase {
     this.navigate("wen-zhan-tui-son")
   }
   daifukuan(){
-    var api=this.readApi;
-    api.bianweiyidu3({}).then((res)=>{
-      this.navigate("my-order",{id:1});
-    })
-    
+    // var api=this.readApi;
+    // api.bianweiyidu3({}).then((res)=>{
+    //   this.navigate("my-order",{id:1});
+    // })
+    this.navigate("my-order",{id:1});
 
   }
   daishouhuo(){
-    var api=this.readApi;
-    api.bianweiyidu3({}).then((res)=>{
-      this.navigate("my-order",{id:2});
-    })
-    
+    // var api=this.readApi;
+    // api.bianweiyidu3({}).then((res)=>{
+    //   this.navigate("my-order",{id:2});
+    // })
+    this.navigate("my-order",{id:2});
 
   }
  yiwanchen(){

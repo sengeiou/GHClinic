@@ -150,7 +150,7 @@
             <img src='{{uploadpath}}resource/{{res.bottom_b}}' class="img1" (click)="screen()" />
           </div>
        
-          <div *ngFor='let item of taocan'  class="ccc">
+          <div *ngFor='let item of taocan'  class="ccc" (click)="detail(item.id)">
             <div class="flex-row flex-center">
               <div class="">
                 <img src="{{uploadpath}}setmeal/{{item.cover}}" alt="" class="img2" />
@@ -173,7 +173,7 @@
               <div class=" flex-row">
                 
                   <div class="span11 flex-1">费用：￥{{item.price}}</div>
-                  <div class="span12" (click)="detail(item.id)">立即预约</div>
+                  <div class="span12">立即预约</div>
          
               </div>
             </div>

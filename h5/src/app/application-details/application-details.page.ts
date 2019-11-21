@@ -39,6 +39,7 @@ export class ApplicationDetailsPage extends AppBase {
   status='';
   aT;
   nT;
+  show=true;
   
 
 
@@ -65,6 +66,11 @@ export class ApplicationDetailsPage extends AppBase {
         console.log(activityinfo.activity_activitytime);
         this.aT=new Date(activityinfo.activity_activitytime).getTime();
         this.nT=new Date().getTime();
+        if(this.aT-this.nT>=24*60*60*1000){
+          this.show=true;
+        }else{
+          this.show=false;
+        }
         
       
       }
@@ -78,7 +84,7 @@ export class ApplicationDetailsPage extends AppBase {
       this.showdialage((res)=>{
         if(res){
           api.cancelactivity({id:this.params.id}).then((res)=>{
-            console.log(res);
+            console.log('yyyyyyyy'+res);
             this.back();
           })
         }

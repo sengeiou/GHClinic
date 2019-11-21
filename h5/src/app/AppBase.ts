@@ -261,10 +261,10 @@ export class AppBase implements OnInit {
         var nT=new Date().getTime();
         if(nT-aT<=0){
           if(ai.zhuangtai=='A'){
-            if(ai.read_status=='B'){
+          
             ainfo.push(ai)
-            }
-            if(ai.read_status1=='B'){
+          
+            if(ai.read_status=='B'){
               ainfo1.push(ai)
             }
           }
@@ -276,49 +276,90 @@ export class AppBase implements OnInit {
       AppBase.InstInfo.count33=count33;  
       console.log('abcdefg'+AppBase.InstInfo.count3);   
       console.log('abcdef'+AppBase.InstInfo.count33); 
+      AppBase.orderApi.wodeyuyue({}).then((wodeyuyue)=>{
+        var yuyue=[];
+        var yuyue1=[];
+        var count4=0;
+        var count44=0;
+          for(let yy of wodeyuyue){
+            if(yy.orderstatus=='A'){
+             
+              yuyue.push(yy);
+           
+              if(yy.read_status=='B'){
+                yuyue1.push(yy);
+                }
+            }
+          }
+          count4=yuyue.length;
+          AppBase.InstInfo.count4=count4;
+          console.log(AppBase.InstInfo.count4)
+          count44=yuyue1.length;
+          AppBase.InstInfo.count44=count44;
+          console.log('abcde'+AppBase.InstInfo.count4);
+          console.log('abcd'+AppBase.InstInfo.count44);
+    
+          AppBase.xitongApi.xitongnews({}).then((xitongnews)=>{
+            var x=[];
+            for(let xtn of xitongnews){
+              if(xtn.read_status=='B'){
+                x.push(xtn);
+                
+              }
+            }
+         
+            AppBase.InstInfo.count5= AppBase.InstInfo.count33+ AppBase.InstInfo.count44+x.length;
+            console.log('a1'+AppBase.InstInfo.count5);
+          })
+        })
     })
 
     
-    AppBase.orderApi.wodeyuyue({}).then((wodeyuyue)=>{
-    var yuyue=[];
-    var yuyue1=[];
-    var count4=0;
-    var count44=0;
-      for(let yy of wodeyuyue){
-        if(yy.orderstatus=='A'){
-          if(yy.read_status=='B'){
-          yuyue.push(yy);
-          }
-          if(yy.read_status1=='B'){
-            yuyue1.push(yy);
-            }
-        }
-      }
-      count4=yuyue.length;
-      AppBase.InstInfo.count4=count4;
-      console.log(AppBase.InstInfo.count4)
-      count44=yuyue1.length;
-      AppBase.InstInfo.count44=count44;
-      console.log('abcde'+AppBase.InstInfo.count4);
-      console.log('abcd'+AppBase.InstInfo.count44);
-    })
+   
 
        
         console.log(AppBase.instapi);
         console.log( AppBase.dindanapi);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         AppBase.dindanapi.myorder({}).then((orders)=>{
+            this.order1=[];
+            this.order2=[];
           var count1=0;
           var count2=0;
           for(let o of orders){
             if(o.status=='B'){
-              if(o.read_status=='B'){
+            
               this.order1.push(o);
-            }
+           
             }
             if(o.status=='C'){
-              if(o.read_status=='B'){
+           
               this.order2.push(o);
-            }
+         
             }
           }
           console.log("撒大声地");
@@ -336,28 +377,20 @@ export class AppBase implements OnInit {
             var gwcc=[];
             var count=0;
               for(let gwc of gouwuche){
-                if(gwc.read_status=='B'){
+               
                     gwcc.push(gwc);
                     count=gwcc.length;
-                }
+           
               }
               AppBase.InstInfo.count=count;
               console.log('aaaaaa1'+AppBase.InstInfo.count)
+
+
             })
 
 
     
-    AppBase.xitongApi.xitongnews({}).then((xitongnews)=>{
-      var x=[];
-      for(let xtn of xitongnews){
-        if(xtn.read_status=='B'){
-          x.push(xtn);
-          
-        }
-      }
-      AppBase.InstInfo.count5= AppBase.InstInfo.count33+ AppBase.InstInfo.count44+x.length;
-      console.log('a1'+AppBase.InstInfo.count5);
-    })
+  
 
 
           
