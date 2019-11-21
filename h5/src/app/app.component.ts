@@ -6,11 +6,15 @@ import { AppBase } from './AppBase';
 import { InstApi } from 'src/providers/inst.api';
 import { WechatApi } from 'src/providers/wechat.api';
 import { MemberApi } from 'src/providers/member.api';
+import { DindanApi } from 'src/providers/dindan.api';
+import { XitongApi } from 'src/providers/xitong.api';
+import { ActivityApi } from 'src/providers/activity.api';
+import { OrderApi } from 'src/providers/order.api';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  providers:[InstApi,MemberApi,WechatApi]
+  providers:[InstApi,MemberApi,WechatApi,DindanApi,XitongApi,ActivityApi,OrderApi]
 })
 
 export class AppComponent {
@@ -21,6 +25,10 @@ export class AppComponent {
     private statusBar: StatusBar,
     public instApi:InstApi,
     public memberApi:MemberApi,
+    public dindanApi:DindanApi,
+    public xitongApi:XitongApi,
+    public orderApi:OrderApi,
+    public activityApi:ActivityApi,
     public wechatApi:WechatApi
   )
   
@@ -29,6 +37,10 @@ export class AppComponent {
     this.initializeApp();
     AppBase.instapi = this.instApi;
     AppBase.memberapi=this.memberApi;
+    AppBase.xitongApi=this.xitongApi;
+    AppBase.dindanapi=this.dindanApi;
+    AppBase.orderApi=this.orderApi;
+    AppBase.activityApi=this.activityApi;
     AppBase.wechatApi=this.wechatApi
   }
  

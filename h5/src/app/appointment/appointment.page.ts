@@ -105,7 +105,7 @@ export class AppointmentPage extends AppBase {
 
         var api = this.orderApi;
         api.create({
-           doctor_id: this.params.doctor_id, schedule_id: this.params.schedule_id,hospital_id:this.hospital.id,read_status:'B',read_status1:'B',
+           doctor_id: this.params.doctor_id, schedule_id: this.params.schedule_id,hospital_id:this.hospital.id,
           patientname: patientname, patientmobile: patientmobile, tuijianren: this.MemberInfo.issales_value=='Y'?this.MemberInfo.mobile:tuijianren,photolist:this.photolist.join(","),
           openid:this.openid
         }).then((res) => {

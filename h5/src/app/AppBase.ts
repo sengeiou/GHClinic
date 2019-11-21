@@ -3,7 +3,9 @@ import { AppUtil } from "./app.util";
 import { NavController, ModalController, ToastController, NavParams, AlertController }
     from "@ionic/angular";
 import { InstApi } from "../providers/inst.api";
+import { DindanApi } from '../providers/dindan.api';
 import { MemberApi } from "../providers/member.api";
+import { XitongApi } from '../providers/xitong.api';
 import { WechatApi } from "../providers/wechat.api";
 import { AppComponent } from "./app.component";
 import { ReturnStatement } from "@angular/compiler";
@@ -16,6 +18,10 @@ import { TabsPage } from './tabs/tabs.page';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { Http } from '@angular/http';
 import { RequestOptions } from '@angular/http';
+import { ActivityApi } from '../providers/activity.api';
+import { OrderApi } from '../providers/order.api';
+
+
 
 
 declare let wx: any;
@@ -30,7 +36,11 @@ export class AppBase implements OnInit {
 
     public static myapp: AppComponent = null;
     public static instapi: InstApi = null;
+    public static dindanapi: DindanApi = null;
+    public static xitongApi: XitongApi =null;
+    public static activityApi:ActivityApi=null;
     public static memberapi: MemberApi = null;
+    public static orderApi:OrderApi=null;
     public static wechatApi: WechatApi = null;
     public static UNICODE = "gh";
     public static IsLogin = false;
@@ -39,12 +49,16 @@ export class AppBase implements OnInit {
     public util = AppUtil;
     public static Resources = null;
     public res = null;
+     
+   
+
     public static InstInfo = null;
     public static MemberInfo = null;
     public InstInfo = {
         orderlimit: 2, h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "",
         h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "",
-        memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "",version:"",copyright: ""
+        memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "",version:"",copyright: "",
+        count1:0,count2:0,count:0,count5:0,count33:0,count44:0,count3:0,count4:0
     };
     public openid="";
     public MemberInfo = { avatarUrl: "", nickName: "", h5openid: "", unionid: "", name: '',mobile:"",id:"",photo:'',issales_value:'' };
@@ -168,6 +182,8 @@ export class AppBase implements OnInit {
             this.res = AppBase.Resources;
         }
     }
+    order1=[];
+    order2=[];
     ionViewDidEnter() {
         //AppBase.devicename=AppComponent.Instance.devicename;
         //AppBase.devicename="AppComponent.Instance.devicename";
@@ -189,6 +205,9 @@ export class AppBase implements OnInit {
 
         console.log("这是token");
         console.log(token);
+
+
+
 
 
 
@@ -227,10 +246,123 @@ export class AppBase implements OnInit {
                 this.onMyShow();
             });
         }
-
+      
         this.firseonshow = false;
-    }
 
+    
+    AppBase.activityApi.huoquactivityinfo({}).then((activityinfo)=>{
+    var ainfo=[];
+    var ainfo1=[];
+    var count3=0;
+    var count33=0;
+      for(let ai of activityinfo){
+        var aT=new Date(ai.activity_activitytime).getTime();
+        console.log(ai.activty_activityTime)
+        var nT=new Date().getTime();
+        if(nT-aT<=0){
+          if(ai.zhuangtai=='A'){
+            if(ai.read_status=='B'){
+            ainfo.push(ai)
+            }
+            if(ai.read_status1=='B'){
+              ainfo1.push(ai)
+            }
+          }
+        }
+      }
+      count3=ainfo.length;
+      AppBase.InstInfo.count3=count3; 
+      count33=ainfo1.length;
+      AppBase.InstInfo.count33=count33;  
+      console.log('abcdefg'+AppBase.InstInfo.count3);   
+      console.log('abcdef'+AppBase.InstInfo.count33); 
+    })
+
+    
+    AppBase.orderApi.wodeyuyue({}).then((wodeyuyue)=>{
+    var yuyue=[];
+    var yuyue1=[];
+    var count4=0;
+    var count44=0;
+      for(let yy of wodeyuyue){
+        if(yy.orderstatus=='A'){
+          if(yy.read_status=='B'){
+          yuyue.push(yy);
+          }
+          if(yy.read_status1=='B'){
+            yuyue1.push(yy);
+            }
+        }
+      }
+      count4=yuyue.length;
+      AppBase.InstInfo.count4=count4;
+      console.log(AppBase.InstInfo.count4)
+      count44=yuyue1.length;
+      AppBase.InstInfo.count44=count44;
+      console.log('abcde'+AppBase.InstInfo.count4);
+      console.log('abcd'+AppBase.InstInfo.count44);
+    })
+
+       
+        console.log(AppBase.instapi);
+        console.log( AppBase.dindanapi);
+        AppBase.dindanapi.myorder({}).then((orders)=>{
+          var count1=0;
+          var count2=0;
+          for(let o of orders){
+            if(o.status=='B'){
+              if(o.read_status=='B'){
+              this.order1.push(o);
+            }
+            }
+            if(o.status=='C'){
+              if(o.read_status=='B'){
+              this.order2.push(o);
+            }
+            }
+          }
+          console.log("撒大声地");
+          count1=this.order1.length;
+          count2=this.order2.length;
+          AppBase.InstInfo.count1=count1;
+          AppBase.InstInfo.count2=count2;
+          console.log('abc'+AppBase.InstInfo.count1);
+          console.log('ab'+AppBase.InstInfo.count2);
+        })
+
+
+            
+            AppBase.dindanapi.getgouwuche({}).then((gouwuche)=>{
+            var gwcc=[];
+            var count=0;
+              for(let gwc of gouwuche){
+                if(gwc.read_status=='B'){
+                    gwcc.push(gwc);
+                    count=gwcc.length;
+                }
+              }
+              AppBase.InstInfo.count=count;
+              console.log('aaaaaa1'+AppBase.InstInfo.count)
+            })
+
+
+    
+    AppBase.xitongApi.xitongnews({}).then((xitongnews)=>{
+      var x=[];
+      for(let xtn of xitongnews){
+        if(xtn.read_status=='B'){
+          x.push(xtn);
+          
+        }
+      }
+      AppBase.InstInfo.count5= AppBase.InstInfo.count33+ AppBase.InstInfo.count44+x.length;
+      console.log('a1'+AppBase.InstInfo.count5);
+    })
+
+
+          
+    }
+    
     onMyShow() {
 
     }
