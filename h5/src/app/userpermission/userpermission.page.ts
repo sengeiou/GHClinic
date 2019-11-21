@@ -29,7 +29,7 @@ export class UserpermissionPage extends AppBase {
 
   }
   userpermission=[];
-  
+  needlogin=false;
   onMyLoad() {
     //参数
     this.params;
