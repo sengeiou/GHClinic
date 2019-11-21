@@ -107,8 +107,8 @@ export class ApplicationPage extends AppBase {
 
     var api = this.activityApi;
 
-    var canshu = { activty_id: id, name: xingming, age_id: this.age, phone: shoujihao, zhuangtai: 'A', status: 'A', openid: this.openid,read_status:'B',read_status1:'B' }
-    var canshu1 = { activty_id: id, name: xingming, age_id: this.age, phone: shoujihao, zhuangtai: 'A', status: 'A', openid: this.openid,read_status:'B',read_status1:'B' }
+    var canshu = { activty_id: id, name: xingming, age_id: this.age, phone: shoujihao, zhuangtai: 'A', status: 'A', openid: this.openid }
+    var canshu1 = { activty_id: id, name: xingming, age_id: this.age, phone: shoujihao, zhuangtai: 'A', status: 'A', openid: this.openid }
 
     api.signactivity(this.params.id == undefined ? canshu : canshu1).then(
       (res) => {

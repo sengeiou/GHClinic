@@ -57,7 +57,7 @@
                   <img src='{{uploadpath}}resource/{{res.wodeyuyue}}' alt="" class="icon-10"/>
                 </div>
                 <div class="f12 txt-black margin-top-10">我的预约</div>
-                <div  class="red mglt" *ngIf="count4!=0">{{count4}}</div>
+                <div  class="red mglt" *ngIf="InstInfo.count4!=0">{{InstInfo.count4}}</div>
               </div>
               <div (click)="myPhysicalExamination()">
                 <div>
@@ -70,7 +70,7 @@
                   <img src='{{uploadpath}}resource/{{res.wodehuodon}}' class="icon-10"/>
                 </div>
                 <div class="f12 txt-black margin-top-10">我的活动</div>
-                <div  class="red mglt" *ngIf="count3!=0">{{count3}}</div>
+                <div  class="red mglt" *ngIf="InstInfo.count3!=0">{{InstInfo.count3}}</div>
               </div>
 
 
@@ -104,7 +104,7 @@
                     <img  src='{{uploadpath}}resource/{{res.gouwuche}}' class="icon-10"/>
                   </div>
                   <div class="f12 txt-black margin-top-10">购物车</div>
-                  <div   class="red mglt" *ngIf="count!=0">{{count}}</div>
+                  <div   class="red mglt" *ngIf="InstInfo.count!=0">{{InstInfo.count}}</div>
                 </div>
                 
                 <div>
@@ -112,14 +112,14 @@
                     <img (click)="daifukuan()" src='{{uploadpath}}resource/{{res.daifukuan}}' class="icon-10"/>
                   </div>
                   <div class="f12 txt-black margin-top-10">待付款</div>
-                  <div  class="red mglt" *ngIf="count1!=0">{{count1}}</div>
+                  <div  class="red mglt" *ngIf="InstInfo.count1!=0">{{InstInfo.count1}}</div>
                 </div>
                 <div>
                   <div>
                     <img  (click)="daishouhuo()" src='{{uploadpath}}resource/{{res.daishouhuo}}' class="icon-10"/>
                   </div>
                   <div class="f12 txt-black margin-top-10">待收货</div>
-                  <div  class="red mglt" *ngIf="count2!=0">{{count2}}</div>
+                  <div  class="red mglt" *ngIf="InstInfo.count2!=0">{{InstInfo.count2}}</div>
                 </div>
                 <div>
                   <div>
@@ -144,7 +144,7 @@
                       <img src='{{uploadpath}}resource/{{res.wodexiaoxi}}'class="icon-10"/>
                     </div>
                     <div class="f12 txt-black margin-top-10">我的消息</div>
-                    <div   class="red mglt" *ngIf="count5!=0">{{count5}}</div>
+                    <div   class="red mglt" *ngIf="InstInfo.count5!=0">{{InstInfo.count5}}</div>
                   </div>
                   <div routerLink='/aboutus'>
                     <div>

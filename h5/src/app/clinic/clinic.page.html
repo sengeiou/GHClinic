@@ -87,14 +87,17 @@
     <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
     <p class="p6 margin-top-30">营业时间：{{info.openning}}</p>
     <hr />
-    <p class="p6" (click)='call(info.phone)'>诊所电话：{{info.phone}}</p>
+    <div style="position: relative;">
+      <p class="p6">诊所电话：{{info.phone}}</p>
+      <img src="{{uploadpath}}resource/{{res.call}}" class="icon-24" (click)='call(info.phone)'/>
+    </div>
     <hr />
     <div>
-      <p class="p6" style="float: left">服务项目：</p>
-      <p class="p7" style="float: left">
+      <p class="p6" >服务项目：{{info.servicedesc}}</p>
+      <!-- <p class="p7" style="float: left">
         {{info.servicedesc}}
-      </p>
-      <p style="clear: both;"></p>
+      </p> -->
+      <!-- <p style="clear: both;"></p> -->
       <hr />
     </div>
   </div>
