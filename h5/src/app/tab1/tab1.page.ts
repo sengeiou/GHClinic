@@ -49,7 +49,7 @@ export class Tab1Page extends AppBase {
 
   onMyShow() {
     var slides = document.querySelector('ion-slides');
-    slides.startAutoplay();
+  //  slides.startAutoplay();
     this.getorderlunbo();
    
      console.log("jinlaile");

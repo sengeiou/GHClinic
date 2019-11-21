@@ -90,6 +90,36 @@ export class InformationPage extends AppBase {
     })
 
   }
+  jiage() {
+
+    var taocan = this.taocan;
+
+    taocan.sort(this.jiage1);
+    this.taocan = taocan;
+
+  }
+  jiage1(a, b) {
+
+    var a1 = a['price'];
+    var b1 = b['price'];
+
+    return a1 - b1
+  }
+  xiaolian() {
+
+    var taocan = this.taocan;
+
+    taocan.sort(this.xiaolian1);
+    this.taocan = taocan;
+
+  }
+  xiaolian1(a, b) {
+
+    var a1 = a['xiaolian'];
+    var b1 = b['xiaolian'];
+
+    return b1 - a1
+  }
   gettaocanshuxin() {
     var api = this.tijianApi;
     api.taocanshuxin({}).then((shuxin) => {
@@ -138,18 +168,18 @@ export class InformationPage extends AppBase {
     else {
       var d = new Date();
       this.jintian = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d };
-     
-    console.log(this.jintian);
-       this.riqi=d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+
+      console.log(this.jintian);
+      this.riqi = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
       this.getdoctor();
     }
 
 
 
 
-    
-  
-    this.xzdate = this.jintian.date;
+
+
+    // this.xzdate = this.jintian.date;
     this.qiansantian = this.getQianDay(this.params.riqi);
     console.log(this.qiansantian);
     this.housantian = this.getNextDay(this.params.riqi);
@@ -188,7 +218,7 @@ export class InformationPage extends AppBase {
   }
   getdoctor() {
     var api = this.memberApi;
-        
+
 
 
 
@@ -272,7 +302,7 @@ export class InformationPage extends AppBase {
   riqi = "";
   asd(d, i) {
     console.log("123123123");
-    if (d.pass == true&&d.today==false) {
+    if (d.pass == true && d.today == false) {
       console.log(d);
       console.log("当天");
       return
@@ -429,7 +459,7 @@ export class InformationPage extends AppBase {
   }
 
 
-  comprehensive=()=>{
+  comprehensive = () => {
     var divOne = document.getElementById('divOne')
     var divFour = document.getElementById('divFour')
     if (divOne.style.height === '285px') {
@@ -504,47 +534,44 @@ export class InformationPage extends AppBase {
 
   }
 
-  shuaixuan(){
-    var xinbie=0;
-    var renqun=0;
-    var taocan=0;
-    var taocanshuxin=this.taocanshuxin;
-       
-      taocanshuxin.nianlin.map((item)=>{
-        
-        if(item.xz==true)
-        {
-           xinbie=item.id;
-       
-        }
+  shuaixuan() {
+    var xinbie = 0;
+    var renqun = 0;
+    var taocan = 0;
+    var taocanshuxin = this.taocanshuxin;
 
-      })
-      taocanshuxin.renqun.map((item)=>{
-        if(item.xz==true)
-        {
-          renqun=item.id;
-       
-        }
+    taocanshuxin.nianlin.map((item) => {
 
-      })
-      taocanshuxin.xianmu.map((item)=>{
+      if (item.xz == true) {
+        xinbie = item.id;
 
-        if(item.xz==true)
-        {
-          taocan=item.id;
-       
-        }
-      })
-    
-      var  api=this.tijianApi;
-         
-       api.taocanshaixuan({xinbie:xinbie,renqun:renqun,taocan:taocan}).then((taocan)=>{
-           
-          this.taocan=taocan;
-         this.screen();
-       })
-      
-       
+      }
+
+    })
+    taocanshuxin.renqun.map((item) => {
+      if (item.xz == true) {
+        renqun = item.id;
+
+      }
+
+    })
+    taocanshuxin.xianmu.map((item) => {
+
+      if (item.xz == true) {
+        taocan = item.id;
+
+      }
+    })
+
+    var api = this.tijianApi;
+
+    api.taocanshaixuan({ xinbie: xinbie, renqun: renqun, taocan: taocan }).then((taocan) => {
+
+      this.taocan = taocan;
+      this.screen();
+    })
+
+
 
 
 

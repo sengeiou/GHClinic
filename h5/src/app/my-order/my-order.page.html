@@ -121,7 +121,7 @@
             </div>
             <div class="flex-row flex-center">
               <div class="h5 txt-black flex-1">共{{item.orders.length}}件，合计：￥{{item.amount}}</div>
-              <div class="f12 border-pg text-center " style="color: #F7555A">去评价</div>
+              <div *ngIf="item.status=='F'"  class="f12 border-pg text-center " style="color: #F7555A">去评价</div>
             </div>
           </div>
         </ion-card>
