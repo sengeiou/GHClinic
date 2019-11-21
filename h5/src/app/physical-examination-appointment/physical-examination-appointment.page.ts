@@ -125,7 +125,7 @@ export class PhysicalExaminationAppointmentPage extends AppBase {
       if (ret) {
         var api=this.tijianApi;
         api.create({setmeal_id:this.params.id,hospital_id:this.params.yiyuanid, patientname:canshu.name,patientmobile:canshu.shouji,
-          patientid:canshu.id, openid:this.openid,beizhu:canshu.beizhu
+          patientid:canshu.id, openid:this.openid,beizhu:canshu.beizhu,ordertime:this.params.riqi
         }).then((res)=>{
          
           if(res.code=="233"){
