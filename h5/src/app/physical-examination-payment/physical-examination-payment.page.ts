@@ -31,6 +31,7 @@ export class PhysicalExaminationPaymentPage extends AppBase {
   }
   nt;
   ot;
+  show=true;
   onMyLoad() {
     //参数
     this.params;
@@ -45,7 +46,9 @@ export class PhysicalExaminationPaymentPage extends AppBase {
       this.ot=new Date(xianqin.ordertime).getTime();
       this.nt=new Date().getTime();
       if(xianqin.orderstatus=='B'){
-        if(this.ot-this.nt>=24*60*60*1000){}
+        if(this.ot-this.nt>=24*60*60*1000){
+          this.show=true;
+        }else{this.show=false;}
       }
 
     })
@@ -56,11 +59,15 @@ export class PhysicalExaminationPaymentPage extends AppBase {
   quxiao() {
     var api = this.tijianApi;
 
-    api.quxiaoyuyue({ id: this.params.id }).then((res) => {
+    if(this.show==true){
+      api.quxiaoyuyue({ id: this.params.id }).then((res) => {
 
-      this.back();
-
-    })
+        this.back();
+  
+      })
+    }else{
+      this.toast('无法取消预约，取消预约需在体检开始一天前')
+    }
 
   }
   prepay1() {

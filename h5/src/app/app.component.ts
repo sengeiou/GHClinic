@@ -10,11 +10,12 @@ import { DindanApi } from 'src/providers/dindan.api';
 import { XitongApi } from 'src/providers/xitong.api';
 import { ActivityApi } from 'src/providers/activity.api';
 import { OrderApi } from 'src/providers/order.api';
+import { TijianApi } from 'src/providers/tijian.api';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  providers:[InstApi,MemberApi,WechatApi,DindanApi,XitongApi,ActivityApi,OrderApi]
+  providers:[InstApi,MemberApi,WechatApi,DindanApi,XitongApi,ActivityApi,OrderApi,TijianApi]
 })
 
 export class AppComponent {
@@ -28,6 +29,7 @@ export class AppComponent {
     public dindanApi:DindanApi,
     public xitongApi:XitongApi,
     public orderApi:OrderApi,
+    public tijanApi:TijianApi,
     public activityApi:ActivityApi,
     public wechatApi:WechatApi
   )
@@ -40,6 +42,7 @@ export class AppComponent {
     AppBase.xitongApi=this.xitongApi;
     AppBase.dindanapi=this.dindanApi;
     AppBase.orderApi=this.orderApi;
+    AppBase.tijanApi=this.tijanApi;
     AppBase.activityApi=this.activityApi;
     AppBase.wechatApi=this.wechatApi
   }

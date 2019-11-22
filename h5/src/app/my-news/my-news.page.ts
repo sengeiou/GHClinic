@@ -9,12 +9,13 @@ import { MemberApi } from 'src/providers/member.api';
 import { ActivityApi } from 'src/providers/activity.api';
 import { XitongApi } from 'src/providers/xitong.api';
 import { OrderApi } from 'src/providers/order.api';
+import { TijianApi } from 'src/providers/tijian.api';
 
 @Component({
   selector: 'app-my-news',
   templateUrl: 'my-news.page.html',
   styleUrls: ['my-news.page.scss'],
-  providers:[ActivityApi,XitongApi,OrderApi]
+  providers:[ActivityApi,XitongApi,OrderApi,TijianApi]
 })
 export class MyNewsPage extends AppBase {
 
@@ -26,6 +27,7 @@ export class MyNewsPage extends AppBase {
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
     public xitongApi:XitongApi,
+    public tijanApi:TijianApi,
     public activityApi:ActivityApi,
     public orderApi:OrderApi,
     public memberApi:MemberApi) {
@@ -37,21 +39,16 @@ export class MyNewsPage extends AppBase {
 
   
   id=0;
-  day;
-  month;
-  year;
-  day1;
-  month1;
-  year1;
-  day2;
-  month2;
-  year2;
+  
   xitongnews=[];
   yuyue=[];
-
   
 
+  tijian=[];
+ 
+
   huodong=[];
+  
   onMyLoad(){
     //参数
     this.params;
@@ -63,33 +60,41 @@ export class MyNewsPage extends AppBase {
     this.huoquactivityinfo();
     this.getxitongnews();
     this.getwodeyuyue();
+    this.gettijian();
 
+  }
+  gettijian(){
+    var tjj=[];
+    var api =this.tijanApi;
+    api.wodetijian({}).then((tijian)=>{
+     
+      for(let tj of tijian){
+        if(tj.orderstatus=='B'){
+          tjj.push(tj);
+        }
+      }
+      this.tijian=tjj;
+      console.log(this.tijian)
+    })
   }
   getwodeyuyue(){
     var api=this.orderApi;
     var yuyue=[];
-    var count4=0;
     api.wodeyuyue({}).then((wodeyuyue)=>{
+      
       for(let yy of wodeyuyue){
         if(yy.orderstatus=='A'){
-          yuyue.push('您有一个预约待会诊，请准时参加。');
-          this.day2=new Date(yy.ordertime).getDate();
-          this.month2=new Date(yy.ordertime).getMonth()+1;
-          this.year2=new Date(yy.ordertime).getFullYear();
+          yuyue.push(yy);
         }
       }
       this.yuyue=yuyue;
+      console.log(this.yuyue);
     })
   }
   getxitongnews(){
     var api=this.xitongApi;
     api.xitongnews({}).then((xitongnews)=>{
       this.xitongnews=xitongnews;
-      for(let xtn of xitongnews){
-        this.day1=new Date(xtn.time).getDate();
-        this.month1=new Date(xtn.time).getMonth()+1;
-        this.year1=new Date(xtn.time).getFullYear();
-      }
     })
   }
 
@@ -98,20 +103,12 @@ export class MyNewsPage extends AppBase {
     var api=this.activityApi;
     api.huoquactivityinfo({}).then((activityinfo)=>{
 
-
+    
         for(let aa of activityinfo){
           if(aa.zhuangtai=='A'){
             
-              huodong.push('您已成功报名'+aa.activity_activityname+'的活动，请准时参加。');
-              console.log(aa);
-              this.day=new Date(aa.time).getDate();
-              this.month=new Date(aa.time).getMonth()+1;
-              this.year=new Date(aa.time).getFullYear();
-              this.id=aa.id;
-              
-             
-             
-            
+              huodong.push(aa);
+           
           }
           // else{
             
@@ -136,10 +133,19 @@ export class MyNewsPage extends AppBase {
     })
   }
 
-  // ad(){
+  ad(id){
 
-  //   this.navigate("application-details",{id:this.id})
-  // }
+    this.navigate("application-details",{id:id})
+  }
+
+  yd(id){
+
+    this.navigate("appointment-payment",{id:id})
+  }
+  td(id){
+
+    this.navigate("physical-examination-payment",{id:id})
+  }
   
 
  

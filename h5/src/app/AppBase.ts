@@ -20,6 +20,7 @@ import { Http } from '@angular/http';
 import { RequestOptions } from '@angular/http';
 import { ActivityApi } from '../providers/activity.api';
 import { OrderApi } from '../providers/order.api';
+import { TijianApi } from '../providers/tijian.api';
 
 
 
@@ -41,6 +42,7 @@ export class AppBase implements OnInit {
     public static activityApi:ActivityApi=null;
     public static memberapi: MemberApi = null;
     public static orderApi:OrderApi=null;
+    public static tijanApi:TijianApi=null;
     public static wechatApi: WechatApi = null;
     public static UNICODE = "gh";
     public static IsLogin = false;
@@ -58,7 +60,7 @@ export class AppBase implements OnInit {
         orderlimit: 2, h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "",
         h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "",
         memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "",version:"",copyright: "",
-        count1:0,count2:0,count:0,count5:0,count33:0,count44:0,count3:0,count4:0
+        count1:0,count2:0,count:0,count5:0,count33:0,count44:0,count3:0,count4:0,count6:0
     };
     public openid="";
     public MemberInfo = { avatarUrl: "", nickName: "", h5openid: "", unionid: "", name: '',mobile:"",id:"",photo:'',issales_value:'' };
@@ -248,7 +250,9 @@ export class AppBase implements OnInit {
         }
       
         this.firseonshow = false;
-
+       
+           
+          
     
     AppBase.activityApi.huoquactivityinfo({}).then((activityinfo)=>{
     var ainfo=[];
@@ -261,10 +265,10 @@ export class AppBase implements OnInit {
         var nT=new Date().getTime();
         if(nT-aT<=0){
           if(ai.zhuangtai=='A'){
-          
-            ainfo.push(ai)
-          
             if(ai.read_status=='B'){
+            ainfo.push(ai)
+            }
+            if(ai.read_status1=='B'){
               ainfo1.push(ai)
             }
           }
@@ -283,10 +287,10 @@ export class AppBase implements OnInit {
         var count44=0;
           for(let yy of wodeyuyue){
             if(yy.orderstatus=='A'){
-             
-              yuyue.push(yy);
-           
               if(yy.read_status=='B'){
+              yuyue.push(yy);
+              }
+              if(yy.read_status1=='B'){
                 yuyue1.push(yy);
                 }
             }
@@ -298,7 +302,16 @@ export class AppBase implements OnInit {
           AppBase.InstInfo.count44=count44;
           console.log('abcde'+AppBase.InstInfo.count4);
           console.log('abcd'+AppBase.InstInfo.count44);
-    
+          AppBase.tijanApi.wodetijian({}).then((tijian)=>{
+            var tjj=[];
+            for(let tj of tijian){
+              if(tj.orderstatus=='B'){
+                  if(tj.read_status=='B'){
+                      tjj.push(tj);
+                  }
+              }
+            }
+            AppBase.InstInfo.count6=tjj.length;
           AppBase.xitongApi.xitongnews({}).then((xitongnews)=>{
             var x=[];
             for(let xtn of xitongnews){
@@ -308,9 +321,10 @@ export class AppBase implements OnInit {
               }
             }
          
-            AppBase.InstInfo.count5= AppBase.InstInfo.count33+ AppBase.InstInfo.count44+x.length;
+            AppBase.InstInfo.count5= AppBase.InstInfo.count33+ AppBase.InstInfo.count44+AppBase.InstInfo.count6+x.length;
             console.log('a1'+AppBase.InstInfo.count5);
           })
+        })
         })
     })
 
@@ -320,28 +334,6 @@ export class AppBase implements OnInit {
        
         console.log(AppBase.instapi);
         console.log( AppBase.dindanapi);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -34,6 +34,10 @@
           <div class=" txt-bold " [class.f18]='show==2' [class.c]='show==2' [class.h5]='show!=2'>预约</div>
           <div class="icon-26 bc margin-top-10" *ngIf='show==2'></div>
         </div>
+        <div class=" margin-left-80"  (click)='show=4'>
+          <div class=" txt-bold "[class.f18]='show==4' [class.c]='show==4' [class.h5]='show!=4'>体检</div>
+          <div class="icon-26 bc margin-top-10" *ngIf='show==4'></div>
+        </div>
         <div class=" margin-left-80"  (click)='show=3'>
           <div class=" txt-bold "[class.f18]='show==3' [class.c]='show==3' [class.h5]='show!=3'>活动</div>
           <div class="icon-26 bc margin-top-10" *ngIf='show==3'></div>
@@ -44,12 +48,12 @@
       <div *ngIf='show==0'>
           <div class="margin-left-30" >
               <div  *ngIf='huodong!=null'>   
-                  <div *ngFor='let hd of huodong'  class="margin-top-40">
+                  <div *ngFor='let hd of huodong'  class="margin-top-40" (click)='ad(hd.id)'>
                     <div class="flex-row flex-center">
                       <img alt="" class="icon-24"  src="{{uploadpath}}resource/{{res.huodong}}"/>
-                      <div class="h5 txt-black margin-left-30">{{hd}}</div>
+                      <div class="h5 txt-black margin-left-30">您已成功报名{{hd.activity_activityname}}的活动，请准时参加。</div>
                     </div>
-                    <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{year}}/{{month}}/{{day}}</div>
+                    <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{hd.time_dateformat}}</div>
                     <div class="border-bw margin-top-30 mll" style="opacity: 0.4"></div>
                   </div>
               
@@ -58,12 +62,12 @@
             </div>
 
             <div *ngIf='yuyue!=null'>
-                <div class="margin-left-30 margin-top-40" *ngFor='let yy of yuyue'>
+                <div class="margin-left-30 margin-top-40" *ngFor='let yy of yuyue' (click)='yd(yy.id)'>
                     <div class="flex-row flex-center">
                       <img alt="" class="icon-24" src="{{uploadpath}}resource/{{res.yy}}" />
-                      <div class="h5 txt-black icon-312 margin-left-30">{{yy}}</div>
+                      <div class="h5 txt-black icon-312 margin-left-30">您有一个预约待会诊，请准时参加。</div>
                     </div>
-                    <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{year2}}/{{month2}}/{{day2}}</div>
+                    <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{yy.ordertime_dateformat}}</div>
                     <div class="border-bw margin-top-30 mll" style="opacity: 0.4"></div>
                   </div>
               </div>
@@ -74,7 +78,18 @@
                   <img alt="" class="icon-24" src="{{uploadpath}}resource/{{res.gonggao}}" />
                   <div class="h5 txt-black icon-312 margin-left-30">{{xtn.new}}</div>
                 </div>
-                <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{year1}}/{{month1}}/{{day1}}</div>
+                <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{xtn.time_dateformat}}</div>
+                <div class="border-bw margin-top-30 mll" style="opacity: 0.4"></div>
+              </div>
+          </div>
+
+          <div *ngIf='tijian!=null'>
+            <div class="margin-left-30 margin-top-40" *ngFor='let tj of tijian' (click)='td(tj.id)'>
+                <div class="flex-row flex-center">
+                  <img alt="" class="icon-24" src="{{uploadpath}}resource/{{res.yy}}" />
+                  <div class="h5 txt-black icon-312 margin-left-30">您有一个体检预约已完成，请准时参加。</div>
+                </div>
+                <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{tj.time_dateformat}}</div>
                 <div class="border-bw margin-top-30 mll" style="opacity: 0.4"></div>
               </div>
           </div>
@@ -91,7 +106,7 @@
           <img alt="" class="icon-24" src="{{uploadpath}}resource/{{res.gonggao}}" />
           <div class="h5 txt-black icon-312 margin-left-30">{{xtn.new}}</div>
         </div>
-        <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{year1}}/{{month1}}/{{day1}}</div>
+        <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{xtn.time_dateformat}}</div>
         <div class="border-bw margin-top-30 mll" style="opacity: 0.4"></div>
         </div>
         </div>
@@ -100,12 +115,12 @@
 
       <div class="margin-left-30 margin-top-40" *ngIf='show==2'>
           <div *ngIf='yuyue!=null'>
-          <div *ngFor='let yy of yuyue'>
+          <div *ngFor='let yy of yuyue' (click)='yd(yy.id)'>
           <div class="flex-row flex-center" >
             <img alt="" class="icon-24" src="{{uploadpath}}resource/{{res.yy}}" />
-            <div class="h5 txt-black icon-312 margin-left-30">{{yy}}</div>
+            <div class="h5 txt-black icon-312 margin-left-30">您有一个预约待会诊，请准时参加。</div>
           </div>
-          <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{year2}}/{{month2}}/{{day2}}</div>
+          <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{yy.ordertime_dateformat}}</div>
           <div class="border-bw margin-top-30 mll" style="opacity: 0.4"></div>
           </div>
           </div>
@@ -119,18 +134,35 @@
   
       <div class="margin-left-30"  *ngIf='show==3'>
           <div  *ngIf='huodong!=null'>   
-              <div *ngFor='let hd of huodong'  class="margin-top-40">
+              <div *ngFor='let hd of huodong'  class="margin-top-40" (click)='ad(hd.id)'>
                 <div class="flex-row flex-center">
                   <img alt="" class="icon-24"  src="{{uploadpath}}resource/{{res.huodong}}" />
-                  <div class="h5 txt-black margin-left-30">{{hd}}</div>
+                  <div class="h5 txt-black margin-left-30">您已成功报名{{hd.activity_activityname}}的活动，请准时参加。</div>
                 </div>
-                <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{year}}/{{month}}/{{day}}</div>
+                <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{hd.time_dateformat}}</div>
                 <div class="border-bw margin-top-30 mll" style="opacity: 0.4"></div>
               </div>
              
           </div>
           
         </div>
+
+
+        
+      <div class="margin-left-30"  *ngIf='show==4'>
+        <div  *ngIf='tijian!=null'>   
+            <div *ngFor='let tj of tijian'  class="margin-top-40" (click)='td(tj.id)'>
+              <div class="flex-row flex-center">
+                <img alt="" class="icon-24"  src="{{uploadpath}}resource/{{res.yy}}" />
+                <div class="h5 txt-black margin-left-30">您有一个体检预约已完成，请准时参加。</div>
+              </div>
+              <div class="f12 margin-top-20 margin-left-550" style="color: #6C6969">{{tj.time_dateformat}}</div>
+              <div class="border-bw margin-top-30 mll" style="opacity: 0.4"></div>
+            </div>
+           
+        </div>
+        
+      </div>
 
 
 
