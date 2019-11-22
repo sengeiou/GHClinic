@@ -29,7 +29,8 @@ export class PhysicalExaminationPaymentPage extends AppBase {
     this.headerscroptshow = 480;
 
   }
-
+  nt;
+  ot;
   onMyLoad() {
     //参数
     this.params;
@@ -41,6 +42,11 @@ export class PhysicalExaminationPaymentPage extends AppBase {
     api.info({ id: this.params.id }).then((xianqin) => {
       console.log(xianqin);
       this.xianqin = xianqin
+      this.ot=new Date(xianqin.ordertime).getTime();
+      this.nt=new Date().getTime();
+      if(xianqin.orderstatus=='B'){
+        if(this.ot-this.nt>=24*60*60*1000){}
+      }
 
     })
 
