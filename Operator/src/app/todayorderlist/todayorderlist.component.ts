@@ -154,10 +154,20 @@ export class TodayorderlistComponent extends AppBase {
     }
     return false;
   }
+  // isE(item){
+  //   var nowtime=(new Date()).getTime();
+  //   if(item.orderstatus=="E"
+  //     &&item.ordertime_timespan-nowtime<0
+  //     ){
+  //     return true;
+  //   }
+  //   return false;
+  // }
+
   isE(item){
     var nowtime=(new Date()).getTime();
     if(item.orderstatus=="E"
-      &&item.ordertime_timespan-nowtime<0
+
       ){
       return true;
     }
@@ -253,6 +263,18 @@ export class TodayorderlistComponent extends AppBase {
       }
     }
     this.orders = this.orderD
+  }
+
+  cancel(e){
+    var current = e.target
+    current.classList.add('btn-active')
+    var others = e.target.parentElement.childNodes
+    for(let i=0;i<others.length;i++){
+      if(current!=others[i]){
+        others[i].classList.remove('btn-active')
+      }
+    }
+    this.orders = this.orderE
   }
 
   all(e){
