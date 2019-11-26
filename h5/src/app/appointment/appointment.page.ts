@@ -46,12 +46,20 @@ export class AppointmentPage extends AppBase {
   hospital = null;
   doctor = null;
   schedule = null;
+  keshi=0;
   onMyLoad() {
     //参数
     this.params;
     this.gethospital();
     this.getDoctor();
     this.getSchedule();
+    var api=this.doctorApi;
+    api.keshi({name:this.params.departmentname}).then((res)=>{
+   console.log(res);
+   console.log(1111);
+     this.keshi=res[0].id;
+
+    })
 
   }
   gethospital() {
@@ -107,7 +115,7 @@ export class AppointmentPage extends AppBase {
         api.create({
            doctor_id: this.params.doctor_id, schedule_id: this.params.schedule_id,hospital_id:this.hospital.id,
           patientname: patientname, patientmobile: patientmobile, tuijianren: this.MemberInfo.issales_value=='Y'?this.MemberInfo.mobile:tuijianren,photolist:this.photolist.join(","),
-          openid:this.openid,read_status:'B',read_status1:'B'
+          openid:this.openid,read_status:'B',read_status1:'B',department_id:this.keshi
         }).then((res) => {
 
           if (res.code == 0) {
