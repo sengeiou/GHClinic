@@ -237,7 +237,9 @@ export class DetailPage extends AppBase {
    
   }
 
-
+ fanhui(){
+   this.navigate('/tabs/tab1')
+ }
 
 }
 

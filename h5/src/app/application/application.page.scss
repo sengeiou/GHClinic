@@ -39,6 +39,17 @@
     width: rpx(124*2);
     border-radius: rpx(10)
   }
+  .img1{
+    z-index: 1;
+    width: rpx(100);
+    height: rpx(100);
+    position: fixed;
+    bottom:rpx(100);
+    right: rpx(50);
+    border-radius: 50%;
+    background:#11838D;
+  }  
+
   .div1{
     margin-left: rpx(30);
     float: left;

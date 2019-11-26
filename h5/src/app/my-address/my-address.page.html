@@ -53,7 +53,7 @@
                 </div> -->
       </div>
       <div class="border-bw margin-top-30"></div>
-      <div style="position: absolute;bottom:0;width:100vw;;" class="flex-row ">
+      <div style="position: fixed;bottom:0;width:100vw;;" class="flex-row ">
         <div style="background-color: #B9B9B9" class="txt-white hl flex-1 text-center" (click)="shanchu()" *ngIf="address.primary_id>0">删除</div>
         <div class="txt-white bg-p flex-1 hl text-center" (click)="saveaddress()" >保存</div>
       </div>
@@ -62,6 +62,6 @@
 
 
   </div>
-
+  <img alt="" class="img1"  src="{{uploadpath}}resource/{{res.souye}}" (click)='fanhui()' />
 
 </ion-content>

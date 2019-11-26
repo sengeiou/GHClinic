@@ -142,6 +142,8 @@ export class ApplicationPage extends AppBase {
 
       })
   }
-
+fanhui(){
+  this.navigate('tabs/tab2');
+}
 
 }

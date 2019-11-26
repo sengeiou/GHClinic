@@ -122,4 +122,8 @@ export class MyAddressPage extends AppBase {
     });
   }
 
+  fanhui(){
+    this.navigate('tabs/tab4')
+  }
+
 }

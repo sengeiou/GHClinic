@@ -36,7 +36,7 @@
   @function px($px) {
     @return ($px * 100vw) / 414;
   }
-  
+
   .oneline {
     overflow: hidden;
     /*超出部分隐藏*/
@@ -1171,6 +1171,6 @@
     opacity: 0;
   }
 
-  ion-content{
-    --padding-bottom:30px;
-  }
+  // ion-content{
+  //   --padding-bottom:30px;
+  // }

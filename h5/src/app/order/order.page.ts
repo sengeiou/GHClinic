@@ -234,5 +234,8 @@ export class OrderPage extends AppBase {
     return
 
   }
+  fanhui(){
+    this.navigate('tabs/tab3')
+  }
 
 }
