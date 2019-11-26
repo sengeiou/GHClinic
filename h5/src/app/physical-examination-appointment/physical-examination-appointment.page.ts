@@ -158,4 +158,8 @@ export class PhysicalExaminationAppointmentPage extends AppBase {
     }
     )
   }
+
+  fanhui(){
+    this.navigate('tabs/tab1')
+  }
 }
