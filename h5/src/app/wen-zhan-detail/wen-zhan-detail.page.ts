@@ -55,4 +55,7 @@ export class WenZhanDetailPage extends AppBase {
     console.log(date)
     return date.replace(/-/g,'月')
   }
+  fanhui(){
+    this.navigate('tabs/tab4')
+  }
 }

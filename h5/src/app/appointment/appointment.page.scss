@@ -144,6 +144,16 @@ hr {
   width: rpx(140);
   margin-left: rpx(30)
 }
+.img2{
+  z-index: 1;
+  width: rpx(100);
+  height: rpx(100);
+  position: fixed;
+  bottom:rpx(100);
+  right: rpx(50);
+  border-radius: 50%;
+  background:#11838D;
+}
 
 .p3 {
   font-size: rpx(24);

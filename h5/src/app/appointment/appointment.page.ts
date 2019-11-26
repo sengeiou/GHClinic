@@ -190,6 +190,9 @@ export class AppointmentPage extends AppBase {
 
 
  )}
+ fanhui(){
+   this.navigate('tabs/tab1')
+ }
 
 }
 

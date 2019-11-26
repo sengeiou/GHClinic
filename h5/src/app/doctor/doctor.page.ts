@@ -201,7 +201,9 @@ export class DoctorPage extends AppBase {
 
 
 
-
+  fanhui(){
+    this.navigate('tabs/tab1')
+  }
 
 
 
