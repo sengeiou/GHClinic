@@ -53,8 +53,7 @@ export class AppComponent {
       this.statusBar.styleDefault();
 
       var _self = this;
-      document.addEventListener("backbutton", () => {
-
+      window.addEventListener("popstate", () => {
         if (this.currentpage == "tab1"
         || this.currentpage == "tab2"
         || this.currentpage == "tab3"
@@ -78,7 +77,11 @@ export class AppComponent {
           if (AppBase.Current.isModal) {
             AppBase.Current.close();
           } else {
-            AppBase.Current.back();
+            //history.pushState(null, null, document.URL);
+            if(AppBase.Current.isbacking!=true){
+              window.location.href=window.location.href;
+            }
+            //AppBase.Current.back();
           }
         }
       });
