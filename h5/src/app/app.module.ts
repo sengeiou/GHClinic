@@ -18,6 +18,7 @@ import { HTTP } from '@ionic-native/http/ngx';
     rippleEffect:true,
     swipeBackEnabled:false,
     scrollAssist: true,
+    scrollPadding: true
   }), AppRoutingModule, HttpModule],
   providers: [
     StatusBar,

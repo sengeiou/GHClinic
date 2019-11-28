@@ -665,4 +665,11 @@ export class AppBase implements OnInit {
     ionViewCanLeave(){
         alert(1);
     }
+
+    scrollToTop() {
+        setTimeout(() => {
+            window.scrollTo(0, document.body.scrollTop + 1);
+            document.body.scrollTop >= 1 && window.scrollTo(0, document.body.scrollTop - 1);
+        }, 10)
+    }
 }

@@ -22,7 +22,7 @@
         <div class="card">
             <div class="flex-row flex-center">
               <div >
-                  <input   placeholder="搜索科室/药品名称"/>
+                  <input   (blur)="scrollToTop()"  placeholder="搜索科室/药品名称"/>
                   <img src="{{uploadpath}}resource/{{res.sousuo}}" class="ion-icon1"/>
               </div>
               <div  class="cancel">确定</div>
