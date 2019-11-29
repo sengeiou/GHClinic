@@ -55,12 +55,23 @@
             <div class="f14 flex-1">{{orderinfo.orderstatus_name}}</div>
           </div> -->
         </div>
-        <div *ngIf="continue=='N'" class="padding-29 text-center bg-blue-28 txt-white txt-bold " (click)='startmeeting()'>
-          开始会诊
+        <div class="flex-row " *ngIf="continue=='N'">
+          <div  class="padding-29 text-center flex-5 bg-blue-28 txt-white txt-bold " (click)='startmeeting()'>
+            开始会诊
+          </div>
+          <div class="padding-29 text-center flex-5 bg-gray txt-bold " (click)='back()'>
+           返回
+          </div>
         </div>
-        <div  *ngIf="continue=='Y'" class="padding-29 text-center bg-blue-28 txt-white txt-bold " (click)='startmeeting()'>
-          继续会诊
+        <div class="flex-row " *ngIf="continue=='Y'">
+          <div   class="padding-29 text-center flex-5 bg-blue-28 txt-white txt-bold " (click)='startmeeting()'>
+            继续会诊
+          </div>
+          <div  class="padding-29 text-center flex-5 bg-gray  txt-bold " (click)='back()'>
+           返回
+          </div>
         </div>
+       
         
       </div>
   </div>

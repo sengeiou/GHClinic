@@ -48,7 +48,20 @@ export class DoctorComponent extends AppBase {
   onMyShow() {
 
     this.doctorApi.info({ id: this.params.id }).then((doctor: any) => {
+      var str = ""
+     doctor.departmentlist.filter(item=>{
+     
+        if(str.length>0){
+          str += "、"+item.name ;
+        }else {
+          str +=item.name ;
+        }
+      })
+      doctor.depart = str;
       this.doctor = doctor;
+      
+      console.log(doctor)
+      
     })
 
   }

@@ -83,7 +83,9 @@ export class ConferenceComponent extends AppBase {
       });
     });
   }
-
+  back(){
+    this.navigate("/todayorderlist");
+  }
   play = false;
 
   timeinterval=null;
