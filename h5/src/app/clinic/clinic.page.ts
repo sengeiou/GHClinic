@@ -68,7 +68,7 @@ export class ClinicPage extends AppBase {
      console.log('asdgfdhgf'+info.lat);
      this.map = new AMap.Map("container", {
       resizeEnable: true,
-      center: [info.lat, info.lng],
+      center: [info.lng, info.lat],
       zoom: 16
     });
       var marker = new AMap.Marker({
