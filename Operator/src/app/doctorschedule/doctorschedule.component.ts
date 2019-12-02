@@ -54,70 +54,30 @@ num=[]
     this.operatorApi.doctorlist({needarrange:"Y",sdate,edate}).then((doctorlist:[])=>{
       console.log(doctorlist,'list')
       this.doctorlist=doctorlist;
-      var dates = [];
-      var ent=[];
-      this.doctorlist = this.doctorlist.filter(item=>{
-        for(let date in item.timetable){
-          if(this.check(item.timetable[date])==true){
-            var rq = item.timetable[date].rd.slice(0,8);
+      // var dates = [];
+      // var ent=[];
+      // this.doctorlist = this.doctorlist.filter(item=>{
+      //   for(let date in item.timetable){
+      //     if(this.check(item.timetable[date])==true){
+      //       var rq = item.timetable[date].rd.slice(0,8);
        
-              if(!dates[item.timetable[date].doctor_id]) {
-                  var arr = [];
-                  arr.push(rq);
-                  dates[item.timetable[date].doctor_id] = arr;
-              }else {
+      //         if(!dates[item.timetable[date].doctor_id]) {
+      //             var arr = [];
+      //             arr.push(rq);
+      //             dates[item.timetable[date].doctor_id] = arr;
+      //         }else {
                 
-                dates[item.timetable[date].doctor_id].push(rq)
+      //           dates[item.timetable[date].doctor_id].push(rq)
 
-                for(let d of dates){
-        
-                  console.log(d)
-                  if(d!=undefined){
-                      console.log(this.getRepeatNum(d))
-                      var ds = this.getRepeatNum(d)
-                      for(let k in ds){
-                        if(ds[k]==24){
-                          console.log('111111')
-                        }
-                      }
-                  }
-                }
-              }
-          }
-        }
-        
-
-        // for(let d of dates){
-        //   if(d!=undefined){
-          
-        //   ent.push({
-        //     a:item.id,
-        //     b:d
-        //   })
-          
-        // }
-        
-        // }
-
-       
-
-        return item
-      });
-      console.log(dates)
-      console.log(ent,'uuu')
-      for(let d of dates){
-        
-      //   console.log(d)
-      //   if(d!=undefined){
-      //       console.log(this.getRepeatNum(d))
-      //       var ds = this.getRepeatNum(d)
-      //       for(let k in ds){
-      //         if(ds[k]==24){
-      //           console.log(k,dates)
       //         }
-      //       }
+      //     }
       //   }
-      }
+        
+
+
+      //   return item
+      // });
+     
       
     });
 
@@ -249,13 +209,19 @@ num=[]
           dayname:AppUtil.getDayname(sdate),
           dt:AppUtil.FormatDate2(sdate),
           datestr:AppUtil.FormatDate(sdate),
-          show:0
+          show:0,
+          monday: this.getmonday(AppUtil.FormatDate(sdate))
         };
         wcal.push(d);
     }
     this.wcal=wcal;
+    console.log(this.wcal,"jsakfhsak")
   }
-
+  getmonday(date){
+    date = date.slice(5,10);
+    var dates = date.replace('-','/');
+    return dates;
+  }
   timeline(sdate:Date){
     var now=new Date();
     var nowtime=now.getTime();
