@@ -110,7 +110,12 @@ export class PatientManagementComponent extends AppBase  {
     }
     
   }
-
+  reset(){
+    this.name = "";
+    this.mobile = "";
+    this.date = "";
+    this.onMyShow();
+  }
   yanname(item,str){
     if(item.patientname==str){
       return true

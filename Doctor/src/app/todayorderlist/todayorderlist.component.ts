@@ -130,10 +130,7 @@ export class TodayorderlistComponent extends AppBase {
 
   isB(item){
     var nowtime=(new Date()).getTime();
-    if(item.orderstatus=="B"
-      &&item.ordertime_timespan-nowtime<15*60*1000
-      &&item.ordertime_timespan-nowtime>0
-      ){
+    if(item.orderstatus=="B"){
       return true;
     }
     return false;
