@@ -9,7 +9,6 @@
   <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg"></div>
 </ion-header>
 
-<!-- <ion-content *ngIf="doctorinfo!=null"> -->
 <ion-content>
   <div style="background: #0F848D ;position:fixed;width:100%;z-index: 1;" class="padding-top-40 height-110">
     <div class="flex-row flex-center">
@@ -25,11 +24,11 @@
   <div class="card">
     <div [style.background-image]="'url('+uploadpath+'resource/'+res.beijing+')'" class="height-180">
       <div [style.background-image]="'url('+uploadpath+'doctor/'+doctorinfo.zhaopian+')'" class="height-88 "></div>
-        <div class="margin-top-30 ">
-          <div style="color: #11838D;" class="f18">{{doctorinfo.name}}</div>
-          <div class="f18 txt-black margin-top-5 ">{{doctorinfo.hospital}}</div>
-          <div class="f16 txt-white biaoqian ">{{doctorinfo.title}}</div>
-        </div>
+      <div class="margin-top-30 ">
+        <div style="color: #11838D;" class="f18">{{doctorinfo.name}}</div>
+        <div class="f18 txt-black margin-top-5 ">{{doctorinfo.hospital}}</div>
+        <div class="f16 txt-white biaoqian ">{{doctorinfo.title}}</div>
+      </div>
     </div>
 
     <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">专业擅长</div>
@@ -45,11 +44,9 @@
           <div class="tabbody padding-20 ">
             <div>
               <div class="flex-row flex-center ">
-                <img src="{{uploadpath}}resource/{{res.left}}" class=" padding-20 icon-20 ml"
-                                    (click)="addMonth(-1)">
+                <img src="{{uploadpath}}resource/{{res.left}}" class=" padding-20 icon-20 ml" (click)="addMonth(-1)">
                 <div class="flex-1 text-center" style="color: #0F848D;">{{myear}}年{{mmonth}}月</div>
-                <img src="{{uploadpath}}resource/{{res.rightArrow}}" class=" padding-20  icon-20"
-                                    (click)="addMonth(1)">
+                <img src="{{uploadpath}}resource/{{res.rightArrow}}" class=" padding-20  icon-20" (click)="addMonth(1)">
               </div>
             </div>
             <div class="border-1"></div>
@@ -88,8 +85,10 @@
     <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">选择时间段</div>
     <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
     <div class="flex-row margin-top-30 db">
-      <div class="dibu" [class.txt-white]='show==true' [class.bc]='show==true' [class.c]='show==false' (click)='show=true'>上午</div>
-      <div class="dibu1" [class.txt-white]='show==false' [class.bc]='show==false' [class.c]='show==true' (click)='show=false'>下午</div>
+      <div class="dibu" [class.txt-white]='show==true' [class.bc]='show==true' [class.c]='show==false'
+        (click)='show=true'>上午</div>
+      <div class="dibu1" [class.txt-white]='show==false' [class.bc]='show==false' [class.c]='show==true'
+        (click)='show=false'>下午</div>
     </div>
     <div *ngIf="paiban.length==0" class="margin-left-40 margin-top-30">
       暂无医生排班
@@ -120,7 +119,7 @@
       </div>
     </div>
 
-    <img alt="" class="img1"  src="{{uploadpath}}resource/{{res.souye}}" (click)='fanhui()' /> 
+    <img alt="" class="img1" src="{{uploadpath}}resource/{{res.souye}}" (click)='fanhui()' />
 
 
 
@@ -132,199 +131,4 @@
   </div>
 
 
-
-
-
-
-
-
-  <!-- <div style="background-color: #11838D">
-    <div class="card">
-     <div class="flex-row flex-center">
-        <div>
-
-            <img src='{{uploadpath}}doctor/{{doctorinfo.photo}}' style="border-radius: 50%" />
-          </div>
-          <div >
-            <p>
-              <span class="name">{{doctorinfo.name}}</span>
-              <span class="zhiWei">{{doctorinfo.title}}</span>
-            </p>
-            <p class="address">
-              {{doctorinfo.Hospital}} </p>
-          </div>
-
-     </div>
-
-      <hr />
-    
-      <div class="flex-row flex-center">
-        <div class="p1">专业擅长</div>
-        <div class="p2">{{doctorinfo.description}}</div>
-       
-        
-      </div>
-      <hr />
-    </div>
-  </div>
-  <div class="div2 flex-row flex-center">
-    <div class="span1">预约诊所</div>
-    <div class="span2">{{hospital.name}}</div>
-  </div>
-  <hr />
-  <div>
-    <p class="p3">2019年9月</p>
-    <hr />
- 
-    <div class="flex-row flex-center margin-top-80">
-      <div class="flex-1"></div>
-      <div class="rq  bb1">{{qiansantian[0].d4}}</div>
-      <div class="flex-1"></div>
-      <div class="rq  bb1 ">{{qiansantian[1].d4}}</div>
-      <div class="flex-1"></div>
-      <div class="rq  bb1 ">{{qiansantian[2].d4}}</div>
-      <div class="flex-1"></div>
-      <div class="rq   bb1 ">{{jintian.d4}}</div>
-      <div class="flex-1"></div>
-      <div class="rq  bb1 ">{{housantian[0].d4}}</div>
-      <div class="flex-1"></div>
-      <div class="rq  bb1 ">{{housantian[1].d4}}</div>
-      <div class="flex-1"></div>
-      <div class="rq  bb1 ">{{housantian[2].d4}}</div>
-      <div class="flex-1"></div>
-  </div>
-
-
-
-
-
-  <div class="flex-row flex-center margin-top">
-      <div class="flex-1"></div>
-      <div (click)="clickdate(qiansantian[2],0);jt=0"  [class.jt]="jt==0"  class="rq bb ">{{dlist[0].d3}}</div>
-      <div class="flex-1"></div>
-      <div (click)="clickdate(qiansantian[1],1);jt=1" [class.jt]="jt==1" class="rq bb ">{{dlist[1].d3}}</div>
-      <div class="flex-1"></div>
-      <div (click)="clickdate(qiansantian[0],2);jt=2" [class.jt]="jt==2" class="rq bb ">{{dlist[2].d3}}</div>
-      <div class="flex-1"></div>
-      <div (click)="clickdate(jintian,3);jt=3"        [class.jt]="jt==3"  class="rq bb  jt">{{dlist[3].d3}}</div>
-      <div class="flex-1"></div>
-      <div (click)="clickdate(housantian[0],4);jt=4" [class.jt]="jt==4" class="rq bb ">{{dlist[4].d3}}</div>
-      <div class="flex-1"></div>
-      <div (click)="clickdate(housantian[1],5);jt=5" [class.jt]="jt==5" class="rq bb ">{{dlist[5].d3}}</div>
-      <div class="flex-1"></div>
-      <div (click)="clickdate(housantian[2],6);jt=6" [class.jt]="jt==6" class="rq bb ">{{dlist[6].d3}}</div>
-      <div class="flex-1"></div>
-  </div>
-    <hr />
-  </div>
-  <div>
-    <div class="div3">
-      <p class="p5"  (click)="sw=true"  [class.cxc]='sw==true' style="">预约上午</p>
-      <p class="p5"  (click)="sw=false"   [class.cxc]='sw==false'  >预约下午</p>
-      <p style="clear:both"></p>
-    </div>
-    <table  *ngIf="sw==true" class="table1" >
-      <tr>
-        <td  [class.kx]='danqianyuyue.rq[0].qwe==undefined' (click)="appointment(danqianyuyue.rq[0])" >
-          <span class="span7">08:00</span>
-          <span class="span8">至08:30</span>
-        </td>
-        <td [class.kx]='danqianyuyue.rq[1].qwe==undefined' (click)="appointment(danqianyuyue.rq[1])">
-          <span class="span7">08:30</span>
-          <span class="span8">至09:00</span>
-        </td>
-        <td [class.kx]='danqianyuyue.rq[2].qwe==undefined' (click)="appointment(danqianyuyue.rq[2])">
-          <span class="span7">09:00</span>
-          <span class="span8">至09:30</span>
-        </td>
-      </tr>
-      <tr>
-        <td [class.kx]='danqianyuyue.rq[3].qwe==undefined' (click)="appointment(danqianyuyue.rq[3])">
-          <span class="span7">09:30</span>
-          <span class="span8">至10:00</span>
-        </td>
-        <td [class.kx]='danqianyuyue.rq[4].qwe==undefined' (click)="appointment(danqianyuyue.rq[4])">
-          <span class="span7">10:00</span>
-          <span class="span8">至10:30</span>
-        </td>
-        <td [class.kx]='danqianyuyue.rq[5].qwe==undefined' (click)="appointment(danqianyuyue.rq[5])">
-          <span class="span7">10:30</span>
-          <span class="span8">至11:00</span>
-        </td>
-      </tr>
-      <tr>
-        <td [class.kx]='danqianyuyue.rq[6].qwe==undefined' (click)="appointment(danqianyuyue.rq[6])" [class.yueman]="" >
-          <span class="span7">11:00</span>
-          <span class="span8">至11:30</span>
-        </td>
-        <td [class.kx]='danqianyuyue.rq[7].qwe==undefined' (click)="appointment(danqianyuyue.rq[7])">
-          <span class="span7">11:30</span>
-          <span class="span8">至12:00</span>
-        </td>
-      </tr>
-    </table>
-
-    <table *ngIf="sw==false" class="table1">
-      <tr>
-        <td  [class.kx]='danqianyuyue.rq[8].qwe==undefined'  (click)="appointment(danqianyuyue.rq[8])">
-          <span class="span7">12:00</span>
-          <span class="span8">至12:30</span>
-        </td>
-        <td [class.kx]='danqianyuyue.rq[9].qwe==undefined'  (click)="appointment(danqianyuyue.rq[9])">
-          <span class="span7">12:30</span>
-          <span class="span8">至13:00</span>
-        </td>
-        <td [class.kx]='danqianyuyue.rq[10].qwe==undefined'  (click)="appointment(danqianyuyue.rq[10])">
-          <span class="span7">13:00</span>
-          <span class="span8">至13:30</span>
-        </td>
-      </tr>
-      <tr>
-        <td [class.kx]='danqianyuyue.rq[11].qwe==undefined'  (click)="appointment(danqianyuyue.rq[11])">
-          <span class="span7">13:30</span>
-          <span class="span8">至14:00</span>
-        </td>
-        <td [class.kx]='danqianyuyue.rq[12].qwe==undefined'  (click)="appointment(danqianyuyue.rq[12])">
-          <span class="span7">14:00</span>
-          <span class="span8">至14:30</span>
-        </td>
-        <td [class.kx]='danqianyuyue.rq[13].qwe==undefined'  (click)="appointment(danqianyuyue.rq[13])">
-          <span class="span7">14:30</span>
-          <span class="span8">至15:00</span>
-        </td>
-      </tr>
-      <tr>
-        <td [class.kx]='danqianyuyue.rq[14].qwe==undefined'  (click)="appointment(danqianyuyue.rq[14])"  [class.yueman]="">
-          <span class="span7">15:00</span>
-          <span class="span8">至15:30</span>
-        </td>
-        <td [class.kx]='danqianyuyue.rq[15].qwe==undefined'  (click)="appointment(danqianyuyue.rq[15])">
-          <span class="span7">15:30</span>
-          <span class="span8">至16:00</span>
-        </td>
-        <td [class.kx]='danqianyuyue.rq[16].qwe==undefined'  (click)="appointment(danqianyuyue.rq[16])">
-          <span class="span7">16:00</span>
-          <span class="span8">至16:30</span>
-        </td>
-      </tr>
-
-      <tr>
-        <td [class.kx]='danqianyuyue.rq[17].qwe==undefined'  (click)="appointment(danqianyuyue.rq[17])"  [class.yueman]="">
-          <span class="span7">16:30</span>
-          <span class="span8">至17:00</span>
-        </td>
-        <td [class.kx]='danqianyuyue.rq[18].qwe==undefined'  (click)="appointment(danqianyuyue.rq[18])">
-          <span class="span7">17:00</span>
-          <span class="span8">至17:30</span>
-        </td>
-        <td [class.kx]='danqianyuyue.rq[19].qwe==undefined'  (click)="appointment(danqianyuyue.rq[19])">
-          <span class="span7">17:30</span>
-          <span class="span8">至18:00</span>
-        </td>
-      </tr>
-    </table>
-
-
-
-  </div> -->
 </ion-content>

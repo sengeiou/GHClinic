@@ -40,17 +40,17 @@
   </div>
   <div class="div1 flex-row flex-center">
     <span class="span1 flex-1">姓名</span>
-    <input [(ngModel)]='canshu.name' class="span2" placeholder="请输入体检人姓名" />
+    <input  (blur)="scrollToTop()" [(ngModel)]='canshu.name' class="span2" placeholder="请输入体检人姓名" />
   </div>
   <hr />
   <div class="div1 flex-row flex-center">
     <span class="span1 flex-1">身份证号码</span>
-    <input [(ngModel)]='canshu.id' class="span2" placeholder="请输入身份证号码" maxlength="18"/>
+    <input  (blur)="scrollToTop()" [(ngModel)]='canshu.id' class="span2" placeholder="请输入身份证号码" maxlength="18"/>
   </div>
   <hr />
   <div class="div1 flex-row flex-center">
     <span class="span1 flex-1">联系方式</span>
-    <input [(ngModel)]='canshu.shouji' class="span2" placeholder="请输入手机号码" maxlength="11"/>
+    <input  (blur)="scrollToTop()" [(ngModel)]='canshu.shouji' class="span2" placeholder="请输入手机号码" maxlength="11"/>
   </div>
   <hr />
   <div>

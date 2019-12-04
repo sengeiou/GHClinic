@@ -48,7 +48,20 @@ export class DoctorComponent extends AppBase {
   onMyShow() {
 
     this.doctorApi.info({ id: this.params.id }).then((doctor: any) => {
+      var str = ""
+     doctor.departmentlist.filter(item=>{
+     
+        if(str.length>0){
+          str += "、"+item.name ;
+        }else {
+          str +=item.name ;
+        }
+      })
+      doctor.depart = str;
       this.doctor = doctor;
+      
+      console.log(doctor)
+      
     })
 
   }
@@ -64,13 +77,31 @@ export class DoctorComponent extends AppBase {
       name:this.doctor.name,
       title:this.doctor.title,
       photo:this.doctor.photo,
-      description:this.doctor.description
+      description:this.doctor.description,
+      departmentlist:this.doctor.departmentlist
     };
-    this.operatorApi.doctorupdate(json).then(()=>{
-      this.modalService.show(template,{});
-    });
+    console.log(this.doctor.depart,'llll');
+    var arr = [];
+    arr = this.doctor.depart.split("、");
+    for(let i=0;i<arr.length;i++){
+      if(this.checkdep(arr[i],this.doctor.departmentlist)){
+        console.log(arr[i]);
+      }
+    }
+    console.log(arr)
+    console.log(this.doctor.departmentlist,'2222');
+    // this.operatorApi.doctorupdate(json).then(()=>{
+    //   this.modalService.show(template,{});
+    // });
   }
-
+checkdep(item,arr){
+  for(let nn of arr){
+    if(item==nn.name){
+      return false
+    }
+  }
+  return true
+}
   onUploadOutput(output: UploadOutput): void {
     switch (output.type) {
       case 'allAddedToQueue':

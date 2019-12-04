@@ -13,7 +13,7 @@
             </div>
             
                 <div class="margin-bottom-80 flex-row" >
-                    <button class="btns margin-right-20" (click)='change(item,i)' *ngFor='let item of orderlist;let i=index'>第{{i+1}}次会诊</button>
+                    <button class="btn2 margin-right-20" (click)='change(item,i)' *ngFor='let item of orderlist;let i=index'>{{item.ordertime_formatting}}</button>
                 </div>
                 <div  *ngFor='let item of orderlist;let i=index'>
                     <div class="margin-bottom-80 margin-left-40 f18" *ngIf='memId==i'>

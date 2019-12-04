@@ -67,4 +67,5 @@ export class LoginComponent   extends AppBase  {
     this.submitresult="";
     this.isOpen=false;
   }
+
 }

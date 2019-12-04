@@ -46,18 +46,62 @@ export class DoctorscheduleComponent  extends AppBase  {
   onMyShow(){
     this.loaddata();
   }
-
+num=[]
   loaddata(){
 
     var sdate=AppUtil.FormatDate(new Date());
     var edate=AppUtil.FormatDate( new Date( (new Date()).getTime()+DoctorscheduleComponent.RangeDate*24*3600*1000));
     this.operatorApi.doctorlist({needarrange:"Y",sdate,edate}).then((doctorlist:[])=>{
-      
+      console.log(doctorlist,'list')
       this.doctorlist=doctorlist;
+      // var dates = [];
+      // var ent=[];
+      // this.doctorlist = this.doctorlist.filter(item=>{
+      //   for(let date in item.timetable){
+      //     if(this.check(item.timetable[date])==true){
+      //       var rq = item.timetable[date].rd.slice(0,8);
+       
+      //         if(!dates[item.timetable[date].doctor_id]) {
+      //             var arr = [];
+      //             arr.push(rq);
+      //             dates[item.timetable[date].doctor_id] = arr;
+      //         }else {
+                
+      //           dates[item.timetable[date].doctor_id].push(rq)
 
+      //         }
+      //     }
+      //   }
+        
+
+
+      //   return item
+      // });
+     
+      
     });
 
     this.loadWeekCalendar();
+  }
+
+  getRepeatNum(arr){ 
+    var obj = {}; 
+    
+    for(var i= 0, l = arr.length; i< l; i++){ 
+        var item = arr[i]; 
+        obj[item] = (obj[item] +1 ) || 1; 
+    } 
+    return obj; 
+}
+
+  check(date){
+    var rq = date.rd.slice(0,8);
+    if(date.rd.indexOf(rq)>-1){
+      if(date.isleisure=="Y"){
+        return true
+      }
+    }
+    return false
   }
 
   overdoctor=0;
@@ -74,7 +118,7 @@ export class DoctorscheduleComponent  extends AppBase  {
     this.overtime=0;
   }
 
-  setDate(doctor,date,time){
+  setDate(doctor,date,time,flag){
     var dt=date.dt+time.hour+time.minute;
     if(doctor.timetable[dt]==undefined){
       doctor.timetable[dt]={rd:dt,fdate:date.datestr,ftime:time.hour+":"+time.minute,doctor_id:doctor.id,bookingcount:0};
@@ -85,10 +129,48 @@ export class DoctorscheduleComponent  extends AppBase  {
     if(time.pass==true){
       return;
     }
-    doctor.timetable[dt].isleisure=doctor.timetable[dt].isleisure=='Y'?"N":"Y";
+    if(flag==false){
+      doctor.timetable[dt].isleisure=doctor.timetable[dt].isleisure=='Y'?"N":"Y";
+    }else {
+      doctor.timetable[dt].isleisure=doctor.timetable[dt].isleisure=='Y'?"Y":"Y";
+    }
     this.operatorApi.settime(doctor.timetable[dt]).then((ret:any)=>{
       console.log(ret);
     });
+  }
+
+  xuanzhong(d,doctor,flag){
+    console.log(d)
+    console.log(doctor.id)
+    
+    if(d.pass==true && d.today==false){
+
+        d.show = 0
+      
+    }else if (d.today==true || d.pass==false){
+
+      if(doctor.id == d.show){
+        d.show = 0
+      }else {
+        d.show = doctor.id;
+      }
+     
+    }
+    
+    if(flag==false){
+      for(let i=0;i<d.timeline.length;i++){
+        this.setDate(doctor,d,d.timeline[i],true);
+      }
+    }else {
+      for(let i=0;i<d.timeline.length;i++){
+        this.setDate(doctor,d,d.timeline[i],false);
+      }
+    }
+      
+      
+
+   
+
   }
 
   
@@ -127,12 +209,19 @@ export class DoctorscheduleComponent  extends AppBase  {
           dayname:AppUtil.getDayname(sdate),
           dt:AppUtil.FormatDate2(sdate),
           datestr:AppUtil.FormatDate(sdate),
+          show:0,
+          monday: this.getmonday(AppUtil.FormatDate(sdate))
         };
         wcal.push(d);
     }
     this.wcal=wcal;
+    console.log(this.wcal,"jsakfhsak")
   }
-
+  getmonday(date){
+    date = date.slice(5,10);
+    var dates = date.replace('-','/');
+    return dates;
+  }
   timeline(sdate:Date){
     var now=new Date();
     var nowtime=now.getTime();

@@ -30,7 +30,7 @@ export class DoctorlistComponent extends AppBase  {
       this.doctorlist=doctorlist;
     })
 
-
+  
   }
 
   gotoDoctor(doctor){
