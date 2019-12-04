@@ -55,7 +55,7 @@
             <div class="f14 flex-1">{{orderinfo.orderstatus_name}}</div>
           </div> -->
         </div>
-        <div class="flex-row " *ngIf="continue=='N'">
+        <div class="flex-row " *ngIf="continues=='N'">
           <div  class="padding-29 text-center flex-5 bg-blue-28 txt-white txt-bold " (click)='startmeeting()'>
             开始会诊
           </div>
@@ -63,7 +63,7 @@
            返回
           </div>
         </div>
-        <div class="flex-row " *ngIf="continue=='Y'">
+        <div class="flex-row " *ngIf="continues=='Y'">
           <div   class="padding-29 text-center flex-5 bg-blue-28 txt-white txt-bold " (click)='startmeeting()'>
             继续会诊
           </div>
