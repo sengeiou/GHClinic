@@ -149,10 +149,10 @@ export class ConferenceComponent extends AppBase {
     }
 
 
-    this.testApi.generatertc({userid:that.orderinfo.id}).then((sig: any) => {
+    this.testApi.generatertc({userid:that.orderinfo.id+"_d"}).then((sig: any) => {
       //userId要和generatertc接口中的值一样才不会报错
       var rtc = new WebRTCAPI({
-        userId: that.orderinfo.id,
+        userId: that.orderinfo.id+"_d",
         userSig: sig,
         sdkAppId: that.InstInfo.rtcappid,
         accountType: "1",
@@ -211,7 +211,7 @@ export class ConferenceComponent extends AppBase {
             console.log("kk5", data);
             //alert(data.userId );
             //alert(that.doctorinfo.loginname );
-            if (data && data.stream && data.userId == that.doctorinfo.loginname) {
+            if (data && data.stream && data.userId == that.orderinfo.id) {
               
                 var stream = data.stream;
                 that.remotestream = stream;
@@ -222,7 +222,7 @@ export class ConferenceComponent extends AppBase {
                     remotevideo.play();
                   };
                 } catch (e) {
-                  //alert(e);
+                  alert(e);
                 }
               
             } else {
