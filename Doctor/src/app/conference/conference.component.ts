@@ -206,11 +206,13 @@ export class ConferenceComponent extends AppBase {
             }
           })
 
+
+          //alert("?" );
           rtc.on('onRemoteStreamUpdate', function (data) {
             console.log("kk5", data);
-            //alert(data.userId );
-            //alert(that.doctorinfo.loginname );
-            if (data && data.stream && data.userId == that.doctorinfo.loginname) {
+            //alert(data.userId+"="+that.orderinfo.id+"_d" );
+            if (data && data.stream && data.userId == that.orderinfo.id+"_d") {
+              //  alert(data.userId+"="+that.orderinfo.id+"_d2" );
               
                 var stream = data.stream;
                 that.remotestream = stream;
@@ -221,7 +223,7 @@ export class ConferenceComponent extends AppBase {
                     remotevideo.play();
                   };
                 } catch (e) {
-                  //alert(e);
+                  alert(e);
                 }
               
             } else {
