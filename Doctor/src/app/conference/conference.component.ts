@@ -199,8 +199,11 @@ export class ConferenceComponent extends AppBase {
             if (data && data.stream) {
               var stream = data.stream;
               localvideo.srcObject = stream;
+              localvideo.muted = true;
+              localvideo.autoplay = true;
 
               localvideo.onloadedmetadata = function (e) {
+
                 localvideo.play();
               };
             }
