@@ -60,11 +60,24 @@ export class ConferenceComponent extends AppBase {
   onMyLoad() {
 
   }
-  playcon = true
+  playcon = true;
+  times =0;
+  time1=null
   startmeeting() {
+    this.jishi();
     this.inmeeting = true;
     this.playcon = true
     this.startlive();
+  }
+
+  jishi(){
+    this.time1=setInterval(()=>{
+      this.times++
+    },1000);
+  }
+
+  tizhi(){
+    clearInterval(this.time1);
   }
 
   orderinfo = null;
@@ -126,6 +139,7 @@ export class ConferenceComponent extends AppBase {
     that.rtc.stopRTC({}, () => {
       that.play = false;
     });
+    this.tizhi()
   }
 
   refreshDevices() {

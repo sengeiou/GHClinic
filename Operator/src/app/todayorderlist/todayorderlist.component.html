@@ -11,12 +11,12 @@
   </div>
 
   <div class="margin-top-20 bg-white padding-20 flex-row" style="width: 100%">
-    <div class=" btns btn-active" (click)='waiting($event)'> 待会诊 </div>
-    <div class=" btns" (click)='progress($event)'> 会诊中</div>
-    <div class=" btns" (click)='over($event)'>已结束</div>
-    <div class=" btns" (click)='pass($event)'>已过号</div>
-    <div class=" btns" (click)='cancel($event)'>已取消</div>
-    <div class="btns" (click)='all($event)'> 全部</div>
+    <div class=" btns btn-active" (click)='waiting($event)'> 待会诊 {{ALen}}</div>
+    <div class=" btns" (click)='progress($event)'> 会诊中 {{BLen}}</div>
+    <div class=" btns" (click)='over($event)'>已结束 {{CLen}}</div>
+    <div class=" btns" (click)='pass($event)'>已过号 {{DLen}}</div>
+    <div class=" btns" (click)='cancel($event)'>已取消 {{ELen}}</div>
+    <div class="btns" (click)='all($event)'> 全部 {{ALLLen}}</div>
   </div>
 
 
@@ -59,8 +59,8 @@
                       <div *ngIf='item.orderstatus=="C"'>一</div>
                       <div *ngIf='item.orderstatus=="E"'>一</div>
                       <div  *ngIf='item.orderstatus=="D"'>
-                        <button (click)="gotoConference(item)" class="btn btn-primary">进入会诊</button><br>
-                        <button   data-toggle="modal" data-target="#myModal" class="btn btn-primary margin-top">取消会诊</button>
+                        <button (click)="gotoConference(item)" class="btn btn-primary">进入会诊</button>
+                        <button   data-toggle="modal" data-target="#myModal" class="btn btn-primary margin-left-5">取消会诊</button>
 
 
                             <div class="modal fade" tabindex="-1" role="dialog" id="myModal">

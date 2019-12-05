@@ -62,8 +62,20 @@ export class ConferenceComponent extends AppBase {
   }
 
   startmeeting() {
+    this.jishi();
     this.inmeeting = true;
     this.startlive();
+  }
+  times = 0;
+  time1=null;
+  jishi(){
+    this.time1=setInterval(()=>{
+      this.times++
+    },1000);
+  }
+
+  tizhi(){
+    clearInterval(this.time1);
   }
 
   orderinfo = null;
@@ -263,12 +275,17 @@ export class ConferenceComponent extends AppBase {
     this.orderApi.end({order_id: this.params.order_id}).then((ret)=>{
       if(ret){
         this.stoplive();
+        this.orderApi.timeupdate({order_id: this.params.order_id,time:this.times}).then((ret)=>{
+          console.log(ret);
+        })
+        this.times = 0;
         // this.orderApi.timeupdate({order_id:this.params.order_id}).then(()=>{
 
         // })
         this.navigate("/todayorderlist");
       }
-    })
+    });
+    
   }
 
   loadDevice() {
@@ -336,6 +353,8 @@ imgs = []
 
   zhanting(){
     this.stoplive();
+    this.tizhi();
+    console.log(this.times);
     this.inmeeting = false;
     this.continue = "Y";
   }
