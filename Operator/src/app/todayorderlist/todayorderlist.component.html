@@ -11,12 +11,12 @@
   </div>
 
   <div class="margin-top-20 bg-white padding-20 flex-row" style="width: 100%">
-    <div class=" btns btn-active" (click)='waiting($event)'> 待会诊 {{ALen}}</div>
-    <div class=" btns" (click)='progress($event)'> 会诊中 {{BLen}}</div>
-    <div class=" btns" (click)='over($event)'>已结束 {{CLen}}</div>
-    <div class=" btns" (click)='pass($event)'>已过号 {{DLen}}</div>
-    <div class=" btns" (click)='cancel($event)'>已取消 {{ELen}}</div>
-    <div class="btns" (click)='all($event)'> 全部 {{ALLLen}}</div>
+    <div class=" btns " [class.btn-active]='aa==1' (click)='waiting(1)'> 待会诊 {{ALen}}</div>
+    <div class=" btns" [class.btn-active]='aa==2' (click)='progress(2)'> 会诊中 {{BLen}}</div>
+    <div class=" btns" [class.btn-active]='aa==3' (click)='over(3)'>已结束 {{CLen}}</div>
+    <div class=" btns" [class.btn-active]='aa==4' (click)='pass(4)'>已过号 {{DLen}}</div>
+    <div class=" btns" [class.btn-active]='aa==5' (click)='cancel(5)'>已取消 {{ELen}}</div>
+    <div class="btns" [class.btn-active]='aa==6' (click)='all(6)'> 全部 {{ALLLen}}</div>
   </div>
 
 

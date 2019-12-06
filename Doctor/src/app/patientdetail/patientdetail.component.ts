@@ -30,6 +30,8 @@ export class PatientdetailComponent extends AppBase  {
       console.log(orderlist)
       this.orderlist = orderlist.sort(this.compare("id"))
      for(let i=0;i<this.orderlist.length;i++){
+       this.orderlist[i].minute = (this.orderlist[i].meetingduration/60).toFixed(0);
+       this.orderlist[i].second =  this.orderlist[i].meetingduration%60
       this.zhenresult = this.orderlist[0].result
       this.doctor_id = this.orderlist[0].id
      }

@@ -54,7 +54,8 @@ export class TodayorderlistComponent extends AppBase {
   }
 
   onMyLoad(){
-    this.loadOrder();
+    var temp = this.orderA;
+    this.loadOrder(temp);
     this.loadClock();
     if(this.timer1==undefined){
       this.timer1=setInterval(()=>{
@@ -63,7 +64,20 @@ export class TodayorderlistComponent extends AppBase {
     }
     if(this.timer2==undefined){
       this.timer2=setInterval(()=>{
-        this.loadOrder();
+        if(this.bb==1){
+          var temp = this.orderA;
+        }else if(this.bb==2){
+          var  temp = this.orderB;
+        }else if(this.bb==3){
+          var  temp = this.orderC;
+        }else if(this.bb==4){
+          var temp = this.orderD;
+        }else if(this.bb==5){
+          var  temp = this.orderE;
+        }else if(this.bb==6){
+          var temp = this.allorders;
+        }
+        this.loadOrder(temp);
       },10*1000);
     }
   }
@@ -79,7 +93,7 @@ export class TodayorderlistComponent extends AppBase {
   ELen=0;
   FLen=0;
   ALLLen=0;
-  loadOrder(){
+  loadOrder(temp){
     // console.log("reloading t2",(new Date()));
     var that=this;
     
@@ -122,7 +136,7 @@ export class TodayorderlistComponent extends AppBase {
         that.orderD=orderD;
         that.orderE=orderE;
         that.orderF=orderF;
-        that.orders =orderA;
+        that.orders =temp;
        console.log(that.orderA,'orderA')
        console.log(that.orderB,'orderB')
        console.log(that.orderC,'orderC')
@@ -143,7 +157,7 @@ export class TodayorderlistComponent extends AppBase {
       &&item.ordertime_timespan-nowtime>=0){
       return true;
     }else if(item.orderstatus=="A"
-    &&item.ordertime_timespan-nowtime<0){
+    &&nowtime-item.ordertime_timespan<15*60*1000){
       this.orderApi.guohao({order_id:item.id}).then((guohao)=>{
         console.log(guohao)
       })
@@ -194,66 +208,31 @@ export class TodayorderlistComponent extends AppBase {
       this.navigate("/conference",{order_id:order.id,orderstatus:"B"});
     }
   }
-  orders=[]
+  orders=[];
+  bb=1;
   waiting(e){
-    console.log(e,'e')
-    var current = e.target
-    current.classList.add('btn-active')
-    var others = e.target.parentElement.childNodes
-    for(let i=0;i<others.length;i++){
-      if(current!=others[i]){
-        others[i].classList.remove('btn-active')
-      }
-    }
+   this.bb =e;
     this.orders = this.orderA
 
   }
 
   progress(e){
-    var current = e.target
-    current.classList.add('btn-active')
-    var others = e.target.parentElement.childNodes
-    for(let i=0;i<others.length;i++){
-      if(current!=others[i]){
-        others[i].classList.remove('btn-active')
-      }
-    }
+    this.bb =e;
     this.orders = this.orderB
   }
 
   over(e){
-    var current = e.target
-    current.classList.add('btn-active')
-    var others = e.target.parentElement.childNodes
-    for(let i=0;i<others.length;i++){
-      if(current!=others[i]){
-        others[i].classList.remove('btn-active')
-      }
-    }
+    this.bb =e;
     this.orders = this.orderC
   }
 
   pass(e){
-    var current = e.target
-    current.classList.add('btn-active')
-    var others = e.target.parentElement.childNodes
-    for(let i=0;i<others.length;i++){
-      if(current!=others[i]){
-        others[i].classList.remove('btn-active')
-      }
-    }
+    this.bb =e;
     this.orders = this.orderD
   }
 
   all(e){
-    var current = e.target
-    current.classList.add('btn-active')
-    var others = e.target.parentElement.childNodes
-    for(let i=0;i<others.length;i++){
-      if(current!=others[i]){
-        others[i].classList.remove('btn-active')
-      }
-    }
+    this.bb =e;
     this.orders = this.allorders
   }
 

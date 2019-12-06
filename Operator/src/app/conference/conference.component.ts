@@ -64,7 +64,7 @@ export class ConferenceComponent extends AppBase {
   times =0;
   time1=null
   startmeeting() {
-    this.jishi();
+    
     this.inmeeting = true;
     this.playcon = true
     this.startlive();
@@ -139,7 +139,6 @@ export class ConferenceComponent extends AppBase {
     that.rtc.stopRTC({}, () => {
       that.play = false;
     });
-    this.tizhi()
   }
 
   refreshDevices() {
@@ -233,6 +232,7 @@ export class ConferenceComponent extends AppBase {
                 that.remotestream = stream;
                 console.debug(data.userId + 'enter this room with unique videoId ' + data.videoId, data)
                 remotevideo.srcObject = that.remotestream;
+                this.jishi();
                 try {
                   remotevideo.onloadedmetadata = function (e) {
                     remotevideo.play();
@@ -250,6 +250,7 @@ export class ConferenceComponent extends AppBase {
 
           rtc.on('onRemoteStreamRemove', function (data) {
             //alert("对方断开链接");
+            this.tizhi();
           })
 
 
