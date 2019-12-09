@@ -62,7 +62,7 @@ export class ConferenceComponent extends AppBase {
   }
 
   startmeeting() {
-    
+    this.jishi();
     this.inmeeting = true;
     this.startlive();
   }
@@ -80,10 +80,10 @@ export class ConferenceComponent extends AppBase {
 
   orderinfo = null;
   doctorinfo = null;
-  continues='N'
+  continue='N'
   onMyShow() {
     if(this.params.orderstatus=="B"){
-      this.continues = 'Y'
+      this.continue = 'Y'
     }
 
     this.orderApi.info({ id: this.params.order_id }).then((orderinfo: any) => {
@@ -131,9 +131,7 @@ export class ConferenceComponent extends AppBase {
       this.timeinterval=null;
     }
   }
-  back(){
-    this.navigate("/todayorderlist");
-  }
+
   stoplive() {
     var that = this;
     that.rtc.stopRTC({}, () => {
@@ -235,7 +233,6 @@ export class ConferenceComponent extends AppBase {
                 that.remotestream = stream;
                 console.debug(data.userId + 'enter this room with unique videoId ' + data.videoId, data)
                 remotevideo.srcObject = that.remotestream;
-                this.jishi();
                 try {
                   remotevideo.onloadedmetadata = function (e) {
                     remotevideo.play();
@@ -253,7 +250,6 @@ export class ConferenceComponent extends AppBase {
 
           rtc.on('onRemoteStreamRemove', function (data) {
             //alert("对方断开链接");
-            this.tizhi();
           })
 
 
@@ -360,6 +356,6 @@ imgs = []
     this.tizhi();
     console.log(this.times);
     this.inmeeting = false;
-    this.continues = "Y";
+    this.continue = "Y";
   }
 }
