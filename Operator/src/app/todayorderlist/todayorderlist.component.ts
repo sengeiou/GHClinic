@@ -54,9 +54,15 @@ export class TodayorderlistComponent extends AppBase {
       clearInterval(this.timer2);
     }
   }
-
+aa=1
   onMyLoad(){
-    this.loadOrder();
+    var temp = this.orderA;
+    
+   this.dingshi(temp);
+  }
+
+  dingshi(temp){
+    this.loadOrder(temp);
     this.loadClock();
     if(this.timer1==undefined){
       this.timer1=setInterval(()=>{
@@ -65,7 +71,21 @@ export class TodayorderlistComponent extends AppBase {
     }
     if(this.timer2==undefined){
       this.timer2=setInterval(()=>{
-        this.loadOrder();
+       if(this.aa==1){
+        var temp = this.orderA;
+      }else if(this.aa==2){
+        var  temp = this.orderB;
+      }else if(this.aa==3){
+        var  temp = this.orderC;
+      }else if(this.aa==4){
+        var temp = this.orderD;
+      }else if(this.aa==5){
+        var  temp = this.orderE;
+      }else if(this.aa==6){
+        var temp = this.allorders;
+      }
+        this.loadOrder(temp);
+        console.log(this.aa)
       },10*1000);
     }
   }
@@ -82,7 +102,7 @@ export class TodayorderlistComponent extends AppBase {
   ELen=0;
   FLen=0;
   ALLLen=0;
-  loadOrder(){
+  loadOrder(temp){
     // console.log("reloading t2",(new Date()));
     var that=this;
     
@@ -124,7 +144,7 @@ export class TodayorderlistComponent extends AppBase {
         that.orderD=orderD;
         that.orderE=orderE;
         that.orderF=orderF;
-        that.orders = that.orderA
+        that.orders = temp;
        console.log(that.orderA,'oooooo')
        console.log(this.isA(item),'ppp')
       }
@@ -139,7 +159,7 @@ export class TodayorderlistComponent extends AppBase {
       &&item.ordertime_timespan-nowtime>=0){
       return true;
     }else if(item.orderstatus=="A"
-    &&item.ordertime_timespan-nowtime<0){
+    &&nowtime-item.ordertime_timespan<15*60*1000){
       this.orderApi.guohao({order_id:item.id}).then((guohao)=>{
         console.log(guohao)
       })
@@ -227,79 +247,36 @@ export class TodayorderlistComponent extends AppBase {
       }
     })
   }
-
   orders=[]
-  waiting(e){
-    console.log(e,'e')
-    var current = e.target
-    current.classList.add('btn-active')
-    var others = e.target.parentElement.childNodes
-    for(let i=0;i<others.length;i++){
-      if(current!=others[i]){
-        others[i].classList.remove('btn-active')
-      }
-    }
+  waiting(a){
+    this.aa=a
     this.orders = this.orderA
 
   }
 
-  progress(e){
-    var current = e.target
-    current.classList.add('btn-active')
-    var others = e.target.parentElement.childNodes
-    for(let i=0;i<others.length;i++){
-      if(current!=others[i]){
-        others[i].classList.remove('btn-active')
-      }
-    }
+  progress(a){
+    this.aa=a
     this.orders = this.orderB
   }
 
-  over(e){
-    var current = e.target
-    current.classList.add('btn-active')
-    var others = e.target.parentElement.childNodes
-    for(let i=0;i<others.length;i++){
-      if(current!=others[i]){
-        others[i].classList.remove('btn-active')
-      }
-    }
+  over(a){
+    this.aa=a
     this.orders = this.orderC
   }
 
-  pass(e){
-    var current = e.target
-    current.classList.add('btn-active')
-    var others = e.target.parentElement.childNodes
-    for(let i=0;i<others.length;i++){
-      if(current!=others[i]){
-        others[i].classList.remove('btn-active')
-      }
-    }
+  pass(a){
+    this.aa=a
     this.orders = this.orderD
   }
 
-  cancel(e){
-    var current = e.target
-    current.classList.add('btn-active')
-    var others = e.target.parentElement.childNodes
-    for(let i=0;i<others.length;i++){
-      if(current!=others[i]){
-        others[i].classList.remove('btn-active')
-      }
-    }
+  cancel(a){
+    this.aa=a
     this.orders = this.orderE
   }
 
-  all(e){
-    var current = e.target
-    current.classList.add('btn-active')
-    var others = e.target.parentElement.childNodes
-    for(let i=0;i<others.length;i++){
-      if(current!=others[i]){
-        others[i].classList.remove('btn-active')
-      }
-    }
+  all(a){
+  
+    this.aa=a
     this.orders = this.allorders
     console.log(this.orders,'orders')
   }
