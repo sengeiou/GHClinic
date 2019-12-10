@@ -7,22 +7,20 @@
         <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
       </ion-toolbar> -->
       <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
+      <div style="background: #0F848D ;width:100%" class="padding-top-40 height-110">
+          <div class="" style="text-align: center;"><div class="f16 txt-white ">确认报名</div></div>
+              <div class="flex-row flex-center margin-left-30 mt">
+                <div class="mtt" (click)="back()">
+                  <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+                </div>
+                <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
+              </div>
+      </div>
      
 </ion-header>
 
 <ion-content>
   
-    <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
-        <div class="" style="text-align: center;"><div class="f16 txt-white ">确认报名</div></div>
-            <div class="flex-row flex-center margin-left-30 mt">
-              <div class="mtt" (click)="back()">
-                <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
-              </div>
-              <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
-            </div>
-            
-     
-    </div>
     <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
     <div class="card">
       <div class="div1">

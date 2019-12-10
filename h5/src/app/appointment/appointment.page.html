@@ -7,10 +7,7 @@
         <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
       </ion-toolbar> -->
   <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg"></div>
-</ion-header>
-
-<ion-content>
-  <div style="background: #0F848D ; position:fixed;width:100%" class="padding-top-40 height-110">
+  <div style="background: #0F848D ; width:100%" class="padding-top-40 height-110">
     <div class="flex-row flex-center">
       <div class="marginTop margin-left-30" (click)="back()">
         <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
@@ -20,6 +17,9 @@
 
     </div>
   </div>
+</ion-header>
+
+<ion-content>
   <div style="background: #0F848D;width: 100%;" class="height-40"></div>
   <div class="card">
 
