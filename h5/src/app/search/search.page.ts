@@ -13,7 +13,7 @@ import { MarketApi } from 'src/providers/market.api';
   selector: 'app-search',
   templateUrl: './search.page.html',
   styleUrls: ['./search.page.scss'],
-  providers:[MarketApi]
+  providers: [MarketApi]
 })
 export class SearchPage extends AppBase {
 
@@ -21,7 +21,7 @@ export class SearchPage extends AppBase {
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
-    public marketApi:MarketApi,
+    public marketApi: MarketApi,
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
@@ -30,24 +30,76 @@ export class SearchPage extends AppBase {
     this.headerscroptshow = 480;
 
   }
-  
+  name = '';
   onMyLoad() {
     //参数
     this.params;
   }
   onMyShow() {
-    var api=this.marketApi;
-     api.keywordlist(()=>{
+    var api = this.memberApi;
+    api.getbiaoqian({}).then((biaoqian) => {
+      console.log(biaoqian);
+      this.biaoqian = biaoqian;
+    })
 
-      
-     })
-   
   }
+  biaoqian = [];
+  drugs = [];
+  sousuo() {
 
+    if (this.name == '') {
+
+      return
+
+    }
+    console.log(this.name);
+
+    var api = this.memberApi;
+    var api1 = this.marketApi;
+    api.addsousuojilu({ name: this.name }).then((res) => {
+
+
+      api1.getdrugs({ name: this.name }).then((drugs) => {
+        console.log(drugs);
+        this.drugs = drugs;
+        this.name = '';
+
+      })
+
+
+
+
+    })
+
+
+  }
+  guanjianzisousuo(name) {
+    var api1 = this.marketApi;
+    api1.getdrugs({ name: name }).then((drugs) => {
+      console.log(drugs);
+      this.drugs = drugs;
+      this.name = '';
+
+    })
+  }
+  CommodityDetails(i) {
+    this.navigate("commodity-details", { id: i })
+  }
+  qinkon() {
+
+    var api = this.memberApi;
+    api.qinkonsousuojilu({}).then(() => {
+
+      this.onMyShow();
+
+    })
+
+
+  }
   // searchDrugs(){
   //   this.navigate("search-drugs")
   // }
 
-  
+
 
 }

@@ -78,6 +78,40 @@ export class DoctorApi {
     }
 
 
+    public keshi(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'doctor/keshi';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('doctor/keshi', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('doctor/keshi', data, err);
+            });
+    }
+
+
     public login(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'doctor/login';
         var headers = ApiConfig.GetHeader(url, data);
@@ -176,40 +210,6 @@ export class DoctorApi {
                     ApiConfig.DimissLoadingModal();
                 }
                 return ApiConfig.ErrorHandle('doctor/scheduleinfo', data, err);
-            });
-    }
-
-
-    public keshi(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'doctor/keshi';
-        var headers = ApiConfig.GetHeader(url, data);
-        let options = new RequestOptions({ headers: headers });
-        let body = ApiConfig.ParamUrlencoded(data);
-        let loading = null;
-
-        if (showLoadingModal) {
-            loading = ApiConfig.GetLoadingModal();
-        }
-
-        return this.http.post(url, body, options).toPromise()
-            .then((res) => {
-                if (ApiConfig.DataLoadedHandle('doctor/keshi', data, res)) {
-                    if (showLoadingModal) {
-                        ApiConfig.DimissLoadingModal();
-                    }
-                    if (res==null) {
-                        return null;
-                    }
-                    return res.json();
-                } else {
-                    return Promise.reject(res);
-                }
-            })
-            .catch(err => {
-                if (showLoadingModal) {
-                    ApiConfig.DimissLoadingModal();
-                }
-                return ApiConfig.ErrorHandle('doctor/keshi', data, err);
             });
     }
 
