@@ -54,30 +54,6 @@ num=[]
     this.operatorApi.doctorlist({needarrange:"Y",sdate,edate}).then((doctorlist:[])=>{
       console.log(doctorlist,'list')
       this.doctorlist=doctorlist;
-      // var dates = [];
-      // var ent=[];
-      // this.doctorlist = this.doctorlist.filter(item=>{
-      //   for(let date in item.timetable){
-      //     if(this.check(item.timetable[date])==true){
-      //       var rq = item.timetable[date].rd.slice(0,8);
-       
-      //         if(!dates[item.timetable[date].doctor_id]) {
-      //             var arr = [];
-      //             arr.push(rq);
-      //             dates[item.timetable[date].doctor_id] = arr;
-      //         }else {
-                
-      //           dates[item.timetable[date].doctor_id].push(rq)
-
-      //         }
-      //     }
-      //   }
-        
-
-
-      //   return item
-      // });
-     
       
     });
 
@@ -118,7 +94,7 @@ num=[]
     this.overtime=0;
   }
 
-  setDate(doctor,date,time,flag){
+  setDate(doctor,date,time,flag,i){
     var dt=date.dt+time.hour+time.minute;
     if(doctor.timetable[dt]==undefined){
       doctor.timetable[dt]={rd:dt,fdate:date.datestr,ftime:time.hour+":"+time.minute,doctor_id:doctor.id,bookingcount:0};
@@ -134,9 +110,12 @@ num=[]
     }else {
       doctor.timetable[dt].isleisure=doctor.timetable[dt].isleisure=='Y'?"Y":"Y";
     }
-    this.operatorApi.settime(doctor.timetable[dt]).then((ret:any)=>{
-      console.log(ret);
-    });
+    setTimeout(() => {
+      this.operatorApi.settime(doctor.timetable[dt]).then((ret:any)=>{
+        console.log(ret);
+      });
+    }, i*10);
+    
   }
 
   xuanzhong(d,doctor,flag){
@@ -159,11 +138,11 @@ num=[]
     
     if(flag==false){
       for(let i=0;i<d.timeline.length;i++){
-        this.setDate(doctor,d,d.timeline[i],true);
+        this.setDate(doctor,d,d.timeline[i],true,i);
       }
     }else {
       for(let i=0;i<d.timeline.length;i++){
-        this.setDate(doctor,d,d.timeline[i],false);
+        this.setDate(doctor,d,d.timeline[i],false,i);
       }
     }
       
