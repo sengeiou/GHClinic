@@ -72,7 +72,31 @@ input{
     padding-left:rpx(20);
     padding-right: rpx(20);
     padding-bottom:rpx(8);
-    padding-top:rpx(8)
+    padding-top:rpx(8);
+    margin-top:rpx(10);
+  }
+  .line{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  .div4{
+    margin-top: rpx(30);
+    margin-left: rpx(30);
+    width:rpx(181*2)
+  }
+  
+  .img2{
+    width: rpx(120*2);
+    height: rpx(98*2);
+    border-radius: rpx(20);
+    // margin-top:rpx(30)
+  }
+  .ion-card2{
+    padding:rpx(0);
+    margin-top: rpx(0)
   }
   .span2{
     color:black;

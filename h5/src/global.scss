@@ -56,7 +56,10 @@
  
 
 
+.toast-message{
 
+  color:red !important;
+}
   
 
 
@@ -130,7 +133,9 @@
     align-content: baseline;
     align-items: baseline;
   }
-  
+  .error{
+    color:red
+  }
   .flex-1 {
     flex: 1;
   }

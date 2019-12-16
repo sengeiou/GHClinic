@@ -109,14 +109,32 @@ export class DoctorPage extends AppBase {
   paiban = [];
   getyishenpaiban() {
     var api = this.doctorApi;
+    var now = new Date();
+    var m=now.getMinutes();
+ 
+     var dqdate=this.bu0(now.getHours())+":"+this.bu0(now.getMinutes());
+    console.log(dqdate);
     api.dayschedule({ doctor_id: this.params.id, fdate:this.riqi}).then((paiban) => {
+        
+      paiban=paiban.filter((item)=>{
+
+           return    item.ftime>dqdate
+
+          })
 
       console.log("paiban",paiban);
       this.paiban = paiban;
 
     })
   }
+ bu0(time)
+ {
+  if(time<10){
+    time = ""+"0"+time;
+}
+return time;
 
+ }
 
   danqianyuyue = null;
   dlist = [];

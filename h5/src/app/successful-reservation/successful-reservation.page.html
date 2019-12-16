@@ -60,9 +60,18 @@
               <img src="{{uploadpath}}resource/{{res.keshi}}" class="icon-10" />
           </div>
           <div class="f14 txt-gw margin-left-30">科室：</div>
-          <div class="f14 txt-black margin-left-30">儿科</div>
+          <div class="f14 txt-black margin-left-30">{{order.department_id_name}}</div>
       </div>
-      <div class="border-2 margin-top"></div>
+      <div  *ngIf="order.tuijianren!=''" class="border-2 margin-top"></div>
+
+      <div  *ngIf="order.tuijianren!=''" class="flex-row margin-top-40 margin-left-40 flex-center">
+        <div class="marginTop1">
+            <img src="{{uploadpath}}resource/{{res.keshi}}" class="icon-10" />
+        </div>
+        <div class="f14 txt-gw margin-left-30">推荐人</div>
+        <div class="f14 txt-black margin-left-30">{{order.tuijianren}}</div>
+    </div>
+    <div class="border-2 margin-top"></div>
 
 
 

@@ -34,9 +34,16 @@
           maxlength="11" />
       </div>
       <div class="border-bw margin-top-30"></div>
-      <div class="flex-row margin-left-30 margin-top-30">
+      <div class="flex-row flex-center margin-left-30 margin-top-30">
         <div style="color: #B9B9B9" class="f16 flex-1">地址</div>
-        <input  (blur)="scrollToTop()" class="f16 margin-right-30" [(ngModel)]='address.dizhi'  placeholder="请输入地址" />
+        <ion-select  cancelText="取消"  okText="确认" (ionChange)="switchType($event)" placeholder="请选择">
+          <ion-select-option  *ngFor="let item of shen" [value]="item">{{item.province}}</ion-select-option>
+         
+        </ion-select>
+        <ion-select  cancelText="取消"  okText="确认" (ionChange)="switchshi($event)"    placeholder="请选择">
+          <ion-select-option  *ngFor="let item of shi" [value]="item">{{item.provincecity}}</ion-select-option>
+         
+        </ion-select>
       </div>
       <div class="border-bw margin-top-30"></div>
       <div class="flex-row margin-left-30 margin-top-30">
@@ -62,6 +69,12 @@
 
 
   </div>
+<!-- 
+  <ion-item>
+    <ion-label>地区选择器</ion-label>
+   
+</ion-item> -->
+
   <img alt="" class="img1"  src="{{uploadpath}}resource/{{res.souye}}" (click)='fanhui()' />
 
 </ion-content>

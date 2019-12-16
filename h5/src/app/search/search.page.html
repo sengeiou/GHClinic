@@ -12,7 +12,7 @@
                 <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
             </div>
             <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
-            <div class="f16 txt-white margin-left-200">搜索</div>
+            <div  class="f16 txt-white margin-left-200">搜索</div>
         </div>
     </div>
 </ion-header>
@@ -22,23 +22,47 @@
         <div class="card">
             <div class="flex-row flex-center">
               <div >
-                  <input   (blur)="scrollToTop()"  placeholder="搜索科室/药品名称"/>
+                  <input  [(ngModel)]='name'   (blur)="scrollToTop()"  placeholder="搜索药品名称"/>
                   <img src="{{uploadpath}}resource/{{res.sousuo}}" class="ion-icon1"/>
               </div>
-              <div  class="cancel">确定</div>
+              <div (click)="sousuo()" class="cancel">确定</div>
             </div>
             <div class="flex-row flex-center margin-top-40">
               <div class="p1">搜索历史</div>
-              <ion-icon name="trash" class="ion-icon2"></ion-icon>
+              <ion-icon name="trash"  (click)="qinkon()" class="ion-icon2"></ion-icon>
             </div>
             <div></div>
-             <p>
-                <span class="span1">内科</span>
-                <span class="span2">艾附暖宫丸</span>
-                <span class="span2">妇科</span>
-                <span class="span2">男科</span>               
-              </p>
+              <div class="flex-row flex-center flex-wrap">
+
+          <div  (click)="guanjianzisousuo(item.name)"   *ngFor="let item of biaoqian;let a=index"  class="span1">{{item.name}}</div>
+             
+              </div>
+                
+                   
+            
           
+        </div>
+
+        <div >
+
+            <div class="p1 margin-top-20">搜索结果</div>
+
+          <ion-card class="ion-card2 margin-top-20" *ngFor="let i of drugs;let a=index" (click)="CommodityDetails(i.id)">
+            <div class="flex-row flex-center">
+              <div>
+                <img alt="" class="img2" src="{{uploadpath}}drugs/{{i.photo1}}"/>
+              </div>
+              <div class="div4">
+                <p class="h5 txt-black txt-bold oneline">{{i.name}}</p>
+                <p class="f12 txt-gw  line">{{i.introduce}}</p>
+                <p>
+                  <span style="color:#F7555A" class="h5 txt-bold">￥ {{i.price}}</span>
+                  <span style="text-decoration:line-through;color: #BFBFBF;" class="margin-left-30 f10">原价 ￥ {{i.onprice}}</span>
+                </p>
+              </div>
+            
+            </div>
+          </ion-card>
         </div>
     
 </ion-content>
