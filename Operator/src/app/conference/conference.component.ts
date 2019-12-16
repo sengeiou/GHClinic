@@ -60,19 +60,32 @@ export class ConferenceComponent extends AppBase {
   onMyLoad() {
 
   }
-  playcon = true
+  playcon = true;
+  times =0;
+  time1=null
   startmeeting() {
+    
     this.inmeeting = true;
     this.playcon = true
     this.startlive();
   }
 
+  jishi(){
+    this.time1=setInterval(()=>{
+      this.times++
+    },1000);
+  }
+
+  tizhi(){
+    clearInterval(this.time1);
+  }
+
   orderinfo = null;
   doctorinfo = null;
-  continue="N"
+  continues="N"
   onMyShow() {
     if(this.params.orderstatus=="B"){
-      this.continue="Y"
+      this.continues="Y"
     }
     this.orderApi.info({ id: this.params.order_id }).then((orderinfo: any) => {
       console.log(orderinfo,'ppp')
@@ -126,6 +139,7 @@ export class ConferenceComponent extends AppBase {
     that.rtc.stopRTC({}, () => {
       that.play = false;
     });
+    // this.tizhi()
   }
 
   refreshDevices() {
@@ -149,10 +163,10 @@ export class ConferenceComponent extends AppBase {
     }
 
 
-    this.testApi.generatertc({userid:that.orderinfo.id}).then((sig: any) => {
+    this.testApi.generatertc({userid:that.orderinfo.id+"_d"}).then((sig: any) => {
       //userId要和generatertc接口中的值一样才不会报错
       var rtc = new WebRTCAPI({
-        userId: that.orderinfo.id,
+        userId: that.orderinfo.id+"_d",
         userSig: sig,
         sdkAppId: that.InstInfo.rtcappid,
         accountType: "1",
@@ -200,6 +214,8 @@ export class ConferenceComponent extends AppBase {
             if (data && data.stream) {
               var stream = data.stream;
               localvideo.srcObject = stream;
+              localvideo.muted = true;
+              localvideo.autoplay = true;
 
               localvideo.onloadedmetadata = function (e) {
                 localvideo.play();
@@ -211,18 +227,19 @@ export class ConferenceComponent extends AppBase {
             console.log("kk5", data);
             //alert(data.userId );
             //alert(that.doctorinfo.loginname );
-            if (data && data.stream && data.userId == that.doctorinfo.loginname) {
+            if (data && data.stream && data.userId == that.orderinfo.id) {
               
                 var stream = data.stream;
                 that.remotestream = stream;
                 console.debug(data.userId + 'enter this room with unique videoId ' + data.videoId, data)
                 remotevideo.srcObject = that.remotestream;
+                this.jishi();
                 try {
                   remotevideo.onloadedmetadata = function (e) {
                     remotevideo.play();
                   };
                 } catch (e) {
-                  //alert(e);
+                  alert(e);
                 }
               
             } else {
@@ -234,6 +251,7 @@ export class ConferenceComponent extends AppBase {
 
           rtc.on('onRemoteStreamRemove', function (data) {
             //alert("对方断开链接");
+            this.tizhi();
           })
 
 

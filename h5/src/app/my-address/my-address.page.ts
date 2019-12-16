@@ -8,12 +8,15 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { AddressApi } from 'src/providers/address.api';
 import { ApiConfig } from '../api.config';
+import { ReciveServeProvider } from 'src/provider/activity.api';
+import { InstApi } from 'src/providers/inst.api';
+
 
 @Component({
   selector: 'app-my-address',
   templateUrl: 'my-address.page.html',
   styleUrls: ['my-address.page.scss'],
-  providers: [AddressApi]
+  providers: [AddressApi,ReciveServeProvider,InstApi]
 })
 export class MyAddressPage extends AppBase {
 
@@ -22,15 +25,17 @@ export class MyAddressPage extends AppBase {
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
+    public instApi:InstApi,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
+    private reviceServe: ReciveServeProvider,
     public addressApi: AddressApi,
     public memberApi: MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
 
   }
-
+  listData = [];
   address = {
     primary_id: 0,
     people: "",
@@ -39,9 +44,47 @@ export class MyAddressPage extends AppBase {
     menpaihao: "",
     isdefault: "N"
   };
+  getRequestContact() {
+    this.reviceServe.getRequestContact().subscribe(res => {
+        this.listData = res.json();
+    }, error => {
+        console.log(error);
+    })
+}
+shen=[];
+xzshen='湖南省';
+xzshi='';
+shi=[];
   onMyLoad() {
     //参数
     this.params;
+    this.getRequestContact();
+    var api=this.instApi;
+    api.shen({}).then((shen)=>{
+       console.log(shen);  
+         this.shen=shen;
+ 
+    })
+  }
+  typeTxt='';
+  switchType(e){
+      
+    this.xzshen=e.detail.value.province;
+    var api=this.instApi;
+      api.shi({provinceid:e.detail.value.id}).then((shi)=>{
+        console.log(shi);  
+        this.shi=shi;
+
+      })
+    
+   
+  }
+  switchshi(e)
+  {
+    this.xzshi=e.detail.value.provincecity;
+
+    this.address.dizhi=this.xzshi;
+   
   }
   onMyShow() {
     this.getaddressinfo();

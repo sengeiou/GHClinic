@@ -6,19 +6,19 @@
         </ion-title>
     </ion-toolbar> -->
     <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg" ></div>
+    <div style="background: #0F848D ;width:100%;z-index: 1;" class="padding-top-40 height-110">
+      <div class="flex-row flex-center">
+        <div class="marginTop margin-left-30"  (click)="tab1()">
+          <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+        </div>
+        <div class="f12 txt-white margin-left-10" (click)="tab1()">回到首页</div>
+        <!-- <div class="f16 txt-white flex-1 text-center">预约成功</div> -->
+        <!-- <div class="f12 txt-white mr" (click)="appointmentComplete()">查看预约详情</div> -->
+      </div>
+    </div>
 </ion-header>
 
 <ion-content>
-  <div style="background: #0F848D ;position:fixed;width:100%;z-index: 1;" class="padding-top-40 height-110">
-    <div class="flex-row flex-center">
-      <div class="marginTop margin-left-30"  (click)="tab1()">
-        <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
-      </div>
-      <div class="f12 txt-white margin-left-10" (click)="tab1()">回到首页</div>
-      <!-- <div class="f16 txt-white flex-1 text-center">预约成功</div> -->
-      <!-- <div class="f12 txt-white mr" (click)="appointmentComplete()">查看预约详情</div> -->
-    </div>
-  </div>
   <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
     <div class="card">
       <ion-card  class="bg1" style="overflow: hidden;">
@@ -60,9 +60,18 @@
               <img src="{{uploadpath}}resource/{{res.keshi}}" class="icon-10" />
           </div>
           <div class="f14 txt-gw margin-left-30">科室：</div>
-          <div class="f14 txt-black margin-left-30">儿科</div>
+          <div class="f14 txt-black margin-left-30">{{order.department_id_name}}</div>
       </div>
-      <div class="border-2 margin-top"></div>
+      <div  *ngIf="order.tuijianren!=''" class="border-2 margin-top"></div>
+
+      <div  *ngIf="order.tuijianren!=''" class="flex-row margin-top-40 margin-left-40 flex-center">
+        <div class="marginTop1">
+            <img src="{{uploadpath}}resource/{{res.keshi}}" class="icon-10" />
+        </div>
+        <div class="f14 txt-gw margin-left-30">推荐人</div>
+        <div class="f14 txt-black margin-left-30">{{order.tuijianren}}</div>
+    </div>
+    <div class="border-2 margin-top"></div>
 
 
 

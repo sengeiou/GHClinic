@@ -7,24 +7,19 @@
     <span slot="end" class="h5">编辑</span>
   </ion-toolbar> -->
   <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg"></div>
+  <div style="background: #0F848D ;width:100%;z-index: 1" class="padding-top-40 height-110">
+      <div class="flex-row flex-center margin-left-30">
+        <div class="marginTop" (click)="back()">
+          <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+        </div>
+        <div class="f18 txt-white margin-left">购物车</div>
+      </div>
+    </div>
 </ion-header>
 
+<ion-content >
 
-<ion-content *ngIf="gouwuchelist.length!=0">
-  <div style="background: #0F848D ;position:fixed;width:100%;z-index: 1" class="padding-top-40 height-110">
-    <div class="flex-row flex-center margin-left-30">
-      <div class="marginTop" (click)="back()">
-        <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
-      </div>
-     
-      <div class="f18 txt-white margin-left">购物车</div>
-
-
-  
-
-    </div>
-  </div>
-
+<div *ngIf="gouwuchelist.length!=0">
   <div style="background: #0F848D;width: 100%;" class="height-40"></div>
   <div class="card">
     <ion-card *ngFor="let item of gouwuchelist" class="card1 flex-row flex-center">
@@ -65,8 +60,6 @@
       </div>
       <div class="flex-1"></div>
     </ion-card>
-
-
   </div>
 
   <div class="flex-row" style="position: fixed;bottom:0">
@@ -99,10 +92,8 @@
 
   <img alt="" class="img1"  src="{{uploadpath}}resource/{{res.souye}}" (click)='fanhui()' />
 
-
-</ion-content>
-
-<ion-content *ngIf="gouwuchelist.length==0">
+</div>
+<div *ngIf="gouwuchelist.length==0">
 
   <div style="background: #0F848D ;position:fixed;width:100%;z-index: 1" class="padding-top-40 height-110">
     <div class="flex-row flex-center margin-left-30">
@@ -126,8 +117,8 @@
         <div class="text-center qgg f16" (click)="gotosc()" style="width:60%;background-color: #0F848D;">去逛逛</div>
         <div class="flex-1"></div>
       </div>
-  
     </div>
   </div>
   <img alt="" class="img1"  src="{{uploadpath}}resource/{{res.souye}}" (click)='fanhui()' />
+</div>
 </ion-content>

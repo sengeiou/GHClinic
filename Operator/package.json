@@ -31,6 +31,7 @@
     "popper.js": "^1.15.0",
     "rxjs": "~6.4.0",
     "startbootstrap-sb-admin-2": "^4.0.6",
+    "trtc-js-sdk": "^4.3.1",
     "trtc-sdk": "^3.2.4",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"

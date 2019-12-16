@@ -37,6 +37,12 @@
     @return ($px * 100vw) / 414;
   }
 
+  @function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+
+
   .oneline {
     overflow: hidden;
     /*超出部分隐藏*/
@@ -50,7 +56,10 @@
  
 
 
+.toast-message{
 
+  color:red !important;
+}
   
 
 
@@ -124,7 +133,9 @@
     align-content: baseline;
     align-items: baseline;
   }
-  
+  .error{
+    color:red
+  }
   .flex-1 {
     flex: 1;
   }

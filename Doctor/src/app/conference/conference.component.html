@@ -1,8 +1,8 @@
 
 
 <div   [class.hide]="inmeeting==true" class="flex-row margin-top-60" > 
-    <div class=" margin-left-40 text-right">
-      <img src="{{uploadpath}}resource/{{res.huizhen}}" class="imgss" />
+    <div class=" margin-left-40 text-right imgss">
+      <img src="{{uploadpath}}resource/{{res.huizhen}}" style="width: 100%;height: 100%;" />
       <div class="fixhui">患者正在进入中，请耐心等候...</div>
     </div>
 
@@ -13,12 +13,12 @@
           </div>
           <div class="bg-white border-bottom orderinfoheader">
             <div class="text-center">
-              <img class="bigphoto  mt-5" src="{{uploadpath}}doctor/{{doctorinfo.photo}}" />
+              <img class="bigphoto margin-top  mt-5" src="{{uploadpath}}doctor/{{doctorinfo.photo}}" />
             </div>
-            <div class="f20 txt-bold text-center ">{{doctorinfo.name}}</div>
-            <div class="text-center "> {{doctorinfo.title}}</div>
+            <div class="f20 txt-bold margin-top-60 text-center ">{{doctorinfo.name}}</div>
+            <div class="text-center margin-top"> {{doctorinfo.title}}</div>
             <div class="margin-top"></div>
-            <!-- <div class="h70"></div> -->
+            <div class="h70"></div>
           </div>
           
           <div class="bg-white padding-20">
@@ -34,8 +34,8 @@
               <div class="col-md-2 txt-gray f14">预约状态：</div>
               <div class="col-md-4 f14">{{orderinfo.orderstatus_name}}</div>
             </div> -->
-            <div class="f18 txt-bold  xinxi">预约信息</div>
-            <div class="flex-row  xinxi"> 
+            <div class="f18 txt-bold margin-bottom-10  xinxi">预约信息</div>
+            <div class="flex-row margin-bottom-10  xinxi"> 
               <div class="">预约时间：</div>
               <div class="flex-1">{{orderinfo.ordertime_formatting}}</div>
             </div>
@@ -57,12 +57,21 @@
               <div class="f14 flex-1">{{orderinfo.orderstatus_name}}</div>
             </div> -->
           </div>
-          <div *ngIf='continue=="N"' style="cursor: pointer;" class="padding-29 text-center bg-blue-28 txt-white txt-bold " (click)='startmeeting()'>
-            开始会诊
+          <div class="flex-row " *ngIf="continues=='N'">
+            <div  class="padding-29 text-center flex-5 bg-blue-28 txt-white txt-bold " (click)='startmeeting()'>
+              开始会诊
+            </div>
+            <div class="padding-29 text-center flex-5 bg-gray txt-bold " (click)='back()'>
+             返回
+            </div>
           </div>
-
-          <div *ngIf='continue=="Y"'  style="cursor: pointer;" class="padding-29 text-center bg-blue-28 txt-white txt-bold " (click)='startmeeting()'>
-            继续会诊
+          <div class="flex-row " *ngIf="continues=='Y'">
+            <div   class="padding-29 text-center flex-5 bg-blue-28 txt-white txt-bold " (click)='startmeeting()'>
+              继续会诊
+            </div>
+            <div  class="padding-29 text-center flex-5 bg-gray  txt-bold " (click)='back()'>
+             返回
+            </div>
           </div>
           
         </div>
@@ -83,7 +92,7 @@
     <div class="flex-3 fullheightpercent margin-top-20">
       <div class="menu">
         <div class="menuopt firstmenuopt">
-          00:47
+         {{times}}
         </div>
         <div class="menuopt" [tooltip]="cameraopen==true?'打开摄像头':'关闭摄像头'" placement="right" (click)="toggleCamera()">
           <i class="fas fa-fw fa-video"></i>
@@ -118,7 +127,7 @@
         </div> -->
       </div>
       <video class='fullpercent' id="remotevideo"></video>
-      <video class="localvideo" muted controls="controls" id="localvideo"></video>
+      <video class="localvideo" muted  id="localvideo"></video>
     </div>
     <div class="flex-1">
       <div class="bg-white padding-20">

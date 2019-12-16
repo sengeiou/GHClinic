@@ -7,21 +7,21 @@
         <ion-icon name="close" slot="end" class="ion-icon"></ion-icon>
     </ion-toolbar> -->
     <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg">
-
     </div>
-</ion-header>
-
-<ion-content>
-    <div style="background: #0F848D ;position:fixed;width:100%" class="padding-top-40 height-110">
+    <div style="background: #0F848D ;width:100%" class="padding-top-40 height-110">
         <div class="flex-row flex-center">
             <div class="marginTop" (click)="back()">
                 <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
             </div>
             <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
             <div class="f16 txt-white  flex-1 text-center">{{hospital.name}}</div>
-            <div class="f12 txt-white  marginright" (click)="clinic()" >诊所介绍</div>
+            <div class="f12 txt-white  marginright" (click)="clinic()">诊所介绍</div>
         </div>
     </div>
+
+</ion-header>
+
+<ion-content>
     <div style="background: #0F848D;width: 100%;" class="height-40"></div>
     <div class="card">
         <div class="txt-black f16 txt-bold margin-left-30">预约信息</div>
@@ -106,35 +106,35 @@
 
 
 
-<div  *ngIf="fuwuleibie!='体检'" >
+        <div *ngIf="fuwuleibie!='体检'">
 
-        <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">预约医生</div>
-        <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
+            <div class="txt-black f16 txt-bold margin-left-30 margin-top-40">预约医生</div>
+            <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
 
-        <div  class="mt">
+            <div class="mt">
 
-            <div class="flex-row flex-center" (click)='doctor(item.id)' *ngFor="let item of doctorlist;let i=index">
-                <div>
-                    <img src="{{uploadpath}}doctor/{{item.photo}}" class="icon-128" />
-                    <div class="f12 txt-white beijin">有号</div>
-                </div>
-                <div class="flex-column margin-left-30">
-                    <div class="flex-row flex-center margin-top">
-                        <div style="color: #11838D;" class="f18 margin-top-40 txt-bold">{{item.name}}</div>
-                        <div class="txt-white margin-left-40 biaoqian margin-top-40">{{item.title}}</div>
+                <div class="flex-row flex-center" (click)='doctor(item.id)' *ngFor="let item of doctorlist;let i=index">
+                    <div>
+                        <img src="{{uploadpath}}doctor/{{item.photo}}" class="icon-128" />
+                        <div class="f12 txt-white beijin">有号</div>
                     </div>
-                    <div class="f12 txt-black margin-top">{{item.hospital}}</div>
-                    <div class="f12 txt-gw margin-top yc">{{item.summary}}</div>
-                    <div class="flex-row flex-center margin-top">
-                        <div class="f12 txt-gw">费用：</div>
-                        <div class="f16 txt-bold" style="color: #DF4747;">￥{{item.price}}</div>
+                    <div class="flex-column margin-left-30">
+                        <div class="flex-row flex-center margin-top">
+                            <div style="color: #11838D;" class="f18 margin-top-40 txt-bold">{{item.name}}</div>
+                            <div class="txt-white margin-left-40 biaoqian margin-top-40">{{item.title}}</div>
+                        </div>
+                        <div class="f12 txt-black margin-top">{{item.hospital}}</div>
+                        <div class="f12 txt-gw margin-top yc">{{item.summary}}</div>
+                        <div class="flex-row flex-center margin-top">
+                            <div class="f12 txt-gw">费用：</div>
+                            <div class="f16 txt-bold" style="color: #DF4747;">￥{{item.price}}</div>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
-
-    </div>
 
     </div>
 
@@ -148,79 +148,85 @@
             <img src='{{uploadpath}}resource/{{res.bottom_b}}' class="img1" (click)="comprehensive()" />
             <span class="title">筛选</span>
             <img src='{{uploadpath}}resource/{{res.bottom_b}}' class="img1" (click)="screen()" />
-          </div>
-       
-          <div *ngFor='let item of taocan'  class="ccc" (click)="detail(item.id)">
+        </div>
+
+        <div *ngFor='let item of taocan' class="ccc" (click)="detail(item.id)">
             <div class="flex-row flex-center">
-              <div class="">
-                <img src="{{uploadpath}}setmeal/{{item.cover}}" alt="" class="img2" />
-              </div>
-        
-              <div class="div2">
-                <div>
-                  <span class="span77">{{item.name}}</span>
-                  <span class="span88 margin-left-10">{{item.biaoqian}}</span>
+                <div class="">
+                    <img src="{{uploadpath}}setmeal/{{item.cover}}" alt="" class="img2" />
                 </div>
-                <div class="flex-row  flex-wrap margin-top-10 w-205">
-                <div *ngFor="let item1 of item.tijianxian" class="span9 f12">{{item1.name}}</div>
-              </div>
-        
-                
-              </div>
-        
-         
+
+                <div class="div2">
+                    <div>
+                        <span class="span77">{{item.name}}</span>
+                        <span class="span88 margin-left-10">{{item.biaoqian}}</span>
+                    </div>
+                    <div class="flex-row  flex-wrap margin-top-10 w-205">
+                        <div *ngFor="let item1 of item.tijianxian" class="span9 f12">{{item1.name}}</div>
+                    </div>
+
+
+                </div>
+
+
             </div>
-              <div class=" flex-row">
-                
-                  <div class="span11 flex-1">费用：￥{{item.price}}</div>
-                  <div class="span12">立即预约</div>
-         
-              </div>
+            <div class=" flex-row">
+
+                <div class="span11 flex-1">费用：￥{{item.price}}</div>
+                <div class="span12">立即预约</div>
+
             </div>
-        <div  (click)="comprehensive()" id='divFour' style="display: none"></div>
+        </div>
+        <div (click)="comprehensive()" id='divFour' style="display: none"></div>
         <div id='divOne' style='height:0;display: none'>
             <div class="f16 txt-black margin-top-40 margin-left-30 padding-bottom-20">综合</div>
             <hr />
-            <div  (click)="jiage()" class="flex-row flex-center" style="color: #0F848D;">
-              <div class="flex-1 f16  margin-left-30 padding-bottom-20 margin-top-30">价格最低</div>
-              <div class="f16  margin-right-30">√</div>
+            <div (click)="jiage()" class="flex-row flex-center" style="color: #0F848D;">
+                <div class="flex-1 f16  margin-left-30 padding-bottom-20 margin-top-30">价格最低</div>
+                <div class="f16  margin-right-30">√</div>
             </div>
             <hr />
-           
+
             <div (click)="xiaolian()" class="f16 txt-black margin-left-30 padding-bottom-20 margin-top-30">销量最高</div>
-          </div>
-        
-        
-          <!-- <div style='opacity:0;' id='divTwo'></div> -->
-          <div  (click)="screen()" id='divTwo' style="display: none"></div>
-        
-        
-          <div id='divThree' *ngIf="taocanshuxin!=null" style='height:0;display: none'>
-        
+        </div>
+
+
+        <!-- <div style='opacity:0;' id='divTwo'></div> -->
+        <div (click)="screen()" id='divTwo' style="display: none"></div>
+
+
+        <div id='divThree' *ngIf="taocanshuxin!=null" style='height:0;display: none'>
+
             <div class="f16 txt-black txt-bold margin-top-80 margin-left-40">性别</div>
             <div class="flex-row flex-center margin-top-30 ">
-              <div  (click)="qiehuan1(item)" *ngFor='let item of taocanshuxin.nianlin' class="d1  txt-white  f12 margin-left-40" [class.baise]='!item.xz' [class.txt-black]='!item.xz' [class.bg-p]='item.xz' >{{item.name}}</div>
-              <!-- <div class="d1 txt-black f12 margin-left-40" style="background-color: #F0F2F5">女性</div> -->
+                <div (click)="qiehuan1(item)" *ngFor='let item of taocanshuxin.nianlin'
+                    class="d1  txt-white  f12 margin-left-40" [class.baise]='!item.xz' [class.txt-black]='!item.xz'
+                    [class.bg-p]='item.xz'>{{item.name}}</div>
+                <!-- <div class="d1 txt-black f12 margin-left-40" style="background-color: #F0F2F5">女性</div> -->
             </div>
-        
+
             <div class="f16 txt-black txt-bold margin-top-80 margin-left-40">人群</div>
             <div class="flex-row flex-center margin-top-30 ">
-                    <div  (click)="qiehuan2(item)" *ngFor='let item of taocanshuxin.renqun' [class.baise]='!item.xz' [class.txt-black]='!item.xz' [class.bg-p]='item.xz'  class="d1  txt-white  f12 margin-left-40">{{item.name}}</div>
+                <div (click)="qiehuan2(item)" *ngFor='let item of taocanshuxin.renqun' [class.baise]='!item.xz'
+                    [class.txt-black]='!item.xz' [class.bg-p]='item.xz' class="d1  txt-white  f12 margin-left-40">
+                    {{item.name}}</div>
             </div>
-        
+
             <div class="f16 txt-black txt-bold margin-top-80 margin-left-40">项目</div>
             <div class="flex-row flex-center margin-top-30 ">
-                    <div (click)="qiehuan3(item)"  *ngFor='let item of taocanshuxin.xianmu' [class.baise]='!item.xz' [class.txt-black]='!item.xz'  [class.bg-p]='item.xz' class="d1  txt-white  f12 margin-left-40">{{item.name}}</div>
+                <div (click)="qiehuan3(item)" *ngFor='let item of taocanshuxin.xianmu' [class.baise]='!item.xz'
+                    [class.txt-black]='!item.xz' [class.bg-p]='item.xz' class="d1  txt-white  f12 margin-left-40">
+                    {{item.name}}</div>
             </div>
-      
-        
+
+
             <div class="flex-row" style="bottom: 0;position:absolute">
-              <div (click)='chonzhi()' class="d2 f16" style="background-color: #F9F8F8">重置</div>
-              <div  (click)="shuaixuan()" class="d2 f16 txt-white " style="background: #0F848D;">确定</div>
+                <div (click)='chonzhi()' class="d2 f16" style="background-color: #F9F8F8">重置</div>
+                <div (click)="shuaixuan()" class="d2 f16 txt-white " style="background: #0F848D;">确定</div>
             </div>
-        
-          </div>
-        
+
+        </div>
+
 
     </div>
 
