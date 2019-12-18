@@ -64,10 +64,18 @@ export class ConferenceComponent extends AppBase {
   times =0;
   time1=null
   startmeeting() {
+
+    this.operatorApi.todayorderlist({doctor_id: this.doctor_id,orderstatus:'B'}).then((list:any)=>{
+      if(list.length>=2){
+        this.huizhen = false;
+      }else {
+        this.inmeeting = true;
+        this.playcon = true
+        this.startlive();
+      }
+    })
     
-    this.inmeeting = true;
-    this.playcon = true
-    this.startlive();
+   
   }
 
   jishi(){
@@ -79,10 +87,12 @@ export class ConferenceComponent extends AppBase {
   tizhi(){
     clearInterval(this.time1);
   }
-
+  shunxu=0;
+  huizhen=true
   orderinfo = null;
   doctorinfo = null;
-  continues="N"
+  continues="N";
+  doctor_id='';
   onMyShow() {
     if(this.params.orderstatus=="B"){
       this.continues="Y"
@@ -90,11 +100,35 @@ export class ConferenceComponent extends AppBase {
     this.orderApi.info({ id: this.params.order_id }).then((orderinfo: any) => {
       console.log(orderinfo,'ppp')
       this.orderinfo = orderinfo;
+      this.doctor_id = orderinfo.doctor_id;
       this.doctorApi.info({ id: orderinfo.doctor_id }).then((doctorinfo: any) => {
         this.doctorinfo = doctorinfo;
         this.refreshDevices();
       });
+      this.operatorApi.todayorderlist({doctor_id:orderinfo.doctor_id,orderstatus:'B'}).then((list:any)=>{
+        console.log(list,'LIST')
+        var max=Number(list[0].shunxu);
+        var num = 0;
+        for(let i=0;i<list.length;i++){
+          if(Number(list[i].shunxu)>max){
+            max = Number(list[i].shunxu) ;
+            this.shunxu = max + 1;
+          }else {
+            this.shunxu = max + 1;
+          }
+          num++;
+        }
+        if(num==list.length){
+          this.changeshunxu();
+        }
+      })
     });
+   
+  }
+  changeshunxu(){
+    this.orderApi.shunxu({order_id: this.params.order_id,shunxu: this.shunxu}).then((ret)=>{
+      console.log(ret)
+    })
   }
   back(){
     this.navigate("/todayorderlist");
@@ -104,6 +138,7 @@ export class ConferenceComponent extends AppBase {
   timeinterval=null;
   startlive() {
     var that = this;
+   
     that.rtc.startRTC({ role: "user", stream: that.mystream }, () => {
       that.play = true;
     });

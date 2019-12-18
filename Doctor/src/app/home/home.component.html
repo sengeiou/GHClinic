@@ -51,7 +51,7 @@
           </li> -->
 
           <li class="nav-item"  routerLinkActive="active">
-            <a class="nav-link" href="#"  routerLink="/todayorderlist"  >
+            <a class="nav-link" href="#"  routerLink="/todayorderlist" [queryParams]='{doctor_id:doctorinfo.id}' >
               <i class="fas fa-fw fa-video"></i>
               <span>今日会诊</span></a>
           </li>
