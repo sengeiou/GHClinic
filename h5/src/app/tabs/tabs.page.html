@@ -10,6 +10,7 @@
 
     <ion-tab-button tab="tab2">
       <!-- <ion-icon name="apps"></ion-icon> -->
+      <div class="box" *ngIf='actread=="N"'></div>
       <img *ngIf="flag !='tab2'" src="/assets/icon/jiankangguanli.png" class="icon-24" />
       <img *ngIf="flag =='tab2'" src="/assets/icon/jiankangguanli1.png" class="icon-24" />
       <ion-label class="f12">健康管理</ion-label>

@@ -75,7 +75,12 @@ export class Tab2Page extends AppBase {
 
 
   activityDetails(i){
-
-    this.navigate("activity-details",{id:i})
+    console.log(this.MemberInfo.id,'id')
+    this.memberApi.xiugairead({member_id: this.MemberInfo.id,activity_id:i}).then((ret)=>{
+      console.log(ret)
+      if(ret.code=='0'){
+        this.navigate("activity-details",{id:i})
+      }
+    })
   }
 }

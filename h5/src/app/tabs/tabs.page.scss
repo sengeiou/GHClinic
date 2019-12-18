@@ -1,1 +1,11 @@
 
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+  .box {
+    width: rpx(20);
+    height: rpx(20);
+    background: red;
+    border-radius: 50%;
+    margin-left:35%;
+  }
