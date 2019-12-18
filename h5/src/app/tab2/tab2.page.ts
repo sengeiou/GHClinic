@@ -53,7 +53,7 @@ export class Tab2Page extends AppBase {
      var  activity1=[];
      var activity2=[];
       for(let i of activity){
-        var aT=new Date(i.activitytime).getTime();
+        var aT=new Date(this.changtime(i.activitytime)).getTime();
         var nT=new Date().getTime();
      
         if(nT-aT<=0){
@@ -69,6 +69,10 @@ export class Tab2Page extends AppBase {
       this.activity2=activity2;
       
     })
+  }
+  changtime(date){
+    date = date.replace(/-/g,'/');
+    return date
   }
 
   
