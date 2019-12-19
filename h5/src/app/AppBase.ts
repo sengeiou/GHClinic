@@ -528,7 +528,7 @@ export class AppBase implements OnInit {
     async showAlert(msg) {
 
         const alert = await this.alertCtrl.create({
-            header: "提示",
+            header: "",
             subHeader: msg,
             buttons: ["知道了"]
         });
