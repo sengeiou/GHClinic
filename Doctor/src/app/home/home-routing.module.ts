@@ -11,6 +11,7 @@ import { ActivitylogComponent } from '../activitylog/activitylog.component';
 import { TodayorderlistComponent } from '../todayorderlist/todayorderlist.component';
 import { PatientManagementComponent } from '../patient-management/patient-management.component';
 import { PatientdetailComponent } from '../patientdetail/patientdetail.component';
+import { DoctorscheduleComponent } from '../doctorschedule/doctorschedule.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
       { path: "todayorderlist", component: TodayorderlistComponent },
       { path: "patient-management", component: PatientManagementComponent },
       { path: "patientdetail", component: PatientdetailComponent },
+      { path: "doctorschedule", component: DoctorscheduleComponent },
     ]
   }
 ];

@@ -40,15 +40,15 @@
           <li class="nav-item"  routerLinkActive="active">
             <a class="nav-link" href="#"  routerLink="/calendar"  >
               <i class="fas fa-fw fa-calendar"></i>
-              <span>日程管理</span></a>
+              <span>查看日程</span></a>
           </li>
 
           <!-- Nav Item - Charts -->
-          <!-- <li class="nav-item"  routerLinkActive="active">
-            <a class="nav-link" href="#"  routerLink="/conference"  >
+          <li class="nav-item"  routerLinkActive="active">
+            <a class="nav-link" href="#"  routerLink="/doctorschedule" [queryParams]='{doctor_id:doctorinfo.id}' >
               <i class="fas fa-fw fa-video"></i>
-              <span>视频会诊</span></a>
-          </li> -->
+              <span>日程管理</span></a>
+          </li>
 
           <li class="nav-item"  routerLinkActive="active">
             <a class="nav-link" href="#"  routerLink="/todayorderlist" [queryParams]='{doctor_id:doctorinfo.id}' >

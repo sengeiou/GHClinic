@@ -1,0 +1,60 @@
+.photo{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    border:4px solid #f6c23e;
+}
+
+.tabbody{
+    background: white;
+    border:#dee2e6 solid 1px;
+    border-radius: 0.25rem;
+    border-top: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+
+.wtime{
+    height:30px;
+    padding:3px;
+}
+
+.issat{
+    border-right: #dee2e6 solid 1px;
+}
+
+.pass{
+    background: #eeeeee;
+}
+.today{
+    //background: #d4f8b7;
+}
+.tpass{
+    background: #eeeeee !important;
+}
+.wtime{
+    border-bottom: #dee2e6 1px dotted; 
+}
+
+.isleisure{
+    background: #d4f8b7;
+}
+.isnoon{
+    border-bottom: gray 1px solid;
+}
+
+.bookingcount{
+    background: #f6c23e;
+}
+.over{
+    background: lightblue;
+}
+.overborder{
+    border-top: lightblue 1px solid;
+    border-bottom: lightblue 1px solid;
+}
+.overdayborder{
+    border-left: lightblue 1px solid;
+    border-right: lightblue 1px solid;
+}

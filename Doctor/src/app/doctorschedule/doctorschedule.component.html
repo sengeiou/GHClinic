@@ -1,0 +1,44 @@
+<div class="container-fluid">
+
+
+    <div class="tabbody padding-20 ">
+        <div class=" primary-block  text-white ">
+            <div class="flex-row flex-center ">
+              <div class="h3 padding-20" (click)="addWeek(-1)">
+                <i class="fa fa-angle-left"></i>
+              </div>
+              <div class="flex-1 text-center">{{wyear}}年{{wmonth}}月</div>
+              <div class="h3 padding-20" (click)="addWeek(1)">
+                <i class="fa fa-angle-right "></i>
+              </div>
+            </div>
+          </div>
+          <div class="flex-row  " >
+              <div class="flex-1">
+                <div class=" primary-block text-white padding-20">时间</div>
+                <div *ngFor="let t of wtimeline;">
+                  <div  class="wtime pass" [class.under]='t.minute==30' >{{t.hour}}:{{t.minute}}</div>
+                </div>
+              </div>
+              <div class="flex-1" *ngFor="let d of wcal;let i=index;">
+                <div class="" [class.issat]="i==6" [class.today]='d.today==true'>
+                  <div class=" primary-block text-white  padding-20">{{d.dayname}} ( {{d.today?"今天":d.d}} <span *ngIf='d.today==false'>日</span> )</div>
+                  <div class="" *ngFor="let t of d.timeline;">
+                      <div class="wtime text-center" [class.isnoon]='t.hour=="12"&&t.minute=="30"'
+                      [class.isleisure]='weekschedule[d.dt+t.hour+t.minute]!=undefined&&weekschedule[d.dt+t.hour+t.minute].isleisure=="Y"'
+                      (click)='setDate(weekschedule,d,t)' (mouseover)='setMouseOver(d,t)' (mouseout)='clearMouseOver()'
+                      [class.under]='t.minute==30' [class.today]='d.today==true' [class.tpass]='t.pass==true'
+                      [class.bookingcount]='weekschedule[d.dt+t.hour+t.minute]!=undefined&&weekschedule[d.dt+t.hour+t.minute].bookingcount>0'
+                      >
+                    <!-- {{weekschedule[d.dt+t.hour+t.minute]!=undefined&&weekschedule[d.dt+t.hour+t.minute].bookingcount>0?
+                      weekschedule[d.dt+t.hour+t.minute].bookingcount+"人":""
+                    }} -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+    </div>
+
+  </div>
+  

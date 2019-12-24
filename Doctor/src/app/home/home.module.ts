@@ -17,6 +17,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { TodayorderlistComponent } from '../todayorderlist/todayorderlist.component';
 import { PatientManagementComponent } from '../patient-management/patient-management.component';
 import { PatientdetailComponent } from '../patientdetail/patientdetail.component';
+import { DoctorscheduleComponent } from '../doctorschedule/doctorschedule.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { PatientdetailComponent } from '../patientdetail/patientdetail.component
     TodayorderlistComponent,
     PatientManagementComponent,
     PatientdetailComponent,
-    DashboardComponent],
+    DashboardComponent,
+    DoctorscheduleComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
