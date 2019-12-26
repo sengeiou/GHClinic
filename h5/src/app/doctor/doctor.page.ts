@@ -96,7 +96,7 @@ export class DoctorPage extends AppBase {
     // console.log(this.housantian);
 
 
-    this.getyishenpaiban();
+    this.getyishenpaiban(true);
 
   }
   appointment(ban) {
@@ -107,18 +107,23 @@ export class DoctorPage extends AppBase {
   }
 
   paiban = [];
-  getyishenpaiban() {
+  getyishenpaiban(flag) {
     var api = this.doctorApi;
     var now = new Date();
     var m=now.getMinutes();
  
      var dqdate=this.bu0(now.getHours())+":"+this.bu0(now.getMinutes());
     console.log(dqdate);
+    console.log(this.riqi,'paiban');
     api.dayschedule({ doctor_id: this.params.id, fdate:this.riqi}).then((paiban) => {
-        
-      paiban=paiban.filter((item)=>{
 
-           return    item.ftime>dqdate
+      paiban=paiban.filter((item)=>{
+          if(flag==true){
+            return    item.ftime>dqdate
+          }else if(flag==false){
+            return item
+          }
+          
 
           })
 
@@ -173,7 +178,7 @@ return time;
     else {
       this.riqi = d.dt;
     }
-    this.getyishenpaiban();
+    this.getyishenpaiban(false);
   }
   addMonth(m) {
     this.mdate = new Date(this.mdate.getFullYear(), this.mdate.getMonth() + m, 1);
