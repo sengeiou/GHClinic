@@ -26,9 +26,9 @@
 
 
 
-    <ion-slides pager="true"  class="div-360" *ngIf="bannerlist.length>0">
-      <ion-slide *ngFor="let item of bannerlist">
-        <img src="{{uploadpath}}hospitalbanner/{{item.img}}" />
+    <ion-slides pager="true" class="div-361"  *ngIf="bannerlist.length>0">
+      <ion-slide  style="width:100%" *ngFor="let item of bannerlist">
+        <img  style="width:100%;display:block;"  src="{{uploadpath}}hospitalbanner/{{item.img}}" />
       </ion-slide>
     </ion-slides>
 
