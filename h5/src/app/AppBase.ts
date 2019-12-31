@@ -122,10 +122,10 @@ export class AppBase implements OnInit {
     getisread() {
 
         if (this.MemberInfo.id != '') {
-            console.log(this.MemberInfo.id,'ididid')
+            console.log(this.MemberInfo.id, 'ididid')
             AppBase.memberapi.actvityisread({ member_id: this.MemberInfo.id }).then((ret: any) => {
-                    console.log(ret,'retret')
-                if (ret.code=='0') {
+                console.log(ret, 'retret')
+                if (ret.code == '0') {
                     this.actread = 'Y'
                 } else {
                     this.actread = 'N'
@@ -409,16 +409,16 @@ export class AppBase implements OnInit {
 
 
 
-
-        setInterval(() => {
-            this.getact();
-            this.getisread();
-            console.log('好几个')
-        }, 3000);
-
+    
+        
+                this.getact();
+                this.getisread();
+             
+        
+       
 
     }
-
+    a = null;
     onMyShow() {
 
     }

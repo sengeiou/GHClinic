@@ -18,13 +18,18 @@ export class TabsPage {
       AppBase.LASTTAB.ionViewDidEnter();
      
     }
-    setInterval(() => {
-      // this.getact();
-      this.getisread();
-      console.log('这里')
-  }, 3000);
+
+ 
+     
+          
+          this.getisread();
+          console.log('好几个')
+    
+  
+    
 
   }
+  a=null;
   flag = 'tab1';
   change(event)
 
