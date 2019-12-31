@@ -18,7 +18,11 @@ export class TabsPage {
       AppBase.LASTTAB.ionViewDidEnter();
      
     }
-
+    setInterval(() => {
+      // this.getact();
+      this.getisread();
+      console.log('这里')
+  }, 3000);
 
   }
   flag = 'tab1';
@@ -28,4 +32,21 @@ export class TabsPage {
     this.flag=event.detail.tab;
  
   }
+  actread = 'Y';
+  getisread() {
+
+    if (AppBase.MemberInfo.id != '') {
+        console.log(AppBase.MemberInfo.id,'ididid')
+        AppBase.memberapi.actvityisread({ member_id: AppBase.MemberInfo.id }).then((ret: any) => {
+                console.log(ret,'retret')
+            if (ret.code=='0') {
+                this.actread = 'Y'
+            } else {
+                this.actread = 'N'
+            }
+        })
+
+    }
+
+}
 }

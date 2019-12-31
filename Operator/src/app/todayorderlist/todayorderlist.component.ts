@@ -56,7 +56,7 @@ export class TodayorderlistComponent extends AppBase {
   }
 aa=1
   onMyLoad(){
-    var temp = this.orderA;
+    var temp = 'a';
     
    this.dingshi(temp);
   }
@@ -144,7 +144,12 @@ aa=1
         that.orderD=orderD;
         that.orderE=orderE;
         that.orderF=orderF;
-        that.orders = temp;
+        if(temp=='a'){
+          that.orders = that.orderA.sort(that.compare('shunxu'));
+        }else {
+          that.orders = temp.sort(that.compare('shunxu'));
+        }
+        
        console.log(that.orderA,'oooooo')
        console.log(this.isA(item),'ppp')
       }
@@ -152,7 +157,11 @@ aa=1
     });
   
   }
-
+  compare(pro){
+    return function(a,b){
+      return a[pro]-b[pro]
+    }
+  }
   isA(item){
     var nowtime=(new Date()).getTime();
     if(item.orderstatus=="A"
@@ -250,7 +259,7 @@ aa=1
   orders=[]
   waiting(a){
     this.aa=a
-    this.orders = this.orderA
+    this.orders = this.orderA.sort(this.compare('shunxu'));
 
   }
 
@@ -277,7 +286,7 @@ aa=1
   all(a){
   
     this.aa=a
-    this.orders = this.allorders
+    this.orders = this.allorders.sort(this.compare('shunxu'));
     console.log(this.orders,'orders')
   }
 

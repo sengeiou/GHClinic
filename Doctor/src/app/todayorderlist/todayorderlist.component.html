@@ -49,7 +49,9 @@
                     </td>
                    <td>
                      <div *ngIf='item.orderstatus=="A"' style="color:#2850C3">{{item.orderstatus_name}}</div>
-                     <div *ngIf='item.orderstatus=="B"' style="color:#FF9800">{{item.orderstatus_name}}...</div>
+                     <div *ngIf='item.orderstatus=="B"' style="color:#FF9800">
+                      <div>{{item.orderstatus_name}}...</div>
+                    </div>
                      <div *ngIf='item.orderstatus=="C"'>{{item.orderstatus_name}}</div>
                      <div *ngIf='item.orderstatus=="D"' style="color:#8A8A8A">{{item.orderstatus_name}}</div>
                      <div *ngIf='item.orderstatus=="E"' style="color:#8A8A8A">{{item.orderstatus_name}}</div>
@@ -62,7 +64,10 @@
                       <div *ngIf='item.orderstatus!="C"'>一</div>
                     </td>
                     <td>
-                        <button class="btn btn-primary" (click)="gotoConference(item)"  *ngIf='item.orderstatus=="A"'>进入会诊</button>
+                       <div *ngIf='item.orderstatus=="A"'>
+                        <button class="btn btn-primary" (click)="gotoConference(item)"  >进入会诊</button>
+                        <div>第{{item.shunxu}}个等待</div>
+                       </div> 
                         <div *ngIf='item.orderstatus=="B"'  (click)="gotoConference(item)">
                           <button class="btn btn-primary">进入会诊</button>
                         </div>

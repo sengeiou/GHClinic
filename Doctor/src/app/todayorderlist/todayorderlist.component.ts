@@ -54,7 +54,7 @@ export class TodayorderlistComponent extends AppBase {
   }
 
   onMyLoad(){
-    var temp = this.orderA;
+    var temp = 'a';
     this.loadOrder(temp);
     this.loadClock();
     if(this.timer1==undefined){
@@ -73,9 +73,9 @@ export class TodayorderlistComponent extends AppBase {
         }else if(this.bb==4){
           var temp = this.orderD;
         }else if(this.bb==5){
-          var  temp = this.orderE;
+          var  temp = this.allorders;
         }else if(this.bb==6){
-          var temp = this.allorders;
+          // var temp = this.allorders;
         }
         this.loadOrder(temp);
       },10*1000);
@@ -96,8 +96,8 @@ export class TodayorderlistComponent extends AppBase {
   loadOrder(temp){
     // console.log("reloading t2",(new Date()));
     var that=this;
-    
-    that.operatorApi.todayorderlist({}).then((list:[any])=>{
+      console.log(this.doctorinfo.id,'id')
+    that.operatorApi.todayorderlist({doctor_id: this.params.doctor_id}).then((list:[any])=>{
       console.log(list,'list')
       this.allorders=list;
       this.ALLLen = list.length;
@@ -108,7 +108,7 @@ export class TodayorderlistComponent extends AppBase {
       var orderE=[];
       var orderF=[];
       for(var item of list){
-        
+        item.shunxu = Number(item.shunxu)+1;
         item.ordertime_timespan=parseInt(item.ordertime_timespan)*1000;
         if(that.isA(item)){
           orderA.push(item);
@@ -136,7 +136,11 @@ export class TodayorderlistComponent extends AppBase {
         that.orderD=orderD;
         that.orderE=orderE;
         that.orderF=orderF;
-        that.orders =temp;
+        if(temp=='a'){
+          that.orders = that.orderA.sort(that.compare('shunxu'));
+        }else {
+          that.orders = temp.sort(that.compare('shunxu'));
+        }
        console.log(that.orderA,'orderA')
        console.log(that.orderB,'orderB')
        console.log(that.orderC,'orderC')
@@ -149,6 +153,12 @@ export class TodayorderlistComponent extends AppBase {
     
     });
   
+  }
+
+  compare(pro){
+    return function(a,b){
+      return a[pro]-b[pro]
+    }
   }
 
   isA(item){
@@ -218,7 +228,7 @@ export class TodayorderlistComponent extends AppBase {
 
   progress(e){
     this.bb =e;
-    this.orders = this.orderB
+    this.orders = this.orderB.sort(this.compare('shunxu'))
   }
 
   over(e){
@@ -233,7 +243,7 @@ export class TodayorderlistComponent extends AppBase {
 
   all(e){
     this.bb =e;
-    this.orders = this.allorders
+    this.orders = this.allorders.sort(this.compare('shunxu'))
   }
 
   

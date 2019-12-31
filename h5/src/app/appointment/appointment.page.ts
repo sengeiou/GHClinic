@@ -92,16 +92,16 @@ export class AppointmentPage extends AppBase {
     var patientname = this.patientname;
     var patientmobile = this.patientmobile;
     if (patientname.trim() == '') {
-      this.toast("请输入就诊人姓名");
+      this.showAlert("请输入就诊人姓名");
       return;
     }
     if (patientmobile.trim() == '') {
-      this.toast("请输入就诊人联系电话");
+      this.showAlert("请输入就诊人联系电话");
       return;
     }
     var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
     if (!myreg.test(patientmobile)) {
-      this.toast("手机号格式不正确");
+      this.showAlert("手机号格式不正确");
       return
     }
 

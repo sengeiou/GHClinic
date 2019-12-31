@@ -22,6 +22,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { TodayorderlistComponent } from './todayorderlist/todayorderlist.component';
 import { PatientManagementComponent } from './patient-management/patient-management.component';
 import { PatientdetailComponent } from './patientdetail/patientdetail.component';
+import { DoctorscheduleComponent } from './doctorschedule/doctorschedule.component';
 
 
 @NgModule({

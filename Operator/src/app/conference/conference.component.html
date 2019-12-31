@@ -2,7 +2,8 @@
 <div   [class.hide]="inmeeting==true" class="flex-row margin-top-60"> 
   <div class=" margin-left-40 text-right imgss">
     <img src="{{uploadpath}}resource/{{res.huizhen}}" style="width: 100%;height: 100%;"/>
-    <div class="fixhui">医生正在会诊中，请耐心等候...</div>
+    <div class="fixhui" *ngIf='huizhen'>医生准备就绪，请进入会诊</div>
+    <div class="fixhui" *ngIf='huizhen==false'>医生正在会诊中，请耐心等候...</div>
   </div>
   <div class="waiting flex-1">
       <div class="">

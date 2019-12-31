@@ -53,7 +53,7 @@ export class Tab2Page extends AppBase {
      var  activity1=[];
      var activity2=[];
       for(let i of activity){
-        var aT=new Date(i.activitytime).getTime();
+        var aT=new Date(this.changtime(i.activitytime)).getTime();
         var nT=new Date().getTime();
      
         if(nT-aT<=0){
@@ -70,12 +70,21 @@ export class Tab2Page extends AppBase {
       
     })
   }
+  changtime(date){
+    date = date.replace(/-/g,'/');
+    return date
+  }
 
   
 
 
   activityDetails(i){
-
-    this.navigate("activity-details",{id:i})
+    console.log(this.MemberInfo.id,'id')
+    this.memberApi.xiugairead({member_id: this.MemberInfo.id,activity_id:i}).then((ret)=>{
+      console.log(ret)
+      if(ret.code=='0'){
+        this.navigate("activity-details",{id:i})
+      }
+    })
   }
 }

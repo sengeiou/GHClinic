@@ -38,11 +38,11 @@ export class AppBase implements OnInit {
     public static myapp: AppComponent = null;
     public static instapi: InstApi = null;
     public static dindanapi: DindanApi = null;
-    public static xitongApi: XitongApi =null;
-    public static activityApi:ActivityApi=null;
+    public static xitongApi: XitongApi = null;
+    public static activityApi: ActivityApi = null;
     public static memberapi: MemberApi = null;
-    public static orderApi:OrderApi=null;
-    public static tijanApi:TijianApi=null;
+    public static orderApi: OrderApi = null;
+    public static tijanApi: TijianApi = null;
     public static wechatApi: WechatApi = null;
     public static UNICODE = "gh";
     public static IsLogin = false;
@@ -51,19 +51,19 @@ export class AppBase implements OnInit {
     public util = AppUtil;
     public static Resources = null;
     public res = null;
-     
-   
+
+
 
     public static InstInfo = null;
     public static MemberInfo = null;
     public InstInfo = {
         orderlimit: 2, h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "",
         h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "",
-        memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "",version:"",copyright: "",
-        count1:0,count2:0,count:0,count5:0,count33:0,count44:0,count3:0,count4:0,count6:0
+        memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "", version: "", copyright: "",
+        count1: 0, count2: 0, count: 0, count5: 0, count33: 0, count44: 0, count3: 0, count4: 0, count6: 0
     };
-    public openid="";
-    public MemberInfo = { avatarUrl: "", nickName: "", h5openid: "", unionid: "", name: '',mobile:"",id:"",photo:'',issales_value:'' };
+    public openid = "";
+    public MemberInfo = { avatarUrl: "", nickName: "", h5openid: "", unionid: "", name: '', mobile: "", id: "", photo: '', issales_value: '' };
     public static MYBABY = [];
     public mybaby = [];
     public options = null;
@@ -95,7 +95,7 @@ export class AppBase implements OnInit {
             this.params = params;
         });
         this.res = [];
-        this.openid=window.localStorage.getItem("openid");
+        this.openid = window.localStorage.getItem("openid");
     }
     setStatusBar() {
         //  this.statusBar.styleLightContent();
@@ -107,6 +107,33 @@ export class AppBase implements OnInit {
         this.getInstInfo();
         this.onMyLoad();
         this.setStatusBar();
+        this.getact();
+    }
+
+    public actread = 'Y';
+    getact() {
+        if (this.MemberInfo.id != '') {
+            AppBase.memberapi.myactvity({ member_id: this.MemberInfo.id }).then((list: any) => {
+
+            })
+
+        }
+    }
+    getisread() {
+
+        if (this.MemberInfo.id != '') {
+            console.log(this.MemberInfo.id,'ididid')
+            AppBase.memberapi.actvityisread({ member_id: this.MemberInfo.id }).then((ret: any) => {
+                    console.log(ret,'retret')
+                if (ret.code=='0') {
+                    this.actread = 'Y'
+                } else {
+                    this.actread = 'N'
+                }
+            })
+
+        }
+
     }
 
 
@@ -129,18 +156,18 @@ export class AppBase implements OnInit {
                 AppBase.InstInfo = InstInfo;
                 this.InstInfo = InstInfo;
                 this.InitWechat();
-                if (this.params.code != undefined ) {
-                    
-                } else {
-                    var isred=window.sessionStorage.getItem("isred");
-                    if(isred=="Y"){
+                if (this.params.code != undefined) {
 
-                    }else{
-                        window.sessionStorage.setItem("isred","Y");
+                } else {
+                    var isred = window.sessionStorage.getItem("isred");
+                    if (isred == "Y") {
+
+                    } else {
+                        window.sessionStorage.setItem("isred", "Y");
                         var url = window.location.href;
                         var redirecturl = encodeURIComponent(url);
-                        var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri=" + redirecturl + "&response_type=code&scope=snsapi_userinfo&state=" + AppBase.STATICRAND + "#wechat_redirect";    
-                        window.location.href=redurl;
+                        var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri=" + redirecturl + "&response_type=code&scope=snsapi_userinfo&state=" + AppBase.STATICRAND + "#wechat_redirect";
+                        window.location.href = redurl;
                     }
                 }
             });
@@ -150,12 +177,12 @@ export class AppBase implements OnInit {
             this.InitWechat();
         }
 
-        if (this.params.code != undefined ) {
-            AppBase.memberapi.getuserinfo({  code: this.params.code, grant_type: "authorization_code" }).then((MemberInfo) => {
-                if(MemberInfo.errcode==undefined){
-                    this.openid=MemberInfo.openid;
-                    console.log("userinfo",MemberInfo);
-                    window.localStorage.setItem("openid",this.openid);
+        if (this.params.code != undefined) {
+            AppBase.memberapi.getuserinfo({ code: this.params.code, grant_type: "authorization_code" }).then((MemberInfo) => {
+                if (MemberInfo.errcode == undefined) {
+                    this.openid = MemberInfo.openid;
+                    console.log("userinfo", MemberInfo);
+                    window.localStorage.setItem("openid", this.openid);
                 }
             });
         }
@@ -184,12 +211,12 @@ export class AppBase implements OnInit {
             this.res = AppBase.Resources;
         }
     }
-    order1=[];
-    order2=[];
+    order1 = [];
+    order2 = [];
     ionViewDidEnter() {
         //AppBase.devicename=AppComponent.Instance.devicename;
         //AppBase.devicename="AppComponent.Instance.devicename";
-         
+
         if (TabsPage.Instance != null) {
             TabsPage.Instance.currentpage = this.currentpage;
             console.log("哈哈哈哈");
@@ -216,7 +243,7 @@ export class AppBase implements OnInit {
 
         if (token == null) {
             if (this.needlogin == true) {
-                 
+
                 this.navigate("login");
 
             } else {
@@ -229,8 +256,8 @@ export class AppBase implements OnInit {
             AppBase.memberapi.info({}).then((memberinfo) => {
                 console.log("进来了熬哈哈");
                 AppBase.MemberInfo = memberinfo;
-             
-                
+
+
                 if (memberinfo == null || memberinfo.mobile == undefined || memberinfo.mobile == "") {
 
                     memberinfo = null;
@@ -242,152 +269,156 @@ export class AppBase implements OnInit {
                 AppBase.IsLogin = memberinfo == null ? false : true;
                 this.MemberInfo = memberinfo;
 
-                
+
 
 
                 this.onMyShow();
             });
         }
-      
+
         this.firseonshow = false;
-       
-           
-          
-    
-    AppBase.activityApi.huoquactivityinfo({}).then((activityinfo)=>{
-    var ainfo=[];
-    var ainfo1=[];
-    var count3=0;
-    var count33=0;
-      for(let ai of activityinfo){
-        var aT=new Date(ai.activity_activitytime).getTime();
-        console.log(ai.activty_activityTime)
-        var nT=new Date().getTime();
-        if(nT-aT<=0){
-          if(ai.zhuangtai=='A'){
-            if(ai.read_status=='B'){
-            ainfo.push(ai)
-            }
-            if(ai.read_status1=='B'){
-              ainfo1.push(ai)
-            }
-          }
-        }
-      }
-      count3=ainfo.length;
-      AppBase.InstInfo.count3=count3; 
-      count33=ainfo1.length;
-      AppBase.InstInfo.count33=count33;  
-      console.log('abcdefg'+AppBase.InstInfo.count3);   
-      console.log('abcdef'+AppBase.InstInfo.count33); 
-      AppBase.orderApi.wodeyuyue({}).then((wodeyuyue)=>{
-        var yuyue=[];
-        var yuyue1=[];
-        var count4=0;
-        var count44=0;
-          for(let yy of wodeyuyue){
-            if(yy.orderstatus=='A'){
-              if(yy.read_status=='B'){
-              yuyue.push(yy);
-              }
-              if(yy.read_status1=='B'){
-                yuyue1.push(yy);
+
+
+
+
+        AppBase.activityApi.huoquactivityinfo({}).then((activityinfo) => {
+            var ainfo = [];
+            var ainfo1 = [];
+            var count3 = 0;
+            var count33 = 0;
+            for (let ai of activityinfo) {
+                var aT = new Date(ai.activity_activitytime).getTime();
+                console.log(ai.activty_activityTime)
+                var nT = new Date().getTime();
+                if (nT - aT <= 0) {
+                    if (ai.zhuangtai == 'A') {
+                        if (ai.read_status == 'B') {
+                            ainfo.push(ai)
+                        }
+                        if (ai.read_status1 == 'B') {
+                            ainfo1.push(ai)
+                        }
+                    }
                 }
             }
-          }
-          count4=yuyue.length;
-          AppBase.InstInfo.count4=count4;
-          console.log(AppBase.InstInfo.count4)
-          count44=yuyue1.length;
-          AppBase.InstInfo.count44=count44;
-          console.log('abcde'+AppBase.InstInfo.count4);
-          console.log('abcd'+AppBase.InstInfo.count44);
-          AppBase.tijanApi.wodetijian({}).then((tijian)=>{
-            var tjj=[];
-            for(let tj of tijian){
-              if(tj.orderstatus=='B'){
-                  if(tj.read_status=='B'){
-                      tjj.push(tj);
-                  }
-              }
-            }
-            AppBase.InstInfo.count6=tjj.length;
-          AppBase.xitongApi.xitongnews({}).then((xitongnews)=>{
-            var x=[];
-            for(let xtn of xitongnews){
-              if(xtn.read_status=='B'){
-                x.push(xtn);
-                
-              }
-            }
-         
-            AppBase.InstInfo.count5= AppBase.InstInfo.count33+ AppBase.InstInfo.count44+AppBase.InstInfo.count6+x.length;
-            console.log('a1'+AppBase.InstInfo.count5);
-          })
-        })
-        })
-    })
+            count3 = ainfo.length;
+            AppBase.InstInfo.count3 = count3;
+            count33 = ainfo1.length;
+            AppBase.InstInfo.count33 = count33;
+            console.log('abcdefg' + AppBase.InstInfo.count3);
+            console.log('abcdef' + AppBase.InstInfo.count33);
+            AppBase.orderApi.wodeyuyue({}).then((wodeyuyue) => {
+                var yuyue = [];
+                var yuyue1 = [];
+                var count4 = 0;
+                var count44 = 0;
+                for (let yy of wodeyuyue) {
+                    if (yy.orderstatus == 'A') {
+                        if (yy.read_status == 'B') {
+                            yuyue.push(yy);
+                        }
+                        if (yy.read_status1 == 'B') {
+                            yuyue1.push(yy);
+                        }
+                    }
+                }
+                count4 = yuyue.length;
+                AppBase.InstInfo.count4 = count4;
+                console.log(AppBase.InstInfo.count4)
+                count44 = yuyue1.length;
+                AppBase.InstInfo.count44 = count44;
+                console.log('abcde' + AppBase.InstInfo.count4);
+                console.log('abcd' + AppBase.InstInfo.count44);
+                AppBase.tijanApi.wodetijian({}).then((tijian) => {
+                    var tjj = [];
+                    for (let tj of tijian) {
+                        if (tj.orderstatus == 'B') {
+                            if (tj.read_status == 'B') {
+                                tjj.push(tj);
+                            }
+                        }
+                    }
+                    AppBase.InstInfo.count6 = tjj.length;
+                    AppBase.xitongApi.xitongnews({}).then((xitongnews) => {
+                        var x = [];
+                        for (let xtn of xitongnews) {
+                            if (xtn.read_status == 'B') {
+                                x.push(xtn);
 
-    
-   
+                            }
+                        }
 
-       
-        console.log(AppBase.instapi);
-        console.log( AppBase.dindanapi);
-
-
-
-        AppBase.dindanapi.myorder({}).then((orders)=>{
-            this.order1=[];
-            this.order2=[];
-          var count1=0;
-          var count2=0;
-          for(let o of orders){
-            if(o.status=='B'){
-            
-              this.order1.push(o);
-           
-            }
-            if(o.status=='C'){
-           
-              this.order2.push(o);
-         
-            }
-          }
-          console.log("撒大声地");
-          count1=this.order1.length;
-          count2=this.order2.length;
-          AppBase.InstInfo.count1=count1;
-          AppBase.InstInfo.count2=count2;
-          console.log('abc'+AppBase.InstInfo.count1);
-          console.log('ab'+AppBase.InstInfo.count2);
-        })
-
-
-            
-            AppBase.dindanapi.getgouwuche({}).then((gouwuche)=>{
-            var gwcc=[];
-            var count=0;
-              for(let gwc of gouwuche){
-               
-                    gwcc.push(gwc);
-                    count=gwcc.length;
-           
-              }
-              AppBase.InstInfo.count=count;
-              console.log('aaaaaa1'+AppBase.InstInfo.count)
-
-
+                        AppBase.InstInfo.count5 = AppBase.InstInfo.count33 + AppBase.InstInfo.count44 + AppBase.InstInfo.count6 + x.length;
+                        console.log('a1' + AppBase.InstInfo.count5);
+                    })
+                })
             })
+        })
 
 
-    
-  
 
 
-          
+
+        console.log(AppBase.instapi);
+        console.log(AppBase.dindanapi);
+
+
+
+        AppBase.dindanapi.myorder({}).then((orders) => {
+            this.order1 = [];
+            this.order2 = [];
+            var count1 = 0;
+            var count2 = 0;
+            for (let o of orders) {
+                if (o.status == 'B') {
+
+                    this.order1.push(o);
+
+                }
+                if (o.status == 'C') {
+
+                    this.order2.push(o);
+
+                }
+            }
+            console.log("撒大声地");
+            count1 = this.order1.length;
+            count2 = this.order2.length;
+            AppBase.InstInfo.count1 = count1;
+            AppBase.InstInfo.count2 = count2;
+            console.log('abc' + AppBase.InstInfo.count1);
+            console.log('ab' + AppBase.InstInfo.count2);
+        })
+
+
+
+        AppBase.dindanapi.getgouwuche({}).then((gouwuche) => {
+            var gwcc = [];
+            var count = 0;
+            for (let gwc of gouwuche) {
+
+                gwcc.push(gwc);
+                count = gwcc.length;
+
+            }
+            AppBase.InstInfo.count = count;
+            console.log('aaaaaa1' + AppBase.InstInfo.count)
+
+
+        })
+
+
+
+
+        setInterval(() => {
+            this.getact();
+            this.getisread();
+            console.log('好几个')
+        }, 3000);
+
+
     }
-    
+
     onMyShow() {
 
     }
@@ -487,17 +518,17 @@ export class AppBase implements OnInit {
         console.log(((msg.length / 3) + 1) * 1000);
         const toast = await this.toastCtrl.create({
             message: msg,
-          
+
             cssClass: 'error',
-            showCloseButton:true,
-            closeButtonText:"关闭"
+            showCloseButton: true,
+            closeButtonText: "关闭"
         });
         toast.present();
     }
     async showAlert(msg) {
 
         const alert = await this.alertCtrl.create({
-            header: "提示",
+            header: "",
             subHeader: msg,
             buttons: ["知道了"]
         });
@@ -594,11 +625,11 @@ export class AppBase implements OnInit {
         });
     }
 
-    openGallary(imagearr){
-        this.navigate("gallary",{list:imagearr});
+    openGallary(imagearr) {
+        this.navigate("gallary", { list: imagearr });
     }
 
-    InitWechat(){
+    InitWechat() {
         AppBase.instapi.gensign({ url: window.location.href }).then((config) => {
             var json = {
                 debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -606,12 +637,12 @@ export class AppBase implements OnInit {
                 timestamp: config.timestamp, // 必填，生成签名的时间戳
                 nonceStr: config.nonceStr, // 必填，生成签名的随机串
                 signature: config.signature,// 必填，签名，见附录1
-                jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage","getLocation",'openLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage", "getLocation", 'openLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
             };
-            console.log("intwechat",json);
+            console.log("intwechat", json);
             wx.config(json);
 
-            wx.ready(()=>{
+            wx.ready(() => {
                 wx.onMenuShareAppMessage({
                     title: this.InstInfo.h5sharetitle,
                     desc: this.InstInfo.h5sharedesc,
@@ -655,7 +686,7 @@ export class AppBase implements OnInit {
         });
     }
 
-    openLocation(lat,lng,name,address){
+    openLocation(lat, lng, name, address) {
         wx.openLocation({
             latitude: lat,//目的地latitude
             longitude: lng,//目的地longitude
@@ -665,7 +696,7 @@ export class AppBase implements OnInit {
         });
     }
 
-    ionViewCanLeave(){
+    ionViewCanLeave() {
         alert(1);
     }
 
