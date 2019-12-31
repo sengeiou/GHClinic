@@ -6,119 +6,120 @@
     </ion-title>
     <span slot="end" class="h5">编辑</span>
   </ion-toolbar> -->
-  <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'" class="bg"></div>
-  <div style="background: #0F848D ;width:100%;z-index: 1" class="padding-top-40 height-110">
-      <div class="flex-row flex-center margin-left-30">
-        <div class="marginTop" (click)="back()">
-          <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
-        </div>
-        <div class="f18 txt-white margin-left">购物车</div>
-      </div>
-    </div>
-</ion-header>
-
-<ion-content >
-
-<div *ngIf="gouwuchelist.length!=0">
-  <div style="background: #0F848D;width: 100%;" class="height-40"></div>
-  <div class="card">
-    <ion-card *ngFor="let item of gouwuchelist" class="card1 flex-row flex-center">
-      <div class="flex-1"></div>
-      <div class="icon-24 ml" (click)="item.selected_value='N';quxiao(item)" *ngIf="item.selected_value=='Y'">
-
-        <img class="icon-24 " src="{{uploadpath}}resource/{{res.xuanzhon}}">
-      </div>
-
-      <div class="icon-24 ml" (click)="item.selected_value='Y';xuanze(item)" *ngIf="item.selected_value=='N'">
-
-        <img class="icon-24 " src="{{uploadpath}}resource/{{res.weixuanzhon}}">
-      </div>
-      <div class="icon-90 br margin-left-20 margin-top-40">
-
-        <img src="{{uploadpath}}drugs/{{item.drugs_photo}}">
-
-      </div>
-      <div class="margin-left-20 margin-top-30">
-        <div class="f16 txt-black txt-bold">{{item.drugs_name}}</div>
-        <div class="h5 txt-gg margin-top-30">规格：{{item.drugs_guige}}</div>
-        <div class="flex-row flex-center margin-top-40">
-          <div class="f16 txt-bold " style="color: #F7555A">￥{{item.drugs_price}}</div>
-          <div class="flex-row flex-center z margin-left-100" >
-            <div (click)="jian(item)" class="h5 txt-black icon-24 border-lr  text-center line-height-24"
-              style="background-color:#F5F7FA">
-              -
-            </div>
-            <div class="h5 txt-black border-bt text-center">
-              {{item.num}}
-            </div>
-            <div (click)="jia(item)" class="h5 txt-black icon-24 border-rr  text-center line-height-24"
-              style="background-color:#F5F7FA">
-              +
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="flex-1"></div>
-    </ion-card>
-  </div>
-
-  <div class="flex-row" style="position: fixed;bottom:0">
-    <div class="d1 flex-row flex-center">
-
-
-      <img (click)="quanxuan()" *ngIf="!zz" class="icon-24 margin-left-40"
-        src="{{uploadpath}}resource/{{res.weixuanzhon}}">
-
-
-
-
-      <img (click)="quxiaoquanxuan()" *ngIf="zz" class="icon-24 margin-left-40"
-        src="{{uploadpath}}resource/{{res.xuanzhon}}">
-
-
-
-
-
-
-
-
-      <div class="txt-black f16 margin-left-100">合计：￥{{zonjia}}</div>
-
-    </div>
-    <div class="d2 text-center txt-white f16" (click)="order()">
-      去结算
-    </div>
-  </div>
-
-  <img alt="" class="img1"  src="{{uploadpath}}resource/{{res.souye}}" (click)='fanhui()' />
-
-</div>
-<div *ngIf="gouwuchelist.length==0">
-
-  <div style="background: #0F848D ;position:fixed;width:100%;z-index: 1" class="padding-top-40 height-110">
+  <div [style.background-image]="'url('+uploadpath+'resource/'+res.headpicture+')'"
+    class="bg"></div>
+  <div  *ngIf="gouwuchelist.length!=0"  style="background: #0F848D ;width:100%;z-index: 1" class="padding-top-40 height-110">
     <div class="flex-row flex-center margin-left-30">
       <div class="marginTop" (click)="back()">
         <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
       </div>
-      
-      <div class="f16 txt-white margin-left">购物车</div>
+      <div class="f18 txt-white margin-left">购物车</div>
     </div>
   </div>
-  <div style="background: #0F848D;width: 100%;" class="height-40" ></div>
-  <div class="card" >
-    <div class="flex-row flex-column" style="justify-content:center">
-      <div>
-        <img alt="" class="icon-247" src="{{uploadpath}}resource/{{res.nodindan}}" />
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="gouwuchelist.length!=0">
+    <div style="background: #0F848D;width: 100%;" class="height-40"></div>
+    <div class="card">
+      <ion-card *ngFor="let item of gouwuchelist" class="card1 flex-row flex-center">
+        <div class="flex-1"></div>
+        <div class="icon-24 ml" (click)="item.selected_value='N';quxiao(item)" *ngIf="item.selected_value=='Y'">
+
+          <img class="icon-24 " src="{{uploadpath}}resource/{{res.xuanzhon}}">
+        </div>
+
+        <div class="icon-24 ml" (click)="item.selected_value='Y';xuanze(item)" *ngIf="item.selected_value=='N'">
+
+          <img class="icon-24 " src="{{uploadpath}}resource/{{res.weixuanzhon}}">
+        </div>
+        <div class="icon-90 br margin-left-20 margin-top-40">
+
+          <img src="{{uploadpath}}drugs/{{item.drugs_photo}}">
+
+        </div>
+        <div class="margin-left-20 margin-top-30">
+          <div class="f16 txt-black txt-bold">{{item.drugs_name}}</div>
+          <div class="h5 txt-gg margin-top-30">规格：{{item.drugs_guige}}</div>
+          <div class="flex-row flex-center margin-top-40">
+            <div class="f16 txt-bold " style="color: #F7555A">￥{{item.drugs_price}}</div>
+            <div class="flex-row flex-center z margin-left-100">
+              <div (click)="jian(item)" class="h5 txt-black icon-24 border-lr  text-center line-height-24"
+                style="background-color:#F5F7FA">
+                -
+              </div>
+              <div class="h5 txt-black border-bt text-center">
+                {{item.num}}
+              </div>
+              <div (click)="jia(item)" class="h5 txt-black icon-24 border-rr  text-center line-height-24"
+                style="background-color:#F5F7FA">
+                +
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1"></div>
+      </ion-card>
+    </div>
+
+    <div class="flex-row" style="position: fixed;bottom:0">
+      <div class="d1 flex-row flex-center">
+
+
+        <img (click)="quanxuan()" *ngIf="!zz" class="icon-24 margin-left-40"
+          src="{{uploadpath}}resource/{{res.weixuanzhon}}">
+
+
+
+
+        <img (click)="quxiaoquanxuan()" *ngIf="zz" class="icon-24 margin-left-40"
+          src="{{uploadpath}}resource/{{res.xuanzhon}}">
+
+
+
+
+
+
+
+
+        <div class="txt-black f16 margin-left-100">合计：￥{{zonjia}}</div>
+
       </div>
-      <div class="f16 margin-top-30" style="color: #b9b9b9">购物车空空如也</div>
-      <div class="f16 margin-top-5" style="color: #b9b9b9">您可以点击下方立即购买</div>
-      <div class="flex-row flex-center" style="width:100vw;">
-        <div class="flex-1"></div>
-        <div class="text-center qgg f16" (click)="gotosc()" style="width:60%;background-color: #0F848D;">去逛逛</div>
-        <div class="flex-1"></div>
+      <div class="d2 text-center txt-white f16" (click)="order()">
+        去结算
       </div>
     </div>
+
+
+
   </div>
-  <img alt="" class="img1"  src="{{uploadpath}}resource/{{res.souye}}" (click)='fanhui()' />
-</div>
+  <div *ngIf="gouwuchelist.length==0">
+
+    <div style="background: #0F848D ;position:fixed;width:100%;z-index: 1" class="padding-top-40 height-110">
+      <div class="flex-row flex-center margin-left-30">
+        <div class="marginTop" (click)="back()">
+          <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
+        </div>
+
+        <div class="f16 txt-white margin-left">购物车</div>
+      </div>
+    </div>
+    <div style="background: #0F848D;width: 100%;" class="height-40"></div>
+    <div class="card">
+      <div class="flex-row flex-column" style="justify-content:center">
+        <div>
+          <img alt="" class="icon-247" src="{{uploadpath}}resource/{{res.nodindan}}" />
+        </div>
+        <div class="f16 margin-top-30" style="color: #b9b9b9">购物车空空如也</div>
+        <div class="f16 margin-top-5" style="color: #b9b9b9">您可以点击下方立即购买</div>
+        <div class="flex-row flex-center" style="width:100vw;">
+          <div class="flex-1"></div>
+          <div class="text-center qgg f16" (click)="gotosc()" style="width:60%;background-color: #0F848D;">去逛逛</div>
+          <div class="flex-1"></div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
 </ion-content>

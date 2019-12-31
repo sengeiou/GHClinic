@@ -54,7 +54,12 @@ export class AppBase implements OnInit {
 
 
 
-    public static InstInfo = null;
+    public static InstInfo = {
+        orderlimit: 2, h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "",
+        h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "",
+        memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "", version: "", copyright: "",
+        count1: 0, count2: 0, count: 0, count5: 0, count33: 0, count44: 0, count3: 0, count4: 0, count6: 0
+    };
     public static MemberInfo = null;
     public InstInfo = {
         orderlimit: 2, h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "",
@@ -302,6 +307,8 @@ export class AppBase implements OnInit {
                 }
             }
             count3 = ainfo.length;
+          
+            console.log("太牛了吧我让", AppBase.InstInfo);
             AppBase.InstInfo.count3 = count3;
             count33 = ainfo1.length;
             AppBase.InstInfo.count33 = count33;
