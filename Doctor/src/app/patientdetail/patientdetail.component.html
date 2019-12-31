@@ -22,6 +22,10 @@
                 <span>患者电话：</span>
                 <span>{{item.patientmobile}}</span>
             </div>
+            <div class="margin-top-30">
+                <span>患者图片：</span>
+                <span *ngFor='let iitem of item.photolist;let j=index'><img data-toggle="modal" data-target="#myModal2" (click)='changbig(item,j)'  src="{{uploadpath}}appointment/{{iitem.photo}}" class="icon-100" /></span>
+            </div>
         </div>
     </div>
     <div style="width:100%;height:4px;background:#ccc; margin-top:30px;"></div>
@@ -100,7 +104,7 @@
                 <!-- 左右切换按钮 -->
                 <a class="carousel-control-prev" href="#demo" data-slide="prev" (click)='prev("a")'>
                     <span class="bg-gray">
-                        <img src="{{uploadpath}}resource/{{res.arrow}}"
+                        <img src="{{uploadpath}}resource/{{res.arrowleft}}"
                             style="width: 30px !important;height: 30px !important;">
                     </span>
                 </a>
