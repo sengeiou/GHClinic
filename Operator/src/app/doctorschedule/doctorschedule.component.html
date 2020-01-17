@@ -17,6 +17,12 @@
       </div>
     </div>
   </div>
+  <div class="flex-row flex-center">
+    <div>未排班</div>
+    <div class="weipai margin-left-10"></div>
+    <div class="margin-left-20">已排班</div>
+    <div class="yipai margin-left-10"></div>
+  </div>
   <div class="padding-20">
     <div class="row margin-left-40">
       <div class=" mb-5 margin-right-40  " *ngFor="let doctor of doctorlist">
@@ -39,22 +45,27 @@
             <div class="flex-1" *ngFor="let d of wcal;let i=index;">
               <div class="" [class.issat]="i==6" [class.today]='d.today==true'>
                 <div class="flex-row primary-block text-white  wtime text-center" style="height: 50px;">
-                    <img src="{{uploadpath}}resource/{{res.weixuan}}" *ngIf='d.show!=doctor.id ' (click)='xuanzhong(d,doctor,false)' class="icon-20" style="position: relative;top: 10px;left:-2px;"/>
-                    <img src="{{uploadpath}}resource/{{res.quanxuan}}"  *ngIf='d.show==doctor.id  '   (click)='xuanzhong(d,doctor,true)'  class="icon-20" style="position: relative;top: 10px;left:-2px;"/>
-                    <div class="flex-row  flex-column">
-                      <div>{{d.monday}}</div>
+                  <img src="{{uploadpath}}resource/{{res.weixuan}}" *ngIf='d.show!=doctor.id '
+                    (click)='xuanzhong(d,doctor,false)' class="icon-20"
+                    style="position: relative;top: 10px;left:-2px;" />
+                  <img src="{{uploadpath}}resource/{{res.quanxuan}}" *ngIf='d.show==doctor.id  '
+                    (click)='xuanzhong(d,doctor,true)' class="icon-20"
+                    style="position: relative;top: 10px;left:-2px;" />
+                  <div class="flex-row  flex-column">
+                    <div>{{d.monday}}</div>
                     <div>{{d.today?"今天":d.dayname}}</div>
                   </div>
-                  </div>
+                </div>
                 <div class="" *ngFor="let t of d.timeline;">
                   <div class="wtime text-center" [class.isnoon]='t.hour=="12"&&t.minute=="30"'
                     [class.isleisure]='doctor.timetable[d.dt+t.hour+t.minute]!=undefined&&doctor.timetable[d.dt+t.hour+t.minute].isleisure=="Y"'
-                    (click)='setDate(doctor,d,t,false,1)' (mouseover)='setMouseOver(doctor,d,t)' (mouseout)='clearMouseOver()'
-                    [class.under]='t.minute==30' [class.today]='d.today==true' [class.tpass]='t.pass==true'
+                    (click)='setDate(doctor,d,t,false,1)' (mouseover)='setMouseOver(doctor,d,t)'
+                    (mouseout)='clearMouseOver()' [class.under]='t.minute==30' [class.today]='d.today==true'
+                    [class.tpass]='t.pass==true'
                     [class.bookingcount]='doctor.timetable[d.dt+t.hour+t.minute]!=undefined&&doctor.timetable[d.dt+t.hour+t.minute].bookingcount>0'
                     [class.overdayborder]='overdoctor==doctor.id&&overday==d.dt'
                     [class.overborder]='overdoctor==doctor.id&&overtime==t.hour+t.minute'>
-                  {{doctor.timetable[d.dt+t.hour+t.minute]!=undefined&&doctor.timetable[d.dt+t.hour+t.minute].bookingcount>0?
+                    {{doctor.timetable[d.dt+t.hour+t.minute]!=undefined&&doctor.timetable[d.dt+t.hour+t.minute].bookingcount>0?
                     doctor.timetable[d.dt+t.hour+t.minute].bookingcount+"人":""
                   }}
                   </div>

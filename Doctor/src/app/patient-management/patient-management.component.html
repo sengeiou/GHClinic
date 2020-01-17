@@ -50,11 +50,14 @@
                 </thead>
                 <tbody class="h5 text-center lheight">
                     <tr *ngFor='let item of orderlist'>
-                       <td>{{item.schedule_id_name}}</td>
+                       <td>{{item.ordertime}}</td>
                        <td>{{item.patientname}}</td>
                        <td>{{item.patientmobile}}</td>
                        <td>{{item.meetingstart}}</td>
-                       <td>{{item.meetingend}}</td>
+                       <td>
+                         <div *ngIf='item.meetingend!=""'>{{item.meetingend}}</div>
+                         <div *ngIf='item.meetingend==""' class="btn2" (click)='jieshuhuizhen(item)'>结束会诊</div>
+                      </td>
                        <td>
                          <div *ngFor='let img of item.photolist;let i=index'>
                             <span *ngIf="i==0" class="margin-left">
