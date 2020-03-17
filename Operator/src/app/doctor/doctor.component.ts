@@ -95,6 +95,7 @@ checkdep(item,arr){
   onUploadOutput(output: UploadOutput): void {
     switch (output.type) {
       case 'allAddedToQueue':
+        this.startUpload();
         break;
       case 'addedToQueue':
         if (typeof output.file !== 'undefined') {
