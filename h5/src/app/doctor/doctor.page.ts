@@ -34,7 +34,7 @@ export class DoctorPage extends AppBase {
   }
 
 
-  show=true;
+  show = true;
 
   mdate: Date = new Date();
   myear = "";
@@ -95,51 +95,63 @@ export class DoctorPage extends AppBase {
     // this.housantian = this.getNextDay(this.params.riqi);
     // console.log(this.housantian);
 
-
-    this.getyishenpaiban(true);
+    var today = true;
+    this.getyishenpaiban(today);
 
   }
   appointment(ban) {
-    if (Number(ban.bookingcount)>=Number(this.InstInfo.orderlimit)) {
+    if (Number(ban.bookingcount) >= Number(this.InstInfo.orderlimit)) {
       return
     }
-    this.navigate("appointment", {doctor_id:this.params.id,hospital_id:this.params.hospital_id,departmentname:this.params.departmentname,schedule_id:ban.id })
+    this.navigate("appointment", { doctor_id: this.params.id, hospital_id: this.params.hospital_id, departmentname: this.params.departmentname, schedule_id: ban.id })
   }
 
   paiban = [];
-  getyishenpaiban(flag) {
+  getyishenpaiban(today) {
     var api = this.doctorApi;
     var now = new Date();
-    var m=now.getMinutes();
- 
-     var dqdate=this.bu0(now.getHours())+":"+this.bu0(now.getMinutes());
+    var m = now.getMinutes();
+
+    var dqdate = this.bu0(now.getHours()) + ":" + this.bu0(now.getMinutes());
     console.log(dqdate);
-    console.log(this.riqi,'paiban');
-    api.dayschedule({ doctor_id: this.params.id, fdate:this.riqi}).then((paiban) => {
+    console.log(this.riqi, 'paiban');
+    api.dayschedule({ doctor_id: this.params.id, fdate: this.riqi }).then((paiban) => {
 
-      paiban=paiban.filter((item)=>{
-          if(flag==true){
-            return    item.ftime>dqdate
-          }else if(flag==false){
-            return item
-          }
+      // paiban = paiban.filter((item) => {
+      //   if (today == true) {
+      //     return item.ftime > dqdate;
           
+      //   } 
+      //   // else {
+      //   //   return false;
+      //   // }
+      // })
+      var arr=[];
+    
+      if(today==true){
+        for(let item of paiban){
+          // alert(item.ftime+">"+dqdate+"~"+(item.ftime > dqdate));
+          if(item.ftime > dqdate){
+            arr.push(item);
+          }
+        }
+      }else {
+        arr=paiban;
+      }
+      
 
-          })
-
-      console.log("paiban",paiban);
-      this.paiban = paiban;
+      console.log("paiban", paiban);
+      this.paiban = arr;
 
     })
   }
- bu0(time)
- {
-  if(time<10){
-    time = ""+"0"+time;
-}
-return time;
+  bu0(time) {
+    if (time < 10) {
+      time = "" + "0" + time;
+    }
+    return time;
 
- }
+  }
 
   danqianyuyue = null;
   dlist = [];
@@ -172,13 +184,17 @@ return time;
 
   riqi = "";
   asd(d, i) {
-    if (d.pass == true&&d.today==false) {
+    console.log(d, i, 'uuuuuuu')
+    if (d.pass == true && d.today == false) {
       return
     }
     else {
       this.riqi = d.dt;
     }
-    this.getyishenpaiban(false);
+    var today = d.today;
+    console.log(today,'today',d.today)
+
+    this.getyishenpaiban(today);
   }
   addMonth(m) {
     this.mdate = new Date(this.mdate.getFullYear(), this.mdate.getMonth() + m, 1);
@@ -224,7 +240,7 @@ return time;
 
 
 
-  fanhui(){
+  fanhui() {
     this.navigate('tabs/tab1')
   }
 

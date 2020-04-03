@@ -139,5 +139,13 @@ export class PatientManagementComponent extends AppBase  {
       return false
     }
   } 
-
+  jieshuhuizhen(item){
+    console.log(item)
+    this.orderApi.end({order_id:item.id}).then((end:any)=>{
+      console.log(end)
+      if(end.code=='0'){
+        this.onMyShow();
+      }
+    })
+  }
 }

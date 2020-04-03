@@ -41,11 +41,12 @@ export class DoctorscheduleComponent extends AppBase  {
   onMyLoad(){
     this.wtimeline=this.timeline(new Date());
   }
-
+  doctor_id=''
   onMyShow(){
     
     // this.loadMonthCalendar();
     this.loadWeekCalendar();
+    this.doctor_id = this.params.doctor_id;
   }
 
   addMonth(m){
@@ -98,7 +99,8 @@ export class DoctorscheduleComponent extends AppBase  {
     this.overdoctor=0;
     this.overtime=0;
   }
-
+  wday='';
+  wenddate=''
   loadWeekCalendar(){
     var now=new Date();
     var nowtime=now.getTime();
@@ -108,14 +110,21 @@ export class DoctorscheduleComponent extends AppBase  {
     this.wmonth=(wfirst.getMonth()+1).toString();
     var wfirsttime=wfirst.getTime();
     var kd=0;
-    if(wfirst.getDay()){
-      kd=0-wfirst.getDay();
-    }
+    // if(wfirst.getDay()){
+    //   kd=0-wfirst.getDay();
+    // }
+    kd=wfirst.getDay()||7;
+    kd=kd-1;
 
     console.log("ccw1",wfirst,wfirst.getDay());
-    var startdate=new Date(wfirsttime + kd*24*3600*1000 );
+    // var startdate=new Date(wfirsttime + kd*24*3600*1000 );
+    // console.log("ccw2",startdate);
+    // var startdatetime=wfirsttime + kd*24*3600*1000 ;
+    var startdate=new Date(wfirsttime - kd*24*3600*1000 );
+    this.wday=startdate.getDate().toString();
+    this.wenddate=(new Date(wfirsttime - kd*24*3600*1000 + 7*24*3600*1000 )).getDate().toString();
     console.log("ccw2",startdate);
-    var startdatetime=wfirsttime + kd*24*3600*1000 ;
+    var startdatetime=startdate.getTime() ;
     var wcal=[]; 
     var enddate=null;
     for(var j=0;j<7;j++){

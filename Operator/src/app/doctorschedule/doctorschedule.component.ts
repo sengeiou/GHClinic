@@ -110,11 +110,9 @@ num=[]
     }else {
       doctor.timetable[dt].isleisure=doctor.timetable[dt].isleisure=='Y'?"Y":"Y";
     }
-    setTimeout(() => {
-      this.operatorApi.settime(doctor.timetable[dt]).then((ret:any)=>{
-        console.log(ret);
-      });
-    }, i*10);
+    this.operatorApi.settime(doctor.timetable[dt]).then((ret:any)=>{
+      console.log(ret);
+    });
     
   }
 
@@ -136,15 +134,37 @@ num=[]
      
     }
     
-    if(flag==false){
+
+      var arr =[];
       for(let i=0;i<d.timeline.length;i++){
-        this.setDate(doctor,d,d.timeline[i],true,i);
+ 
+          var dt=d.dt+d.timeline[i].hour+d.timeline[i].minute;
+          if(doctor.timetable[dt]==undefined){
+            doctor.timetable[dt]={rd:dt,fdate:d.datestr,ftime:d.timeline[i].hour+":"+d.timeline[i].minute,doctor_id:doctor.id,bookingcount:0};
+          }
+          if(doctor.timetable[dt].bookingcount>0){
+            return;
+          }
+          if(d.timeline[i].pass==true){
+            return;
+          }
+          if(flag==false){
+            doctor.timetable[dt].isleisure=doctor.timetable[dt].isleisure=='Y'?"N":"Y";
+          }else {
+            doctor.timetable[dt].isleisure=doctor.timetable[dt].isleisure=='Y'?"Y":"Y";
+          }
+          arr.push(doctor.timetable[dt])
       }
-    }else {
-      for(let i=0;i<d.timeline.length;i++){
-        this.setDate(doctor,d,d.timeline[i],false,i);
+
+      if(arr.length==d.timeline.length){
+        var str=JSON.stringify(arr);
+        console.log(arr)
+        console.log(str,'pp')
+        this.operatorApi.settimepl({str:JSON.stringify(arr)}).then((settimepl)=>{
+          console.log(settimepl);
+        })
       }
-    }
+  
       
       
 
