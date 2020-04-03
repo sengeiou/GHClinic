@@ -54,12 +54,7 @@ export class AppBase implements OnInit {
 
 
 
-    public static InstInfo = {
-        orderlimit: 2, h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "",
-        h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "",
-        memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "", version: "", copyright: "",
-        count1: 0, count2: 0, count: 0, count5: 0, count33: 0, count44: 0, count3: 0, count4: 0, count6: 0
-    };
+    public static InstInfo = null;
     public static MemberInfo = null;
     public InstInfo = {
         orderlimit: 2, h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "",
@@ -161,14 +156,15 @@ export class AppBase implements OnInit {
                 AppBase.InstInfo = InstInfo;
                 this.InstInfo = InstInfo;
                 this.InitWechat();
+                //alert(this.params.code);
                 if (this.params.code != undefined) {
 
                 } else {
-                    var isred = window.sessionStorage.getItem("isred");
+                    var isred = window.sessionStorage.getItem("isredv");
                     if (isred == "Y") {
 
                     } else {
-                        window.sessionStorage.setItem("isred", "Y");
+                        window.sessionStorage.setItem("isredv", "Y");
                         var url = window.location.href;
                         var redirecturl = encodeURIComponent(url);
                         var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri=" + redirecturl + "&response_type=code&scope=snsapi_userinfo&state=" + AppBase.STATICRAND + "#wechat_redirect";
