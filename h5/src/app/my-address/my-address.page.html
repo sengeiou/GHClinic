@@ -35,7 +35,7 @@
       </div>
       <div class="border-bw margin-top-30"></div>
       <div class="flex-row flex-center margin-left-30 margin-top-30">
-        <div style="color: #B9B9B9" class="f16 flex-1">地址</div>
+        <div style="color: #B9B9B9" class="f16 flex-1">选择省市</div>
         <ion-select  cancelText="取消"  okText="确认" (ionChange)="switchType($event)" placeholder="请选择">
           <ion-select-option  *ngFor="let item of shen" [value]="item">{{item.province}}</ion-select-option>
          
@@ -47,12 +47,13 @@
       </div>
       <div class="border-bw margin-top-30"></div>
       <div class="flex-row margin-left-30 margin-top-30">
-        <div style="color: #B9B9B9" class="f16 flex-1">门牌号</div>
+        <div style="color: #B9B9B9" class="f16 flex-1">详细收货地址</div>
         <input  (blur)="scrollToTop()" class="f16 margin-right-30" [(ngModel)]='address.menpaihao' placeholder="请输入门牌号" />
       </div>
       <div class="border-bw margin-top-30"></div>
       <div class="flex-row margin-left-30 margin-top-30 flex-center">
         <div style="color: #B9B9B9" class="f16">设置为默认地址</div>
+       
         <ion-toggle color="primary"  [checked]='address.isdefault=="Y"' (ionChange)="toggleFun($event)" class="margin-left-400">
         </ion-toggle>
         <!-- <div class="margin-left-500 icon-24">

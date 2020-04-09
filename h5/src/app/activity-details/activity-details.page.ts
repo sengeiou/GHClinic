@@ -49,11 +49,17 @@ export class ActivityDetailsPage extends AppBase {
     var api=this.activityApi;
     api.activityinfo({id: this.params.id}).then(
       (activity)=>{
-        console.log(activity+'aaaaa');
+        
+        activity.activitybrief = AppUtil.HtmlDecode( activity.activitybrief)
+
+        activity.appnotes = AppUtil.HtmlDecode( activity.appnotes)
+
         this.activity=activity;
         var nT=new Date().getTime();
-        var aT=new Date(activity.activitytime).getTime();
-        console.log(aT)
+        var aT=new Date(activity.activitytime.replace(/-/g,'/')).getTime();
+        console.log(aT);
+        console.log(nT);
+        console.log("这么的啊大大");
         if(nT-aT<=0){
           this.show=true;
           console.log(activity.activityTime);

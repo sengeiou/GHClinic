@@ -212,7 +212,7 @@ export class ForgetpasswordPage extends AppBase {
     }).then(ret => {
 
       if (ret.code == "0") {
-        this.toast("重设成功，请重新登录");
+        this.toast("密码设置成功，请重新登录");
         this.store("UserToken", ret.return);
         this.backToUrl("/tabs/tab1");
       } else {

@@ -60,7 +60,7 @@ export class ClinicPage extends AppBase {
      this.bannerlist=bannerlist;
    });
    this.hospitalApi.department({hospital_id:this.params.hospital_id}).then((departmentlist)=>{
-     
+        
      this.departmentlist=departmentlist;
    });
    this.memberApi.hospitalinfo({id:this.params.hospital_id}).then((info)=>{

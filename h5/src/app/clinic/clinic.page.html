@@ -47,10 +47,12 @@
       医疗服务
     </p>
     <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
-    <div class="margin-top-30" style="width:100%">
-      <div  (click)="keshi(item)" class="div0" *ngFor="let item of departmentlist">
+    <div class="margin-top-30 margin-left-40" style="width:100%;position: relative;">
+      <div  (click)="keshi(item)" class="div0 " *ngFor="let item of departmentlist">
+        <div class="flex-row flex-center">
         <img alt="" class="img2" src="{{uploadpath}}department/{{item.img}}" />
-        <p class="p3">{{item.name}}</p>
+        <div class="p3">{{item.name}}</div>
+      </div>
       </div>
       
     </div>

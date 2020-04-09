@@ -45,15 +45,15 @@
           活动简介
       </div>
       <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
-      <div class="p4 p5">   
-        {{activity.activitybrief}}</div>
+      <div [innerHtml]="activity.activitybrief" class="p4 p5">   
+        </div>
       <hr/>
       <div class="p2">
           报名须知
       </div>
       <img src="{{uploadpath}}resource/{{res.horizontalbar}}" class="horizontalbar" />
       <div class="p4">本次报名人数限制：{{activity.xianzhi}}人</div>
-      <div class="p4">{{activity.appnotes}}</div>
+      <div   [innerHtml]="activity.appnotes" class="p4"></div>
       <div class="height-100"></div>
 
 
