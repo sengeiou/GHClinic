@@ -4,16 +4,16 @@ import { LoadingController } from '@ionic/angular';
 export class ApiConfig {
 	
     public static getApiUrl() {
-        return "http://cms.hkganghe.com/api/";
+        return "https://cms.hkganghe.com/api/";
     }
     public static getLocalPath() {
-        return "http://gangheoss.oss-cn-beijing.aliyuncs.com/";
+        return "/assets";
     }
     public static getUploadPath() {
-        return "http://gangheoss.oss-cn-beijing.aliyuncs.com/";
+        return "https://gangheoss.oss-cn-beijing.aliyuncs.com/";
     }
     public static getFileUploadAPI() {
-        return "http://cms.hkganghe.com//fileupload";
+        return "https://cms.hkganghe.com/fileupload/";
     }
 	
     public static ParamUrlencoded(json) {
