@@ -38,7 +38,9 @@ export class ApplicationPage extends AppBase {
   id = '';
 
 
-
+  fanhui(){
+    this.navigate('tabs/tab2')
+  }
 
   onMyLoad() {
     //参数
@@ -142,8 +144,6 @@ export class ApplicationPage extends AppBase {
 
       })
   }
-fanhui(){
-  this.navigate('tabs/tab2');
-}
 
+  
 }

@@ -78,7 +78,9 @@ export class ActivityDetailsPage extends AppBase {
 
 
 
-
+  fanhui(){
+    this.navigate('tabs/tab2')
+  }
 
   application(id){
   

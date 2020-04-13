@@ -40,6 +40,10 @@ export class CommodityDetailsPage extends AppBase {
     //参数
     this.params;
   }
+  zhuye(){
+    this.navigate('tabs/tab3')
+
+  }
   onMyShow() {
     this.getdrugsinfo();
    
