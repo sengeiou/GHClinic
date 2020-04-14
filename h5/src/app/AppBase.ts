@@ -262,10 +262,10 @@ export class AppBase implements OnInit {
                 if (memberinfo == null || memberinfo.mobile == undefined || memberinfo.mobile == "") {
 
                     memberinfo = null;
-                    if (this.needlogin == true) {
-                        this.navigate("login");
-                        return;
-                    }
+                    // if (this.needlogin == true) {
+                    //     this.navigate("login");
+                    //     return;
+                    // }
                 }
                 AppBase.IsLogin = memberinfo == null ? false : true;
                 this.MemberInfo = memberinfo;

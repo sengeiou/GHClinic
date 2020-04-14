@@ -54,7 +54,7 @@
   <hr/>
   <div class="div3 flex-center flex-row">
       <span class="span1 flex-1">联系方式</span>
-      <input  (blur)="scrollToTop()" class="span5" placeholder="请输入手机号码" [value]='shoujihao' (change)='shoujihao=$event.target.value;' maxlength="11" />
+      <input type="tel"  (blur)="scrollToTop()" class="span5" placeholder="请输入手机号码" [value]='shoujihao' (change)='shoujihao=$event.target.value;' maxlength="11" />
   </div>
   <hr/>
   <div class="div4">
@@ -74,7 +74,7 @@
   </div>
 
 
-  <img alt="" class="img1"  src="{{uploadpath}}resource/{{res.souye}}" (click)='fanhui()' />
+  <!-- <img alt="" class="img1"  src="{{uploadpath}}resource/{{res.souye}}" (click)='fanhui()' /> -->
 
 
 </ion-content>

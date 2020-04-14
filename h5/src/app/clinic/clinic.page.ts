@@ -87,6 +87,9 @@ export class ClinicPage extends AppBase {
    this.navigate("information",{fuwuleibie:item.name,yiyuanid:this.params.hospital_id});
 
   }
+  fanhui() {
+    this.navigate('tabs/tab1')
+  }
 
   doctor(){
     this.navigate("doctor")

@@ -34,17 +34,21 @@
           maxlength="11" />
       </div>
       <div class="border-bw margin-top-30"></div>
-      <div class="flex-row flex-center margin-left-30 margin-top-30">
+      <div   class="flex-row flex-center margin-left-30 margin-top-30">
         <div style="color: #B9B9B9" class="f16 flex-1">选择省市</div>
+        <div *ngIf="address.dizhi==''||qidon==true" class="flex-row">
         <ion-select  cancelText="取消"  okText="确认" (ionChange)="switchType($event)" placeholder="请选择">
           <ion-select-option  *ngFor="let item of shen" [value]="item">{{item.province}}</ion-select-option>
          
         </ion-select>
-        <ion-select  cancelText="取消"  okText="确认" (ionChange)="switchshi($event)"    placeholder="请选择">
+        <ion-select  *ngIf="shi.length>0"  cancelText="取消"  okText="确认" (ionChange)="switchshi($event)"    placeholder="请选择">
           <ion-select-option  *ngFor="let item of shi" [value]="item">{{item.provincecity}}</ion-select-option>
          
         </ion-select>
       </div>
+        <div  class="margin-right-30" (click)="qidon=true" *ngIf="address.dizhi!=''&&qidon!=true">{{address.dizhi}}</div>
+      </div>
+    
       <div class="border-bw margin-top-30"></div>
       <div class="flex-row margin-left-30 margin-top-30">
         <div style="color: #B9B9B9" class="f16 flex-1">详细收货地址</div>
@@ -76,6 +80,6 @@
    
 </ion-item> -->
 
-  <img alt="" class="img1"  src="{{uploadpath}}resource/{{res.souye}}" (click)='fanhui()' />
+  <!-- <img alt="" class="img1"  src="{{uploadpath}}resource/{{res.souye}}" (click)='fanhui()' /> -->
 
 </ion-content>

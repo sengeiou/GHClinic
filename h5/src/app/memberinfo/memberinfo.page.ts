@@ -53,7 +53,7 @@ oldname=""
   }
 
   savename(){
-    if(this.name!="" && this.name!=this.oldname){
+    if(this.name!="" ){
       this.memberApi.updatemember({name: this.name}).then((updatemember)=>{
         console.log(updatemember)
         if(updatemember){

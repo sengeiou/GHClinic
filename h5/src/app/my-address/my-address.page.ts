@@ -55,6 +55,7 @@ shen=[];
 xzshen='湖南省';
 xzshi='';
 shi=[];
+qidon=false;
   onMyLoad() {
     //参数
     this.params;
@@ -80,7 +81,9 @@ shi=[];
    
   }
   switchshi(e)
-  {
+  { 
+ 
+  
     this.xzshi=e.detail.value.provincecity;
 
     this.address.dizhi=this.xzshi;
@@ -98,10 +101,12 @@ shi=[];
   getaddressinfo() {
     var api = this.addressApi;
     if (this.params.id == undefined) {
+      
       return
     }
     api.addressinfo({ id: this.params.id }).then((addressinfo) => {
       this.address = addressinfo;
+      console.log(addressinfo);
       this.address.primary_id = this.params.id;
     })
   }

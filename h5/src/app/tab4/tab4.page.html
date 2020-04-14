@@ -99,7 +99,7 @@
                   <div>
                     <img  src='{{uploadpath}}resource/{{res.gouwuche}}' class="icon-10"/>
                   </div>
-                  <div class="f12 txt-black margin-top-10">购物车</div>
+                  <div class="f12 txt-black text-center margin-top-10">购物车</div>
                   <div   class="red mglt" *ngIf="InstInfo.count!=0">{{InstInfo.count}}</div>
                 </div>
                 
@@ -107,21 +107,21 @@
                   <div>
                     <img (click)="daifukuan()" src='{{uploadpath}}resource/{{res.daifukuan}}' class="icon-10"/>
                   </div>
-                  <div class="f12 txt-black margin-top-10">待付款</div>
+                  <div class="f12 txt-black text-center margin-top-10">待付款</div>
                   <div  class="red mglt" *ngIf="InstInfo.count1!=0">{{InstInfo.count1}}</div>
                 </div>
                 <div>
                   <div>
-                    <img  (click)="daishouhuo()" src='{{uploadpath}}resource/{{res.daishouhuo}}' class="icon-10"/>
+                    <img  (click)="daishouhuo()" src='{{uploadpath}}resource/{{res.daishouhuo}}' class="icon-11"/>
                   </div>
-                  <div class="f12 txt-black margin-top-10">待收货</div>
+                  <div class="f12 txt-black text-center margin-top-10">待收货</div>
                   <div  class="red mglt" *ngIf="InstInfo.count2!=0">{{InstInfo.count2}}</div>
                 </div>
-                <div>
+                <div class="flex-center flex-column" >
                   <div>
-                    <img (click)="yiwanchen()" src='{{uploadpath}}resource/{{res.yiwanchen}}' class="icon-10"/>
+                    <img (click)="yiwanchen()" src='{{uploadpath}}resource/{{res.yiwanchen}}' class="icon-11"/>
                   </div>
-                  <div class="f12 txt-black margin-top-10">待评价</div>
+                  <div class="f12 txt-black text-center margin-top-10">待评价</div>
                 </div>
               </div>
             </div>

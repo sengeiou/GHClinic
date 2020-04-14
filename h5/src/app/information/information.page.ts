@@ -162,7 +162,7 @@ export class InformationPage extends AppBase {
     this.gettaocanshuxin();
     this.hospitalinfo();
     this.fuwuleibie = this.params.fuwuleibie;
-    if (this.fuwuleibie == '体检') {
+    if (this.fuwuleibie == '高端体检') {
       this.getsetmeal(this.params.yiyuanid)
     }
     else {
