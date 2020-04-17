@@ -41,6 +41,7 @@ export class Tab4Page extends AppBase {
   onMyLoad(){
     //参数
     this.params;
+    this.needlogin=true;
   }
   onMyShow(){
      console.log(this.MemberInfo)

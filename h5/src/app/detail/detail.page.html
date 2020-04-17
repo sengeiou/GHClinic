@@ -13,7 +13,8 @@
             <img src="{{uploadpath}}resource/{{res.leftarrow}}" class="icon-32" />
         </div>
         <div class="f12 txt-white margin-left-5" (click)="back()">上一步</div>
-        
+        <div class="flex-1"></div>
+        <div class="f12 txt-white margin-right-20" (click)="fanhui()">返回主页</div>
     </div>
   </div>
 </ion-header>
@@ -111,10 +112,12 @@
   </div>
 </div>
   <div style="height:50px"></div>
-  <img alt="" class="img1"  src="{{uploadpath}}resource/{{res.souye}}" (click)='fanhui()' />
+  <!-- <img alt="" class="img1"  src="{{uploadpath}}resource/{{res.souye}}" (click)='fanhui()' /> -->
   <div class="div1 flex-row flex-center" style="position: fixed;bottom:0">
     <div class="p10">合计：<span class="p2" style="color: #0F848D">￥{{setmealinfo.price}}</span></div>
-    <div class="p11" (click)="physicalExaminationAppointment()">立即预约</div>
+    
+    <div *ngIf="jinyon==false" class="p11" (click)="physicalExaminationAppointment()">立即预约</div>
+    <div *ngIf="jinyon==true" class="p12" >立即预约</div>
   </div>
 </ion-content>
 

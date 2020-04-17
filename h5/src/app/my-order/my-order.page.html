@@ -25,23 +25,23 @@
     <div   class="card padding-top-20">
       <div class="flex-row flex-center margin-left-30">
         <div (click)='qiehuan=0'>
-          <div class="txt-bold" [class.f18]='qiehuan==0' [class.cg]='qiehuan==0'>全部</div>
+          <div class="txt-bold"  [class.cg]='qiehuan==0'>全部</div>
           <div class="icon-26 bg-pp margin-top-10" *ngIf='qiehuan==0'></div>
         </div>
         <div class="flex-row flex-column margin-left-80" (click)='qiehuan=1'>
-          <div class="txt-bold" [class.f18]='qiehuan==1' [class.cg]='qiehuan==1'>待付款</div>
+          <div class="txt-bold"  [class.cg]='qiehuan==1'>待付款</div>
           <div class="icon-26 bg-pp margin-top-10" *ngIf='qiehuan==1'></div>
         </div>
         <div class="flex-row flex-column margin-left-80" (click)='qiehuan=2'>
-          <div class="txt-bold" [class.f18]='qiehuan==2' [class.cg]='qiehuan==2'>待收货</div>
+          <div class="txt-bold"  [class.cg]='qiehuan==2'>待收货</div>
           <div class="icon-26 bg-pp margin-top-10" *ngIf='qiehuan==2'></div>
         </div>
         <div class="flex-row flex-column margin-left-80" (click)='qiehuan=3'>
-          <div class="txt-bold" [class.f18]='qiehuan==3' [class.cg]='qiehuan==3'>待评价</div>
+          <div class="txt-bold"  [class.cg]='qiehuan==3'>待评价</div>
           <div class="icon-26 bg-pp margin-top-10" *ngIf='qiehuan==3'></div>
         </div>
         <div class="flex-row flex-column margin-left-80" (click)='qiehuan=4'>
-          <div class="txt-bold" [class.f18]='qiehuan==4' [class.cg]='qiehuan==4'>已完成</div>
+          <div class="txt-bold" [class.cg]='qiehuan==4'>已完成</div>
           <div class="icon-26 bg-pp margin-top-10" *ngIf='qiehuan==4'></div>
         </div>
     </div>

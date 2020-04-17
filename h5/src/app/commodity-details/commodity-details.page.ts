@@ -39,6 +39,7 @@ export class CommodityDetailsPage extends AppBase {
   onMyLoad() {
     //参数
     this.params;
+    
   }
   zhuye(){
     this.navigate('tabs/tab3')
@@ -81,7 +82,15 @@ export class CommodityDetailsPage extends AppBase {
 
   }
   addcart() {
+      console.log(this.MemberInfo);
+      if(this.MemberInfo.id==''||this.MemberInfo==null)
+      {
+        this.navigate("login");
+        return  
+      }
+     
     
+
     var api = this.dindanApi;
 
     api.addgouwuche({ drugs_id: this.params.id, num: 1, selected: 'N', status: 'A'}).then((res) => {
@@ -96,6 +105,14 @@ export class CommodityDetailsPage extends AppBase {
  
 
   order() {
+
+    console.log(this.MemberInfo);
+    if(this.MemberInfo.id==''||this.MemberInfo==null)
+      {
+        this.navigate("login");
+        return  
+      }
+
     this.navigate("order",{id:this.params.id})
   }
   cart() {

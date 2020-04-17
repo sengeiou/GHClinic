@@ -28,7 +28,7 @@ import { TijianApi } from '../providers/tijian.api';
 declare let wx: any;
 
 export class AppBase implements OnInit {
-    public needlogin = true;
+    public needlogin = false;
 
     public static TABName = "";
     public static LASTTAB = null;
@@ -244,7 +244,7 @@ export class AppBase implements OnInit {
 
         if (token == null) {
             if (this.needlogin == true) {
-
+                console.log("跳转了");
                 this.navigate("login");
 
             } else {
@@ -262,10 +262,11 @@ export class AppBase implements OnInit {
                 if (memberinfo == null || memberinfo.mobile == undefined || memberinfo.mobile == "") {
 
                     memberinfo = null;
-                    // if (this.needlogin == true) {
-                    //     this.navigate("login");
-                    //     return;
-                    // }
+                    if (this.needlogin == true) {
+                        console.log("跳转了");
+                        this.navigate("login");
+                        return;
+                    }
                 }
                 AppBase.IsLogin = memberinfo == null ? false : true;
                 this.MemberInfo = memberinfo;

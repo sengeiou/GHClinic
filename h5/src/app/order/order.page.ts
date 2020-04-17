@@ -151,7 +151,7 @@ export class OrderPage extends AppBase {
 
         console.log(res);
         if (res.code == 0) {
-          api.createorder({ lingshi: 1, beizhu: this.beizhu ,address_id:this.address_id}).then((res) => {
+          api.createorder({ lingshi: 1, beizhu: this.beizhu ,address_id:this.address_id,dizhi:this.addressinfo.dizhi+this.addressinfo.menpaihao,shoujihao:this.addressinfo.phone}).then((res) => {
 
             wechatapi.prepay({ id: res.return, openid: this.openid }).then((payret) => {
               if (payret.code != 0) {
@@ -196,7 +196,7 @@ export class OrderPage extends AppBase {
 
 
 
-      api.createorder({ beizhu: this.beizhu,address_id:this.address_id}).then((res) => {
+      api.createorder({ beizhu: this.beizhu,address_id:this.address_id,dizhi:this.addressinfo.dizhi+this.addressinfo.menpaihao,shoujihao:this.addressinfo.phone}).then((res) => {
 
         wechatapi.prepay({ id: res.return, openid: this.openid }).then((payret) => {
           if (payret.code != 0) {

@@ -2,6 +2,9 @@
 @function rpx($px) {
     @return ($px * 100vw) / 750;
   }
+  @function px($px) {
+    @return ($px * 100vw) / 414;
+  }
   .ion-icon{
     height:rpx(24*2);
     width:rpx(24*2)
@@ -13,6 +16,10 @@
     padding-top: rpx(37);
     margin-top:rpx(-40)
     
+  }
+  .icon-150 {
+    width: px(150);
+    height: rpx(20);
   }
   .height-110{
     height: rpx(110);

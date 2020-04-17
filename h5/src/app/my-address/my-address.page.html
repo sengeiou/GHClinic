@@ -30,7 +30,7 @@
       <div class="border-bw margin-top-30"></div>
       <div class="flex-row margin-left-30 margin-top-30">
         <div style="color: #B9B9B9" class="f16 flex-1">手机号码</div>
-        <input  (blur)="scrollToTop()" class="f16 margin-right-30" [(ngModel)]='address.phone'  placeholder="请输入手机号码"
+        <input  type="tel" (blur)="scrollToTop()" class="f16 margin-right-30" [(ngModel)]='address.phone'  placeholder="请输入手机号码"
           maxlength="11" />
       </div>
       <div class="border-bw margin-top-30"></div>
@@ -52,7 +52,7 @@
       <div class="border-bw margin-top-30"></div>
       <div class="flex-row margin-left-30 margin-top-30">
         <div style="color: #B9B9B9" class="f16 flex-1">详细收货地址</div>
-        <input  (blur)="scrollToTop()" class="f16 margin-right-30" [(ngModel)]='address.menpaihao' placeholder="请输入门牌号" />
+        <input  (blur)="scrollToTop()" class="f16 margin-right-30" [(ngModel)]='address.menpaihao' placeholder="请输入详细收货地址" />
       </div>
       <div class="border-bw margin-top-30"></div>
       <div class="flex-row margin-left-30 margin-top-30 flex-center">

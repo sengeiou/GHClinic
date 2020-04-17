@@ -34,6 +34,7 @@ export class DetailPage extends AppBase {
   qiansantian = [];
   housantian = [];
   jintian = null;
+  jinyon=false;
   xzdate = null;
   yiyuanid = null;
   fuwuleibie = null;
@@ -92,6 +93,20 @@ export class DetailPage extends AppBase {
       d = new Date(dt);
       this.riqi = AppUtil.FormatDate(AppUtil.FormatDateTime(d));
     }
+    var api=this.setmealApi;
+    console.log(this.riqi);
+    api.tijianjinyon({ date:this.riqi,hospital_id:this.params.yiyuanid }).then((list) => {
+         
+      if(list.length>0)
+      {
+         this.jinyon=true;
+      }
+      else{
+        this.jinyon=false;
+
+      }
+
+    })
 
   }
   physicalExaminationAppointment() {
@@ -229,10 +244,28 @@ export class DetailPage extends AppBase {
 
   asd(d, i) {
     if (d.pass == true&&d.today==false) {
+
       return
+
     }
     else {
       this.riqi = d.dt;
+      console.log(this.riqi);
+
+      var api = this.setmealApi;
+
+      api.tijianjinyon({ date:d.dt,hospital_id:this.params.yiyuanid }).then((list) => {
+         
+        if(list.length>0)
+        {
+           this.jinyon=true;
+        }
+        else{
+          this.jinyon=false;
+
+        }
+  
+      })
     }
    
   }

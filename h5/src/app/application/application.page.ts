@@ -45,6 +45,7 @@ export class ApplicationPage extends AppBase {
   onMyLoad() {
     //参数
     this.params;
+    this.needlogin=true;
   }
   onMyShow() {
     console.log('aaaaaaaaa' + this.params.id)

@@ -49,6 +49,7 @@ export class AppointmentPage extends AppBase {
   keshi=0;
   onMyLoad() {
     //参数
+    this.needlogin=true;
     this.params;
     this.gethospital();
     this.getDoctor();
