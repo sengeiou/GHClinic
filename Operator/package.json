@@ -22,7 +22,7 @@
     "@angular/router": "~8.1.2",
     "agora-rtc-sdk": "2.6.1",
     "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery.easing": "^1.4.1",
     "ngx-agora": "^1.5.13",
     "ngx-bootstrap": "^5.1.1",
