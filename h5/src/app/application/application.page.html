@@ -30,7 +30,7 @@
       </div>
       <div class="div1">
         <div class="p1">{{activity.activityname}}</div>
-        <div class="p2" *ngIf='activity.price>=0'>费用：{{activity.price==0?'免费':'￥'+activity.price+'.00'}}</div>
+        <div class="p2" *ngIf='activity.price>=0'>费用：{{activity.price==0?'免费':'￥'+activity.price}}</div>
       </div>
       <div style="clear: both"></div>
     </div>
@@ -69,7 +69,7 @@
 
 
   <div  *ngIf="activity.price>=0" class="flex-row flex-center " style="margin-top:100px" >
-      <div class="p4">{{activity.price==0?'免费':'￥'+activity.price+'.00'}}</div>
+      <div class="p4">{{activity.price==0?'免费':'￥'+activity.price}}</div>
       <div class="p5" (click)="successfulRegistration()">确认报名</div>
   </div>
 

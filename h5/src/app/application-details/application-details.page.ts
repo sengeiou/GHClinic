@@ -64,7 +64,7 @@ export class ApplicationDetailsPage extends AppBase {
       (activityinfo)=>{
         this.activityinfo=activityinfo;
         console.log(activityinfo.activity_activitytime);
-        this.aT=new Date(activityinfo.activity_activitytime).getTime();
+        this.aT=new Date(activityinfo.activity_activitytime.replace(/-/g,'/')).getTime();
         this.nT=new Date().getTime();
         if(this.aT-this.nT>=24*60*60*1000){
           this.show=true;
@@ -85,7 +85,7 @@ export class ApplicationDetailsPage extends AppBase {
         if(res){
           api.cancelactivity({id:this.params.id}).then((res)=>{
             console.log('yyyyyyyy'+res);
-            this.back();
+          this.navigate('tabs/tab2');
           })
         }
       })

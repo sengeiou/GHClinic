@@ -164,9 +164,14 @@ export class AppBase implements OnInit {
                     if (isred == "Y") {
 
                     } else {
+
+
+                    }
+                    if (window.localStorage.getItem("UserToken") == undefined) {
                         window.sessionStorage.setItem("isredv", "Y");
                         var url = window.location.href;
                         var redirecturl = encodeURIComponent(url);
+                        //alert(redirecturl);
                         var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri=" + redirecturl + "&response_type=code&scope=snsapi_userinfo&state=" + AppBase.STATICRAND + "#wechat_redirect";
                         window.location.href = redurl;
                     }
@@ -177,14 +182,32 @@ export class AppBase implements OnInit {
             //this.setWechatShare();
             this.InitWechat();
         }
-
-        if (this.params.code != undefined) {
+        console.log(AppBase.MemberInfo);
+        console.log("asdjaldkjalds");
+        if ((this.params.code != undefined && window.localStorage.getItem("UserToken") == undefined)) {
             AppBase.memberapi.getuserinfo({ code: this.params.code, grant_type: "authorization_code" }).then((MemberInfo) => {
-                if (MemberInfo.errcode == undefined) {
-                    this.openid = MemberInfo.openid;
-                    console.log("userinfo", MemberInfo);
-                    window.localStorage.setItem("openid", this.openid);
-                }
+
+                MemberInfo.h5openid = MemberInfo.openid;
+                AppBase.MemberInfo = MemberInfo;
+                this.MemberInfo = MemberInfo;
+
+
+
+                MemberInfo.token = MemberInfo.openid;
+                this.store("UserToken", MemberInfo.openid);
+                // alert(MemberInfo.openid);
+                AppBase.memberapi.update(MemberInfo).then((res) => {
+
+
+                    AppBase.memberapi.info({}).then((MemberInfo) => {
+                        // alert(123);
+                        AppBase.MemberInfo = MemberInfo;
+                        this.MemberInfo = MemberInfo;
+                        // window.localStorage.setItem(this.keyt, JSON.stringify(this.MemberInfo));
+                        // this.setWechatShare();
+                    });
+                });
+
             });
         }
     }
@@ -195,7 +218,7 @@ export class AppBase implements OnInit {
                 memberinfo = null;
             }
             this.MemberInfo = memberinfo;
-
+            //alert(123);
         });
     }
     shouye() {
@@ -244,8 +267,10 @@ export class AppBase implements OnInit {
 
         if (token == null) {
             if (this.needlogin == true) {
-                console.log("跳转了");
-                this.navigate("login");
+                console.log("跳转了1");
+                // this.navigate("login");
+
+
 
             } else {
                 this.onMyShow();
@@ -257,16 +282,17 @@ export class AppBase implements OnInit {
             AppBase.memberapi.info({}).then((memberinfo) => {
                 console.log("进来了熬哈哈");
                 AppBase.MemberInfo = memberinfo;
+                this.MemberInfo = memberinfo;
+                if (memberinfo == null) {
 
+                    window.localStorage.removeItem("UserToken");
 
-                if (memberinfo == null || memberinfo.mobile == undefined || memberinfo.mobile == "") {
-
-                    memberinfo = null;
-                    if (this.needlogin == true) {
-                        console.log("跳转了");
-                        this.navigate("login");
-                        return;
-                    }
+                    window.sessionStorage.setItem("isredv", "Y");
+                    var url = window.location.href;
+                    var redirecturl = encodeURIComponent(url);
+                    //alert(redirecturl);
+                    var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri=" + redirecturl + "&response_type=code&scope=snsapi_userinfo&state=" + AppBase.STATICRAND + "#wechat_redirect";
+                    window.location.href = redurl;
                 }
                 AppBase.IsLogin = memberinfo == null ? false : true;
                 this.MemberInfo = memberinfo;
@@ -304,7 +330,7 @@ export class AppBase implements OnInit {
                 }
             }
             count3 = ainfo.length;
-          
+
             console.log("太牛了吧我让", AppBase.InstInfo);
             AppBase.InstInfo.count3 = count3;
             count33 = ainfo1.length;
@@ -413,13 +439,13 @@ export class AppBase implements OnInit {
 
 
 
-    
-        
-                this.getact();
-                this.getisread();
-             
-        
-       
+
+
+        this.getact();
+        this.getisread();
+
+
+
 
     }
     a = null;

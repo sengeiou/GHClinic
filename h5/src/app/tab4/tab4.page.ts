@@ -44,6 +44,8 @@ export class Tab4Page extends AppBase {
     this.needlogin=true;
   }
   onMyShow(){
+    console.log("进来的");
+    //alert(111);
      console.log(this.MemberInfo)
   }
   

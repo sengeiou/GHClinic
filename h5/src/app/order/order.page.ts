@@ -88,6 +88,7 @@ export class OrderPage extends AppBase {
       this.gouwuche = [];
       this.gouwuche.push(res);
       this.isf = 2;
+      this.zonjia = this.gouwuche[0].price;
       console.log(this.gouwuche);
 
     })
@@ -134,8 +135,9 @@ export class OrderPage extends AppBase {
     });
   }
   successfulTrade() {
-
-
+     
+   
+  
   if(this.address_id==0)
   {
     this.toast("请选择地址");
@@ -172,7 +174,7 @@ export class OrderPage extends AppBase {
 
 
 
-                    this.navigate("successful-trade");
+                    this.navigate("successful-trade",{id:this.zonjia});
 
 
 
@@ -214,7 +216,7 @@ export class OrderPage extends AppBase {
 
 
 
-                this.navigate("successful-trade");
+                this.navigate("successful-trade",{id:this.zonjia});
 
 
 

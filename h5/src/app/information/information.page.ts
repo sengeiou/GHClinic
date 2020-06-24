@@ -86,7 +86,7 @@ export class InformationPage extends AppBase {
       console.log("套餐");
       console.log(setmeal);
       this.taocan = setmeal;
-
+      this.getdoctor();
     })
 
   }
@@ -163,7 +163,15 @@ export class InformationPage extends AppBase {
     this.hospitalinfo();
     this.fuwuleibie = this.params.fuwuleibie;
     if (this.fuwuleibie == '高端体检') {
+
+      var d = new Date();
+      this.jintian = { d: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(), d2: (d.getMonth() + 1), d3: d.getDate(), d4: this.getxinqi(d), date: d };
+
+      console.log(this.jintian);
+      this.riqi = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+
       this.getsetmeal(this.params.yiyuanid)
+
     }
     else {
       var d = new Date();
@@ -171,6 +179,8 @@ export class InformationPage extends AppBase {
 
       console.log(this.jintian);
       this.riqi = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+
+
       this.getdoctor();
     }
 
@@ -216,15 +226,39 @@ export class InformationPage extends AppBase {
     this.xzdate = d.date;
 
   }
+  jinyon = false;
   getdoctor() {
     var api = this.memberApi;
 
 
-
-
     api.getdoctor({ departmentname: this.params.fuwuleibie, hospital_id: this.params.yiyuanid, riqi: this.riqi }).then((doctorlist) => {
       console.log(doctorlist);
+
+
+
       this.doctorlist = doctorlist;
+    })
+
+
+    var api1 = this.setmealApi;
+    api1.tijianjinyon({ date: this.riqi }).then((list) => {
+      // alert(this.riqi);
+      var taocan = this.taocan;
+
+      taocan.map((item) => {
+        item.xz = true;
+        list.map((item1) => {
+
+          if (item.id == item1.id) {
+            item.xz = false
+          }
+
+        })
+
+      })
+
+      this.taocan = taocan;
+
     })
   }
   // doctor(id) {

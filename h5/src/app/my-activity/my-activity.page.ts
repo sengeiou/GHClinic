@@ -70,8 +70,8 @@ export class MyActivityPage extends AppBase {
     var api=this.activityApi;
     api.huoquactivityinfo({}).then((activityinfo)=>{
       for(let ai of activityinfo){
-        var aT=new Date(ai.activity_activitytime).getTime();
-        console.log(ai.activty_activityTime)
+        var aT=new Date(ai.activity_activitytime.replace(/-/g,'/')).getTime();
+        //console.log(ai.activty_activityTime)
         var nT=new Date().getTime();
         if(nT-aT<=0){
           activityinfo1.push(ai)

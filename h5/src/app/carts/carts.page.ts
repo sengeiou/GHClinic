@@ -158,7 +158,7 @@ export class CartsPage extends AppBase {
   jian(item) {
     var api = this.dindanApi;
 
-    if (item.num == 1) {
+    if (item.num <=1) {
 
       this.showConfirm("是否删除", (res) => {
 

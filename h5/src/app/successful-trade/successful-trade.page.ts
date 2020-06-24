@@ -26,10 +26,11 @@ export class SuccessfulTradePage extends AppBase {
     this.headerscroptshow = 480;
       
   }
-
+  zonjia=0;
   onMyLoad(){
     //参数
     this.params;
+    this.zonjia=this.params.id;
   }
   onMyShow(){
 

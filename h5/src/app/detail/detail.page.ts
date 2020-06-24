@@ -243,6 +243,8 @@ export class DetailPage extends AppBase {
   }
 
   asd(d, i) {
+  //禁止选择日期
+    return
     if (d.pass == true&&d.today==false) {
 
       return

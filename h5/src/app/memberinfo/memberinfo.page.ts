@@ -45,7 +45,8 @@ mobile =""
 name=""
 oldname=""
   onMyShow(){
-    console.log(this.MemberInfo)
+    // console.log("进来的");
+    // console.log(this.MemberInfo)
     this.mobile = this.MemberInfo.mobile
     this.name = this.MemberInfo.name
     this.oldname = this.MemberInfo.name
@@ -54,10 +55,10 @@ oldname=""
 
   savename(){
     if(this.name!="" ){
-      this.memberApi.updatemember({name: this.name}).then((updatemember)=>{
+      this.memberApi.updatemember({name: this.name,shouji:this.mobile}).then((updatemember)=>{
         console.log(updatemember)
         if(updatemember){
-          location.replace('tabs/tab4')
+         this.back();
         }
       })
     }

@@ -43,7 +43,7 @@ export class PhysicalExaminationPaymentPage extends AppBase {
     api.info({ id: this.params.id }).then((xianqin) => {
       console.log(xianqin);
       this.xianqin = xianqin
-      this.ot=new Date(xianqin.ordertime).getTime();
+      this.ot=new Date(xianqin.ordertime.replace(/-/g,'/')).getTime();
       this.nt=new Date().getTime();
       if(xianqin.orderstatus=='B'){
         if(this.ot-this.nt>=24*60*60*1000){
@@ -62,11 +62,11 @@ export class PhysicalExaminationPaymentPage extends AppBase {
     if(this.show==true){
       api.quxiaoyuyue({ id: this.params.id }).then((res) => {
 
-        this.back();
+       this.navigate('tabs/tab2');
   
       })
     }else{
-      this.toast('无法取消预约，取消预约需在体检开始一天前')
+      this.toast('取消预约需提前一天通知')
     }
 
   }

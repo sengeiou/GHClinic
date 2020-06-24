@@ -35,25 +35,35 @@
 
   <div class="margin-left-40">
 
-
-    <div *ngFor='let item of department;let idx=index' style="display:inline-block;width:80px"
-      class="margin-left-70 margin-top-150" (click)="hospital(item);">
+    <div class="margin-top-150"></div>
+    <!-- <div *ngFor='let item of department;let idx=index' style="display:inline-block;width:80px"
+      class="margin-left-70  margin-top-30" (click)="hospital(item);">
       <div>
         <img src='{{uploadpath}}department/{{item.img}}' class="icon-60" (click)='xz=item.id;' />
       </div>
-      <div class="margin-top-10 f16 " (click)='xz=item.id;' [class.ml]='item.name.length==3'>{{item.name}}</div>
-
+      <div class="margin-top-10 f16 " *ngIf="xz==item.id" style="text-decoration:underline;color: black;" (click)='xz=item.id;' [class.ml]='item.name.length==3'>{{item.name}}</div>
+      <div class="margin-top-10 f16 " *ngIf="xz!=item.id" style="color:gray"  (click)='xz=item.id;' [class.ml]='item.name.length==3'>{{item.name}}</div>
       <div *ngIf="xz==item.id" class="xuanzhong">
-        <img src='{{uploadpath}}resource/{{res.queren}}' class="icon-18" />
+    
 
       </div>
 
       <div *ngIf="xz!==item.id" class="xuanzhong">
-        <img src='' class="icon-18" />
+        <div class="icon-18"></div>
+
       </div>
+    </div> -->
+
+    <div class="margin-top-30 " style="width:100%;position: relative;">
+      <div (click)="hospital(item)" class="div0 " *ngFor="let item of department">
+        <div class="flex-row flex-center">
+          <img alt="" class="img2" src="{{uploadpath}}department/{{item.img}}" />
+          <div class="p6" [class.p7]="xz==item.id" >{{item.name}}</div>
+        </div>
+        <div [class.xian]="xz==item.id"  ></div>
+      </div>
+
     </div>
-
-
 
 
   </div>
@@ -70,7 +80,7 @@
         <div class="margin-left">
           <div class="oneline f18 txt-bold txt-black ">{{item.name}}</div>
           <div class="txt-gw h5">电话：{{item.phone}}</div>
-          <div class="oneline txt-gw h5  "  style="width:240px">地址：{{item.address}}</div>
+          <div class="oneline txt-gw h5  " style="width:240px">地址：{{item.address}}</div>
           <div class="flex-row flex-center marginTop">
             <div class="txt-gw h5">星级：</div>
             <div [style.background-image]="'url('+uploadpath+'resource/'+res.xingxing+')'" class="image1"

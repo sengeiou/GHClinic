@@ -103,15 +103,15 @@ export class PhysicalExaminationAppointmentPage extends AppBase {
       this.toast("请输入就诊人姓名");
       return;
     }
-    if (canshu.id == '') {
-      this.toast("请输入就诊人身份证");
-      return
-    }
-    var mr = /^\d{17}[\d|X]$|^\d{15}$/;
-    if (!mr.test(canshu.id)) {
-      this.toast("身份证格式不正确");
-      return
-    }
+    // if (canshu.id == '') {
+    //   this.toast("请输入就诊人身份证");
+    //   return
+    // }
+    // var mr = /^\d{17}[\d|X]$|^\d{15}$/;
+    // if (!mr.test(canshu.id)) {
+    //   this.toast("身份证格式不正确");
+    //   return
+    // }
     if (canshu.shouji == '') {
       this.toast("请输入就诊人联系方式");
       return
@@ -136,8 +136,8 @@ export class PhysicalExaminationAppointmentPage extends AppBase {
                   if(res.err_msg == "get_brand_wcpay_request:ok" ){
                     this.navigate("physical-examination-payment",{id:order_id, hospital_id:  this.params.hospital_id});
                   } else {
-                    this.navigate("my-physical-examination");
-                    this.toast(res.errMsg);
+                    // this.navigate("my-physical-examination");
+                    // this.toast(res.errMsg);
                   }
                 });
           }else{
